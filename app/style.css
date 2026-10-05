@@ -889,7 +889,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* =========================================================
-   PERFECT CLEAN PRINT CSS (Eliminates Ads, FAQs & Distortions)
+   PERFECT CLEAN PRINT CSS
    ========================================================= */
 @page {
     size: A4 portrait;
@@ -904,8 +904,7 @@ input:focus, textarea:focus, select:focus {
     .editor-panel,
     .preview-toolbar,
     .seo-faq-section,
-    .site-footer,
-    .adsterra-banner {
+    .site-footer {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
