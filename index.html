@@ -879,11 +879,13 @@
                 <p class="genie-subtitle">Your AI Career Architect & Interview Strategist</p>
             </div>
 
-            <div class="genie-modes">
-                <button class="mode-chip active" data-mode="bullet">✨ Re-write Resume Bullet</button>
-                <button class="mode-chip" data-mode="interview">🎯 Mock Interview Questions</button>
-                <button class="mode-chip" data-mode="salary">💼 Salary Negotiation Pitch</button>
-            </div>
+           <div class="genie-modes">
+    <button class="mode-chip active" data-mode="bullet">✨ Re-write Resume Bullet</button>
+    <button class="mode-chip" data-mode="interview">🎯 Mock Interview Questions</button>
+    <button class="mode-chip" data-mode="salary">💼 Salary Negotiation Pitch</button>
+    <!-- Yeh naya chip add karein -->
+    <button class="mode-chip" data-mode="search">🌐 Web & Google Search</button>
+</div>
 
             <div class="genie-chat-box" id="genieResponseBox">
 Welcome! Tell me what you need, or select one of the quick modes above. I convert normal job descriptions into Google XYZ-formula bullets that pass recruiter screenings with top scores.
@@ -1174,7 +1176,9 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
         document.getElementById('heroSurpriseBtn').addEventListener('click', openSurpriseNews);
         document.getElementById('closeSurpriseModal').addEventListener('click', () => surpriseModal.classList.remove('active'));
 
-        // GENIE AI LOGIC
+       // ==========================================
+        // GENIE AI & WEB SEARCH LOGIC (HYBRID)
+        // ==========================================
         let activeGenieMode = 'bullet';
         document.querySelectorAll('.mode-chip').forEach(chip => {
             chip.addEventListener('click', () => {
@@ -1182,32 +1186,67 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
                 document.querySelectorAll('.mode-chip').forEach(c => c.classList.remove('active'));
                 chip.classList.add('active');
                 activeGenieMode = chip.dataset.mode;
+                
+                const box = document.getElementById('genieResponseBox');
                 if (activeGenieMode === 'bullet') {
-                    document.getElementById('genieResponseBox').textContent = "Selected: XYZ Resume Bullet Re-writer.\nEnter your task (e.g. 'I managed servers and backups') to get an ATS-optimized executive bullet point.";
+                    box.textContent = "Selected: XYZ Resume Bullet Re-writer.\nEnter your task (e.g. 'I managed servers and backups') to get an ATS-optimized executive bullet point.";
                 } else if (activeGenieMode === 'interview') {
-                    document.getElementById('genieResponseBox').textContent = "Selected: Mock Interview Prep.\nEnter your target job title (e.g. 'Full Stack Developer' or 'Data Analyst') to generate top 3 tricky screening questions.";
+                    box.textContent = "Selected: Mock Interview Prep.\nEnter your target job title (e.g. 'Full Stack Developer' or 'Data Analyst') to generate top 3 tricky screening questions.";
                 } else if (activeGenieMode === 'salary') {
-                    document.getElementById('genieResponseBox').textContent = "Selected: Salary Negotiation Pitch.\nEnter your current CTC and target CTC to receive a confident negotiation script for HR.";
+                    box.textContent = "Selected: Salary Negotiation Pitch.\nEnter your current CTC and target CTC to receive a confident negotiation script for HR.";
+                } else if (activeGenieMode === 'search') {
+                    box.textContent = "Selected: Web Search Engine.\nEnter any topic, question, or keyword to get instant answers from the web.";
                 }
             });
         });
 
-        document.getElementById('genieSendBtn').addEventListener('click', () => {
+        document.getElementById('genieSendBtn').addEventListener('click', async () => {
             const query = document.getElementById('genieInput').value.trim();
             if (!query) return;
             playChime(750);
             const box = document.getElementById('genieResponseBox');
+
+            // AGAR WEB SEARCH MODE CHUNA HAI:
+            if (activeGenieMode === 'search') {
+                box.innerHTML = `🧞 Searching the web for: <strong>"${query}"</strong>...`;
+                
+                try {
+                    // DuckDuckGo Instant Answer API
+                    const endpoint = `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1&skip_disambig=1`;
+                    const res = await fetch(endpoint);
+                    const data = await res.json();
+
+                    if (data.AbstractText) {
+                        box.innerHTML = `<strong>🌐 Web Result:</strong><br><br>${data.AbstractText}<br><br><a href="${data.AbstractURL}" target="_blank" style="color:#0284c7; font-weight:700;">Read More on Source &rarr;</a>`;
+                    } else if (data.RelatedTopics && data.RelatedTopics.length > 0 && data.RelatedTopics[0].Text) {
+                        box.innerHTML = `<strong>🌐 Quick Answer:</strong><br><br>${data.RelatedTopics[0].Text}<br><br><a href="${data.RelatedTopics[0].FirstURL}" target="_blank" style="color:#0284c7; font-weight:700;">Read More &rarr;</a>`;
+                    } else {
+                        box.innerHTML = `Genie did not find a direct short definition for <strong>"${query}"</strong>.<br><br>👉 <a href="https://www.google.com/search?q=${encodeURIComponent(query)}" target="_blank" style="color:#2563eb; font-weight:800; text-decoration:underline;">Click here to view full Google Search results for "${query}" &rarr;</a>`;
+                    }
+                } catch (err) {
+                    box.innerHTML = `👉 <a href="https://www.google.com/search?q=${encodeURIComponent(query)}" target="_blank" style="color:#2563eb; font-weight:800; text-decoration:underline;">Click here to search "${query}" on Google &rarr;</a>`;
+                }
+                return;
+            }
+
+            // AGAR CAREER MODES (Bullet, Interview, Salary) CHUNE HAIN:
             box.textContent = "🧞 Thinking with high-impact precision...";
-            
             setTimeout(() => {
                 if (activeGenieMode === 'bullet') {
                     box.textContent = `🎯 ATS XYZ-Formula Transformation:\n\n• "Spearheaded ${query}, engineering automated workflows that slashed latency by 32% and delivered 99.9% uptime across production environments."\n\nTip: Paste this bullet directly into your Resumora Work Experience tab!`;
                 } else if (activeGenieMode === 'interview') {
                     box.textContent = `🎯 Top Questions for ${query}:\n1. How do you maintain high reliability when unexpected breaking changes occur in production?\n2. Describe a time you had to trade architectural elegance for rapid business delivery.\n3. What key metrics do you measure to determine project success?`;
-                } else {
+                } else if (activeGenieMode === 'salary') {
                     box.textContent = `💼 Negotiation Counter-Pitch for ${query}:\n\n"Thank you for the offer. Based on my track record in optimizing infrastructure and the market benchmarks for this seniority, I am targeting compensation closer to ${query}. I am confident I will deliver disproportionate ROI from Day 1."`;
                 }
             }, 600);
+        });
+
+        // Enter key dabane par bhi search trigger ho jaye
+        document.getElementById('genieInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                document.getElementById('genieSendBtn').click();
+            }
         });
 
         // ==========================================
