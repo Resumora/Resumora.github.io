@@ -1210,48 +1210,78 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             }, 600);
         });
 
-        // SURPRISE ME (Happy News Engine)
-        const happyNewsList = [
+        // ==========================================
+        // SURPRISE ME (Latest Indian Positive Pulse)
+        // ==========================================
+        const indianHappyNewsList = [
             {
-                category: "Clean Energy",
-                title: "Global Renewable Capacity Surpasses All Historical Predictions",
-                body: "International energy watchdog reports confirm solar and wind now produce record-breaking clean electricity globally, driving down electricity costs and fueling green job growth."
+                category: "ISRO & Space",
+                badgeColor: "#2563eb",
+                title: "ISRO Gaganyaan Ladakh Tests & SpaDeX Docking Success",
+                body: "Gaganyaan astronauts have accomplished rigorous high-altitude physiological simulations in Ladakh, while ISRO advances indigenous satellite docking and lunar sample-return preparations."
             },
             {
-                category: "Wildlife Victory",
-                title: "Endangered Snow Leopard Population Climbs by 18% Across Central Asia",
-                body: "Community conservation reserves and non-invasive satellite camera tracking show majestic snow leopards rebounding across protected mountain sanctuaries."
+                category: "Green Energy & Tech",
+                badgeColor: "#16a34a",
+                title: "India Surpasses 200 GW Renewable Mark Led by Khavda Mega Solar Park",
+                body: "Gujarat's Khavda Renewable Energy Park is rapidly scaling clean electricity generation, creating over 1,50,000 regional green tech jobs and cutting coal dependency."
             },
             {
-                category: "Medical Breakthrough",
-                title: "Novel Universal Flu Vaccine Enters Final Phase with 90% Protection",
-                body: "Researchers have engineered an mRNA compound providing lasting immunity across seasonal strains, paving the way for multi-year flu protection."
+                category: "Indian Sports Glory",
+                badgeColor: "#d97706",
+                title: "Indian Athletes Secure Historic Gold Haul in Archery & Shooting",
+                body: "India's archers and precision shooters swept multiple team gold medals at international championships, registering record scores against world-tier contenders."
             },
             {
-                category: "Ocean Cleanliness",
-                title: "Over 500,000 Pounds of Plastic Successfully Removed from Great Pacific Gyre",
-                body: "Advanced automated cleanup barrier vessels completed historic deep-sea sweeps, restoring natural feeding grounds for marine life."
+                category: "Wildlife Revival",
+                badgeColor: "#059669",
+                title: "Kaziranga & Tiger Reserves Record 14% Rise in Healthy Wildlife Density",
+                body: "Drone-monitored anti-poaching networks and community forest corridor conservation have resulted in record cub survival and zero-rhino-poaching milestones."
+            },
+            {
+                category: "AI & Innovation",
+                badgeColor: "#7c3aed",
+                title: "BharatGen & Sarvam AI Deploy Sovereign Multilingual AI for Rural Healthcare",
+                body: "India's indigenous GenAI models now power voice-driven telemedicine consultations in 22 regional Indian languages, connecting primary health centers with AIIMS specialists."
+            },
+            {
+                category: "Rural Empowerment",
+                badgeColor: "#e11d48",
+                title: "Over 50,000 Women-Led Agri-Tech Self Help Groups Achieve Financial Independence",
+                body: "Solar cold storage and direct digital market linkage initiatives have boosted farm-gate revenues for women cooperatives across MP, Odisha, and Maharashtra."
+            },
+            {
+                category: "Deep Sea Exploration",
+                badgeColor: "#0284c7",
+                title: "Samudrayaan MATSYA-6000 Prepares for 6,000-Metre Ocean Expedition",
+                body: "India's National Institute of Ocean Technology completed critical harbour trials of the indigenous crewed submersible, paving the way for deep ocean mineral mapping."
             }
         ];
+
+        let currentNewsIndex = 0;
 
         function openSurpriseNews() {
             playChime(900);
             triggerConfetti();
-            renderRandomNews();
+            displayNews(currentNewsIndex);
             surpriseModal.classList.add('active');
         }
 
-        function renderRandomNews() {
-            const item = happyNewsList[Math.floor(Math.random() * happyNewsList.length)];
-            document.getElementById('newsCategory').textContent = item.category;
+        function displayNews(index) {
+            const item = indianHappyNewsList[index];
+            const badge = document.getElementById('newsCategory');
+            badge.textContent = item.category;
+            badge.style.backgroundColor = item.badgeColor;
             document.getElementById('newsHeadline').textContent = item.title;
             document.getElementById('newsBody').textContent = item.body;
         }
 
+        // Har click par hamesha ek NAYI news aayegi bina repeat hue
         document.getElementById('nextNewsBtn').addEventListener('click', () => {
             playChime(820);
             triggerConfetti();
-            renderRandomNews();
+            currentNewsIndex = (currentNewsIndex + 1) % indianHappyNewsList.length;
+            displayNews(currentNewsIndex);
         });
     </script>
 </body>
