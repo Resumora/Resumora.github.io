@@ -1211,77 +1211,110 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
         });
 
         // ==========================================
-        // SURPRISE ME (Latest Indian Positive Pulse)
+        // SURPRISE ME (Live Google News India Engine)
         // ==========================================
-        const indianHappyNewsList = [
+        let liveNewsArticles = [];
+        let liveNewsIndex = 0;
+        let isFetchingNews = false;
+
+        // Backup static news (agar kabhi API load na ho paye)
+        const fallbackNews = [
             {
+                title: "ISRO Gaganyaan Simulations and Deep Space Milestones Reach New Heights",
+                description: "Indian space researchers completed critical crewed mission simulations while advancing indigenous deep-space and lunar exploratory systems.",
                 category: "ISRO & Space",
-                badgeColor: "#2563eb",
-                title: "ISRO Gaganyaan Ladakh Tests & SpaDeX Docking Success",
-                body: "Gaganyaan astronauts have accomplished rigorous high-altitude physiological simulations in Ladakh, while ISRO advances indigenous satellite docking and lunar sample-return preparations."
+                link: "https://news.google.com"
             },
             {
-                category: "Green Energy & Tech",
-                badgeColor: "#16a34a",
-                title: "India Surpasses 200 GW Renewable Mark Led by Khavda Mega Solar Park",
-                body: "Gujarat's Khavda Renewable Energy Park is rapidly scaling clean electricity generation, creating over 1,50,000 regional green tech jobs and cutting coal dependency."
-            },
-            {
-                category: "Indian Sports Glory",
-                badgeColor: "#d97706",
-                title: "Indian Athletes Secure Historic Gold Haul in Archery & Shooting",
-                body: "India's archers and precision shooters swept multiple team gold medals at international championships, registering record scores against world-tier contenders."
-            },
-            {
-                category: "Wildlife Revival",
-                badgeColor: "#059669",
-                title: "Kaziranga & Tiger Reserves Record 14% Rise in Healthy Wildlife Density",
-                body: "Drone-monitored anti-poaching networks and community forest corridor conservation have resulted in record cub survival and zero-rhino-poaching milestones."
-            },
-            {
-                category: "AI & Innovation",
-                badgeColor: "#7c3aed",
-                title: "BharatGen & Sarvam AI Deploy Sovereign Multilingual AI for Rural Healthcare",
-                body: "India's indigenous GenAI models now power voice-driven telemedicine consultations in 22 regional Indian languages, connecting primary health centers with AIIMS specialists."
-            },
-            {
-                category: "Rural Empowerment",
-                badgeColor: "#e11d48",
-                title: "Over 50,000 Women-Led Agri-Tech Self Help Groups Achieve Financial Independence",
-                body: "Solar cold storage and direct digital market linkage initiatives have boosted farm-gate revenues for women cooperatives across MP, Odisha, and Maharashtra."
-            },
-            {
-                category: "Deep Sea Exploration",
-                badgeColor: "#0284c7",
-                title: "Samudrayaan MATSYA-6000 Prepares for 6,000-Metre Ocean Expedition",
-                body: "India's National Institute of Ocean Technology completed critical harbour trials of the indigenous crewed submersible, paving the way for deep ocean mineral mapping."
+                title: "India Surpasses 200 GW Clean Renewable Capacity Mark",
+                description: "Massive scale-ups across solar and wind corridors drive down clean energy tariffs while generating over a hundred thousand technology jobs.",
+                category: "Green Tech",
+                link: "https://news.google.com"
             }
         ];
 
-        let currentNewsIndex = 0;
+        // Google News India RSS Feed URL (Filtered for positive/technology/development trends)
+        const GOOGLE_NEWS_RSS = encodeURIComponent("https://news.google.com/rss/search?q=India+achievement+OR+ISRO+OR+technology+when:7d&hl=en-IN&gl=IN&ceid=IN:en");
+        const RSS_TO_JSON_API = `https://api.rss2json.com/v1/api.json?rss_url=${GOOGLE_NEWS_RSS}`;
 
-        function openSurpriseNews() {
+        async function fetchLiveGoogleNews() {
+            if (liveNewsArticles.length > 0) return; // Pehle se load hai toh dubara call na karein
+            isFetchingNews = true;
+            try {
+                const response = await fetch(RSS_TO_JSON_API);
+                const data = await response.json();
+                
+                if (data.status === 'ok' && data.items && data.items.length > 0) {
+                    liveNewsArticles = data.items.map(item => {
+                        // HTML tags saaf karke short clean description banayein
+                        const tempDiv = document.createElement("div");
+                        tempDiv.innerHTML = item.description || item.content || "";
+                        const cleanDesc = tempDiv.textContent || tempDiv.innerText || item.title;
+                        
+                        return {
+                            title: item.title.split(" - ")[0], // Publisher name alag karke clean headline
+                            source: item.title.split(" - ")[1] || "Google News India",
+                            description: cleanDesc.length > 180 ? cleanDesc.substring(0, 180) + "..." : cleanDesc,
+                            category: "Live News",
+                            link: item.link
+                        };
+                    });
+                } else {
+                    liveNewsArticles = fallbackNews;
+                }
+            } catch (err) {
+                console.warn("Live news fetch error, using fallback:", err);
+                liveNewsArticles = fallbackNews;
+            } finally {
+                isFetchingNews = false;
+            }
+        }
+
+        async function openSurpriseNews() {
             playChime(900);
             triggerConfetti();
-            displayNews(currentNewsIndex);
             surpriseModal.classList.add('active');
+
+            const headlineEl = document.getElementById('newsHeadline');
+            const bodyEl = document.getElementById('newsBody');
+            const catEl = document.getElementById('newsCategory');
+
+            if (liveNewsArticles.length === 0) {
+                catEl.textContent = "Fetching...";
+                catEl.style.backgroundColor = "#0284c7";
+                headlineEl.textContent = "Connecting to Google News...";
+                bodyEl.textContent = "Fetching the latest live verified headlines from India...";
+                await fetchLiveGoogleNews();
+            }
+
+            renderCurrentLiveNews();
         }
 
-        function displayNews(index) {
-            const item = indianHappyNewsList[index];
-            const badge = document.getElementById('newsCategory');
-            badge.textContent = item.category;
-            badge.style.backgroundColor = item.badgeColor;
-            document.getElementById('newsHeadline').textContent = item.title;
-            document.getElementById('newsBody').textContent = item.body;
+        function renderCurrentLiveNews() {
+            if (!liveNewsArticles.length) return;
+            const current = liveNewsArticles[liveNewsIndex];
+
+            const catEl = document.getElementById('newsCategory');
+            const headlineEl = document.getElementById('newsHeadline');
+            const bodyEl = document.getElementById('newsBody');
+            const dateEl = document.getElementById('newsDate');
+
+            catEl.textContent = current.source || "Google News";
+            catEl.style.backgroundColor = "#2563eb";
+            dateEl.textContent = "Live Update";
+            headlineEl.textContent = current.title;
+            bodyEl.innerHTML = `${current.description} <br><a href="${current.link}" target="_blank" style="color:#2563eb; font-weight:700; text-decoration:none; display:inline-block; margin-top:8px;">Read Full Story on Google News &rarr;</a>`;
         }
 
-        // Har click par hamesha ek NAYI news aayegi bina repeat hue
-        document.getElementById('nextNewsBtn').addEventListener('click', () => {
+        // Har Next click par agla live article
+        document.getElementById('nextNewsBtn').addEventListener('click', async () => {
             playChime(820);
             triggerConfetti();
-            currentNewsIndex = (currentNewsIndex + 1) % indianHappyNewsList.length;
-            displayNews(currentNewsIndex);
+            if (liveNewsArticles.length === 0) {
+                await fetchLiveGoogleNews();
+            }
+            liveNewsIndex = (liveNewsIndex + 1) % liveNewsArticles.length;
+            renderCurrentLiveNews();
         });
     </script>
 </body>
