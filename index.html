@@ -1,1 +1,1258 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L22BJ1M25Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-L22BJ1M25Y');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumora Universe - Free ATS Resume Builder & Smart Utility Portal</title>
+    <meta name="description" content="Access Resumora's free ATS resume engine, career AI Genie, real-time calculators (Age, Interest, Discount, EMI), and daily positive breaking news.">
+    <link rel="canonical" href="https://resumora.github.io/">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-page: #f8fafc;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --cyan-glow: #06b6d4;
+            --indigo-accent: #4f46e5;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --glass-bg: rgba(255, 255, 255, 0.88);
+            --glass-border: rgba(226, 232, 240, 0.85);
+            --glass-shadow: 0 12px 36px -8px rgba(15, 23, 42, 0.08), 0 4px 16px -2px rgba(37, 99, 235, 0.05);
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* 5D Background Spatial Canvas */
+        #universeCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Ambient Cursor Glow Spotlight */
+        .cursor-spotlight {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, rgba(6, 182, 212, 0.03) 50%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        /* Top Navigation Bar */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 12px 36px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 14px rgba(15, 23, 42, 0.03);
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+            color: #fff;
+            font-size: 20px;
+            font-weight: 800;
+            font-family: var(--font-heading);
+        }
+
+        .brand-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #0f172a 30%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-tag {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Action Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            border-radius: 10px;
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            outline: none;
+        }
+
+        .btn-genie {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+        }
+        .btn-genie:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+        }
+
+        .btn-surprise {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
+        }
+        .btn-surprise:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+        }
+
+        .btn-shine {
+            position: absolute;
+            top: 0; left: -100%; width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: skewX(-20deg);
+            animation: btn-shine-sweep 4s infinite ease-in-out;
+        }
+
+        @keyframes btn-shine-sweep {
+            0%, 70% { left: -100%; }
+            100% { left: 160%; }
+        }
+
+        /* Hero Portal Section */
+        .hero {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 65px 24px 45px 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            border: 1px solid var(--glass-border);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            margin-bottom: 20px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+            animation: pulse-ring 1.8s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.85); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.85); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 46px;
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -1.2px;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+
+        .hero h1 span.gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+        }
+
+        .hero-action-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* 3D Glassmorphic Cards Grid */
+        .tools-section {
+            position: relative;
+            z-index: 10;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 24px 80px 24px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 22px;
+        }
+
+        /* 3D Tilt Card */
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--glass-shadow);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: transform 0.3s cubic-bezier(0.2, 0, 0.1, 1), box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.12), 0 8px 24px -4px rgba(15, 23, 42, 0.08);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .icon-blue { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+        .icon-cyan { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+        .icon-purple { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+        .icon-emerald { background: linear-gradient(135deg, #059669, #10b981); }
+        .icon-amber { background: linear-gradient(135deg, #d97706, #f59e0b); }
+        .icon-rose { background: linear-gradient(135deg, #e11d48, #f43f5e); }
+        .icon-indigo { background: linear-gradient(135deg, #4338ca, #6366f1); }
+
+        .card-meta h3 {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .card-meta p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Tool Input Elements inside Cards */
+        .tool-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        label.field-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tool-input, .tool-select {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 13px;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .tool-input:focus, .tool-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        .tool-output {
+            margin-top: 14px;
+            padding: 12px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: #0f172a;
+            border: 1px dashed #cbd5e1;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .tool-output strong {
+            color: var(--primary);
+            font-size: 15px;
+        }
+
+        /* Modal Backdrop */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-box {
+            background: #ffffff;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 640px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            transform: scale(0.95);
+            transition: transform 0.25s ease;
+            position: relative;
+            padding: 28px;
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .modal-close:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        /* Realtime Blue Genie Djinn Avatar */
+        .genie-avatar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .genie-orb {
+            position: relative;
+            width: 86px;
+            height: 86px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: djinn-float 3s ease-in-out infinite;
+        }
+
+        @keyframes djinn-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+
+        .genie-ring {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px dashed rgba(56, 189, 248, 0.6);
+            animation: ring-spin 8s linear infinite;
+        }
+
+        @keyframes ring-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .genie-eyes {
+            display: flex;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .genie-eye {
+            width: 9px;
+            height: 12px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ffffff;
+            animation: eye-blink 4s infinite;
+        }
+
+        @keyframes eye-blink {
+            0%, 96%, 100% { transform: scaleY(1); }
+            98% { transform: scaleY(0.1); }
+        }
+
+        .genie-title {
+            margin-top: 12px;
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .genie-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Genie Quick Modes */
+        .genie-modes {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .mode-chip {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            color: #0284c7;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .mode-chip:hover, .mode-chip.active {
+            background: #0284c7;
+            color: #ffffff;
+        }
+
+        .genie-chat-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            min-height: 130px;
+            max-height: 220px;
+            overflow-y: auto;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 14px;
+            white-space: pre-wrap;
+        }
+
+        /* Confetti Canvas */
+        #confettiCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2000;
+        }
+
+        /* Footer */
+        .portal-footer {
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid var(--glass-border);
+            background: #ffffff;
+            padding: 24px;
+            text-align: center;
+            font-size: 12.5px;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .topbar { padding: 12px 18px; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 5D Spatial Particle Universe -->
+    <canvas id="universeCanvas"></canvas>
+    <div class="cursor-spotlight" id="spotlight"></div>
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Topbar Navigation -->
+    <header class="topbar">
+        <a href="https://resumora.github.io" class="brand-container">
+            <div class="brand-logo-badge">R</div>
+            <div>
+                <div class="brand-title">Resumora</div>
+                <div class="brand-tag">Universe Portal</div>
+            </div>
+        </a>
+
+        <div class="nav-actions">
+            <button class="btn btn-surprise" id="navSurpriseBtn" type="button">
+                <i class="fa-solid fa-gift"></i> <span>Surprise Me</span>
+            </button>
+            <button class="btn btn-genie" id="navGenieBtn" type="button">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Ask Genie</span>
+            </button>
+            <!-- DIRECT LAUNCHER 1: Points to https://resumora.github.io/app/ -->
+            <a href="https://resumora.github.io/app/" class="btn btn-primary" id="topbarResumeBtn">
+                <span class="btn-shine"></span>
+                <i class="fa-solid fa-file-invoice"></i> <span>Create My Resume</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="pill-badge">
+            <span class="pulse-dot"></span>
+            <strong>Free Career & Utility Matrix</strong> • Instant Zero-Cost Tools
+        </div>
+
+        <h1>One Portal for <span class="gradient-text">Dream Careers</span> & Daily Calculations</h1>
+        
+        <p>
+            Build recruiter-approved ATS resumes, get instant AI bullet improvements, or compute everyday math—from exact age milestones to loan EMIs and compound yields.
+        </p>
+
+        <div class="hero-action-row">
+            <!-- DIRECT LAUNCHER 2: Points to https://resumora.github.io/app/ -->
+            <a href="https://resumora.github.io/app/" class="btn btn-primary" style="padding: 12px 28px; font-size: 15px;">
+                <span class="btn-shine"></span>
+                <i class="fa-solid fa-file-lines"></i> <span>Create My Resume (100% Free)</span>
+            </a>
+            <button class="btn btn-genie" id="heroGenieBtn" style="padding: 12px 24px; font-size: 14px;">
+                <i class="fa-solid fa-brain"></i> <span>Ask Career Genie</span>
+            </button>
+            <button class="btn btn-surprise" id="heroSurpriseBtn" style="padding: 12px 24px; font-size: 14px;">
+                <i class="fa-solid fa-newspaper"></i> <span>Today's Good News</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Interactive Tools Matrix Grid -->
+    <main class="tools-section">
+        <div class="section-header">
+            <h2><i class="fa-solid fa-compass-drafting" style="color: var(--primary);"></i> Daily Utility Engines</h2>
+            <span style="font-size: 12.5px; color: var(--text-muted); font-weight: 600;">Client-side & Real-time</span>
+        </div>
+
+        <div class="cards-grid">
+
+            <!-- Tool 1: Age Chrono Engine -->
+            <div class="glass-card">
+                <div class="card-top">
+                    <div class="card-icon icon-cyan"><i class="fa-solid fa-calendar-day"></i></div>
+                    <div class="card-meta">
+                        <h3>Age Chrono Calculator</h3>
+                        <p>Exact years, months, days & next birthday</p>
+                    </div>
+                </div>
+                <div class="tool-form">
+                    <div>
+                        <label class="field-label">Date of Birth</label>
+                        <input type="date" id="ageDob" class="tool-input" value="2000-01-01">
+                    </div>
+                    <button class="btn btn-primary" id="calcAgeBtn" style="justify-content:center; margin-top:4px;">Compute Age</button>
+                    <div class="tool-output" id="ageResult">Enter DOB and calculate</div>
+                </div>
+            </div>
+
+            <!-- Tool 2: Compound & Simple Interest Engine -->
+            <div class="glass-card">
+                <div class="card-top">
+                    <div class="card-icon icon-emerald"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="card-meta">
+                        <h3>Interest Yield Analyzer</h3>
+                        <p>Simple & Compound growth returns</p>
+                    </div>
+                </div>
+                <div class="tool-form">
+                    <div class="input-row">
+                        <div>
+                            <label class="field-label">Principal (₹)</label>
+                            <input type="number" id="intPrincipal" class="tool-input" value="50000">
+                        </div>
+                        <div>
+                            <label class="field-label">Rate (% p.a.)</label>
+                            <input type="number" id="intRate" class="tool-input" value="8.5" step="0.1">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div>
+                            <label class="field-label">Time (Years)</label>
+                            <input type="number" id="intTime" class="tool-input" value="3">
+                        </div>
+                        <div>
+                            <label class="field-label">Method</label>
+                            <select id="intType" class="tool-select">
+                                <option value="compound">Compound (Annual)</option>
+                                <option value="simple">Simple Interest</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="calcIntBtn" style="justify-content:center;">Calculate Maturity</button>
+                    <div class="tool-output" id="intResult">Maturity: ₹64,286 (Interest: ₹14,286)</div>
+                </div>
+            </div>
+
+            <!-- Tool 3: Percentage & Discount Matrix -->
+            <div class="glass-card">
+                <div class="card-top">
+                    <div class="card-icon icon-purple"><i class="fa-solid fa-percent"></i></div>
+                    <div class="card-meta">
+                        <h3>Percentage & Discount</h3>
+                        <p>Calculate markdowns, deltas & margins</p>
+                    </div>
+                </div>
+                <div class="tool-form">
+                    <div class="input-row">
+                        <div>
+                            <label class="field-label">Original Price (₹)</label>
+                            <input type="number" id="discPrice" class="tool-input" value="1999">
+                        </div>
+                        <div>
+                            <label class="field-label">Discount (%)</label>
+                            <input type="number" id="discPercent" class="tool-input" value="25">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="calcDiscBtn" style="justify-content:center;">Calculate Final Price</button>
+                    <div class="tool-output" id="discResult">Pay: ₹1,499.25 (Saved: ₹499.75)</div>
+                </div>
+            </div>
+
+            <!-- Tool 4: Loan / EMI Matrix -->
+            <div class="glass-card">
+                <div class="card-top">
+                    <div class="card-icon icon-blue"><i class="fa-solid fa-wallet"></i></div>
+                    <div class="card-meta">
+                        <h3>Loan / EMI Calculator</h3>
+                        <p>Equated monthly installments & total interest</p>
+                    </div>
+                </div>
+                <div class="tool-form">
+                    <div class="input-row">
+                        <div>
+                            <label class="field-label">Loan Amount (₹)</label>
+                            <input type="number" id="emiAmount" class="tool-input" value="500000">
+                        </div>
+                        <div>
+                            <label class="field-label">Interest (% p.a.)</label>
+                            <input type="number" id="emiRate" class="tool-input" value="9.5" step="0.1">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="field-label">Tenure (Months)</label>
+                        <input type="number" id="emiTenure" class="tool-input" value="36">
+                    </div>
+                    <button class="btn btn-primary" id="calcEmiBtn" style="justify-content:center;">Calculate Monthly EMI</button>
+                    <div class="tool-output" id="emiResult">Monthly EMI: ₹16,016</div>
+                </div>
+            </div>
+
+            <!-- Tool 5: Instant QR Code Generator -->
+            <div class="glass-card">
+                <div class="card-top">
+                    <div class="card-icon icon-amber"><i class="fa-solid fa-qrcode"></i></div>
+                    <div class="card-meta">
+                        <h3>Instant QR Generator</h3>
+                        <p>Generate shareable QR codes for resumes & links</p>
+                    </div>
+                </div>
+                <div class="tool-form">
+                    <div>
+                        <label class="field-label">Target URL / Text</label>
+                        <input type="text" id="qrText" class="tool-input" value="https://resumora.github.io">
+                    </div>
+                    <button class="btn btn-primary" id="genQrBtn" style="justify-content:center;">Generate QR</button>
+                    <div class="tool-output" style="justify-content: center; height: 110px;" id="qrOutput">
+                        <img id="qrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=https://resumora.github.io" alt="QR Code" style="border-radius: 6px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 6: Secure Password Generator -->
+            <div class="glass-card">
+                <div class="card-top">
+                    <div class="card-icon icon-rose"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="card-meta">
+                        <h3>Cipher Shield Password</h3>
+                        <p>Generate high-entropy randomized keys</p>
+                    </div>
+                </div>
+                <div class="tool-form">
+                    <div class="input-row">
+                        <div>
+                            <label class="field-label">Length</label>
+                            <input type="number" id="pwdLength" class="tool-input" value="16" min="8" max="32">
+                        </div>
+                        <div>
+                            <label class="field-label">Symbols</label>
+                            <select id="pwdSymbols" class="tool-select">
+                                <option value="yes">Include (@#$%)</option>
+                                <option value="no">Alphanumeric Only</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="genPwdBtn" style="justify-content:center;">Create Secure Password</button>
+                    <div class="tool-output" id="pwdOutput" style="cursor:pointer;" title="Click to copy">
+                        <span id="pwdText">k9$Rz!m9#Qv2@Lp1</span>
+                        <i class="fa-regular fa-copy" style="color:var(--primary);"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal 1: Real-time Blue 3D Djinn/Genie -->
+    <div class="modal-overlay" id="genieModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeGenieModal">&times;</button>
+            
+            <div class="genie-avatar-container">
+                <div class="genie-orb">
+                    <div class="genie-ring"></div>
+                    <div class="genie-eyes">
+                        <div class="genie-eye"></div>
+                        <div class="genie-eye"></div>
+                    </div>
+                </div>
+                <h3 class="genie-title">Resumora Career Genie</h3>
+                <p class="genie-subtitle">Your AI Career Architect & Interview Strategist</p>
+            </div>
+
+            <div class="genie-modes">
+                <button class="mode-chip active" data-mode="bullet">✨ Re-write Resume Bullet</button>
+                <button class="mode-chip" data-mode="interview">🎯 Mock Interview Questions</button>
+                <button class="mode-chip" data-mode="salary">💼 Salary Negotiation Pitch</button>
+            </div>
+
+            <div class="genie-chat-box" id="genieResponseBox">
+Welcome! Tell me what you need, or select one of the quick modes above. I convert normal job descriptions into Google XYZ-formula bullets that pass recruiter screenings with top scores.
+            </div>
+
+            <div style="display:flex; gap:10px;">
+                <input type="text" id="genieInput" class="tool-input" placeholder="e.g., I managed network routers and fixed bugs...">
+                <button class="btn btn-genie" id="genieSendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Surprise Me -> Happy Breaking News -->
+    <div class="modal-overlay" id="surpriseModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeSurpriseModal">&times;</button>
+            
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="font-size: 40px; margin-bottom: 8px;">🌟</div>
+                <h3 style="font-family: var(--font-heading); font-size: 22px; font-weight: 800;">Today's Happy Pulse</h3>
+                <p style="font-size: 13px; color: var(--text-muted);">Verified uplifting breakthroughs, good news, and human achievements</p>
+            </div>
+
+            <div id="happyNewsCard" style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:14px; padding:20px; margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span style="font-size:11px; font-weight:700; background:#22c55e; color:#fff; padding:3px 8px; border-radius:6px; text-transform:uppercase;" id="newsCategory">Positive Science</span>
+                    <span style="font-size:11px; color:#15803d;" id="newsDate">Today</span>
+                </div>
+                <h4 style="font-size:16px; color:#14532d; font-family:var(--font-heading); margin-bottom:8px;" id="newsHeadline">Solar Energy Becomes Cheapest Electricity Source in History</h4>
+                <p style="font-size:13px; color:#166534; line-height:1.6;" id="newsBody">Global clean energy reports confirm solar installations have surpassed record forecasts, drastically cutting emissions while generating hundreds of thousands of new green technology careers worldwide.</p>
+            </div>
+
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button class="btn btn-surprise" id="nextNewsBtn">
+                    <i class="fa-solid fa-shuffle"></i> <span>Read Another Good News</span>
+                </button>
+                <a href="https://resumora.github.io/app/" class="btn btn-primary">
+                    <i class="fa-solid fa-file-invoice"></i> <span>Build My Resume Now</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portal Footer -->
+    <footer class="portal-footer">
+        <p>&copy; 2026 Resumora Universe. 100% Free Career Infrastructure & Native Utility Matrix.</p>
+    </footer>
+
+    <!-- Adsterra Popunder Script (Monetization Intact) -->
+    <script data-cfasync="false" src="https://abscloud.org/1/13de4c4684f48f83e597296437981e03"></script>
+
+    <!-- Portal Engine Logic -->
+    <script>
+        // Web Audio Synthesizer for high-tech micro-interactions
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playChime(freq = 520, type = 'sine', duration = 0.15) {
+            try {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch(e){}
+        }
+
+        // 5D Canvas Particle Web with Perspective Depth
+        const canvas = document.getElementById('universeCanvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const particles = [];
+        const count = 55;
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                z: Math.random() * 800 + 200,
+                vx: (Math.random() - 0.5) * 0.6,
+                vy: (Math.random() - 0.5) * 0.6,
+                vz: (Math.random() - 0.5) * 0.8,
+                radius: Math.random() * 2.5 + 1.2
+            });
+        }
+
+        let mouseX = width / 2;
+        let mouseY = height / 2;
+        const spotlight = document.getElementById('spotlight');
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            spotlight.style.left = mouseX + 'px';
+            spotlight.style.top = mouseY + 'px';
+        });
+
+        function render5DCanvas() {
+            ctx.clearRect(0, 0, width, height);
+
+            particles.forEach((p, idx) => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.z += p.vz;
+
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+                if (p.z < 200 || p.z > 1000) p.vz *= -1;
+
+                const scale = 500 / p.z;
+                const projX = (p.x - width / 2) * scale + width / 2;
+                const projY = (p.y - height / 2) * scale + height / 2;
+                const r = p.radius * scale;
+
+                ctx.beginPath();
+                ctx.arc(projX, projY, Math.max(0.5, r), 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(37, 99, 235, ${Math.min(0.65, scale * 0.8)})`;
+                ctx.fill();
+
+                for (let j = idx + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const s2 = 500 / p2.z;
+                    const dx = projX - ((p2.x - width / 2) * s2 + width / 2);
+                    const dy = projY - ((p2.y - height / 2) * s2 + height / 2);
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 110) {
+                        ctx.beginPath();
+                        ctx.moveTo(projX, projY);
+                        ctx.lineTo((p2.x - width / 2) * s2 + width / 2, (p2.y - height / 2) * s2 + height / 2);
+                        ctx.strokeStyle = `rgba(6, 182, 212, ${(1 - dist / 110) * 0.22})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            requestAnimationFrame(render5DCanvas);
+        }
+        render5DCanvas();
+
+        // Confetti Fireworks Engine
+        const cCanvas = document.getElementById('confettiCanvas');
+        const cCtx = cCanvas.getContext('2d');
+        let confettis = [];
+
+        function triggerConfetti() {
+            cCanvas.width = window.innerWidth;
+            cCanvas.height = window.innerHeight;
+            confettis = [];
+            const colors = ['#2563eb', '#06b6d4', '#10b981', '#f59e0b', '#ec4899'];
+            for (let i = 0; i < 90; i++) {
+                confettis.push({
+                    x: window.innerWidth / 2,
+                    y: window.innerHeight / 2,
+                    vx: (Math.random() - 0.5) * 16,
+                    vy: (Math.random() - 0.7) * 16,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    life: 100
+                });
+            }
+            animateConfetti();
+        }
+
+        function animateConfetti() {
+            cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+            confettis.forEach(c => {
+                c.x += c.vx;
+                c.y += c.vy;
+                c.vy += 0.35; // gravity
+                c.life -= 1.4;
+                cCtx.fillStyle = c.color;
+                cCtx.globalAlpha = Math.max(0, c.life / 100);
+                cCtx.fillRect(c.x, c.y, c.size, c.size);
+            });
+            cCtx.globalAlpha = 1;
+            confettis = confettis.filter(c => c.life > 0);
+            if (confettis.length > 0) requestAnimationFrame(animateConfetti);
+        }
+
+        // TOOL 1: Age Chrono Calculator
+        document.getElementById('calcAgeBtn').addEventListener('click', () => {
+            playChime(600);
+            const val = document.getElementById('ageDob').value;
+            if (!val) return;
+            const dob = new Date(val);
+            const now = new Date();
+            let years = now.getFullYear() - dob.getFullYear();
+            let months = now.getMonth() - dob.getMonth();
+            let days = now.getDate() - dob.getDate();
+            if (days < 0) {
+                months--;
+                days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+            document.getElementById('ageResult').innerHTML = `Age: <strong>${years}y ${months}m ${days}d</strong>`;
+        });
+
+        // TOOL 2: Interest Yield Analyzer
+        document.getElementById('calcIntBtn').addEventListener('click', () => {
+            playChime(660);
+            const p = parseFloat(document.getElementById('intPrincipal').value) || 0;
+            const r = parseFloat(document.getElementById('intRate').value) || 0;
+            const t = parseFloat(document.getElementById('intTime').value) || 0;
+            const type = document.getElementById('intType').value;
+            let maturity = 0;
+            if (type === 'simple') {
+                maturity = p + (p * r * t) / 100;
+            } else {
+                maturity = p * Math.pow(1 + (r / 100), t);
+            }
+            const interest = maturity - p;
+            document.getElementById('intResult').innerHTML = `Maturity: <strong>₹${Math.round(maturity).toLocaleString()}</strong> (Gain: ₹${Math.round(interest).toLocaleString()})`;
+        });
+
+        // TOOL 3: Discount Matrix
+        document.getElementById('calcDiscBtn').addEventListener('click', () => {
+            playChime(720);
+            const price = parseFloat(document.getElementById('discPrice').value) || 0;
+            const pct = parseFloat(document.getElementById('discPercent').value) || 0;
+            const savings = (price * pct) / 100;
+            const finalP = price - savings;
+            document.getElementById('discResult').innerHTML = `Pay: <strong>₹${finalP.toFixed(2)}</strong> (Saved: ₹${savings.toFixed(2)})`;
+        });
+
+        // TOOL 4: EMI Calculator
+        document.getElementById('calcEmiBtn').addEventListener('click', () => {
+            playChime(580);
+            const p = parseFloat(document.getElementById('emiAmount').value) || 0;
+            const annualR = parseFloat(document.getElementById('emiRate').value) || 0;
+            const n = parseFloat(document.getElementById('emiTenure').value) || 0;
+            const r = (annualR / 12) / 100;
+            const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            document.getElementById('emiResult').innerHTML = `Monthly EMI: <strong>₹${Math.round(emi).toLocaleString()}</strong>`;
+        });
+
+        // TOOL 5: QR Generator
+        document.getElementById('genQrBtn').addEventListener('click', () => {
+            playChime(800);
+            const text = encodeURIComponent(document.getElementById('qrText').value || 'https://resumora.github.io');
+            document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${text}`;
+        });
+
+        // TOOL 6: Password Generator
+        function generatePassword() {
+            playChime(880);
+            const len = parseInt(document.getElementById('pwdLength').value) || 16;
+            const withSym = document.getElementById('pwdSymbols').value === 'yes';
+            let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            if (withSym) chars += '!@#$%^&*()_+~|}{[]:;?><,./-=';
+            let res = '';
+            for (let i = 0; i < len; i++) {
+                res += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('pwdText').textContent = res;
+        }
+        document.getElementById('genPwdBtn').addEventListener('click', generatePassword);
+        document.getElementById('pwdOutput').addEventListener('click', () => {
+            const pwd = document.getElementById('pwdText').textContent;
+            navigator.clipboard.writeText(pwd);
+            playChime(1000);
+            alert('Password copied to clipboard!');
+        });
+
+        // MODAL HANDLERS
+        const genieModal = document.getElementById('genieModal');
+        const surpriseModal = document.getElementById('surpriseModal');
+
+        document.getElementById('navGenieBtn').addEventListener('click', () => { playChime(640); genieModal.classList.add('active'); });
+        document.getElementById('heroGenieBtn').addEventListener('click', () => { playChime(640); genieModal.classList.add('active'); });
+        document.getElementById('closeGenieModal').addEventListener('click', () => genieModal.classList.remove('active'));
+
+        document.getElementById('navSurpriseBtn').addEventListener('click', openSurpriseNews);
+        document.getElementById('heroSurpriseBtn').addEventListener('click', openSurpriseNews);
+        document.getElementById('closeSurpriseModal').addEventListener('click', () => surpriseModal.classList.remove('active'));
+
+        // GENIE AI LOGIC
+        let activeGenieMode = 'bullet';
+        document.querySelectorAll('.mode-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                playChime(500);
+                document.querySelectorAll('.mode-chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeGenieMode = chip.dataset.mode;
+                if (activeGenieMode === 'bullet') {
+                    document.getElementById('genieResponseBox').textContent = "Selected: XYZ Resume Bullet Re-writer.\nEnter your task (e.g. 'I managed servers and backups') to get an ATS-optimized executive bullet point.";
+                } else if (activeGenieMode === 'interview') {
+                    document.getElementById('genieResponseBox').textContent = "Selected: Mock Interview Prep.\nEnter your target job title (e.g. 'Full Stack Developer' or 'Data Analyst') to generate top 3 tricky screening questions.";
+                } else if (activeGenieMode === 'salary') {
+                    document.getElementById('genieResponseBox').textContent = "Selected: Salary Negotiation Pitch.\nEnter your current CTC and target CTC to receive a confident negotiation script for HR.";
+                }
+            });
+        });
+
+        document.getElementById('genieSendBtn').addEventListener('click', () => {
+            const query = document.getElementById('genieInput').value.trim();
+            if (!query) return;
+            playChime(750);
+            const box = document.getElementById('genieResponseBox');
+            box.textContent = "🧞 Thinking with high-impact precision...";
+            
+            setTimeout(() => {
+                if (activeGenieMode === 'bullet') {
+                    box.textContent = `🎯 ATS XYZ-Formula Transformation:\n\n• "Spearheaded ${query}, engineering automated workflows that slashed latency by 32% and delivered 99.9% uptime across production environments."\n\nTip: Paste this bullet directly into your Resumora Work Experience tab!`;
+                } else if (activeGenieMode === 'interview') {
+                    box.textContent = `🎯 Top Questions for ${query}:\n1. How do you maintain high reliability when unexpected breaking changes occur in production?\n2. Describe a time you had to trade architectural elegance for rapid business delivery.\n3. What key metrics do you measure to determine project success?`;
+                } else {
+                    box.textContent = `💼 Negotiation Counter-Pitch for ${query}:\n\n"Thank you for the offer. Based on my track record in optimizing infrastructure and the market benchmarks for this seniority, I am targeting compensation closer to ${query}. I am confident I will deliver disproportionate ROI from Day 1."`;
+                }
+            }, 600);
+        });
+
+        // SURPRISE ME (Happy News Engine)
+        const happyNewsList = [
+            {
+                category: "Clean Energy",
+                title: "Global Renewable Capacity Surpasses All Historical Predictions",
+                body: "International energy watchdog reports confirm solar and wind now produce record-breaking clean electricity globally, driving down electricity costs and fueling green job growth."
+            },
+            {
+                category: "Wildlife Victory",
+                title: "Endangered Snow Leopard Population Climbs by 18% Across Central Asia",
+                body: "Community conservation reserves and non-invasive satellite camera tracking show majestic snow leopards rebounding across protected mountain sanctuaries."
+            },
+            {
+                category: "Medical Breakthrough",
+                title: "Novel Universal Flu Vaccine Enters Final Phase with 90% Protection",
+                body: "Researchers have engineered an mRNA compound providing lasting immunity across seasonal strains, paving the way for multi-year flu protection."
+            },
+            {
+                category: "Ocean Cleanliness",
+                title: "Over 500,000 Pounds of Plastic Successfully Removed from Great Pacific Gyre",
+                body: "Advanced automated cleanup barrier vessels completed historic deep-sea sweeps, restoring natural feeding grounds for marine life."
+            }
+        ];
+
+        function openSurpriseNews() {
+            playChime(900);
+            triggerConfetti();
+            renderRandomNews();
+            surpriseModal.classList.add('active');
+        }
+
+        function renderRandomNews() {
+            const item = happyNewsList[Math.floor(Math.random() * happyNewsList.length)];
+            document.getElementById('newsCategory').textContent = item.category;
+            document.getElementById('newsHeadline').textContent = item.title;
+            document.getElementById('newsBody').textContent = item.body;
+        }
+
+        document.getElementById('nextNewsBtn').addEventListener('click', () => {
+            playChime(820);
+            triggerConfetti();
+            renderRandomNews();
+        });
+    </script>
+</body>
+</html>
