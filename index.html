@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
-    <!-- Utility Dependencies for PDF, QR Scanning, and Cropping -->
+    <!-- Utility Dependencies -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
     <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
@@ -140,6 +140,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            position: relative;
         }
 
         /* Action Buttons */
@@ -157,6 +158,101 @@
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             outline: none;
+        }
+
+        .btn-dropdown-toggle {
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+        }
+        .btn-dropdown-toggle:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+
+        /* Dynamic Utilities Dropdown Menu */
+        .utilities-dropdown-wrapper {
+            position: relative;
+        }
+
+        .utilities-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            width: 320px;
+            max-height: 440px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18), 0 4px 14px rgba(37, 99, 235, 0.08);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 2000;
+            animation: dropFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes dropFade {
+            from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .utilities-dropdown-menu.active {
+            display: flex;
+        }
+
+        .dropdown-search-box {
+            padding: 10px 14px;
+            border-bottom: 1px solid #f1f5f9;
+            background: #ffffff;
+        }
+
+        .dropdown-search-input {
+            width: 100%;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 12.5px;
+            outline: none;
+            font-family: inherit;
+        }
+        .dropdown-search-input:focus {
+            border-color: var(--primary);
+        }
+
+        .dropdown-items-list {
+            overflow-y: auto;
+            max-height: 380px;
+            padding: 6px;
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: #1e293b;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .dropdown-item:hover {
+            background: #eff6ff;
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+        .dropdown-item i {
+            font-size: 14px;
+            width: 18px;
+            text-align: center;
         }
 
         .btn-genie {
@@ -321,13 +417,26 @@
             flex-direction: column;
             transform-style: preserve-3d;
             will-change: transform, box-shadow, z-index;
-            transition: transform 0.1s ease-out, box-shadow 0.25s ease, z-index 0s;
+            transition: transform 0.1s ease-out, box-shadow 0.25s ease, z-index 0s, border-color 0.3s ease;
             z-index: 1;
+            scroll-margin-top: 100px;
         }
 
         .glass-card.card-focused {
             z-index: 999 !important;
             border-color: rgba(37, 99, 235, 0.45) !important;
+        }
+
+        .glass-card.highlight-card {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25), 0 20px 40px rgba(37, 99, 235, 0.2) !important;
+            animation: highlightPulse 2s ease;
+        }
+
+        @keyframes highlightPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
         }
 
         .card-top {
@@ -663,13 +772,29 @@
         </a>
 
         <div class="nav-actions">
+            <!-- Dynamic Utilities Dropdown Button (Next to Surprise Me) -->
+            <div class="utilities-dropdown-wrapper">
+                <button class="btn btn-dropdown-toggle" id="utilityDropdownBtn" type="button">
+                    <i class="fa-solid fa-shapes" style="color:var(--primary);"></i>
+                    <span>Utilities</span>
+                    <i class="fa-solid fa-chevron-down" style="font-size:10px; margin-left:2px;"></i>
+                </button>
+                <div class="utilities-dropdown-menu" id="utilityDropdownMenu">
+                    <div class="dropdown-search-box">
+                        <input type="text" id="utilitySearchInput" class="dropdown-search-input" placeholder="Search utilities...">
+                    </div>
+                    <div class="dropdown-items-list" id="utilityDropdownList">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+
             <button class="btn btn-surprise" id="navSurpriseBtn" type="button">
                 <i class="fa-solid fa-gift"></i> <span>Surprise Me</span>
             </button>
             <button class="btn btn-genie" id="navGenieBtn" type="button">
                 <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Ask Genie</span>
             </button>
-            <!-- DIRECT LAUNCHER 1: Points to https://resumora.github.io/app/ -->
             <a href="https://resumora.github.io/app/" class="btn btn-primary" id="topbarResumeBtn">
                 <span class="btn-shine"></span>
                 <i class="fa-solid fa-file-invoice"></i> <span>Create My Resume</span>
@@ -691,7 +816,6 @@
         </p>
 
         <div class="hero-action-row">
-            <!-- DIRECT LAUNCHER 2: Points to https://resumora.github.io/app/ -->
             <a href="https://resumora.github.io/app/" class="btn btn-primary" style="padding: 12px 28px; font-size: 15px;">
                 <span class="btn-shine"></span>
                 <i class="fa-solid fa-file-lines"></i> <span>Create My Resume (100% Free)</span>
@@ -715,7 +839,7 @@
         <div class="cards-grid">
 
             <!-- Tool 1: Age Chrono Engine -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-age">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-calendar-day"></i></div>
                     <div class="card-meta">
@@ -734,7 +858,7 @@
             </div>
 
             <!-- Tool 2: Compound & Simple Interest Engine -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-interest">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-chart-line"></i></div>
                     <div class="card-meta">
@@ -772,7 +896,7 @@
             </div>
 
             <!-- Tool 3: Percentage & Discount Matrix -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-percentage">
                 <div class="card-top">
                     <div class="card-icon icon-purple"><i class="fa-solid fa-percent"></i></div>
                     <div class="card-meta">
@@ -797,7 +921,7 @@
             </div>
 
             <!-- Tool 4: Loan / EMI Matrix -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-emi">
                 <div class="card-top">
                     <div class="card-icon icon-blue"><i class="fa-solid fa-wallet"></i></div>
                     <div class="card-meta">
@@ -826,7 +950,7 @@
             </div>
 
             <!-- Tool 5: Instant QR Code Generator -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-qr-generator">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-qrcode"></i></div>
                     <div class="card-meta">
@@ -847,7 +971,7 @@
             </div>
 
             <!-- Tool 6: Secure Password Generator -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-password-generator">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-shield-halved"></i></div>
                     <div class="card-meta">
@@ -878,7 +1002,7 @@
             </div>
 
             <!-- Tool 7: PDF Merger -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-pdf-merger">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-file-pdf"></i></div>
                     <div class="card-meta">
@@ -897,7 +1021,7 @@
             </div>
 
             <!-- Tool 8: PDF Splitter -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-pdf-splitter">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-scissors"></i></div>
                     <div class="card-meta">
@@ -926,7 +1050,7 @@
             </div>
 
             <!-- Tool 9: PDF Page Extractor -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-pdf-page-extractor">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-file-export"></i></div>
                     <div class="card-meta">
@@ -949,7 +1073,7 @@
             </div>
 
             <!-- Tool 10: JPG to PDF -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-jpg-pdf">
                 <div class="card-top">
                     <div class="card-icon icon-teal"><i class="fa-solid fa-file-image"></i></div>
                     <div class="card-meta">
@@ -968,7 +1092,7 @@
             </div>
 
             <!-- Tool 11: PNG to PDF -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-png-pdf">
                 <div class="card-top">
                     <div class="card-icon icon-teal"><i class="fa-solid fa-images"></i></div>
                     <div class="card-meta">
@@ -987,7 +1111,7 @@
             </div>
 
             <!-- Tool 12: Image Compressor -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-image-compressor">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-compress"></i></div>
                     <div class="card-meta">
@@ -1010,7 +1134,7 @@
             </div>
 
             <!-- Tool 13: Image Resize -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-image-resize">
                 <div class="card-top">
                     <div class="card-icon icon-indigo"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
                     <div class="card-meta">
@@ -1039,7 +1163,7 @@
             </div>
 
             <!-- Tool 14: Image Crop -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-image-crop">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-crop-simple"></i></div>
                     <div class="card-meta">
@@ -1061,7 +1185,7 @@
             </div>
 
             <!-- Tool 15: QR Scanner -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-qr-scanner">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-camera"></i></div>
                     <div class="card-meta">
@@ -1084,7 +1208,7 @@
             </div>
 
             <!-- Tool 16: JSON Formatter -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-json-formatter">
                 <div class="card-top">
                     <div class="card-icon icon-blue"><i class="fa-solid fa-code"></i></div>
                     <div class="card-meta">
@@ -1103,7 +1227,7 @@
             </div>
 
             <!-- Tool 17: JSON Validator -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-json-validator">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-spell-check"></i></div>
                     <div class="card-meta">
@@ -1122,7 +1246,7 @@
             </div>
 
             <!-- Tool 18: Base64 Encoder / Decoder -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-base64">
                 <div class="card-top">
                     <div class="card-icon icon-purple"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
                     <div class="card-meta">
@@ -1144,7 +1268,7 @@
             </div>
 
             <!-- Tool 19: URL Encoder / Decoder -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-url-encoder">
                 <div class="card-top">
                     <div class="card-icon icon-slate"><i class="fa-solid fa-link"></i></div>
                     <div class="card-meta">
@@ -1166,7 +1290,7 @@
             </div>
 
             <!-- Tool 20: UUID Generator -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-uuid-generator">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-fingerprint"></i></div>
                     <div class="card-meta">
@@ -1181,7 +1305,7 @@
             </div>
 
             <!-- Tool 21: Word & Character Counter -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-word-counter">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-i-cursor"></i></div>
                     <div class="card-meta">
@@ -1199,7 +1323,7 @@
             </div>
 
             <!-- Tool 22: Case Converter -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-case-converter">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-font"></i></div>
                     <div class="card-meta">
@@ -1227,7 +1351,7 @@
             </div>
 
             <!-- Tool 23: GST Calculator -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-gst">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-receipt"></i></div>
                     <div class="card-meta">
@@ -1264,7 +1388,7 @@
             </div>
 
             <!-- Tool 24: Salary In-Hand / CTC Calculator -->
-            <div class="glass-card">
+            <div class="glass-card" id="tool-salary">
                 <div class="card-top">
                     <div class="card-icon icon-indigo"><i class="fa-solid fa-money-bill-wave"></i></div>
                     <div class="card-meta">
@@ -1368,7 +1492,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
 
     <!-- Portal Engine Logic -->
     <script>
-        // Web Audio Synthesizer for high-tech micro-interactions
+        // Web Audio Synthesizer
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         function playChime(freq = 520, type = 'sine', duration = 0.15) {
             try {
@@ -1386,7 +1510,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             } catch(e){}
         }
 
-        // 5D Canvas Particle Web with Perspective Depth
+        // 5D Canvas Particle Web
         const canvas = document.getElementById('universeCanvas');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
@@ -1466,9 +1590,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
         }
         render5DCanvas();
 
-        // ==========================================
-        // CINEMATIC 5D CENTER-ZOOM & TILT ENGINE
-        // ==========================================
+        // Card Tilt Engine
         function initCardTilt() {
             const utilityCards = document.querySelectorAll('.glass-card');
             utilityCards.forEach(card => {
@@ -1558,7 +1680,6 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             if (confettis.length > 0) requestAnimationFrame(animateConfetti);
         }
 
-        // Helper Download Function
         function downloadBlob(blob, filename) {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -1569,6 +1690,79 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
         }
+
+        // ==========================================
+        // DYNAMIC UTILITIES DROPDOWN ENGINE
+        // ==========================================
+        const utilityDropdownBtn = document.getElementById('utilityDropdownBtn');
+        const utilityDropdownMenu = document.getElementById('utilityDropdownMenu');
+        const utilityDropdownList = document.getElementById('utilityDropdownList');
+        const utilitySearchInput = document.getElementById('utilitySearchInput');
+
+        // Dynamic extraction of all tools directly from the cards grid
+        const utilityTools = [];
+        document.querySelectorAll('.glass-card').forEach(card => {
+            const id = card.id;
+            const title = card.querySelector('.card-meta h3')?.innerText.trim() || '';
+            const iconClass = card.querySelector('.card-icon i')?.className || 'fa-solid fa-gear';
+            if (id && title) {
+                utilityTools.push({ id, title, iconClass });
+            }
+        });
+
+        function populateDropdown(filterText = '') {
+            utilityDropdownList.innerHTML = '';
+            const filtered = utilityTools.filter(t => t.title.toLowerCase().includes(filterText.toLowerCase()));
+
+            if (filtered.length === 0) {
+                utilityDropdownList.innerHTML = `<div style="padding:12px; font-size:12px; color:var(--text-muted); text-align:center;">No utility found</div>`;
+                return;
+            }
+
+            filtered.forEach(tool => {
+                const item = document.createElement('div');
+                item.className = 'dropdown-item';
+                item.innerHTML = `<i class="${tool.iconClass}"></i><span>${tool.title}</span>`;
+                item.addEventListener('click', () => {
+                    playChime(640);
+                    utilityDropdownMenu.classList.remove('active');
+                    
+                    const targetCard = document.getElementById(tool.id);
+                    if (targetCard) {
+                        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        targetCard.classList.add('highlight-card');
+                        setTimeout(() => targetCard.classList.remove('highlight-card'), 2200);
+                        
+                        // Focus first input if available
+                        const firstInput = targetCard.querySelector('input, select, textarea');
+                        if (firstInput) setTimeout(() => firstInput.focus(), 600);
+                    }
+                });
+                utilityDropdownList.appendChild(item);
+            });
+        }
+        populateDropdown();
+
+        utilityDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            playChime(540);
+            const isOpen = utilityDropdownMenu.classList.toggle('active');
+            if (isOpen) {
+                utilitySearchInput.value = '';
+                populateDropdown();
+                setTimeout(() => utilitySearchInput.focus(), 50);
+            }
+        });
+
+        utilitySearchInput.addEventListener('input', (e) => {
+            populateDropdown(e.target.value);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!utilityDropdownMenu.contains(e.target) && !utilityDropdownBtn.contains(e.target)) {
+                utilityDropdownMenu.classList.remove('active');
+            }
+        });
 
         // TOOL 1: Age Chrono Calculator
         document.getElementById('calcAgeBtn').addEventListener('click', () => {
@@ -2076,10 +2270,9 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             if (pfChoice === 'standard') monthlyPf = 1800;
             else if (pfChoice === '12') monthlyPf = basic * 0.12;
 
-            const profTax = 200; // Average State PT
+            const profTax = 200;
             const grossMonthly = ctc / 12;
             
-            // Simplified tax estimation
             let annualTax = 0;
             if (ctc > 1500000) annualTax = (ctc - 1500000) * 0.30 + 150000;
             else if (ctc > 1200000) annualTax = (ctc - 1200000) * 0.20 + 90000;
@@ -2103,9 +2296,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
         document.getElementById('heroSurpriseBtn').addEventListener('click', openSurpriseNews);
         document.getElementById('closeSurpriseModal').addEventListener('click', () => surpriseModal.classList.remove('active'));
 
-        // ==========================================
-        // GENIE AI & WEB SEARCH LOGIC (HYBRID)
-        // ==========================================
+        // GENIE AI & WEB SEARCH LOGIC
         let activeGenieMode = 'bullet';
         document.querySelectorAll('.mode-chip').forEach(chip => {
             chip.addEventListener('click', () => {
@@ -2135,7 +2326,6 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
 
             if (activeGenieMode === 'search') {
                 box.innerHTML = `🧞 Searching the web for: <strong>"${query}"</strong>...`;
-                
                 try {
                     const endpoint = `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1&skip_disambig=1`;
                     const res = await fetch(endpoint);
@@ -2172,9 +2362,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             }
         });
 
-        // ==========================================
-        // SURPRISE ME (Live Google News India Engine)
-        // ==========================================
+        // SURPRISE ME (Live News Engine)
         let liveNewsArticles = [];
         let liveNewsIndex = 0;
         let isFetchingNews = false;
