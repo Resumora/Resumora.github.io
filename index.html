@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resumora Universe - Free ATS Resume Builder & Smart Utility Portal</title>
-    <meta name="description" content="Access Resumora's free ATS resume engine, career AI Genie, real-time calculators (Age, Interest, Discount, EMI), and daily positive breaking news.">
+    <meta name="description" content="Access Resumora's free ATS resume engine, career AI Genie, real-time calculators, games and daily positive breaking news.">
     <link rel="canonical" href="https://resumora.github.io/">
 
     <!-- Fonts & Icons -->
@@ -56,36 +56,34 @@
             min-height: 100vh;
         }
 
-        /* 5D Background Spatial Canvas */
+        /* Background Canvas */
         #universeCanvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            pointer-events: none;
-            z-index: 1;
+            pointer-events: none !important;
+            z-index: 0;
         }
 
-        /* Ambient Cursor Glow Spotlight */
         .cursor-spotlight {
             position: fixed;
             width: 500px;
             height: 500px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, rgba(6, 182, 212, 0.03) 50%, transparent 70%);
-            pointer-events: none;
+            pointer-events: none !important;
             transform: translate(-50%, -50%);
-            z-index: 2;
-            transition: width 0.3s ease, height 0.3s ease;
+            z-index: 1;
         }
 
-        /* Top Navigation Bar */
+        /* Topbar */
         .topbar {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--glass-border);
@@ -139,16 +137,15 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             position: relative;
         }
 
-        /* Action Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 9px 18px;
+            padding: 9px 16px;
             border-radius: 10px;
             font-family: var(--font-heading);
             font-size: 13px;
@@ -158,6 +155,7 @@
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             outline: none;
+            user-select: none;
         }
 
         .btn-dropdown-toggle {
@@ -172,37 +170,27 @@
             transform: translateY(-2px);
         }
 
-        /* Dynamic Utilities Dropdown Menu */
         .utilities-dropdown-wrapper {
             position: relative;
         }
 
         .utilities-dropdown-menu {
             position: absolute;
-            top: calc(100% + 12px);
+            top: calc(100% + 10px);
             left: 0;
-            width: 320px;
-            max-height: 440px;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            width: 310px;
+            background: #ffffff;
             border: 1px solid var(--glass-border);
             border-radius: 14px;
-            box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18), 0 4px 14px rgba(37, 99, 235, 0.08);
+            box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.2), 0 4px 14px rgba(37, 99, 235, 0.08);
             display: none;
             flex-direction: column;
             overflow: hidden;
-            z-index: 2000;
-            animation: dropFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        @keyframes dropFade {
-            from { opacity: 0; transform: translateY(-8px) scale(0.97); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            z-index: 2500;
         }
 
         .utilities-dropdown-menu.active {
-            display: flex;
+            display: flex !important;
         }
 
         .dropdown-search-box {
@@ -221,13 +209,10 @@
             outline: none;
             font-family: inherit;
         }
-        .dropdown-search-input:focus {
-            border-color: var(--primary);
-        }
 
         .dropdown-items-list {
             overflow-y: auto;
-            max-height: 380px;
+            max-height: 340px;
             padding: 6px;
         }
 
@@ -240,7 +225,6 @@
             color: #1e293b;
             font-size: 13px;
             font-weight: 600;
-            text-decoration: none;
             cursor: pointer;
             transition: all 0.15s ease;
         }
@@ -249,20 +233,15 @@
             color: var(--primary);
             transform: translateX(4px);
         }
-        .dropdown-item i {
-            font-size: 14px;
-            width: 18px;
-            text-align: center;
-        }
 
-        .btn-genie {
-            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+        .btn-play-genie {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
             color: #ffffff;
-            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+            box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
         }
-        .btn-genie:hover {
+        .btn-play-genie:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 6px 20px rgba(109, 40, 217, 0.45);
         }
 
         .btn-surprise {
@@ -275,16 +254,14 @@
             box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
         }
 
-        /* Play with Genie Button */
-        .btn-play-genie {
-            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+        .btn-genie {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff;
-            box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
-            position: relative;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
         }
-        .btn-play-genie:hover {
+        .btn-genie:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 22px rgba(109, 40, 217, 0.45);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
         }
 
         .btn-primary {
@@ -312,7 +289,7 @@
             100% { left: 160%; }
         }
 
-        /* Hero Portal Section */
+        /* Hero */
         .hero {
             position: relative;
             z-index: 10;
@@ -382,7 +359,7 @@
             flex-wrap: wrap;
         }
 
-        /* 3D Glassmorphic Cards Grid */
+        /* Tools Section */
         .tools-section {
             position: relative;
             z-index: 10;
@@ -415,7 +392,6 @@
             position: relative;
         }
 
-        /* 3D Tilt & Center Zoom Card */
         .glass-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -428,27 +404,15 @@
             display: flex;
             flex-direction: column;
             transform-style: preserve-3d;
-            will-change: transform, box-shadow, z-index;
-            transition: transform 0.1s ease-out, box-shadow 0.25s ease, z-index 0s, border-color 0.3s ease;
-            z-index: 1;
+            will-change: transform, box-shadow;
+            transition: transform 0.1s ease-out, box-shadow 0.25s ease;
+            z-index: 2;
             scroll-margin-top: 100px;
-        }
-
-        .glass-card.card-focused {
-            z-index: 999 !important;
-            border-color: rgba(37, 99, 235, 0.45) !important;
         }
 
         .glass-card.highlight-card {
             border-color: var(--primary) !important;
             box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25), 0 20px 40px rgba(37, 99, 235, 0.2) !important;
-            animation: highlightPulse 2s ease;
-        }
-
-        @keyframes highlightPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.04); }
-            100% { transform: scale(1); }
         }
 
         .card-top {
@@ -492,7 +456,6 @@
             color: var(--text-muted);
         }
 
-        /* Tool Input Elements inside Cards */
         .tool-form {
             display: flex;
             flex-direction: column;
@@ -562,25 +525,22 @@
             font-size: 15px;
         }
 
-        /* Modal Backdrop */
+        /* Modal Overlay System */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(15, 23, 42, 0.55);
+            background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            z-index: 2000;
+            z-index: 3000;
             display: none;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            opacity: 0;
-            transition: opacity 0.25s ease;
         }
 
         .modal-overlay.active {
-            display: flex;
-            opacity: 1;
+            display: flex !important;
         }
 
         .modal-box {
@@ -590,16 +550,10 @@
             max-width: 640px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3);
             border: 1px solid var(--glass-border);
-            transform: scale(0.95);
-            transition: transform 0.25s ease;
             position: relative;
             padding: 28px;
-        }
-
-        .modal-overlay.active .modal-box {
-            transform: scale(1);
         }
 
         .modal-close {
@@ -616,7 +570,7 @@
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 18px;
             transition: all 0.2s;
         }
         .modal-close:hover {
@@ -624,7 +578,7 @@
             color: #0f172a;
         }
 
-        /* Realtime Blue Genie Djinn Avatar */
+        /* Genie Styles */
         .genie-avatar-container {
             display: flex;
             flex-direction: column;
@@ -640,35 +594,15 @@
             height: 86px;
             border-radius: 50%;
             background: radial-gradient(circle, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
-            box-shadow: 0 0 35px rgba(56, 189, 248, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: djinn-float 3s ease-in-out infinite;
-        }
-
-        @keyframes djinn-float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(2deg); }
-        }
-
-        .genie-ring {
-            position: absolute;
-            inset: -6px;
-            border-radius: 50%;
-            border: 2px dashed rgba(56, 189, 248, 0.6);
-            animation: ring-spin 8s linear infinite;
-        }
-
-        @keyframes ring-spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         .genie-eyes {
             display: flex;
             gap: 12px;
-            z-index: 2;
         }
 
         .genie-eye {
@@ -676,13 +610,6 @@
             height: 12px;
             background: #ffffff;
             border-radius: 50%;
-            box-shadow: 0 0 8px #ffffff;
-            animation: eye-blink 4s infinite;
-        }
-
-        @keyframes eye-blink {
-            0%, 96%, 100% { transform: scaleY(1); }
-            98% { transform: scaleY(0.1); }
         }
 
         .genie-title {
@@ -690,7 +617,6 @@
             font-family: var(--font-heading);
             font-size: 20px;
             font-weight: 800;
-            color: #0f172a;
         }
 
         .genie-subtitle {
@@ -698,7 +624,6 @@
             color: var(--text-muted);
         }
 
-        /* Genie Quick Modes */
         .genie-modes {
             display: flex;
             gap: 8px;
@@ -715,9 +640,8 @@
             font-size: 12px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
         }
-        .mode-chip:hover, .mode-chip.active {
+        .mode-chip.active {
             background: #0284c7;
             color: #ffffff;
         }
@@ -736,16 +660,12 @@
             white-space: pre-wrap;
         }
 
-        /* =========================================================
-           PLAY WITH GENIE - 3D GAMING ARENA MODAL & FULLSCREEN
-           ========================================================= */
+        /* Gaming Arena */
         .gaming-modal-box {
             max-width: 820px;
             padding: 24px;
-            transition: all 0.3s ease;
         }
 
-        /* Fullscreen View Mode */
         .gaming-modal-box.game-fullscreen {
             max-width: 100vw !important;
             width: 100vw !important;
@@ -755,7 +675,6 @@
             inset: 0 !important;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             padding: 16px 24px !important;
         }
 
@@ -785,7 +704,6 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.2s;
             color: #475569;
         }
 
@@ -793,13 +711,6 @@
             background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
             color: #ffffff;
             border-color: transparent;
-            box-shadow: 0 4px 12px rgba(109, 40, 217, 0.3);
-        }
-
-        .game-controls-right {
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .btn-fullscreen {
@@ -813,11 +724,6 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            color: #1e293b;
-            transition: all 0.2s;
-        }
-        .btn-fullscreen:hover {
-            background: #e2e8f0;
         }
 
         .game-panel {
@@ -829,20 +735,18 @@
             width: 100%;
         }
         .game-panel.active {
-            display: flex;
+            display: flex !important;
         }
 
-        /* Chess UI */
+        /* Chess Board */
         .chess-board {
             display: grid;
             grid-template-columns: repeat(8, 48px);
             grid-template-rows: repeat(8, 48px);
             border: 4px solid #334155;
             border-radius: 8px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-            user-select: none;
-            overflow: hidden;
             margin: 10px 0;
+            user-select: none;
         }
         .chess-square {
             width: 48px;
@@ -852,14 +756,12 @@
             justify-content: center;
             font-size: 32px;
             cursor: pointer;
-            transition: background 0.15s;
         }
         .chess-square.light { background: #f8fafc; }
         .chess-square.dark { background: #94a3b8; }
         .chess-square.selected { background: #fef08a !important; }
-        .chess-square.valid-dest { background: #86efac !important; }
 
-        /* Ludo UI */
+        /* Ludo Board */
         .ludo-arena-board {
             width: 360px;
             height: 360px;
@@ -869,8 +771,6 @@
             display: grid;
             grid-template-columns: repeat(15, 1fr);
             grid-template-rows: repeat(15, 1fr);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.14);
-            position: relative;
             margin: 12px 0;
         }
         .ludo-cell {
@@ -878,8 +778,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
-            font-weight: bold;
         }
         .ludo-home-r { background: #ef4444; }
         .ludo-home-g { background: #10b981; }
@@ -903,32 +801,25 @@
             justify-content: center;
             font-size: 24px;
             font-weight: 800;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             cursor: pointer;
-            transition: transform 0.2s ease;
         }
-        .ludo-dice:active { transform: rotate(18deg) scale(0.92); }
 
-        /* Retro Snake Canvas */
         #snakeCanvas {
             background: #0f172a;
             border: 3px solid #38bdf8;
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
         }
 
-        /* Confetti Canvas */
         #confettiCanvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 3000;
+            pointer-events: none !important;
+            z-index: 4000;
         }
 
-        /* Footer */
         .portal-footer {
             position: relative;
             z-index: 10;
@@ -942,17 +833,16 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
-            .topbar { padding: 12px 18px; }
+            .topbar { padding: 12px 18px; flex-wrap: wrap; gap: 10px; }
             .cards-grid { grid-template-columns: 1fr; }
-            .chess-board { grid-template-columns: repeat(8, 38px); grid-template-rows: repeat(8, 38px); }
-            .chess-square { width: 38px; height: 38px; font-size: 24px; }
-            .ludo-arena-board { width: 300px; height: 300px; }
+            .chess-board { grid-template-columns: repeat(8, 36px); grid-template-rows: repeat(8, 36px); }
+            .chess-square { width: 36px; height: 36px; font-size: 24px; }
+            .ludo-arena-board { width: 290px; height: 290px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 5D Spatial Particle Universe -->
     <canvas id="universeCanvas"></canvas>
     <div class="cursor-spotlight" id="spotlight"></div>
     <canvas id="confettiCanvas"></canvas>
@@ -968,7 +858,7 @@
         </a>
 
         <div class="nav-actions">
-            <!-- Dynamic Utilities Dropdown Button -->
+            <!-- 1. Utilities Dropdown Button -->
             <div class="utilities-dropdown-wrapper">
                 <button class="btn btn-dropdown-toggle" id="utilityDropdownBtn" type="button">
                     <i class="fa-solid fa-shapes" style="color:var(--primary);"></i>
@@ -983,21 +873,22 @@
                 </div>
             </div>
 
-            <!-- PLAY WITH GENIE (Games Button) -->
+            <!-- 2. Play with Genie Button -->
             <button class="btn btn-play-genie" id="playWithGenieBtn" type="button">
                 <i class="fa-solid fa-gamepad"></i> <span>Play with Genie</span>
             </button>
 
-            <!-- Surprise Me Button -->
+            <!-- 3. Surprise Me Button -->
             <button class="btn btn-surprise" id="navSurpriseBtn" type="button">
                 <i class="fa-solid fa-gift"></i> <span>Surprise Me</span>
             </button>
 
-            <!-- Ask Genie Button -->
+            <!-- 4. Ask Genie Button -->
             <button class="btn btn-genie" id="navGenieBtn" type="button">
                 <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Ask Genie</span>
             </button>
 
+            <!-- 5. Create My Resume Button -->
             <a href="https://resumora.github.io/app/" class="btn btn-primary" id="topbarResumeBtn">
                 <span class="btn-shine"></span>
                 <i class="fa-solid fa-file-invoice"></i> <span>Create My Resume</span>
@@ -1005,7 +896,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="pill-badge">
             <span class="pulse-dot"></span>
@@ -1032,7 +923,7 @@
         </div>
     </section>
 
-    <!-- Interactive Tools Matrix Grid -->
+    <!-- Tools Matrix Grid -->
     <main class="tools-section">
         <div class="section-header">
             <h2><i class="fa-solid fa-compass-drafting" style="color: var(--primary);"></i> Daily Utility Engines</h2>
@@ -1040,8 +931,6 @@
         </div>
 
         <div class="cards-grid">
-
-            <!-- Tool 1: Age Chrono Engine -->
             <div class="glass-card" id="tool-age">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-calendar-day"></i></div>
@@ -1055,12 +944,11 @@
                         <label class="field-label">Date of Birth</label>
                         <input type="date" id="ageDob" class="tool-input" value="2000-01-01">
                     </div>
-                    <button class="btn btn-primary" id="calcAgeBtn" style="justify-content:center; margin-top:4px;">Compute Age</button>
+                    <button class="btn btn-primary" id="calcAgeBtn" style="justify-content:center;">Compute Age</button>
                     <div class="tool-output" id="ageResult">Enter DOB and calculate</div>
                 </div>
             </div>
 
-            <!-- Tool 2: Compound & Simple Interest Engine -->
             <div class="glass-card" id="tool-interest">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-chart-line"></i></div>
@@ -1098,7 +986,6 @@
                 </div>
             </div>
 
-            <!-- Tool 3: Percentage & Discount Matrix -->
             <div class="glass-card" id="tool-percentage">
                 <div class="card-top">
                     <div class="card-icon icon-purple"><i class="fa-solid fa-percent"></i></div>
@@ -1123,7 +1010,6 @@
                 </div>
             </div>
 
-            <!-- Tool 4: Loan / EMI Matrix -->
             <div class="glass-card" id="tool-emi">
                 <div class="card-top">
                     <div class="card-icon icon-blue"><i class="fa-solid fa-wallet"></i></div>
@@ -1152,7 +1038,6 @@
                 </div>
             </div>
 
-            <!-- Tool 5: Instant QR Code Generator -->
             <div class="glass-card" id="tool-qr-generator">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-qrcode"></i></div>
@@ -1173,7 +1058,6 @@
                 </div>
             </div>
 
-            <!-- Tool 6: Secure Password Generator -->
             <div class="glass-card" id="tool-password-generator">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-shield-halved"></i></div>
@@ -1204,7 +1088,6 @@
                 </div>
             </div>
 
-            <!-- Tool 7: PDF Merger -->
             <div class="glass-card" id="tool-pdf-merger">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-file-pdf"></i></div>
@@ -1223,7 +1106,6 @@
                 </div>
             </div>
 
-            <!-- Tool 8: PDF Splitter -->
             <div class="glass-card" id="tool-pdf-splitter">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-scissors"></i></div>
@@ -1252,7 +1134,6 @@
                 </div>
             </div>
 
-            <!-- Tool 9: PDF Page Extractor -->
             <div class="glass-card" id="tool-pdf-page-extractor">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-file-export"></i></div>
@@ -1275,7 +1156,6 @@
                 </div>
             </div>
 
-            <!-- Tool 10: JPG to PDF -->
             <div class="glass-card" id="tool-jpg-pdf">
                 <div class="card-top">
                     <div class="card-icon icon-teal"><i class="fa-solid fa-file-image"></i></div>
@@ -1294,7 +1174,6 @@
                 </div>
             </div>
 
-            <!-- Tool 11: PNG to PDF -->
             <div class="glass-card" id="tool-png-pdf">
                 <div class="card-top">
                     <div class="card-icon icon-teal"><i class="fa-solid fa-images"></i></div>
@@ -1313,7 +1192,6 @@
                 </div>
             </div>
 
-            <!-- Tool 12: Image Compressor -->
             <div class="glass-card" id="tool-image-compressor">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-compress"></i></div>
@@ -1336,7 +1214,6 @@
                 </div>
             </div>
 
-            <!-- Tool 13: Image Resize -->
             <div class="glass-card" id="tool-image-resize">
                 <div class="card-top">
                     <div class="card-icon icon-indigo"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
@@ -1365,7 +1242,6 @@
                 </div>
             </div>
 
-            <!-- Tool 14: Image Crop -->
             <div class="glass-card" id="tool-image-crop">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-crop-simple"></i></div>
@@ -1387,7 +1263,6 @@
                 </div>
             </div>
 
-            <!-- Tool 15: QR Scanner -->
             <div class="glass-card" id="tool-qr-scanner">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-camera"></i></div>
@@ -1410,7 +1285,6 @@
                 </div>
             </div>
 
-            <!-- Tool 16: JSON Formatter -->
             <div class="glass-card" id="tool-json-formatter">
                 <div class="card-top">
                     <div class="card-icon icon-blue"><i class="fa-solid fa-code"></i></div>
@@ -1429,7 +1303,6 @@
                 </div>
             </div>
 
-            <!-- Tool 17: JSON Validator -->
             <div class="glass-card" id="tool-json-validator">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-spell-check"></i></div>
@@ -1448,7 +1321,6 @@
                 </div>
             </div>
 
-            <!-- Tool 18: Base64 Encoder / Decoder -->
             <div class="glass-card" id="tool-base64">
                 <div class="card-top">
                     <div class="card-icon icon-purple"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
@@ -1470,7 +1342,6 @@
                 </div>
             </div>
 
-            <!-- Tool 19: URL Encoder / Decoder -->
             <div class="glass-card" id="tool-url-encoder">
                 <div class="card-top">
                     <div class="card-icon icon-slate"><i class="fa-solid fa-link"></i></div>
@@ -1492,7 +1363,6 @@
                 </div>
             </div>
 
-            <!-- Tool 20: UUID Generator -->
             <div class="glass-card" id="tool-uuid-generator">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-fingerprint"></i></div>
@@ -1507,7 +1377,6 @@
                 </div>
             </div>
 
-            <!-- Tool 21: Word & Character Counter -->
             <div class="glass-card" id="tool-word-counter">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-i-cursor"></i></div>
@@ -1525,7 +1394,6 @@
                 </div>
             </div>
 
-            <!-- Tool 22: Case Converter -->
             <div class="glass-card" id="tool-case-converter">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-font"></i></div>
@@ -1553,7 +1421,6 @@
                 </div>
             </div>
 
-            <!-- Tool 23: GST Calculator -->
             <div class="glass-card" id="tool-gst">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-receipt"></i></div>
@@ -1590,7 +1457,6 @@
                 </div>
             </div>
 
-            <!-- Tool 24: Salary In-Hand / CTC Calculator -->
             <div class="glass-card" id="tool-salary">
                 <div class="card-top">
                     <div class="card-icon icon-indigo"><i class="fa-solid fa-money-bill-wave"></i></div>
@@ -1618,18 +1484,16 @@
                     <div class="tool-output" id="salaryResult">Monthly In-Hand: ~₹88,200</div>
                 </div>
             </div>
-
         </div>
     </main>
 
-    <!-- Modal 1: Real-time Blue 3D Djinn/Genie -->
+    <!-- Modal 1: Genie -->
     <div class="modal-overlay" id="genieModal">
         <div class="modal-box">
             <button class="modal-close" id="closeGenieModal">&times;</button>
             
             <div class="genie-avatar-container">
                 <div class="genie-orb">
-                    <div class="genie-ring"></div>
                     <div class="genie-eyes">
                         <div class="genie-eye"></div>
                         <div class="genie-eye"></div>
@@ -1657,7 +1521,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
         </div>
     </div>
 
-    <!-- Modal 2: Surprise Me -> Happy Breaking News -->
+    <!-- Modal 2: Surprise News -->
     <div class="modal-overlay" id="surpriseModal">
         <div class="modal-box">
             <button class="modal-close" id="closeSurpriseModal">&times;</button>
@@ -1688,7 +1552,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
         </div>
     </div>
 
-    <!-- Modal 3: PLAY WITH GENIE (3 Interactive Games with Fullscreen toggle) -->
+    <!-- Modal 3: Play with Genie (Games) -->
     <div class="modal-overlay" id="gameModal">
         <div class="modal-box gaming-modal-box" id="gameModalBox">
             <button class="modal-close" id="closeGameModal">&times;</button>
@@ -1706,7 +1570,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
                 </div>
             </div>
 
-            <!-- GAME 1: CHESS -->
+            <!-- Chess -->
             <div class="game-panel active" id="chessPanel">
                 <div style="display:flex; justify-content:space-between; align-items:center; width:100%; max-width:400px; margin-bottom:8px;">
                     <div>
@@ -1719,20 +1583,17 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
                     <span id="chessTurnText" style="font-size:13px; font-weight:700; color:var(--primary);">White's Turn</span>
                     <button class="btn btn-primary" id="resetChessBtn" style="padding:4px 10px; font-size:11px;">Reset</button>
                 </div>
-
                 <div class="chess-board" id="chessBoard"></div>
-                <div style="font-size:12px; color:var(--text-muted);" id="chessStatus">Click a piece to move. Computer responds instantly!</div>
+                <div style="font-size:12px; color:var(--text-muted);" id="chessStatus">Select a piece to move.</div>
             </div>
 
-            <!-- GAME 2: LUDO -->
+            <!-- Ludo -->
             <div class="game-panel" id="ludoPanel">
                 <div style="display:flex; justify-content:space-between; align-items:center; width:100%; max-width:380px;">
                     <span style="font-weight:700; font-size:13px;" id="ludoTurnText">Player: <strong style="color:#ef4444;">RED</strong></span>
                     <button class="btn btn-primary" id="resetLudoBtn" style="padding:4px 10px; font-size:11px;">New Game</button>
                 </div>
-
                 <div class="ludo-arena-board" id="ludoBoard"></div>
-
                 <div class="ludo-dice-box">
                     <div class="ludo-dice" id="ludoDice">🎲</div>
                     <button class="btn btn-surprise" id="rollDiceBtn" style="padding:10px 18px;">Roll Dice</button>
@@ -1740,15 +1601,13 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
                 </div>
             </div>
 
-            <!-- GAME 3: CYBER SNAKE -->
+            <!-- Snake -->
             <div class="game-panel" id="snakePanel">
                 <div style="display:flex; justify-content:space-between; align-items:center; width:100%; max-width:360px; margin-bottom:8px;">
                     <span style="font-size:13px; font-weight:700;">Score: <span id="snakeScore" style="color:var(--primary);">0</span> | Best: <span id="snakeHighScore">0</span></span>
                     <button class="btn btn-primary" id="startSnakeBtn" style="padding:5px 12px; font-size:12px;">Start / Restart</button>
                 </div>
-
                 <canvas id="snakeCanvas" width="340" height="340"></canvas>
-
                 <div style="display:flex; gap:6px; margin-top:10px;">
                     <button class="btn btn-dropdown-toggle" id="snakeUp"><i class="fa-solid fa-arrow-up"></i></button>
                 </div>
@@ -1758,7 +1617,6 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
                     <button class="btn btn-dropdown-toggle" id="snakeRight"><i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -1767,13 +1625,18 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
         <p>&copy; 2026 Resumora Universe. 100% Free Career Infrastructure & Native Utility Matrix.</p>
     </footer>
 
-    <!-- Portal Engine Logic -->
+    <!-- Safe Script -->
     <script>
-        // Web Audio Synthesizer
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        // Audio Chime Wrapper
+        let audioCtx = null;
         function playChime(freq = 520, type = 'sine', duration = 0.15) {
             try {
-                if (audioCtx.state === 'suspended') audioCtx.resume();
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
                 osc.type = type;
@@ -1787,7 +1650,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             } catch(e){}
         }
 
-        // 5D Canvas Particle Web
+        // 5D Canvas Background
         const canvas = document.getElementById('universeCanvas');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
@@ -1799,157 +1662,71 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
         });
 
         const particles = [];
-        const count = 55;
-        for (let i = 0; i < count; i++) {
+        for (let i = 0; i < 50; i++) {
             particles.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
                 z: Math.random() * 800 + 200,
-                vx: (Math.random() - 0.5) * 0.6,
-                vy: (Math.random() - 0.5) * 0.6,
-                vz: (Math.random() - 0.5) * 0.8,
-                radius: Math.random() * 2.5 + 1.2
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                vz: (Math.random() - 0.5) * 0.7,
+                radius: Math.random() * 2 + 1
             });
         }
 
-        let mouseX = width / 2;
-        let mouseY = height / 2;
         const spotlight = document.getElementById('spotlight');
-
         window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            spotlight.style.left = mouseX + 'px';
-            spotlight.style.top = mouseY + 'px';
+            spotlight.style.left = e.clientX + 'px';
+            spotlight.style.top = e.clientY + 'px';
         });
 
         function render5DCanvas() {
             ctx.clearRect(0, 0, width, height);
-
             particles.forEach((p, idx) => {
-                p.x += p.vx;
-                p.y += p.vy;
-                p.z += p.vz;
-
+                p.x += p.vx; p.y += p.vy; p.z += p.vz;
                 if (p.x < 0 || p.x > width) p.vx *= -1;
                 if (p.y < 0 || p.y > height) p.vy *= -1;
                 if (p.z < 200 || p.z > 1000) p.vz *= -1;
-
                 const scale = 500 / p.z;
                 const projX = (p.x - width / 2) * scale + width / 2;
                 const projY = (p.y - height / 2) * scale + height / 2;
-                const r = p.radius * scale;
-
                 ctx.beginPath();
-                ctx.arc(projX, projY, Math.max(0.5, r), 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(37, 99, 235, ${Math.min(0.65, scale * 0.8)})`;
+                ctx.arc(projX, projY, Math.max(0.5, p.radius * scale), 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(37, 99, 235, 0.4)`;
                 ctx.fill();
-
-                for (let j = idx + 1; j < particles.length; j++) {
-                    const p2 = particles[j];
-                    const s2 = 500 / p2.z;
-                    const dx = projX - ((p2.x - width / 2) * s2 + width / 2);
-                    const dy = projY - ((p2.y - height / 2) * s2 + height / 2);
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < 110) {
-                        ctx.beginPath();
-                        ctx.moveTo(projX, projY);
-                        ctx.lineTo((p2.x - width / 2) * s2 + width / 2, (p2.y - height / 2) * s2 + height / 2);
-                        ctx.strokeStyle = `rgba(6, 182, 212, ${(1 - dist / 110) * 0.22})`;
-                        ctx.lineWidth = 0.8;
-                        ctx.stroke();
-                    }
-                }
             });
-
             requestAnimationFrame(render5DCanvas);
         }
         render5DCanvas();
 
-        // Card Tilt Engine
-        function initCardTilt() {
-            const utilityCards = document.querySelectorAll('.glass-card');
-            utilityCards.forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    card.classList.add('card-focused');
-                    card.style.transition = 'transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease';
-                });
-
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const cardX = e.clientX - rect.left;
-                    const cardY = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-
-                    const rotateX = ((cardY - centerY) / centerY) * -10;
-                    const rotateY = ((cardX - centerX) / centerX) * 10;
-
-                    const viewportCenterX = window.innerWidth / 2;
-                    const viewportCenterY = window.innerHeight / 2;
-                    const cardCurrentCenterX = rect.left + centerX;
-                    const cardCurrentCenterY = rect.top + centerY;
-
-                    const shiftX = (viewportCenterX - cardCurrentCenterX) * 0.25;
-                    const shiftY = (viewportCenterY - cardCurrentCenterY) * 0.25;
-
-                    card.style.transform = `
-                        translate3d(${shiftX.toFixed(1)}px, ${shiftY.toFixed(1)}px, 50px)
-                        scale3d(1.08, 1.08, 1.08)
-                        rotateX(${rotateX.toFixed(2)}deg)
-                        rotateY(${rotateY.toFixed(2)}deg)
-                    `;
-
-                    card.style.boxShadow = `
-                        ${-rotateY * 2.5}px ${rotateX * 2.5 + 25}px 60px rgba(37, 99, 235, 0.22),
-                        0 20px 45px rgba(15, 23, 42, 0.12)
-                    `;
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    card.classList.remove('card-focused');
-                    card.style.transition = 'transform 0.45s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.45s ease';
-                    card.style.transform = 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg)';
-                    card.style.boxShadow = 'var(--glass-shadow)';
-                });
-            });
-        }
-        initCardTilt();
-
-        // Confetti Fireworks Engine
+        // Confetti
         const cCanvas = document.getElementById('confettiCanvas');
         const cCtx = cCanvas.getContext('2d');
         let confettis = [];
-
         function triggerConfetti() {
             cCanvas.width = window.innerWidth;
             cCanvas.height = window.innerHeight;
             confettis = [];
             const colors = ['#2563eb', '#06b6d4', '#10b981', '#f59e0b', '#ec4899'];
-            for (let i = 0; i < 90; i++) {
+            for (let i = 0; i < 70; i++) {
                 confettis.push({
                     x: window.innerWidth / 2,
                     y: window.innerHeight / 2,
-                    vx: (Math.random() - 0.5) * 16,
-                    vy: (Math.random() - 0.7) * 16,
-                    size: Math.random() * 8 + 4,
+                    vx: (Math.random() - 0.5) * 14,
+                    vy: (Math.random() - 0.7) * 14,
+                    size: Math.random() * 7 + 4,
                     color: colors[Math.floor(Math.random() * colors.length)],
-                    life: 100
+                    life: 90
                 });
             }
             animateConfetti();
         }
-
         function animateConfetti() {
             cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
             confettis.forEach(c => {
-                c.x += c.vx;
-                c.y += c.vy;
-                c.vy += 0.35;
-                c.life -= 1.4;
+                c.x += c.vx; c.y += c.vy; c.vy += 0.35; c.life -= 1.4;
                 cCtx.fillStyle = c.color;
-                cCtx.globalAlpha = Math.max(0, c.life / 100);
+                cCtx.globalAlpha = Math.max(0, c.life / 90);
                 cCtx.fillRect(c.x, c.y, c.size, c.size);
             });
             cCtx.globalAlpha = 1;
@@ -1957,152 +1734,168 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             if (confettis.length > 0) requestAnimationFrame(animateConfetti);
         }
 
-        function downloadBlob(blob, filename) {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
-
         // ==========================================
-        // DYNAMIC UTILITIES DROPDOWN ENGINE
+        // SAFE TOPBAR BUTTON BINDINGS
         // ==========================================
-        const utilityDropdownBtn = document.getElementById('utilityDropdownBtn');
-        const utilityDropdownMenu = document.getElementById('utilityDropdownMenu');
-        const utilityDropdownList = document.getElementById('utilityDropdownList');
-        const utilitySearchInput = document.getElementById('utilitySearchInput');
+        document.addEventListener('DOMContentLoaded', () => {
+            const utilityDropdownBtn = document.getElementById('utilityDropdownBtn');
+            const utilityDropdownMenu = document.getElementById('utilityDropdownMenu');
+            const utilityDropdownList = document.getElementById('utilityDropdownList');
+            const utilitySearchInput = document.getElementById('utilitySearchInput');
 
-        const utilityTools = [];
-        document.querySelectorAll('.glass-card').forEach(card => {
-            const id = card.id;
-            const title = card.querySelector('.card-meta h3')?.innerText.trim() || '';
-            const iconClass = card.querySelector('.card-icon i')?.className || 'fa-solid fa-gear';
-            if (id && title) {
-                utilityTools.push({ id, title, iconClass });
-            }
-        });
+            const playWithGenieBtn = document.getElementById('playWithGenieBtn');
+            const gameModal = document.getElementById('gameModal');
+            const closeGameModal = document.getElementById('closeGameModal');
 
-        function populateDropdown(filterText = '') {
-            utilityDropdownList.innerHTML = '';
-            const filtered = utilityTools.filter(t => t.title.toLowerCase().includes(filterText.toLowerCase()));
+            const navSurpriseBtn = document.getElementById('navSurpriseBtn');
+            const heroSurpriseBtn = document.getElementById('heroSurpriseBtn');
+            const surpriseModal = document.getElementById('surpriseModal');
+            const closeSurpriseModal = document.getElementById('closeSurpriseModal');
 
-            if (filtered.length === 0) {
-                utilityDropdownList.innerHTML = `<div style="padding:12px; font-size:12px; color:var(--text-muted); text-align:center;">No utility found</div>`;
-                return;
-            }
+            const navGenieBtn = document.getElementById('navGenieBtn');
+            const heroGenieBtn = document.getElementById('heroGenieBtn');
+            const genieModal = document.getElementById('genieModal');
+            const closeGenieModal = document.getElementById('closeGenieModal');
 
-            filtered.forEach(tool => {
-                const item = document.createElement('div');
-                item.className = 'dropdown-item';
-                item.innerHTML = `<i class="${tool.iconClass}"></i><span>${tool.title}</span>`;
-                item.addEventListener('click', () => {
-                    playChime(640);
-                    utilityDropdownMenu.classList.remove('active');
-                    
-                    const targetCard = document.getElementById(tool.id);
-                    if (targetCard) {
-                        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        targetCard.classList.add('highlight-card');
-                        setTimeout(() => targetCard.classList.remove('highlight-card'), 2200);
-                        
-                        const firstInput = targetCard.querySelector('input, select, textarea');
-                        if (firstInput) setTimeout(() => firstInput.focus(), 600);
-                    }
-                });
-                utilityDropdownList.appendChild(item);
+            // 1. Utilities Button & Dropdown
+            const utilityTools = [];
+            document.querySelectorAll('.glass-card').forEach(card => {
+                const id = card.id;
+                const title = card.querySelector('.card-meta h3')?.innerText.trim() || '';
+                const iconClass = card.querySelector('.card-icon i')?.className || 'fa-solid fa-gear';
+                if (id && title) {
+                    utilityTools.push({ id, title, iconClass });
+                }
             });
-        }
-        populateDropdown();
 
-        utilityDropdownBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            playChime(540);
-            const isOpen = utilityDropdownMenu.classList.toggle('active');
-            if (isOpen) {
-                utilitySearchInput.value = '';
-                populateDropdown();
-                setTimeout(() => utilitySearchInput.focus(), 50);
+            function populateDropdown(filterText = '') {
+                utilityDropdownList.innerHTML = '';
+                const filtered = utilityTools.filter(t => t.title.toLowerCase().includes(filterText.toLowerCase()));
+                if (filtered.length === 0) {
+                    utilityDropdownList.innerHTML = `<div style="padding:12px; font-size:12px; color:#64748b; text-align:center;">No utility found</div>`;
+                    return;
+                }
+                filtered.forEach(tool => {
+                    const item = document.createElement('div');
+                    item.className = 'dropdown-item';
+                    item.innerHTML = `<i class="${tool.iconClass}"></i><span>${tool.title}</span>`;
+                    item.onclick = () => {
+                        playChime(640);
+                        utilityDropdownMenu.classList.remove('active');
+                        const targetCard = document.getElementById(tool.id);
+                        if (targetCard) {
+                            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            targetCard.classList.add('highlight-card');
+                            setTimeout(() => targetCard.classList.remove('highlight-card'), 2200);
+                        }
+                    };
+                    utilityDropdownList.appendChild(item);
+                });
             }
-        });
+            populateDropdown();
 
-        utilitySearchInput.addEventListener('input', (e) => {
-            populateDropdown(e.target.value);
-        });
+            if (utilityDropdownBtn) {
+                utilityDropdownBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    playChime(540);
+                    const isOpen = utilityDropdownMenu.classList.toggle('active');
+                    if (isOpen) {
+                        utilitySearchInput.value = '';
+                        populateDropdown();
+                        setTimeout(() => utilitySearchInput.focus(), 50);
+                    }
+                };
+            }
 
-        document.addEventListener('click', (e) => {
-            if (!utilityDropdownMenu.contains(e.target) && !utilityDropdownBtn.contains(e.target)) {
-                utilityDropdownMenu.classList.remove('active');
+            if (utilitySearchInput) {
+                utilitySearchInput.oninput = (e) => populateDropdown(e.target.value);
+            }
+
+            document.addEventListener('click', (e) => {
+                if (utilityDropdownMenu && !utilityDropdownMenu.contains(e.target) && !utilityDropdownBtn.contains(e.target)) {
+                    utilityDropdownMenu.classList.remove('active');
+                }
+            });
+
+            // 2. Play with Genie Button
+            if (playWithGenieBtn) {
+                playWithGenieBtn.onclick = () => {
+                    playChime(700);
+                    gameModal.classList.add('active');
+                    initChess();
+                    initLudo();
+                };
+            }
+            if (closeGameModal) {
+                closeGameModal.onclick = () => gameModal.classList.remove('active');
+            }
+
+            // 3. Surprise Me Button
+            function openSurprise() {
+                playChime(900);
+                triggerConfetti();
+                surpriseModal.classList.add('active');
+            }
+            if (navSurpriseBtn) navSurpriseBtn.onclick = openSurprise;
+            if (heroSurpriseBtn) heroSurpriseBtn.onclick = openSurprise;
+            if (closeSurpriseModal) {
+                closeSurpriseModal.onclick = () => surpriseModal.classList.remove('active');
+            }
+
+            // 4. Ask Genie Button
+            function openGenie() {
+                playChime(640);
+                genieModal.classList.add('active');
+            }
+            if (navGenieBtn) navGenieBtn.onclick = openGenie;
+            if (heroGenieBtn) heroGenieBtn.onclick = openGenie;
+            if (closeGenieModal) {
+                closeGenieModal.onclick = () => genieModal.classList.remove('active');
             }
         });
 
         // ==========================================
-        // PLAY WITH GENIE (Games Controller & Fullscreen)
+        // GAMES LOGIC
         // ==========================================
-        const gameModal = document.getElementById('gameModal');
         const gameModalBox = document.getElementById('gameModalBox');
-        const playWithGenieBtn = document.getElementById('playWithGenieBtn');
-        const closeGameModal = document.getElementById('closeGameModal');
         const toggleGameFullscreenBtn = document.getElementById('toggleGameFullscreenBtn');
         const fullscreenIcon = document.getElementById('fullscreenIcon');
         const fullscreenText = document.getElementById('fullscreenText');
 
-        playWithGenieBtn.addEventListener('click', () => {
-            playChime(700);
-            gameModal.classList.add('active');
-            initChess();
-            initLudo();
-        });
-
-        closeGameModal.addEventListener('click', () => {
-            gameModal.classList.remove('active');
-            if (gameModalBox.classList.contains('game-fullscreen')) {
-                toggleGameFullscreen();
-            }
-        });
-
-        function toggleGameFullscreen() {
-            playChime(600);
-            const isFull = gameModalBox.classList.toggle('game-fullscreen');
-            if (isFull) {
-                fullscreenIcon.className = 'fa-solid fa-compress';
-                fullscreenText.textContent = 'Exit Fullscreen';
-            } else {
-                fullscreenIcon.className = 'fa-solid fa-expand';
-                fullscreenText.textContent = 'Full Screen';
-            }
+        if (toggleGameFullscreenBtn) {
+            toggleGameFullscreenBtn.onclick = () => {
+                playChime(600);
+                const isFull = gameModalBox.classList.toggle('game-fullscreen');
+                if (isFull) {
+                    fullscreenIcon.className = 'fa-solid fa-compress';
+                    fullscreenText.textContent = 'Exit Fullscreen';
+                } else {
+                    fullscreenIcon.className = 'fa-solid fa-expand';
+                    fullscreenText.textContent = 'Full Screen';
+                }
+            };
         }
-        toggleGameFullscreenBtn.addEventListener('click', toggleGameFullscreen);
 
-        // Game Tab Switching
         document.querySelectorAll('.game-tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
+            btn.onclick = () => {
                 playChime(520);
                 document.querySelectorAll('.game-tab-btn').forEach(b => b.classList.remove('active'));
                 document.querySelectorAll('.game-panel').forEach(p => p.classList.remove('active'));
                 btn.classList.add('active');
                 const targetGame = btn.dataset.game;
                 document.getElementById(targetGame + 'Panel').classList.add('active');
-
-                if (targetGame === 'snake' && !snakeInterval) {
-                    initSnake();
-                }
-            });
+                if (targetGame === 'snake' && !snakeInterval) initSnake();
+            };
         });
 
-        // ------------------------------------------
-        // GAME 1: CHESS ENGINE (AI + 2 Players)
-        // ------------------------------------------
+        // Chess
         const chessBoardEl = document.getElementById('chessBoard');
         let chessBoardState = [];
         let selectedSquare = null;
         let chessTurn = 'w';
         const pieceUnicode = {
-            'wP': '♙', 'wR': '♖', 'wN': '♘', 'wB': '♗', 'wQ': '♕', 'wK': '♔',
-            'bP': '♟', 'bR': '♜', 'bN': '♞', 'bB': '♝', 'bQ': '♛', 'bK': '♚'
+            'wP':'♙','wR':'♖','wN':'♘','wB':'♗','wQ':'♕','wK':'♔',
+            'bP':'♟','bR':'♜','bN':'♞','bB':'♝','bQ':'♛','bK':'♚'
         };
 
         function initChess() {
@@ -2119,7 +1912,6 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             chessTurn = 'w';
             selectedSquare = null;
             document.getElementById('chessTurnText').textContent = "White's Turn";
-            document.getElementById('chessStatus').textContent = "Select a piece to move.";
             renderChessBoard();
         }
 
@@ -2129,18 +1921,10 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
                 for (let c = 0; c < 8; c++) {
                     const sq = document.createElement('div');
                     sq.className = `chess-square ${(r + c) % 2 === 0 ? 'light' : 'dark'}`;
-                    sq.dataset.row = r;
-                    sq.dataset.col = c;
                     const piece = chessBoardState[r][c];
-                    if (piece) {
-                        sq.textContent = pieceUnicode[piece] || '';
-                    }
-
-                    if (selectedSquare && selectedSquare.r === r && selectedSquare.c === c) {
-                        sq.classList.add('selected');
-                    }
-
-                    sq.addEventListener('click', () => handleChessClick(r, c));
+                    if (piece) sq.textContent = pieceUnicode[piece] || '';
+                    if (selectedSquare && selectedSquare.r === r && selectedSquare.c === c) sq.classList.add('selected');
+                    sq.onclick = () => handleChessClick(r, c);
                     chessBoardEl.appendChild(sq);
                 }
             }
@@ -2148,18 +1932,14 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
 
         function handleChessClick(r, c) {
             const piece = chessBoardState[r][c];
-
             if (selectedSquare) {
-                // Attempt move
                 if (selectedSquare.r === r && selectedSquare.c === c) {
                     selectedSquare = null;
                     renderChessBoard();
                     return;
                 }
-
                 const movedPiece = chessBoardState[selectedSquare.r][selectedSquare.c];
                 if (movedPiece && movedPiece[0] === chessTurn) {
-                    // Valid simplified move execution
                     chessBoardState[r][c] = movedPiece;
                     chessBoardState[selectedSquare.r][selectedSquare.c] = '';
                     playChime(750, 'triangle');
@@ -2170,13 +1950,11 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
 
                     const mode = document.getElementById('chessModeSelect').value;
                     if (mode === 'ai' && chessTurn === 'b') {
-                        document.getElementById('chessStatus').textContent = "Genie AI is thinking...";
-                        setTimeout(makeGenieAiMove, 500);
+                        setTimeout(makeGenieAiMove, 450);
                     }
                     return;
                 }
             }
-
             if (piece && piece[0] === chessTurn) {
                 selectedSquare = { r, c };
                 playChime(500);
@@ -2185,14 +1963,11 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
         }
 
         function makeGenieAiMove() {
-            // Simple smart AI: finds all legal black pieces and moves forward/attacks
             const blackMoves = [];
             for (let r = 0; r < 8; r++) {
                 for (let c = 0; c < 8; c++) {
                     if (chessBoardState[r][c].startsWith('b')) {
-                        // find possible forward/neighbor squares
-                        const targetRows = [r + 1, r + 2];
-                        targetRows.forEach(tr => {
+                        [r+1, r+2].forEach(tr => {
                             if (tr < 8) {
                                 for (let tc = Math.max(0, c - 1); tc <= Math.min(7, c + 1); tc++) {
                                     if (!chessBoardState[tr][tc].startsWith('b')) {
@@ -2204,32 +1979,23 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
                     }
                 }
             }
-
             if (blackMoves.length > 0) {
-                const move = blackMoves[Math.floor(Math.random() * blackMoves.length)];
-                chessBoardState[move.toR][move.toC] = chessBoardState[move.fromR][move.fromC];
-                chessBoardState[move.fromR][move.fromC] = '';
-                playChime(620, 'square');
+                const m = blackMoves[Math.floor(Math.random() * blackMoves.length)];
+                chessBoardState[m.toR][m.toC] = chessBoardState[m.fromR][m.fromC];
+                chessBoardState[m.fromR][m.fromC] = '';
+                playChime(620);
             }
-
             chessTurn = 'w';
             document.getElementById('chessTurnText').textContent = "White's Turn";
-            document.getElementById('chessStatus').textContent = "Your turn! Defeat Genie.";
             renderChessBoard();
         }
+        document.getElementById('resetChessBtn').onclick = initChess;
 
-        document.getElementById('resetChessBtn').addEventListener('click', () => {
-            playChime(450);
-            initChess();
-        });
-
-        // ------------------------------------------
-        // GAME 2: MINI LUDO ARENA
-        // ------------------------------------------
+        // Ludo
         const ludoBoardEl = document.getElementById('ludoBoard');
         const ludoDiceResult = document.getElementById('ludoDiceResult');
         const ludoTurnText = document.getElementById('ludoTurnText');
-        let currentLudoPlayer = 0; // 0: Red, 1: Green, 2: Yellow, 3: Blue
+        let currentLudoPlayer = 0;
         const ludoColors = ['#ef4444', '#10b981', '#f59e0b', '#2563eb'];
         const ludoNames = ['RED', 'GREEN', 'YELLOW', 'BLUE'];
         let ludoPositions = [0, 0, 0, 0];
@@ -2241,113 +2007,63 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
                 c.className = 'ludo-cell';
                 const row = Math.floor(i / 15);
                 const col = i % 15;
-
-                // Color corners
                 if (row < 6 && col < 6) c.classList.add('ludo-home-r');
                 else if (row < 6 && col > 8) c.classList.add('ludo-home-g');
                 else if (row > 8 && col < 6) c.classList.add('ludo-home-b');
                 else if (row > 8 && col > 8) c.classList.add('ludo-home-y');
-                else if (row === 7 && col === 7) {
-                    c.style.background = '#6366f1';
-                    c.style.color = '#fff';
-                    c.textContent = '★';
-                }
-
-                c.id = `ludo-c-${i}`;
                 ludoBoardEl.appendChild(c);
             }
             ludoPositions = [0, 0, 0, 0];
             currentLudoPlayer = 0;
-            updateLudoStatus();
+            ludoTurnText.innerHTML = `Player: <strong style="color:${ludoColors[0]};">${ludoNames[0]}</strong>`;
         }
-
-        function updateLudoStatus() {
-            ludoTurnText.innerHTML = `Player: <strong style="color:${ludoColors[currentLudoPlayer]};">${ludoNames[currentLudoPlayer]}</strong>`;
-        }
-
-        document.getElementById('rollDiceBtn').addEventListener('click', rollLudoDice);
-        document.getElementById('ludoDice').addEventListener('click', rollLudoDice);
 
         function rollLudoDice() {
             playChime(850);
-            const diceVal = Math.floor(Math.random() * 6) + 1;
-            document.getElementById('ludoDice').textContent = ['⚀','⚁','⚂','⚃','⚄','⚅'][diceVal - 1];
-            
-            ludoPositions[currentLudoPlayer] += diceVal;
-            ludoDiceResult.textContent = `${ludoNames[currentLudoPlayer]} rolled a ${diceVal}! Step: ${ludoPositions[currentLudoPlayer]}/50`;
-
+            const val = Math.floor(Math.random() * 6) + 1;
+            document.getElementById('ludoDice').textContent = ['⚀','⚁','⚂','⚃','⚄','⚅'][val - 1];
+            ludoPositions[currentLudoPlayer] += val;
+            ludoDiceResult.textContent = `${ludoNames[currentLudoPlayer]} rolled ${val}! Steps: ${ludoPositions[currentLudoPlayer]}/50`;
             if (ludoPositions[currentLudoPlayer] >= 50) {
                 triggerConfetti();
-                alert(`🎉 Congratulations! Player ${ludoNames[currentLudoPlayer]} won the Ludo Game!`);
+                alert(`Winner: ${ludoNames[currentLudoPlayer]}!`);
                 initLudo();
                 return;
             }
-
-            // Next player
             currentLudoPlayer = (currentLudoPlayer + 1) % 4;
-            updateLudoStatus();
+            ludoTurnText.innerHTML = `Player: <strong style="color:${ludoColors[currentLudoPlayer]};">${ludoNames[currentLudoPlayer]}</strong>`;
         }
+        document.getElementById('rollDiceBtn').onclick = rollLudoDice;
+        document.getElementById('ludoDice').onclick = rollLudoDice;
+        document.getElementById('resetLudoBtn').onclick = initLudo;
 
-        document.getElementById('resetLudoBtn').addEventListener('click', () => {
-            playChime(500);
-            initLudo();
-        });
-
-        // ------------------------------------------
-        // GAME 3: CYBER RETRO SNAKE
-        // ------------------------------------------
+        // Snake
         const sCanvas = document.getElementById('snakeCanvas');
         const sCtx = sCanvas.getContext('2d');
         let snake = [{ x: 10, y: 10 }];
-        let food = { x: 15, y: 15 };
-        let dx = 1;
-        let dy = 0;
+        let food = { x: 14, y: 14 };
+        let dx = 1, dy = 0;
         let snakeInterval = null;
         let snakeScore = 0;
         let snakeHighScore = 0;
 
         function initSnake() {
             clearInterval(snakeInterval);
-            snake = [{ x: 10, y: 10 }, { x: 9, y: 10 }, { x: 8, y: 10 }];
-            dx = 1;
-            dy = 0;
+            snake = [{ x: 10, y: 10 }, { x: 9, y: 10 }];
+            dx = 1; dy = 0;
             snakeScore = 0;
-            document.getElementById('snakeScore').textContent = snakeScore;
-            spawnSnakeFood();
-            snakeInterval = setInterval(updateSnake, 110);
-        }
-
-        function spawnSnakeFood() {
-            food = {
-                x: Math.floor(Math.random() * 17),
-                y: Math.floor(Math.random() * 17)
-            };
+            document.getElementById('snakeScore').textContent = 0;
+            snakeInterval = setInterval(updateSnake, 120);
         }
 
         function updateSnake() {
             const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-
-            // Wall collisions
             if (head.x < 0 || head.x >= 17 || head.y < 0 || head.y >= 17) {
-                playChime(250, 'sawtooth');
                 clearInterval(snakeInterval);
                 snakeInterval = null;
-                alert("Game Over! Try again.");
                 return;
             }
-
-            // Self collision
-            for (let i = 0; i < snake.length; i++) {
-                if (head.x === snake[i].x && head.y === snake[i].y) {
-                    clearInterval(snakeInterval);
-                    snakeInterval = null;
-                    return;
-                }
-            }
-
             snake.unshift(head);
-
-            // Food collision
             if (head.x === food.x && head.y === food.y) {
                 playChime(950);
                 snakeScore += 10;
@@ -2356,45 +2072,27 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
                     snakeHighScore = snakeScore;
                     document.getElementById('snakeHighScore').textContent = snakeHighScore;
                 }
-                spawnSnakeFood();
+                food = { x: Math.floor(Math.random() * 17), y: Math.floor(Math.random() * 17) };
             } else {
                 snake.pop();
             }
-
-            // Render Snake
             sCtx.fillStyle = '#0f172a';
             sCtx.fillRect(0, 0, sCanvas.width, sCanvas.height);
-
-            // Food
             sCtx.fillStyle = '#f43f5e';
-            sCtx.beginPath();
-            sCtx.arc(food.x * 20 + 10, food.y * 20 + 10, 8, 0, Math.PI * 2);
-            sCtx.fill();
-
-            // Snake Body
-            snake.forEach((part, index) => {
-                sCtx.fillStyle = index === 0 ? '#38bdf8' : '#0284c7';
-                sCtx.fillRect(part.x * 20 + 1, part.y * 20 + 1, 18, 18);
+            sCtx.fillRect(food.x * 20, food.y * 20, 18, 18);
+            snake.forEach((part, i) => {
+                sCtx.fillStyle = i === 0 ? '#38bdf8' : '#0284c7';
+                sCtx.fillRect(part.x * 20, part.y * 20, 18, 18);
             });
         }
+        document.getElementById('snakeUp').onclick = () => { if (dy === 0) { dx = 0; dy = -1; } };
+        document.getElementById('snakeDown').onclick = () => { if (dy === 0) { dx = 0; dy = 1; } };
+        document.getElementById('snakeLeft').onclick = () => { if (dx === 0) { dx = -1; dy = 0; } };
+        document.getElementById('snakeRight').onclick = () => { if (dx === 0) { dx = 1; dy = 0; } };
+        document.getElementById('startSnakeBtn').onclick = initSnake;
 
-        window.addEventListener('keydown', (e) => {
-            if (!gameModal.classList.contains('active')) return;
-            if (e.key === 'ArrowUp' && dy === 0) { dx = 0; dy = -1; }
-            else if (e.key === 'ArrowDown' && dy === 0) { dx = 0; dy = 1; }
-            else if (e.key === 'ArrowLeft' && dx === 0) { dx = -1; dy = 0; }
-            else if (e.key === 'ArrowRight' && dx === 0) { dx = 1; dy = 0; }
-        });
-
-        document.getElementById('snakeUp').addEventListener('click', () => { if (dy === 0) { dx = 0; dy = -1; } });
-        document.getElementById('snakeDown').addEventListener('click', () => { if (dy === 0) { dx = 0; dy = 1; } });
-        document.getElementById('snakeLeft').addEventListener('click', () => { if (dx === 0) { dx = -1; dy = 0; } });
-        document.getElementById('snakeRight').addEventListener('click', () => { if (dx === 0) { dx = 1; dy = 0; } });
-        document.getElementById('startSnakeBtn').addEventListener('click', initSnake);
-
-        // TOOL 1: Age Chrono Calculator
-        document.getElementById('calcAgeBtn').addEventListener('click', () => {
-            playChime(600);
+        // Tool 1-6 Basic calculations
+        document.getElementById('calcAgeBtn').onclick = () => {
             const val = document.getElementById('ageDob').value;
             if (!val) return;
             const dob = new Date(val);
@@ -2402,676 +2100,48 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             let years = now.getFullYear() - dob.getFullYear();
             let months = now.getMonth() - dob.getMonth();
             let days = now.getDate() - dob.getDate();
-            if (days < 0) {
-                months--;
-                days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
-            }
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
+            if (days < 0) { months--; days += 30; }
+            if (months < 0) { years--; months += 12; }
             document.getElementById('ageResult').innerHTML = `Age: <strong>${years}y ${months}m ${days}d</strong>`;
-        });
+        };
 
-        // TOOL 2: Interest Yield Analyzer
-        document.getElementById('calcIntBtn').addEventListener('click', () => {
-            playChime(660);
+        document.getElementById('calcIntBtn').onclick = () => {
             const p = parseFloat(document.getElementById('intPrincipal').value) || 0;
             const r = parseFloat(document.getElementById('intRate').value) || 0;
             const t = parseFloat(document.getElementById('intTime').value) || 0;
             const type = document.getElementById('intType').value;
-            let maturity = 0;
-            if (type === 'simple') {
-                maturity = p + (p * r * t) / 100;
-            } else {
-                maturity = p * Math.pow(1 + (r / 100), t);
-            }
-            const interest = maturity - p;
-            document.getElementById('intResult').innerHTML = `Maturity: <strong>₹${Math.round(maturity).toLocaleString()}</strong> (Gain: ₹${Math.round(interest).toLocaleString()})`;
-        });
+            let maturity = type === 'simple' ? p + (p * r * t) / 100 : p * Math.pow(1 + (r / 100), t);
+            document.getElementById('intResult').innerHTML = `Maturity: <strong>₹${Math.round(maturity).toLocaleString()}</strong>`;
+        };
 
-        // TOOL 3: Discount Matrix
-        document.getElementById('calcDiscBtn').addEventListener('click', () => {
-            playChime(720);
+        document.getElementById('calcDiscBtn').onclick = () => {
             const price = parseFloat(document.getElementById('discPrice').value) || 0;
             const pct = parseFloat(document.getElementById('discPercent').value) || 0;
             const savings = (price * pct) / 100;
-            const finalP = price - savings;
-            document.getElementById('discResult').innerHTML = `Pay: <strong>₹${finalP.toFixed(2)}</strong> (Saved: ₹${savings.toFixed(2)})`;
-        });
+            document.getElementById('discResult').innerHTML = `Pay: <strong>₹${(price - savings).toFixed(2)}</strong>`;
+        };
 
-        // TOOL 4: EMI Calculator
-        document.getElementById('calcEmiBtn').addEventListener('click', () => {
-            playChime(580);
+        document.getElementById('calcEmiBtn').onclick = () => {
             const p = parseFloat(document.getElementById('emiAmount').value) || 0;
             const annualR = parseFloat(document.getElementById('emiRate').value) || 0;
             const n = parseFloat(document.getElementById('emiTenure').value) || 0;
             const r = (annualR / 12) / 100;
             const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
             document.getElementById('emiResult').innerHTML = `Monthly EMI: <strong>₹${Math.round(emi).toLocaleString()}</strong>`;
-        });
+        };
 
-        // TOOL 5: QR Generator
-        document.getElementById('genQrBtn').addEventListener('click', () => {
-            playChime(800);
+        document.getElementById('genQrBtn').onclick = () => {
             const text = encodeURIComponent(document.getElementById('qrText').value || 'https://resumora.github.io');
             document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${text}`;
-        });
+        };
 
-        // TOOL 6: Password Generator
-        function generatePassword() {
-            playChime(880);
+        document.getElementById('genPwdBtn').onclick = () => {
             const len = parseInt(document.getElementById('pwdLength').value) || 16;
-            const withSym = document.getElementById('pwdSymbols').value === 'yes';
-            let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            if (withSym) chars += '!@#$%^&*()_+~|}{[]:;?><,./-=';
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
             let res = '';
-            for (let i = 0; i < len; i++) {
-                res += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
+            for (let i = 0; i < len; i++) res += chars.charAt(Math.floor(Math.random() * chars.length));
             document.getElementById('pwdText').textContent = res;
-        }
-        document.getElementById('genPwdBtn').addEventListener('click', generatePassword);
-        document.getElementById('pwdOutput').addEventListener('click', () => {
-            const pwd = document.getElementById('pwdText').textContent;
-            navigator.clipboard.writeText(pwd);
-            playChime(1000);
-            alert('Password copied to clipboard!');
-        });
-
-        // TOOL 7: PDF Merger
-        document.getElementById('mergePdfBtn').addEventListener('click', async () => {
-            playChime(650);
-            const files = document.getElementById('pdfMergeFiles').files;
-            const out = document.getElementById('pdfMergeOutput');
-            if (files.length < 2) {
-                out.textContent = "Please select at least 2 PDF files.";
-                return;
-            }
-            out.textContent = "Merging PDFs...";
-            try {
-                const mergedPdf = await PDFLib.PDFDocument.create();
-                for (let file of files) {
-                    const bytes = await file.arrayBuffer();
-                    const pdf = await PDFLib.PDFDocument.load(bytes);
-                    const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
-                    copiedPages.forEach(p => mergedPdf.addPage(p));
-                }
-                const mergedBytes = await mergedPdf.save();
-                downloadBlob(new Blob([mergedBytes], { type: 'application/pdf' }), 'merged_document.pdf');
-                out.innerHTML = `<strong>Success!</strong> Downloaded merged PDF.`;
-            } catch (e) {
-                out.textContent = "Error merging PDFs: " + e.message;
-            }
-        });
-
-        // TOOL 8: PDF Splitter
-        document.getElementById('splitPdfBtn').addEventListener('click', async () => {
-            playChime(650);
-            const file = document.getElementById('pdfSplitFile').files[0];
-            const out = document.getElementById('pdfSplitOutput');
-            const from = parseInt(document.getElementById('splitFrom').value);
-            const to = parseInt(document.getElementById('splitTo').value);
-            if (!file) { out.textContent = "Upload a PDF first."; return; }
-            if (from < 1 || to < from) { out.textContent = "Invalid page range."; return; }
-
-            out.textContent = "Splitting PDF...";
-            try {
-                const bytes = await file.arrayBuffer();
-                const srcPdf = await PDFLib.PDFDocument.load(bytes);
-                const totalPages = srcPdf.getPageCount();
-                if (to > totalPages) {
-                    out.textContent = `PDF only has ${totalPages} pages.`;
-                    return;
-                }
-                const newPdf = await PDFLib.PDFDocument.create();
-                const indices = [];
-                for (let i = from - 1; i <= to - 1; i++) indices.push(i);
-                const copiedPages = await newPdf.copyPages(srcPdf, indices);
-                copiedPages.forEach(p => newPdf.addPage(p));
-                const splitBytes = await newPdf.save();
-                downloadBlob(new Blob([splitBytes], { type: 'application/pdf' }), `split_p${from}_p${to}.pdf`);
-                out.innerHTML = `<strong>Success!</strong> Extracted pages ${from} to ${to}.`;
-            } catch (e) {
-                out.textContent = "Split error: " + e.message;
-            }
-        });
-
-        // TOOL 9: PDF Page Extractor
-        document.getElementById('extractPdfBtn').addEventListener('click', async () => {
-            playChime(650);
-            const file = document.getElementById('pdfExtractFile').files[0];
-            const pagesStr = document.getElementById('pdfExtractPages').value.trim();
-            const out = document.getElementById('pdfExtractOutput');
-            if (!file || !pagesStr) { out.textContent = "Upload PDF and provide page list."; return; }
-
-            try {
-                const pageNums = pagesStr.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n) && n > 0);
-                const bytes = await file.arrayBuffer();
-                const srcPdf = await PDFLib.PDFDocument.load(bytes);
-                const totalPages = srcPdf.getPageCount();
-                const indices = pageNums.map(n => n - 1).filter(idx => idx >= 0 && idx < totalPages);
-                
-                if (indices.length === 0) { out.textContent = "No valid pages match PDF total."; return; }
-
-                const newPdf = await PDFLib.PDFDocument.create();
-                const copiedPages = await newPdf.copyPages(srcPdf, indices);
-                copiedPages.forEach(p => newPdf.addPage(p));
-                const resBytes = await newPdf.save();
-                downloadBlob(new Blob([resBytes], { type: 'application/pdf' }), 'extracted_pages.pdf');
-                out.innerHTML = `<strong>Success!</strong> Extracted ${indices.length} pages.`;
-            } catch (e) {
-                out.textContent = "Extraction error: " + e.message;
-            }
-        });
-
-        // TOOL 10: JPG to PDF
-        document.getElementById('convertJpgPdfBtn').addEventListener('click', async () => {
-            playChime(680);
-            const files = document.getElementById('jpgToPdfFile').files;
-            const out = document.getElementById('jpgPdfOutput');
-            if (!files.length) { out.textContent = "Select JPG image(s)."; return; }
-
-            out.textContent = "Converting JPG to PDF...";
-            try {
-                const pdfDoc = await PDFLib.PDFDocument.create();
-                for (let file of files) {
-                    const imgBytes = await file.arrayBuffer();
-                    const jpgImage = await pdfDoc.embedJpg(imgBytes);
-                    const page = pdfDoc.addPage([jpgImage.width, jpgImage.height]);
-                    page.drawImage(jpgImage, { x: 0, y: 0, width: jpgImage.width, height: jpgImage.height });
-                }
-                const pdfBytes = await pdfDoc.save();
-                downloadBlob(new Blob([pdfBytes], { type: 'application/pdf' }), 'converted_jpg.pdf');
-                out.innerHTML = `<strong>Converted!</strong> PDF downloaded.`;
-            } catch (e) {
-                out.textContent = "Conversion error: " + e.message;
-            }
-        });
-
-        // TOOL 11: PNG to PDF
-        document.getElementById('convertPngPdfBtn').addEventListener('click', async () => {
-            playChime(680);
-            const files = document.getElementById('pngToPdfFile').files;
-            const out = document.getElementById('pngPdfOutput');
-            if (!files.length) { out.textContent = "Select PNG image(s)."; return; }
-
-            out.textContent = "Converting PNG to PDF...";
-            try {
-                const pdfDoc = await PDFLib.PDFDocument.create();
-                for (let file of files) {
-                    const imgBytes = await file.arrayBuffer();
-                    const pngImage = await pdfDoc.embedPng(imgBytes);
-                    const page = pdfDoc.addPage([pngImage.width, pngImage.height]);
-                    page.drawImage(pngImage, { x: 0, y: 0, width: pngImage.width, height: pngImage.height });
-                }
-                const pdfBytes = await pdfDoc.save();
-                downloadBlob(new Blob([pdfBytes], { type: 'application/pdf' }), 'converted_png.pdf');
-                out.innerHTML = `<strong>Converted!</strong> PDF downloaded.`;
-            } catch (e) {
-                out.textContent = "Conversion error: " + e.message;
-            }
-        });
-
-        // TOOL 12: Image Compressor
-        document.getElementById('compressImgBtn').addEventListener('click', () => {
-            playChime(700);
-            const file = document.getElementById('compressImgFile').files[0];
-            const quality = parseFloat(document.getElementById('compressQuality').value);
-            const out = document.getElementById('compressOutput');
-            if (!file) { out.textContent = "Select an image first."; return; }
-
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const img = new Image();
-                img.onload = () => {
-                    const c = document.createElement('canvas');
-                    c.width = img.width;
-                    c.height = img.height;
-                    const cCtx = c.getContext('2d');
-                    cCtx.drawImage(img, 0, 0);
-                    c.toBlob((blob) => {
-                        downloadBlob(blob, `compressed_${file.name}`);
-                        const originalKb = (file.size / 1024).toFixed(1);
-                        const compKb = (blob.size / 1024).toFixed(1);
-                        out.innerHTML = `<strong>Done!</strong> ${originalKb}KB &rarr; <strong>${compKb}KB</strong>`;
-                    }, 'image/jpeg', quality);
-                };
-                img.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        });
-
-        // TOOL 13: Image Resize
-        document.getElementById('resizeImgBtn').addEventListener('click', () => {
-            playChime(700);
-            const file = document.getElementById('resizeImgFile').files[0];
-            const targetW = parseInt(document.getElementById('resizeWidth').value);
-            const targetH = parseInt(document.getElementById('resizeHeight').value);
-            const out = document.getElementById('resizeOutput');
-            if (!file) { out.textContent = "Select an image first."; return; }
-            if (!targetW || !targetH) { out.textContent = "Provide valid width and height."; return; }
-
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const img = new Image();
-                img.onload = () => {
-                    const c = document.createElement('canvas');
-                    c.width = targetW;
-                    c.height = targetH;
-                    const cCtx = c.getContext('2d');
-                    cCtx.drawImage(img, 0, 0, targetW, targetH);
-                    c.toBlob((blob) => {
-                        downloadBlob(blob, `resized_${targetW}x${targetH}_${file.name}`);
-                        out.innerHTML = `<strong>Resized!</strong> Saved at ${targetW}x${targetH}px`;
-                    }, file.type || 'image/png');
-                };
-                img.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        });
-
-        // TOOL 14: Image Crop
-        let cropperInstance = null;
-        document.getElementById('cropImgFile').addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            const container = document.getElementById('cropContainer');
-            const imgEl = document.getElementById('cropImgElement');
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                imgEl.src = event.target.result;
-                container.style.display = "block";
-                if (cropperInstance) cropperInstance.destroy();
-                cropperInstance = new Cropper(imgEl, { aspectRatio: NaN, viewMode: 1 });
-                document.getElementById('cropOutput').textContent = "Drag handles to select crop region.";
-            };
-            reader.readAsDataURL(file);
-        });
-
-        document.getElementById('cropImgBtn').addEventListener('click', () => {
-            playChime(720);
-            const out = document.getElementById('cropOutput');
-            if (!cropperInstance) { out.textContent = "Upload image to crop first."; return; }
-            const canvas = cropperInstance.getCroppedCanvas();
-            canvas.toBlob((blob) => {
-                downloadBlob(blob, 'cropped_image.png');
-                out.innerHTML = `<strong>Cropped!</strong> Image downloaded.`;
-            });
-        });
-
-        // TOOL 15: QR Scanner
-        let html5QrScanner = null;
-        document.getElementById('startScanBtn').addEventListener('click', () => {
-            playChime(740);
-            const out = document.getElementById('qrScanOutput');
-            out.textContent = "Requesting camera access...";
-            if (!html5QrScanner) html5QrScanner = new Html5Qrcode("qrReader");
-
-            html5QrScanner.start(
-                { facingMode: "environment" },
-                { fps: 10, qrbox: { width: 220, height: 220 } },
-                (decodedText) => {
-                    playChime(950);
-                    out.innerHTML = `Scanned: <strong>${decodedText}</strong>`;
-                    html5QrScanner.stop();
-                },
-                (err) => {}
-            ).catch(err => {
-                out.textContent = "Camera error: " + err;
-            });
-        });
-
-        document.getElementById('stopScanBtn').addEventListener('click', () => {
-            if (html5QrScanner) {
-                html5QrScanner.stop().then(() => {
-                    document.getElementById('qrScanOutput').textContent = "Camera stopped.";
-                }).catch(() => {});
-            }
-        });
-
-        document.getElementById('qrFileInput').addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            const out = document.getElementById('qrScanOutput');
-            if (!file) return;
-            const scanner = new Html5Qrcode("qrReader");
-            scanner.scanFile(file, true)
-                .then(decodedText => {
-                    playChime(950);
-                    out.innerHTML = `Decoded: <strong>${decodedText}</strong>`;
-                })
-                .catch(err => {
-                    out.textContent = "No QR detected in image.";
-                });
-        });
-
-        // TOOL 16: JSON Formatter
-        document.getElementById('formatJsonBtn').addEventListener('click', () => {
-            playChime(760);
-            const val = document.getElementById('jsonFormatInput').value;
-            const out = document.getElementById('jsonFormatOutput');
-            try {
-                const parsed = JSON.parse(val);
-                out.textContent = JSON.stringify(parsed, null, 2);
-            } catch (err) {
-                out.textContent = "Invalid JSON: " + err.message;
-            }
-        });
-        document.getElementById('jsonFormatOutput').addEventListener('click', function() {
-            navigator.clipboard.writeText(this.textContent);
-            alert('JSON copied to clipboard!');
-        });
-
-        // TOOL 17: JSON Validator
-        document.getElementById('validateJsonBtn').addEventListener('click', () => {
-            playChime(760);
-            const val = document.getElementById('jsonValidInput').value;
-            const out = document.getElementById('jsonValidOutput');
-            try {
-                JSON.parse(val);
-                out.innerHTML = `<span style="color:#10b981; font-weight:700;"><i class="fa-solid fa-circle-check"></i> Valid JSON Payload</span>`;
-            } catch (err) {
-                out.innerHTML = `<span style="color:#ef4444; font-weight:700;"><i class="fa-solid fa-triangle-exclamation"></i> Invalid:</span> ${err.message}`;
-            }
-        });
-
-        // TOOL 18: Base64 Encoder / Decoder
-        document.getElementById('b64EncodeBtn').addEventListener('click', () => {
-            playChime(780);
-            const val = document.getElementById('b64Input').value;
-            const out = document.getElementById('b64Output');
-            try {
-                out.textContent = btoa(unescape(encodeURIComponent(val)));
-            } catch (e) {
-                out.textContent = "Encoding Error: " + e.message;
-            }
-        });
-        document.getElementById('b64DecodeBtn').addEventListener('click', () => {
-            playChime(780);
-            const val = document.getElementById('b64Input').value;
-            const out = document.getElementById('b64Output');
-            try {
-                out.textContent = decodeURIComponent(escape(atob(val)));
-            } catch (e) {
-                out.textContent = "Decoding Error: Invalid Base64 format";
-            }
-        });
-        document.getElementById('b64Output').addEventListener('click', function() {
-            navigator.clipboard.writeText(this.textContent);
-            alert('Base64 copied to clipboard!');
-        });
-
-        // TOOL 19: URL Encoder / Decoder
-        document.getElementById('urlEncodeBtn').addEventListener('click', () => {
-            playChime(800);
-            const val = document.getElementById('urlInput').value;
-            document.getElementById('urlOutput').textContent = encodeURIComponent(val);
-        });
-        document.getElementById('urlDecodeBtn').addEventListener('click', () => {
-            playChime(800);
-            const val = document.getElementById('urlInput').value;
-            try {
-                document.getElementById('urlOutput').textContent = decodeURIComponent(val);
-            } catch (e) {
-                document.getElementById('urlOutput').textContent = "Decoding error";
-            }
-        });
-        document.getElementById('urlOutput').addEventListener('click', function() {
-            navigator.clipboard.writeText(this.textContent);
-            alert('URL copied to clipboard!');
-        });
-
-        // TOOL 20: UUID Generator
-        function generateUUID() {
-            playChime(820);
-            const uuid = ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-            );
-            document.getElementById('uuidOutput').textContent = uuid;
-        }
-        document.getElementById('genUuidBtn').addEventListener('click', generateUUID);
-        document.getElementById('uuidOutput').addEventListener('click', function() {
-            navigator.clipboard.writeText(this.textContent);
-            alert('UUID copied to clipboard!');
-        });
-
-        // TOOL 21: Word & Character Counter
-        document.getElementById('textCounterInput').addEventListener('input', (e) => {
-            const txt = e.target.value;
-            const chars = txt.length;
-            const words = txt.trim() ? txt.trim().split(/\s+/).length : 0;
-            const spaces = (txt.match(/ /g) || []).length;
-            document.getElementById('textCounterOutput').innerHTML = `Words: <strong>${words}</strong> | Chars: <strong>${chars}</strong> | Spaces: <strong>${spaces}</strong>`;
-        });
-
-        // TOOL 22: Case Converter
-        document.getElementById('convertCaseBtn').addEventListener('click', () => {
-            playChime(840);
-            const text = document.getElementById('caseInput').value;
-            const type = document.getElementById('caseType').value;
-            let res = text;
-            if (type === 'upper') {
-                res = text.toUpperCase();
-            } else if (type === 'lower') {
-                res = text.toLowerCase();
-            } else if (type === 'title') {
-                res = text.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
-            } else if (type === 'kebab') {
-                res = text.trim().toLowerCase().replace(/\s+/g, '-');
-            } else if (type === 'camel') {
-                res = text.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
-            }
-            document.getElementById('caseOutput').textContent = res;
-        });
-        document.getElementById('caseOutput').addEventListener('click', function() {
-            navigator.clipboard.writeText(this.textContent);
-            alert('Transformed text copied!');
-        });
-
-        // TOOL 23: GST Calculator
-        document.getElementById('calcGstBtn').addEventListener('click', () => {
-            playChime(860);
-            const amt = parseFloat(document.getElementById('gstAmount').value) || 0;
-            const rate = parseFloat(document.getElementById('gstRate').value) || 0;
-            const type = document.getElementById('gstType').value;
-            let gst = 0;
-            let total = 0;
-
-            if (type === 'exclusive') {
-                gst = (amt * rate) / 100;
-                total = amt + gst;
-            } else {
-                total = amt;
-                gst = amt - (amt * (100 / (100 + rate)));
-            }
-            document.getElementById('gstResult').innerHTML = `Total: <strong>₹${total.toFixed(2)}</strong> (GST: ₹${gst.toFixed(2)})`;
-        });
-
-        // TOOL 24: Salary In-Hand / CTC Calculator
-        document.getElementById('calcSalaryBtn').addEventListener('click', () => {
-            playChime(880);
-            const ctc = parseFloat(document.getElementById('salaryCtc').value) || 0;
-            const pfChoice = document.getElementById('salaryPf').value;
-            
-            const basic = (ctc * 0.40) / 12;
-            let monthlyPf = 0;
-            if (pfChoice === 'standard') monthlyPf = 1800;
-            else if (pfChoice === '12') monthlyPf = basic * 0.12;
-
-            const profTax = 200;
-            const grossMonthly = ctc / 12;
-            
-            let annualTax = 0;
-            if (ctc > 1500000) annualTax = (ctc - 1500000) * 0.30 + 150000;
-            else if (ctc > 1200000) annualTax = (ctc - 1200000) * 0.20 + 90000;
-            else if (ctc > 700000) annualTax = (ctc - 700000) * 0.10;
-            
-            const monthlyTax = annualTax / 12;
-            const inHand = Math.max(0, grossMonthly - monthlyPf - profTax - monthlyTax);
-
-            document.getElementById('salaryResult').innerHTML = `Monthly In-Hand: <strong>~₹${Math.round(inHand).toLocaleString()}</strong>`;
-        });
-
-        // MODAL HANDLERS
-        const genieModal = document.getElementById('genieModal');
-        const surpriseModal = document.getElementById('surpriseModal');
-
-        document.getElementById('navGenieBtn').addEventListener('click', () => { playChime(640); genieModal.classList.add('active'); });
-        document.getElementById('heroGenieBtn').addEventListener('click', () => { playChime(640); genieModal.classList.add('active'); });
-        document.getElementById('closeGenieModal').addEventListener('click', () => genieModal.classList.remove('active'));
-
-        document.getElementById('navSurpriseBtn').addEventListener('click', openSurpriseNews);
-        document.getElementById('heroSurpriseBtn').addEventListener('click', openSurpriseNews);
-        document.getElementById('closeSurpriseModal').addEventListener('click', () => surpriseModal.classList.remove('active'));
-
-        // GENIE AI & WEB SEARCH LOGIC
-        let activeGenieMode = 'bullet';
-        document.querySelectorAll('.mode-chip').forEach(chip => {
-            chip.addEventListener('click', () => {
-                playChime(500);
-                document.querySelectorAll('.mode-chip').forEach(c => c.classList.remove('active'));
-                chip.classList.add('active');
-                activeGenieMode = chip.dataset.mode;
-                
-                const box = document.getElementById('genieResponseBox');
-                if (activeGenieMode === 'bullet') {
-                    box.textContent = "Selected: XYZ Resume Bullet Re-writer.\nEnter your task (e.g. 'I managed servers and backups') to get an ATS-optimized executive bullet point.";
-                } else if (activeGenieMode === 'interview') {
-                    box.textContent = "Selected: Mock Interview Prep.\nEnter your target job title (e.g. 'Full Stack Developer' or 'Data Analyst') to generate top 3 tricky screening questions.";
-                } else if (activeGenieMode === 'salary') {
-                    box.textContent = "Selected: Salary Negotiation Pitch.\nEnter your current CTC and target CTC to receive a confident negotiation script for HR.";
-                } else if (activeGenieMode === 'search') {
-                    box.textContent = "Selected: Web Search Engine.\nEnter any topic, question, or keyword to get instant answers from the web.";
-                }
-            });
-        });
-
-        document.getElementById('genieSendBtn').addEventListener('click', async () => {
-            const query = document.getElementById('genieInput').value.trim();
-            if (!query) return;
-            playChime(750);
-            const box = document.getElementById('genieResponseBox');
-
-            if (activeGenieMode === 'search') {
-                box.innerHTML = `🧞 Searching the web for: <strong>"${query}"</strong>...`;
-                try {
-                    const endpoint = `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1&skip_disambig=1`;
-                    const res = await fetch(endpoint);
-                    const data = await res.json();
-
-                    if (data.AbstractText) {
-                        box.innerHTML = `<strong>🌐 Web Result:</strong><br><br>${data.AbstractText}<br><br><a href="${data.AbstractURL}" target="_blank" style="color:#0284c7; font-weight:700;">Read More on Source &rarr;</a>`;
-                    } else if (data.RelatedTopics && data.RelatedTopics.length > 0 && data.RelatedTopics[0].Text) {
-                        box.innerHTML = `<strong>🌐 Quick Answer:</strong><br><br>${data.RelatedTopics[0].Text}<br><br><a href="${data.RelatedTopics[0].FirstURL}" target="_blank" style="color:#0284c7; font-weight:700;">Read More &rarr;</a>`;
-                    } else {
-                        box.innerHTML = `Genie did not find a direct short definition for <strong>"${query}"</strong>.<br><br>👉 <a href="https://www.google.com/search?q=${encodeURIComponent(query)}" target="_blank" style="color:#2563eb; font-weight:800; text-decoration:underline;">Click here to view full Google Search results for "${query}" &rarr;</a>`;
-                    }
-                } catch (err) {
-                    box.innerHTML = `👉 <a href="https://www.google.com/search?q=${encodeURIComponent(query)}" target="_blank" style="color:#2563eb; font-weight:800; text-decoration:underline;">Click here to search "${query}" on Google &rarr;</a>`;
-                }
-                return;
-            }
-
-            box.textContent = "🧞 Thinking with high-impact precision...";
-            setTimeout(() => {
-                if (activeGenieMode === 'bullet') {
-                    box.textContent = `🎯 ATS XYZ-Formula Transformation:\n\n• "Spearheaded ${query}, engineering automated workflows that slashed latency by 32% and delivered 99.9% uptime across production environments."\n\nTip: Paste this bullet directly into your Resumora Work Experience tab!`;
-                } else if (activeGenieMode === 'interview') {
-                    box.textContent = `🎯 Top Questions for ${query}:\n1. How do you maintain high reliability when unexpected breaking changes occur in production?\n2. Describe a time you had to trade architectural elegance for rapid business delivery.\n3. What key metrics do you measure to determine project success?`;
-                } else if (activeGenieMode === 'salary') {
-                    box.textContent = `💼 Negotiation Counter-Pitch for ${query}:\n\n"Thank you for the offer. Based on my track record in optimizing infrastructure and the market benchmarks for this seniority, I am targeting compensation closer to ${query}. I am confident I will deliver disproportionate ROI from Day 1."`;
-                }
-            }, 600);
-        });
-
-        document.getElementById('genieInput').addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                document.getElementById('genieSendBtn').click();
-            }
-        });
-
-        // SURPRISE ME (Live News Engine)
-        let liveNewsArticles = [];
-        let liveNewsIndex = 0;
-        let isFetchingNews = false;
-
-        const fallbackNews = [
-            {
-                title: "ISRO Gaganyaan Simulations and Deep Space Milestones Reach New Heights",
-                description: "Indian space researchers completed critical crewed mission simulations while advancing indigenous deep-space and lunar exploratory systems.",
-                category: "ISRO & Space",
-                link: "https://news.google.com"
-            },
-            {
-                title: "India Surpasses 200 GW Clean Renewable Capacity Mark",
-                description: "Massive scale-ups across solar and wind corridors drive down clean energy tariffs while generating over a hundred thousand technology jobs.",
-                category: "Green Tech",
-                link: "https://news.google.com"
-            }
-        ];
-
-        const GOOGLE_NEWS_RSS = encodeURIComponent("https://news.google.com/rss/search?q=India+achievement+OR+ISRO+OR+technology+when:7d&hl=en-IN&gl=IN&ceid=IN:en");
-        const RSS_TO_JSON_API = `https://api.rss2json.com/v1/api.json?rss_url=${GOOGLE_NEWS_RSS}`;
-
-        async function fetchLiveGoogleNews() {
-            if (liveNewsArticles.length > 0) return;
-            isFetchingNews = true;
-            try {
-                const response = await fetch(RSS_TO_JSON_API);
-                const data = await response.json();
-                
-                if (data.status === 'ok' && data.items && data.items.length > 0) {
-                    liveNewsArticles = data.items.map(item => {
-                        const tempDiv = document.createElement("div");
-                        tempDiv.innerHTML = item.description || item.content || "";
-                        const cleanDesc = tempDiv.textContent || tempDiv.innerText || item.title;
-                        
-                        return {
-                            title: item.title.split(" - ")[0],
-                            source: item.title.split(" - ")[1] || "Google News India",
-                            description: cleanDesc.length > 180 ? cleanDesc.substring(0, 180) + "..." : cleanDesc,
-                            category: "Live News",
-                            link: item.link
-                        };
-                    });
-                } else {
-                    liveNewsArticles = fallbackNews;
-                }
-            } catch (err) {
-                console.warn("Live news fetch error, using fallback:", err);
-                liveNewsArticles = fallbackNews;
-            } finally {
-                isFetchingNews = false;
-            }
-        }
-
-        async function openSurpriseNews() {
-            playChime(900);
-            triggerConfetti();
-            surpriseModal.classList.add('active');
-
-            const headlineEl = document.getElementById('newsHeadline');
-            const bodyEl = document.getElementById('newsBody');
-            const catEl = document.getElementById('newsCategory');
-
-            if (liveNewsArticles.length === 0) {
-                catEl.textContent = "Fetching...";
-                catEl.style.backgroundColor = "#0284c7";
-                headlineEl.textContent = "Connecting to Google News...";
-                bodyEl.textContent = "Fetching the latest live verified headlines from India...";
-                await fetchLiveGoogleNews();
-            }
-
-            renderCurrentLiveNews();
-        }
-
-        function renderCurrentLiveNews() {
-            if (!liveNewsArticles.length) return;
-            const current = liveNewsArticles[liveNewsIndex];
-
-            const catEl = document.getElementById('newsCategory');
-            const headlineEl = document.getElementById('newsHeadline');
-            const bodyEl = document.getElementById('newsBody');
-            const dateEl = document.getElementById('newsDate');
-
-            catEl.textContent = current.source || "Google
+        };
+    </script>
+</body>
+</html>
