@@ -95,70 +95,73 @@
             --indigo-accent: #4f46e5;
             --text-main: #0f172a;
             --text-muted: #64748b;
-            --glass-bg: rgba(255, 255, 255, 0.90);
+            --glass-bg: rgba(255, 255, 255, 0.88);
             --glass-border: rgba(226, 232, 240, 0.85);
             --glass-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
             --font-heading: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
+            --topbar-bg: rgba(255, 255, 255, 0.86);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* BUTTERY SMOOTH DISSOLVING BACKGROUND */
+        /* STEP-BY-STEP AMBIENT COLOR DISSOLVE BACKGROUND */
         body {
             color: var(--text-main);
             font-family: var(--font-body);
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
-            background: linear-gradient(130deg, #f8fafc, #eff6ff, #f0fdfa, #fdf4ff, #f8fafc);
-            background-size: 350% 350%;
-            animation: gradientDissolve 18s ease-in-out infinite;
+            background-color: var(--bg-page);
+            transition: color 0.4s ease, background-color 0.4s ease;
         }
 
-        @keyframes gradientDissolve {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* AMBIENT GLOW ORBS FOR LUXURY DEPTH */
-        .ambient-orb {
+        /* DUAL LAYER COLOR DISSOLVER */
+        .color-stage-canvas {
             position: fixed;
-            border-radius: 50%;
-            filter: blur(90px);
+            inset: 0;
             pointer-events: none !important;
             z-index: 0;
-            opacity: 0.55;
-            animation: orbFloat 22s ease-in-out infinite alternate;
+            overflow: hidden;
         }
 
-        .ambient-orb-1 {
-            width: 520px; height: 520px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.22), transparent 70%);
-            top: -100px; left: -100px;
+        .dissolve-layer {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            filter: blur(80px);
+            transition: opacity 2.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1.1);
         }
 
-        .ambient-orb-2 {
-            width: 480px; height: 480px;
-            background: radial-gradient(circle, rgba(13, 148, 136, 0.20), transparent 70%);
-            bottom: 5%; right: -80px;
-            animation-duration: 26s;
-            animation-direction: alternate-reverse;
+        .dissolve-layer.active {
+            opacity: 0.65;
         }
 
-        .ambient-orb-3 {
-            width: 450px; height: 450px;
-            background: radial-gradient(circle, rgba(168, 85, 247, 0.16), transparent 70%);
-            top: 45%; left: 30%;
-            animation-duration: 20s;
+        /* 4 DISTINCT COLOR STAGES */
+        .stage-blue {
+            background: radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.35), transparent 50%),
+                        radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.28), transparent 55%),
+                        radial-gradient(circle at 50% 50%, rgba(219, 234, 254, 0.5), transparent 60%);
         }
 
-        @keyframes orbFloat {
-            0% { transform: translate(0px, 0px) scale(1); }
-            50% { transform: translate(60px, 40px) scale(1.08); }
-            100% { transform: translate(-40px, 80px) scale(0.95); }
+        .stage-mint {
+            background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.32), transparent 50%),
+                        radial-gradient(circle at 20% 85%, rgba(13, 148, 136, 0.30), transparent 55%),
+                        radial-gradient(circle at 50% 40%, rgba(204, 251, 241, 0.5), transparent 60%);
+        }
+
+        .stage-purple {
+            background: radial-gradient(circle at 25% 75%, rgba(147, 51, 234, 0.32), transparent 50%),
+                        radial-gradient(circle at 75% 25%, rgba(79, 70, 229, 0.30), transparent 55%),
+                        radial-gradient(circle at 50% 50%, rgba(243, 232, 255, 0.5), transparent 60%);
+        }
+
+        .stage-sunset {
+            background: radial-gradient(circle at 70% 70%, rgba(244, 63, 94, 0.28), transparent 50%),
+                        radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.30), transparent 55%),
+                        radial-gradient(circle at 50% 50%, rgba(254, 242, 242, 0.5), transparent 60%);
         }
 
         #universeCanvas {
@@ -171,27 +174,29 @@
 
         .cursor-spotlight {
             position: fixed;
-            width: 500px; height: 500px;
+            width: 520px; height: 520px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, rgba(6, 182, 212, 0.03) 50%, transparent 70%);
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(6, 182, 212, 0.03) 50%, transparent 70%);
             pointer-events: none !important;
             transform: translate(-50%, -50%);
             z-index: 2;
         }
 
-        /* HIGH-CONVERTING CLEAN TOPBAR */
+        /* TOPBAR NAVIGATION */
         .topbar {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.88);
+            background: var(--topbar-bg);
             backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border-bottom: 1px solid var(--glass-border);
             padding: 11px 32px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .brand-container {
@@ -213,6 +218,11 @@
             font-size: 19px;
             font-weight: 800;
             font-family: var(--font-heading);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .brand-logo-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
         }
 
         .brand-title {
@@ -240,32 +250,37 @@
             position: relative;
         }
 
+        /* ================= BASE BUTTONS WITH HIGH-GLOW HOVER ================= */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 9px 16px;
-            border-radius: 10px;
+            border-radius: 11px;
             font-family: var(--font-heading);
             font-size: 13px;
             font-weight: 700;
             cursor: pointer;
             text-decoration: none;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid transparent;
             outline: none;
+            position: relative;
         }
 
+        /* UTILITIES BUTTON + GLOW */
         .btn-dropdown-toggle {
             background: rgba(255, 255, 255, 0.95);
             color: #334155;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+            border-color: #cbd5e1;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
         }
         .btn-dropdown-toggle:hover {
             background: #ffffff;
-            border-color: #cbd5e1;
             color: var(--primary);
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 0 18px rgba(37, 99, 235, 0.35), 0 4px 12px rgba(37, 99, 235, 0.15);
         }
 
         .utilities-dropdown-wrapper { position: relative; }
@@ -323,20 +338,19 @@
             color: var(--primary);
         }
 
-        /* 1. HIGH-CTR VISA BUTTON (Glowing pulse tag) */
+        /* 1. STUDY & VISA HUB + GLOW */
         .btn-visa-pro {
             background: rgba(240, 253, 250, 0.95);
             color: #0d9488;
-            border: 1px solid #99f6e4;
+            border-color: #99f6e4;
             box-shadow: 0 2px 8px rgba(13, 148, 136, 0.1);
-            position: relative;
         }
         .btn-visa-pro:hover {
             background: #ccfbf1;
-            border-color: #5eead4;
+            border-color: #14b8a6;
             color: #0f766e;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 14px rgba(13, 148, 136, 0.22);
+            transform: translateY(-2px);
+            box-shadow: 0 0 24px rgba(20, 184, 166, 0.55), 0 6px 16px rgba(13, 148, 136, 0.25);
         }
 
         .live-chip-badge {
@@ -353,38 +367,38 @@
             gap: 4px;
         }
 
-        /* 2. HIGH-CTR ATS CHECKER BUTTON */
+        /* 2. ATS RESUME CHECKER + GLOW */
         .btn-ats-check {
             background: rgba(239, 246, 255, 0.95);
             color: #1d4ed8;
-            border: 1px solid #bfdbfe;
+            border-color: #bfdbfe;
             box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
         }
         .btn-ats-check:hover {
             background: #dbeafe;
-            border-color: #93c5fd;
+            border-color: #60a5fa;
             color: #1e40af;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 0 22px rgba(59, 130, 246, 0.55), 0 6px 16px rgba(37, 99, 235, 0.22);
         }
 
-        /* 3. PRIMARY CTA RESUME BUTTON */
+        /* 3. PRIMARY CTA RESUME BUTTON + HIGH SHINE GLOW */
         .btn-primary {
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
             color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
-            position: relative;
             overflow: hidden;
         }
         .btn-primary:hover {
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.55);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 0 28px rgba(37, 99, 235, 0.8), 0 0 12px rgba(6, 182, 212, 0.6);
         }
 
         .btn-shine {
             position: absolute;
             top: 0; left: -100%; width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
             transform: skewX(-20deg);
             animation: btn-shine-sweep 3.5s infinite ease-in-out;
         }
@@ -394,6 +408,214 @@
             100% { left: 160%; }
         }
 
+        /* 4. TRAN MAU TRI TAM STYLE FROSTED GLASS THEME TOGGLE */
+        .glass-theme-btn {
+            position: relative;
+            width: 42px;
+            height: 38px;
+            border-radius: 11px;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            font-size: 15px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            outline: none;
+            overflow: hidden;
+        }
+
+        .glass-theme-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 11px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.05) 100%);
+            pointer-events: none;
+        }
+
+        .glass-theme-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            background: rgba(255, 255, 255, 0.85);
+            border-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.6), inset 0 1px 2px rgba(255, 255, 255, 1);
+            color: #0284c7;
+        }
+
+        .glass-theme-btn:active {
+            transform: translateY(0) scale(0.96);
+        }
+
+        /* ================= DARK MODE COLOR SYSTEM ================= */
+        body.dark-mode {
+            --bg-page: #070b14;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(15, 23, 42, 0.82);
+            --glass-border: rgba(51, 65, 85, 0.7);
+            --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --topbar-bg: rgba(11, 17, 32, 0.88);
+        }
+
+        body.dark-mode .dissolve-layer {
+            filter: blur(100px);
+        }
+        body.dark-mode .stage-blue {
+            background: radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.25), transparent 50%),
+                        radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.18), transparent 55%),
+                        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8), transparent 60%);
+        }
+        body.dark-mode .stage-mint {
+            background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.22), transparent 50%),
+                        radial-gradient(circle at 20% 85%, rgba(13, 148, 136, 0.20), transparent 55%),
+                        radial-gradient(circle at 50% 40%, rgba(15, 23, 42, 0.8), transparent 60%);
+        }
+        body.dark-mode .stage-purple {
+            background: radial-gradient(circle at 25% 75%, rgba(147, 51, 234, 0.24), transparent 50%),
+                        radial-gradient(circle at 75% 25%, rgba(79, 70, 229, 0.22), transparent 55%),
+                        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8), transparent 60%);
+        }
+        body.dark-mode .stage-sunset {
+            background: radial-gradient(circle at 70% 70%, rgba(244, 63, 94, 0.22), transparent 50%),
+                        radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.20), transparent 55%),
+                        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8), transparent 60%);
+        }
+
+        body.dark-mode .brand-title {
+            background: linear-gradient(135deg, #ffffff 40%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.dark-mode .btn-dropdown-toggle {
+            background: rgba(30, 41, 59, 0.85);
+            color: #e2e8f0;
+            border-color: rgba(71, 85, 105, 0.6);
+        }
+        body.dark-mode .btn-dropdown-toggle:hover {
+            background: rgba(30, 41, 59, 1);
+            color: #60a5fa;
+            border-color: #60a5fa;
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+        }
+
+        body.dark-mode .btn-visa-pro {
+            background: rgba(19, 78, 74, 0.35);
+            color: #2dd4bf;
+            border-color: rgba(45, 212, 191, 0.4);
+        }
+        body.dark-mode .btn-visa-pro:hover {
+            box-shadow: 0 0 24px rgba(45, 212, 191, 0.6);
+            border-color: #2dd4bf;
+        }
+
+        body.dark-mode .btn-ats-check {
+            background: rgba(30, 58, 138, 0.35);
+            color: #93c5fd;
+            border-color: rgba(147, 197, 253, 0.4);
+        }
+        body.dark-mode .btn-ats-check:hover {
+            box-shadow: 0 0 24px rgba(147, 197, 253, 0.6);
+            border-color: #93c5fd;
+        }
+
+        body.dark-mode .glass-theme-btn {
+            background: rgba(30, 41, 59, 0.65);
+            border-color: rgba(255, 255, 255, 0.18);
+            color: #facc15;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+        }
+        body.dark-mode .glass-theme-btn:hover {
+            box-shadow: 0 0 22px rgba(250, 204, 21, 0.65);
+            color: #fef08a;
+        }
+
+        body.dark-mode .pill-badge {
+            background: rgba(15, 23, 42, 0.85);
+            border-color: rgba(51, 65, 85, 0.8);
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .hero h1 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .glass-card {
+            background: var(--glass-bg);
+            border-color: var(--glass-border);
+        }
+
+        body.dark-mode .tool-input,
+        body.dark-mode .tool-select,
+        body.dark-mode .tool-textarea {
+            background: #0f172a;
+            border-color: #334155;
+            color: #f8fafc;
+        }
+
+        body.dark-mode .tool-output {
+            background: rgba(15, 23, 42, 0.7);
+            border-color: #334155;
+            color: #f8fafc;
+        }
+
+        body.dark-mode .seo-content-block {
+            background: rgba(15, 23, 42, 0.85);
+            border-color: rgba(51, 65, 85, 0.8);
+        }
+        body.dark-mode .seo-content-block h2 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .faq-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-color: #334155;
+        }
+        body.dark-mode .faq-card h4 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .modal-box {
+            background: #0f172a;
+            color: #f8fafc;
+            border-color: #334155;
+        }
+        body.dark-mode .modal-close {
+            background: #1e293b;
+            color: #94a3b8;
+        }
+        body.dark-mode .modal-close:hover {
+            background: #334155;
+            color: #ffffff;
+        }
+
+        body.dark-mode .visa-card-body {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        body.dark-mode .cost-table th {
+            background: #0f172a;
+            color: #cbd5e1;
+        }
+        body.dark-mode .cost-table td {
+            border-bottom-color: #334155;
+        }
+        body.dark-mode .country-btn {
+            background: #0f172a;
+            color: #cbd5e1;
+            border-color: #334155;
+        }
+        body.dark-mode .portal-footer {
+            background: rgba(11, 17, 32, 0.9);
+            border-color: rgba(51, 65, 85, 0.8);
+        }
+
+        /* HERO & MATRIX SECTION */
         .hero {
             position: relative;
             z-index: 10;
@@ -415,6 +637,7 @@
             box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
             margin-bottom: 20px;
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
 
         .pulse-dot {
@@ -438,6 +661,7 @@
             letter-spacing: -1.2px;
             margin-bottom: 16px;
             color: #0f172a;
+            transition: color 0.3s ease;
         }
 
         .hero h1 span.gradient-text {
@@ -510,8 +734,8 @@
 
         .glass-card:hover {
             border-color: #3b82f6;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15), 0 0 20px rgba(6, 182, 212, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.16), 0 0 20px rgba(6, 182, 212, 0.12);
         }
 
         .glass-card.highlight-card {
@@ -903,7 +1127,7 @@
             position: relative;
             z-index: 10;
             border-top: 1px solid var(--glass-border);
-            background: rgba(255, 255, 255, 0.94);
+            background: rgba(255, 255, 255, 0.92);
             padding: 24px;
             text-align: center;
             font-size: 12.5px;
@@ -922,10 +1146,13 @@
 </head>
 <body>
 
-    <!-- Smooth Dissolving Ambient Orbs -->
-    <div class="ambient-orb ambient-orb-1"></div>
-    <div class="ambient-orb ambient-orb-2"></div>
-    <div class="ambient-orb ambient-orb-3"></div>
+    <!-- DYNAMIC DISSOLVING COLOR LAYERS -->
+    <div class="color-stage-canvas">
+        <div class="dissolve-layer stage-blue active" id="layerBlue"></div>
+        <div class="dissolve-layer stage-mint" id="layerMint"></div>
+        <div class="dissolve-layer stage-purple" id="layerPurple"></div>
+        <div class="dissolve-layer stage-sunset" id="layerSunset"></div>
+    </div>
 
     <canvas id="universeCanvas"></canvas>
     <div class="cursor-spotlight" id="spotlight"></div>
@@ -970,7 +1197,12 @@
                 <span>ATS Score Check</span>
             </button>
 
-            <!-- 4. PRIMARY CONVERSION CTA -->
+            <!-- 4. DRIBBLE-GRADE GLASS THEME TOGGLE (Dark/White Mode) -->
+            <button class="glass-theme-btn" id="themeToggleBtn" type="button" title="Toggle Dark/Light Mode">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+
+            <!-- 5. PRIMARY CONVERSION CTA -->
             <a href="app/index.html" class="btn btn-primary" id="topbarResumeBtn">
                 <span class="btn-shine"></span>
                 <i class="fa-solid fa-file-invoice"></i> <span>Create My Resume (Free)</span>
@@ -1738,6 +1970,42 @@
             } catch(e){}
         }
 
+        // ================= STEP-BY-STEP COLOR DISSOLVER ENGINE =================
+        const layers = [
+            document.getElementById('layerBlue'),
+            document.getElementById('layerMint'),
+            document.getElementById('layerPurple'),
+            document.getElementById('layerSunset')
+        ];
+        let currentLayerIndex = 0;
+
+        function cycleDissolveColor() {
+            layers[currentLayerIndex].classList.remove('active');
+            currentLayerIndex = (currentLayerIndex + 1) % layers.length;
+            layers[currentLayerIndex].classList.add('active');
+        }
+        // Change, dissolve and hold every 6.5 seconds smoothly
+        setInterval(cycleDissolveColor, 6500);
+
+        // ================= DARK/WHITE MODE GLASS TOGGLE =================
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+        }
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                playChime(680);
+                document.body.classList.toggle('dark-mode');
+                const isDark = document.body.classList.contains('dark-mode');
+                themeIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+        }
+
         // Background particles
         const canvas = document.getElementById('universeCanvas');
         const ctx = canvas.getContext('2d');
@@ -1976,10 +2244,10 @@
                 <div class="visa-card-body">
                     <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
                         <div>
-                            <h4 style="font-size:18px; font-weight:800; color:#0f172a; display:flex; align-items:center; gap:8px;">
+                            <h4 style="font-size:18px; font-weight:800; color:var(--text-main); display:flex; align-items:center; gap:8px;">
                                 <span>${data.flag}</span> <span>${data.title}</span>
                             </h4>
-                            <span style="font-size:12px; color:#64748b; font-weight:600;">Main Visa: ${data.visaType}</span>
+                            <span style="font-size:12px; color:var(--text-muted); font-weight:600;">Main Visa: ${data.visaType}</span>
                         </div>
                         <span style="background:#e0f2fe; color:#0369a1; font-size:11px; font-weight:700; padding:4px 10px; border-radius:12px;">
                             ${data.intakes}
@@ -2009,7 +2277,7 @@
                     </table>
 
                     <div class="visa-section-title"><i class="fa-solid fa-route" style="color:var(--primary);"></i> Pathway to Work & PR / Settlement</div>
-                    <p style="font-size:12.5px; color:#334155; line-height:1.5; background:#fff; padding:10px 14px; border-radius:8px; border:1px solid #e2e8f0;">
+                    <p style="font-size:12.5px; color:var(--text-main); line-height:1.5; background:var(--glass-bg); padding:10px 14px; border-radius:8px; border:1px solid var(--glass-border);">
                         ${data.routes}
                     </p>
 
@@ -2582,14 +2850,4 @@
         document.getElementById('calcSalaryBtn').onclick = () => {
             playChime(500);
             const ctc = parseFloat(document.getElementById('salaryCtc').value) || 0;
-            const pfType = document.getElementById('salaryPf').value;
-            const monthlyGross = ctc / 12;
-            let pf = 1800;
-            if (pfType === '12') pf = (monthlyGross * 0.5) * 0.12;
-            else if (pfType === '0') pf = 0;
-            const inHand = monthlyGross - pf - 200;
-            document.getElementById('salaryResult').innerHTML = `Monthly In-Hand: ~<strong>₹${Math.round(inHand).toLocaleString()}</strong>`;
-        };
-    </script>
-</body>
-</html>
+            const pfType = document.getElementById('salaryPf').
