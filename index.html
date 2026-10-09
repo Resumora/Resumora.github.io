@@ -25,12 +25,6 @@
     <meta property="og:description" content="Instant zero-cost utilities, free ATS checker, live study abroad visa procedures, cost breakdown, and recruiter-approved ATS resumes.">
     <meta property="og:site_name" content="Resumora">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://resumora.github.io/">
-    <meta property="twitter:title" content="Resumora Universe - Free ATS Resume Builder & Global Visa Portal">
-    <meta property="twitter:description" content="Create ATS resumes, explore live abroad study pathways, and run fast calculators right in your browser.">
-
     <!-- Schema.org WebApplication & FAQPage -->
     <script type="application/ld+json">
     {
@@ -101,12 +95,11 @@
             --font-heading: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
-            --topbar-bg: rgba(255, 255, 255, 0.86);
+            --topbar-bg: rgba(255, 255, 255, 0.88);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* STEP-BY-STEP AMBIENT COLOR DISSOLVE BACKGROUND */
         body {
             color: var(--text-main);
             font-family: var(--font-body);
@@ -114,13 +107,14 @@
             position: relative;
             min-height: 100vh;
             background-color: var(--bg-page);
-            transition: color 0.4s ease, background-color 0.4s ease;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* DUAL LAYER COLOR DISSOLVER */
+        /* 100% CLICK-THROUGH DISSOLVING COLOR ENGINE */
         .color-stage-canvas {
             position: fixed;
-            inset: 0;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             pointer-events: none !important;
             z-index: 0;
             overflow: hidden;
@@ -130,38 +124,38 @@
             position: absolute;
             inset: 0;
             opacity: 0;
-            filter: blur(80px);
-            transition: opacity 2.8s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scale(1.1);
+            filter: blur(85px);
+            transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1.15);
+            pointer-events: none !important;
         }
 
         .dissolve-layer.active {
-            opacity: 0.65;
+            opacity: 0.72;
         }
 
-        /* 4 DISTINCT COLOR STAGES */
         .stage-blue {
-            background: radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.35), transparent 50%),
-                        radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.28), transparent 55%),
-                        radial-gradient(circle at 50% 50%, rgba(219, 234, 254, 0.5), transparent 60%);
+            background: radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.4), transparent 50%),
+                        radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.35), transparent 55%),
+                        radial-gradient(circle at 50% 50%, rgba(219, 234, 254, 0.6), transparent 60%);
         }
 
         .stage-mint {
-            background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.32), transparent 50%),
-                        radial-gradient(circle at 20% 85%, rgba(13, 148, 136, 0.30), transparent 55%),
-                        radial-gradient(circle at 50% 40%, rgba(204, 251, 241, 0.5), transparent 60%);
+            background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.38), transparent 50%),
+                        radial-gradient(circle at 20% 85%, rgba(13, 148, 136, 0.35), transparent 55%),
+                        radial-gradient(circle at 50% 40%, rgba(204, 251, 241, 0.6), transparent 60%);
         }
 
         .stage-purple {
-            background: radial-gradient(circle at 25% 75%, rgba(147, 51, 234, 0.32), transparent 50%),
-                        radial-gradient(circle at 75% 25%, rgba(79, 70, 229, 0.30), transparent 55%),
-                        radial-gradient(circle at 50% 50%, rgba(243, 232, 255, 0.5), transparent 60%);
+            background: radial-gradient(circle at 25% 75%, rgba(147, 51, 234, 0.38), transparent 50%),
+                        radial-gradient(circle at 75% 25%, rgba(79, 70, 229, 0.35), transparent 55%),
+                        radial-gradient(circle at 50% 50%, rgba(243, 232, 255, 0.6), transparent 60%);
         }
 
         .stage-sunset {
-            background: radial-gradient(circle at 70% 70%, rgba(244, 63, 94, 0.28), transparent 50%),
-                        radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.30), transparent 55%),
-                        radial-gradient(circle at 50% 50%, rgba(254, 242, 242, 0.5), transparent 60%);
+            background: radial-gradient(circle at 70% 70%, rgba(244, 63, 94, 0.35), transparent 50%),
+                        radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.35), transparent 55%),
+                        radial-gradient(circle at 50% 50%, rgba(254, 242, 242, 0.6), transparent 60%);
         }
 
         #universeCanvas {
@@ -174,7 +168,7 @@
 
         .cursor-spotlight {
             position: fixed;
-            width: 520px; height: 520px;
+            width: 500px; height: 500px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(6, 182, 212, 0.03) 50%, transparent 70%);
             pointer-events: none !important;
@@ -182,11 +176,11 @@
             z-index: 2;
         }
 
-        /* TOPBAR NAVIGATION */
+        /* TOPBAR */
         .topbar {
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 1100;
             background: var(--topbar-bg);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
@@ -196,7 +190,6 @@
             align-items: center;
             justify-content: space-between;
             box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
-            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .brand-container {
@@ -204,6 +197,8 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            cursor: pointer;
+            z-index: 10;
         }
 
         .brand-logo-badge {
@@ -218,11 +213,11 @@
             font-size: 19px;
             font-weight: 800;
             font-family: var(--font-heading);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: all 0.25s ease;
         }
         .brand-logo-badge:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
         }
 
         .brand-title {
@@ -247,10 +242,10 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            position: relative;
+            z-index: 1100;
         }
 
-        /* ================= BASE BUTTONS WITH HIGH-GLOW HOVER ================= */
+        /* BUTTONS WITH HOVER GLOW & CLICK VISIBILITY */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -262,13 +257,18 @@
             font-weight: 700;
             cursor: pointer;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid transparent;
             outline: none;
-            position: relative;
+            user-select: none;
+            z-index: 10;
         }
 
-        /* UTILITIES BUTTON + GLOW */
+        .btn:active {
+            transform: scale(0.97) !important;
+        }
+
+        /* 1. UTILITIES BUTTON */
         .btn-dropdown-toggle {
             background: rgba(255, 255, 255, 0.95);
             color: #334155;
@@ -280,7 +280,7 @@
             color: var(--primary);
             border-color: #3b82f6;
             transform: translateY(-2px);
-            box-shadow: 0 0 18px rgba(37, 99, 235, 0.35), 0 4px 12px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4), 0 4px 12px rgba(37, 99, 235, 0.15);
         }
 
         .utilities-dropdown-wrapper { position: relative; }
@@ -338,7 +338,7 @@
             color: var(--primary);
         }
 
-        /* 1. STUDY & VISA HUB + GLOW */
+        /* 2. STUDY & VISA HUB */
         .btn-visa-pro {
             background: rgba(240, 253, 250, 0.95);
             color: #0d9488;
@@ -350,7 +350,7 @@
             border-color: #14b8a6;
             color: #0f766e;
             transform: translateY(-2px);
-            box-shadow: 0 0 24px rgba(20, 184, 166, 0.55), 0 6px 16px rgba(13, 148, 136, 0.25);
+            box-shadow: 0 0 24px rgba(20, 184, 166, 0.6), 0 6px 16px rgba(13, 148, 136, 0.25);
         }
 
         .live-chip-badge {
@@ -367,7 +367,7 @@
             gap: 4px;
         }
 
-        /* 2. ATS RESUME CHECKER + GLOW */
+        /* 3. ATS RESUME CHECKER */
         .btn-ats-check {
             background: rgba(239, 246, 255, 0.95);
             color: #1d4ed8;
@@ -379,20 +379,20 @@
             border-color: #60a5fa;
             color: #1e40af;
             transform: translateY(-2px);
-            box-shadow: 0 0 22px rgba(59, 130, 246, 0.55), 0 6px 16px rgba(37, 99, 235, 0.22);
+            box-shadow: 0 0 24px rgba(59, 130, 246, 0.6), 0 6px 16px rgba(37, 99, 235, 0.22);
         }
 
-        /* 3. PRIMARY CTA RESUME BUTTON + HIGH SHINE GLOW */
+        /* 4. PRIMARY CTA RESUME */
         .btn-primary {
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 28px rgba(37, 99, 235, 0.8), 0 0 12px rgba(6, 182, 212, 0.6);
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.85), 0 0 12px rgba(6, 182, 212, 0.6);
         }
 
         .btn-shine {
@@ -408,47 +408,32 @@
             100% { left: 160%; }
         }
 
-        /* 4. TRAN MAU TRI TAM STYLE FROSTED GLASS THEME TOGGLE */
+        /* 5. FROSTED GLASS THEME TOGGLE */
         .glass-theme-btn {
             position: relative;
-            width: 42px;
-            height: 38px;
+            width: 42px; height: 38px;
             border-radius: 11px;
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             color: #0f172a;
             font-size: 15px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.25s ease;
             outline: none;
-            overflow: hidden;
-        }
-
-        .glass-theme-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 11px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.05) 100%);
-            pointer-events: none;
+            z-index: 10;
         }
 
         .glass-theme-btn:hover {
             transform: translateY(-2px) scale(1.05);
-            background: rgba(255, 255, 255, 0.85);
-            border-color: rgba(255, 255, 255, 1);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.6), inset 0 1px 2px rgba(255, 255, 255, 1);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
             color: #0284c7;
-        }
-
-        .glass-theme-btn:active {
-            transform: translateY(0) scale(0.96);
         }
 
         /* ================= DARK MODE COLOR SYSTEM ================= */
@@ -456,8 +441,8 @@
             --bg-page: #070b14;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --glass-bg: rgba(15, 23, 42, 0.82);
-            --glass-border: rgba(51, 65, 85, 0.7);
+            --glass-bg: rgba(15, 23, 42, 0.85);
+            --glass-border: rgba(51, 65, 85, 0.75);
             --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             --topbar-bg: rgba(11, 17, 32, 0.88);
         }
@@ -466,23 +451,23 @@
             filter: blur(100px);
         }
         body.dark-mode .stage-blue {
-            background: radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.25), transparent 50%),
-                        radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.18), transparent 55%),
+            background: radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.3), transparent 50%),
+                        radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.22), transparent 55%),
                         radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8), transparent 60%);
         }
         body.dark-mode .stage-mint {
-            background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.22), transparent 50%),
-                        radial-gradient(circle at 20% 85%, rgba(13, 148, 136, 0.20), transparent 55%),
+            background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.28), transparent 50%),
+                        radial-gradient(circle at 20% 85%, rgba(13, 148, 136, 0.25), transparent 55%),
                         radial-gradient(circle at 50% 40%, rgba(15, 23, 42, 0.8), transparent 60%);
         }
         body.dark-mode .stage-purple {
-            background: radial-gradient(circle at 25% 75%, rgba(147, 51, 234, 0.24), transparent 50%),
-                        radial-gradient(circle at 75% 25%, rgba(79, 70, 229, 0.22), transparent 55%),
+            background: radial-gradient(circle at 25% 75%, rgba(147, 51, 234, 0.3), transparent 50%),
+                        radial-gradient(circle at 75% 25%, rgba(79, 70, 229, 0.28), transparent 55%),
                         radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8), transparent 60%);
         }
         body.dark-mode .stage-sunset {
-            background: radial-gradient(circle at 70% 70%, rgba(244, 63, 94, 0.22), transparent 50%),
-                        radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.20), transparent 55%),
+            background: radial-gradient(circle at 70% 70%, rgba(244, 63, 94, 0.28), transparent 50%),
+                        radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.25), transparent 55%),
                         radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8), transparent 60%);
         }
 
@@ -498,7 +483,6 @@
             border-color: rgba(71, 85, 105, 0.6);
         }
         body.dark-mode .btn-dropdown-toggle:hover {
-            background: rgba(30, 41, 59, 1);
             color: #60a5fa;
             border-color: #60a5fa;
             box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
@@ -525,10 +509,9 @@
         }
 
         body.dark-mode .glass-theme-btn {
-            background: rgba(30, 41, 59, 0.65);
+            background: rgba(30, 41, 59, 0.7);
             border-color: rgba(255, 255, 255, 0.18);
             color: #facc15;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.12);
         }
         body.dark-mode .glass-theme-btn:hover {
             box-shadow: 0 0 22px rgba(250, 204, 21, 0.65);
@@ -541,9 +524,7 @@
             color: #e2e8f0;
         }
 
-        body.dark-mode .hero h1 {
-            color: #ffffff;
-        }
+        body.dark-mode .hero h1 { color: #ffffff; }
 
         body.dark-mode .glass-card {
             background: var(--glass-bg);
@@ -568,17 +549,13 @@
             background: rgba(15, 23, 42, 0.85);
             border-color: rgba(51, 65, 85, 0.8);
         }
-        body.dark-mode .seo-content-block h2 {
-            color: #ffffff;
-        }
+        body.dark-mode .seo-content-block h2 { color: #ffffff; }
 
         body.dark-mode .faq-card {
             background: rgba(30, 41, 59, 0.5);
             border-color: #334155;
         }
-        body.dark-mode .faq-card h4 {
-            color: #ffffff;
-        }
+        body.dark-mode .faq-card h4 { color: #ffffff; }
 
         body.dark-mode .modal-box {
             background: #0f172a;
@@ -602,9 +579,7 @@
             background: #0f172a;
             color: #cbd5e1;
         }
-        body.dark-mode .cost-table td {
-            border-bottom-color: #334155;
-        }
+        body.dark-mode .cost-table td { border-bottom-color: #334155; }
         body.dark-mode .country-btn {
             background: #0f172a;
             color: #cbd5e1;
@@ -615,7 +590,7 @@
             border-color: rgba(51, 65, 85, 0.8);
         }
 
-        /* HERO & MATRIX SECTION */
+        /* HERO & TOOLS */
         .hero {
             position: relative;
             z-index: 10;
@@ -637,7 +612,6 @@
             box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
             margin-bottom: 20px;
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
         }
 
         .pulse-dot {
@@ -661,7 +635,6 @@
             letter-spacing: -1.2px;
             margin-bottom: 16px;
             color: #0f172a;
-            transition: color 0.3s ease;
         }
 
         .hero h1 span.gradient-text {
@@ -727,7 +700,7 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+            transition: all 0.25s ease;
             z-index: 2;
             scroll-margin-top: 100px;
         }
@@ -932,6 +905,7 @@
             border: 1px solid var(--glass-border);
             position: relative;
             padding: 28px;
+            z-index: 3100;
         }
 
         .modal-close {
@@ -1094,7 +1068,7 @@
             margin-bottom: 16px;
         }
 
-        /* ATS CHECKER MODAL STYLES */
+        /* ATS CHECKER MODAL */
         .ats-meter-container {
             display: flex;
             align-items: center;
@@ -1197,7 +1171,7 @@
                 <span>ATS Score Check</span>
             </button>
 
-            <!-- 4. DRIBBLE-GRADE GLASS THEME TOGGLE (Dark/White Mode) -->
+            <!-- 4. FROSTED GLASS THEME TOGGLE (Dark/White Mode) -->
             <button class="glass-theme-btn" id="themeToggleBtn" type="button" title="Toggle Dark/Light Mode">
                 <i class="fa-solid fa-moon" id="themeIcon"></i>
             </button>
@@ -1205,7 +1179,7 @@
             <!-- 5. PRIMARY CONVERSION CTA -->
             <a href="app/index.html" class="btn btn-primary" id="topbarResumeBtn">
                 <span class="btn-shine"></span>
-                <i class="fa-solid fa-file-invoice"></i> <span>Create My Resume (Free)</span>
+                <i class="fa-solid fa-file-invoice"></i> <span>Create My Resume</span>
             </a>
         </div>
     </header>
@@ -1456,261 +1430,6 @@
                 </div>
             </div>
 
-            <!-- PDF Page Extractor -->
-            <div class="glass-card" id="tool-pdf-page-extractor">
-                <div class="card-top">
-                    <div class="card-icon icon-rose"><i class="fa-solid fa-file-export"></i></div>
-                    <div class="card-meta">
-                        <h3>PDF Page Extractor</h3>
-                        <p>Extract specific pages (e.g. 1, 3, 5)</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div>
-                        <label class="field-label">Upload PDF</label>
-                        <input type="file" id="pdfExtractFile" class="tool-input" accept="application/pdf">
-                    </div>
-                    <div>
-                        <label class="field-label">Page Numbers (Comma separated)</label>
-                        <input type="text" id="pdfExtractPages" class="tool-input" placeholder="e.g. 1, 3, 4">
-                    </div>
-                    <button class="btn btn-primary" id="extractPdfBtn" style="justify-content:center;">Extract Pages</button>
-                    <div class="tool-output" id="pdfExtractOutput">Specify pages to extract</div>
-                </div>
-            </div>
-
-            <!-- JPG to PDF -->
-            <div class="glass-card" id="tool-jpg-pdf">
-                <div class="card-top">
-                    <div class="card-icon icon-teal"><i class="fa-solid fa-file-image"></i></div>
-                    <div class="card-meta">
-                        <h3>JPG &rarr; PDF</h3>
-                        <p>Convert JPG/JPEG images into clean PDF</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div>
-                        <label class="field-label">Select JPG Image(s)</label>
-                        <input type="file" id="jpgToPdfFile" class="tool-input" accept="image/jpeg,image/jpg" multiple>
-                    </div>
-                    <button class="btn btn-primary" id="convertJpgPdfBtn" style="justify-content:center;">Convert to PDF</button>
-                    <div class="tool-output" id="jpgPdfOutput">Upload JPG images</div>
-                </div>
-            </div>
-
-            <!-- PNG to PDF -->
-            <div class="glass-card" id="tool-png-pdf">
-                <div class="card-top">
-                    <div class="card-icon icon-teal"><i class="fa-solid fa-images"></i></div>
-                    <div class="card-meta">
-                        <h3>PNG &rarr; PDF</h3>
-                        <p>Convert PNGs to PDF document</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div>
-                        <label class="field-label">Select PNG Image(s)</label>
-                        <input type="file" id="pngToPdfFile" class="tool-input" accept="image/png" multiple>
-                    </div>
-                    <button class="btn btn-primary" id="convertPngPdfBtn" style="justify-content:center;">Convert to PDF</button>
-                    <div class="tool-output" id="pngPdfOutput">Upload PNG images</div>
-                </div>
-            </div>
-
-            <!-- Image Compressor -->
-            <div class="glass-card" id="tool-image-compressor">
-                <div class="card-top">
-                    <div class="card-icon icon-emerald"><i class="fa-solid fa-compress"></i></div>
-                    <div class="card-meta">
-                        <h3>Image Compressor</h3>
-                        <p>Compress image weight client-side</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div>
-                        <label class="field-label">Upload Image</label>
-                        <input type="file" id="compressImgFile" class="tool-input" accept="image/*">
-                    </div>
-                    <div>
-                        <label class="field-label">Quality: <span id="qualityVal">0.7</span></label>
-                        <input type="range" id="compressQuality" min="0.1" max="0.9" step="0.1" value="0.7" style="width:100%;">
-                    </div>
-                    <button class="btn btn-primary" id="compressImgBtn" style="justify-content:center;">Compress & Download</button>
-                    <div class="tool-output" id="compressOutput">Select image and compress</div>
-                </div>
-            </div>
-
-            <!-- Image Resize -->
-            <div class="glass-card" id="tool-image-resize">
-                <div class="card-top">
-                    <div class="card-icon icon-indigo"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
-                    <div class="card-meta">
-                        <h3>Image Resize</h3>
-                        <p>Scale image dimensions with precision</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div>
-                        <label class="field-label">Upload Image</label>
-                        <input type="file" id="resizeImgFile" class="tool-input" accept="image/*">
-                    </div>
-                    <div class="input-row">
-                        <div>
-                            <label class="field-label">Width (px)</label>
-                            <input type="number" id="resizeWidth" class="tool-input" placeholder="800">
-                        </div>
-                        <div>
-                            <label class="field-label">Height (px)</label>
-                            <input type="number" id="resizeHeight" class="tool-input" placeholder="600">
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" id="resizeImgBtn" style="justify-content:center;">Resize & Save</button>
-                    <div class="tool-output" id="resizeOutput">Choose image & dimensions</div>
-                </div>
-            </div>
-
-            <!-- Image Crop -->
-            <div class="glass-card" id="tool-image-crop">
-                <div class="card-top">
-                    <div class="card-icon icon-cyan"><i class="fa-solid fa-crop-simple"></i></div>
-                    <div class="card-meta">
-                        <h3>Image Crop</h3>
-                        <p>Visual crop box tool for exact ratios</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div>
-                        <label class="field-label">Upload Image</label>
-                        <input type="file" id="cropImgFile" class="tool-input" accept="image/*">
-                    </div>
-                    <div style="max-height: 180px; overflow: hidden; border-radius: 8px; display: none;" id="cropContainer">
-                        <img id="cropImgElement" style="max-width: 100%;">
-                    </div>
-                    <button class="btn btn-primary" id="cropImgBtn" style="justify-content:center;">Apply Crop & Download</button>
-                    <div class="tool-output" id="cropOutput">Upload an image to crop</div>
-                </div>
-            </div>
-
-            <!-- QR Scanner -->
-            <div class="glass-card" id="tool-qr-scanner">
-                <div class="card-top">
-                    <div class="card-icon icon-amber"><i class="fa-solid fa-camera"></i></div>
-                    <div class="card-meta">
-                        <h3>QR Scanner</h3>
-                        <p>Scan QR codes via camera or image</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div id="qrReader" style="width: 100%; border-radius: 8px; overflow: hidden;"></div>
-                    <div class="input-row">
-                        <button class="btn btn-primary" id="startScanBtn" style="justify-content:center;">Start Camera</button>
-                        <button class="btn btn-dropdown-toggle" id="stopScanBtn" style="justify-content:center;">Stop</button>
-                    </div>
-                    <div>
-                        <label class="field-label">Or Scan From File</label>
-                        <input type="file" id="qrFileInput" class="tool-input" accept="image/*">
-                    </div>
-                    <div class="tool-output" id="qrScanOutput">Result will display here</div>
-                </div>
-            </div>
-
-            <!-- JSON Formatter -->
-            <div class="glass-card" id="tool-json-formatter">
-                <div class="card-top">
-                    <div class="card-icon icon-blue"><i class="fa-solid fa-code"></i></div>
-                    <div class="card-meta">
-                        <h3>JSON Formatter</h3>
-                        <p>Pretty-print and beautify messy JSON</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div>
-                        <label class="field-label">Input JSON</label>
-                        <textarea id="jsonFormatInput" class="tool-textarea" placeholder='{"name":"Resumora","status":"active"}'></textarea>
-                    </div>
-                    <button class="btn btn-primary" id="formatJsonBtn" style="justify-content:center;">Beautify JSON</button>
-                    <div class="tool-output" id="jsonFormatOutput" style="cursor:pointer;" title="Click to copy">Formatted output appears here</div>
-                </div>
-            </div>
-
-            <!-- JSON Validator -->
-            <div class="glass-card" id="tool-json-validator">
-                <div class="card-top">
-                    <div class="card-icon icon-emerald"><i class="fa-solid fa-spell-check"></i></div>
-                    <div class="card-meta">
-                        <h3>JSON Validator</h3>
-                        <p>Detect structural syntax errors and keys</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div>
-                        <label class="field-label">JSON Payload</label>
-                        <textarea id="jsonValidInput" class="tool-textarea" placeholder='{"valid": true}'></textarea>
-                    </div>
-                    <button class="btn btn-primary" id="validateJsonBtn" style="justify-content:center;">Validate Syntax</button>
-                    <div class="tool-output" id="jsonValidOutput">Validation status</div>
-                </div>
-            </div>
-
-            <!-- Base64 Engine -->
-            <div class="glass-card" id="tool-base64">
-                <div class="card-top">
-                    <div class="card-icon icon-purple"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
-                    <div class="card-meta">
-                        <h3>Base64 Engine</h3>
-                        <p>Encode or decode text in Base64</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div>
-                        <label class="field-label">Input String</label>
-                        <input type="text" id="b64Input" class="tool-input" placeholder="Hello World">
-                    </div>
-                    <div class="input-row">
-                        <button class="btn btn-primary" id="b64EncodeBtn" style="justify-content:center;">Encode</button>
-                        <button class="btn btn-dropdown-toggle" id="b64DecodeBtn" style="justify-content:center;">Decode</button>
-                    </div>
-                    <div class="tool-output" id="b64Output" style="cursor:pointer;" title="Click to copy">Result appears here</div>
-                </div>
-            </div>
-
-            <!-- URL Encoder / Decoder -->
-            <div class="glass-card" id="tool-url-encoder">
-                <div class="card-top">
-                    <div class="card-icon icon-slate"><i class="fa-solid fa-link"></i></div>
-                    <div class="card-meta">
-                        <h3>URL Encoder / Decoder</h3>
-                        <p>Standard URI component parser</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div>
-                        <label class="field-label">Target URL / Query</label>
-                        <input type="text" id="urlInput" class="tool-input" placeholder="https://example.com?query=hello world">
-                    </div>
-                    <div class="input-row">
-                        <button class="btn btn-primary" id="urlEncodeBtn" style="justify-content:center;">Encode</button>
-                        <button class="btn btn-dropdown-toggle" id="urlDecodeBtn" style="justify-content:center;">Decode</button>
-                    </div>
-                    <div class="tool-output" id="urlOutput" style="cursor:pointer;" title="Click to copy">Result appears here</div>
-                </div>
-            </div>
-
-            <!-- UUID Generator -->
-            <div class="glass-card" id="tool-uuid-generator">
-                <div class="card-top">
-                    <div class="card-icon icon-cyan"><i class="fa-solid fa-fingerprint"></i></div>
-                    <div class="card-meta">
-                        <h3>UUID Generator</h3>
-                        <p>Cryptographically secure v4 GUID/UUID</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <button class="btn btn-primary" id="genUuidBtn" style="justify-content:center; margin-top:8px;">Generate UUID v4</button>
-                    <div class="tool-output" id="uuidOutput" style="cursor:pointer;" title="Click to copy">Click generate</div>
-                </div>
-            </div>
-
             <!-- Word Counter -->
             <div class="glass-card" id="tool-word-counter">
                 <div class="card-top">
@@ -1726,34 +1445,6 @@
                         <textarea id="textCounterInput" class="tool-textarea" placeholder="Type or paste text here..."></textarea>
                     </div>
                     <div class="tool-output" id="textCounterOutput">Words: 0 | Characters: 0 | Spaces: 0</div>
-                </div>
-            </div>
-
-            <!-- Case Converter -->
-            <div class="glass-card" id="tool-case-converter">
-                <div class="card-top">
-                    <div class="card-icon icon-rose"><i class="fa-solid fa-font"></i></div>
-                    <div class="card-meta">
-                        <h3>Case Converter</h3>
-                        <p>Transform UPPERCASE, lowercase, title, kebab & camel</p>
-                    </div>
-                </div>
-                <div class="tool-form">
-                    <div>
-                        <label class="field-label">Text to Transform</label>
-                        <input type="text" id="caseInput" class="tool-input" placeholder="Type text here...">
-                    </div>
-                    <div class="input-row">
-                        <select id="caseType" class="tool-select">
-                            <option value="upper">UPPERCASE</option>
-                            <option value="lower">lowercase</option>
-                            <option value="title">Title Case</option>
-                            <option value="kebab">kebab-case</option>
-                            <option value="camel">camelCase</option>
-                        </select>
-                        <button class="btn btn-primary" id="convertCaseBtn" style="justify-content:center;">Transform</button>
-                    </div>
-                    <div class="tool-output" id="caseOutput" style="cursor:pointer;" title="Click to copy">Transformed text here</div>
                 </div>
             </div>
 
@@ -1825,7 +1516,7 @@
         </div>
     </main>
 
-    <!-- SEO Content & FAQ Section -->
+    <!-- SEO Content Section -->
     <section class="seo-content-block">
         <h2>About Resumora Universe</h2>
         <p>
@@ -1839,26 +1530,11 @@
                 <p>Yes. Resumora does not ask for card details, logins, or fees. You can customize resume templates and export high-res A4 PDFs without watermarks.</p>
             </div>
             <div class="faq-card">
-                <h4>Are my PDF documents safe when merging or splitting?</h4>
-                <p>Absolutely. PDF manipulation executes on your device using PDF-Lib. Your files are never uploaded or stored on any server.</p>
-            </div>
-            <div class="faq-card">
                 <h4>How accurate are the study abroad visa estimates?</h4>
                 <p>All procedures, living costs, and government visa fees are mapped to official immigration portals (USCIS, DHA Australia, INZ, and German Federal Foreign Office).</p>
             </div>
-            <div class="faq-card">
-                <h4>Can I access these tools on mobile devices?</h4>
-                <p>Yes, all utilities, ATS checker, and visa guides are fully responsive and work seamlessly on both mobile screens and desktop monitors.</p>
-            </div>
         </div>
     </section>
-
-    <!-- Adsterra Clean Static Banner -->
-    <div style="text-align: center; margin: 30px auto; padding: 10px; max-width: 100%; overflow: hidden;">
-        <a href="https://beta.publishers.adsterra.com/referral/33k6WpueEs" target="_blank" rel="nofollow noopener">
-            <img src="https://landings-cdn.adsterratech.com/referralBanners/gif/720x90_adsterra_reff.gif" alt="Support Portal" style="max-width: 100%; height: auto; display: inline-block; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-        </a>
-    </div>
 
     <!-- MODAL 1: GLOBAL STUDY & VISA HUB -->
     <div class="modal-overlay" id="visaModal">
@@ -1870,12 +1546,11 @@
                     <i class="fa-solid fa-earth-americas"></i>
                 </div>
                 <div>
-                    <h3 style="font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: #0f172a;">Global Education & Immigration Portal</h3>
+                    <h3 style="font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: var(--text-main);">Global Education & Immigration Portal</h3>
                     <p style="font-size: 13px; color: var(--text-muted);">Real-time visa procedures, latest rules, tuition & living expenses</p>
                 </div>
             </div>
 
-            <!-- Live updates banner -->
             <div class="live-feed-banner">
                 <div style="display:flex; align-items:center; gap:8px;">
                     <span class="pulse-dot"></span>
@@ -1886,7 +1561,6 @@
                 </button>
             </div>
 
-            <!-- Country Tabs -->
             <div class="country-tabs" id="countryTabs">
                 <button class="country-btn active" data-country="usa">🇺🇸 USA (F-1 / OPT)</button>
                 <button class="country-btn" data-country="australia">🇦🇺 Australia (Subclass 500)</button>
@@ -1896,7 +1570,6 @@
                 <button class="country-btn" data-country="europe">🇪🇺 Europe / Schengen</button>
             </div>
 
-            <!-- Dynamic Visa Content Body -->
             <div id="visaDynamicContent"></div>
 
             <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 14px;">
@@ -1916,7 +1589,7 @@
                 <div style="width: 50px; height: 50px; border-radius: 12px; background:#eff6ff; color:#2563eb; display:flex; align-items:center; justify-content:center; font-size:24px; margin:0 auto 10px auto;">
                     <i class="fa-solid fa-bolt"></i>
                 </div>
-                <h3 style="font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: #0f172a;">Instant ATS Resume Checker</h3>
+                <h3 style="font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: var(--text-main);">Instant ATS Resume Checker</h3>
                 <p style="font-size: 13px; color: var(--text-muted);">Paste your resume text to audit formatting, keywords & score</p>
             </div>
 
@@ -1951,17 +1624,19 @@
     </footer>
 
     <script>
-        // Audio Chime Wrapper
+        // ================= BULLETPROOF AUDIO CHIME (Plays on Every Interaction) =================
         let audioCtx = null;
-        function playChime(freq = 520, type = 'sine', duration = 0.15) {
+        function playChime(freq = 520, type = 'sine', duration = 0.14) {
             try {
                 if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                if (audioCtx.state === 'suspended') audioCtx.resume();
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
                 osc.type = type;
                 osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.09, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
@@ -1970,43 +1645,351 @@
             } catch(e){}
         }
 
-        // ================= STEP-BY-STEP COLOR DISSOLVER ENGINE =================
+        // Global sound on all buttons
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('button, .btn, .dropdown-item')) {
+                playChime(560);
+            }
+        });
+
+        // ================= BACKGROUND DISSOLVING CYCLE =================
         const layers = [
             document.getElementById('layerBlue'),
             document.getElementById('layerMint'),
             document.getElementById('layerPurple'),
             document.getElementById('layerSunset')
         ];
-        let currentLayerIndex = 0;
+        let currentLayer = 0;
 
-        function cycleDissolveColor() {
-            layers[currentLayerIndex].classList.remove('active');
-            currentLayerIndex = (currentLayerIndex + 1) % layers.length;
-            layers[currentLayerIndex].classList.add('active');
+        function cycleColors() {
+            layers[currentLayer].classList.remove('active');
+            currentLayer = (currentLayer + 1) % layers.length;
+            layers[currentLayer].classList.add('active');
         }
-        // Change, dissolve and hold every 6.5 seconds smoothly
-        setInterval(cycleDissolveColor, 6500);
+        setInterval(cycleColors, 6000);
 
-        // ================= DARK/WHITE MODE GLASS TOGGLE =================
+        // ================= DARK / WHITE THEME TOGGLE =================
         const themeToggleBtn = document.getElementById('themeToggleBtn');
         const themeIcon = document.getElementById('themeIcon');
 
-        if (localStorage.getItem('theme') === 'dark') {
+        if (localStorage.getItem('resumora_theme') === 'dark') {
             document.body.classList.add('dark-mode');
             if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
         }
 
         if (themeToggleBtn) {
-            themeToggleBtn.addEventListener('click', () => {
-                playChime(680);
+            themeToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                playChime(680, 'triangle');
                 document.body.classList.toggle('dark-mode');
                 const isDark = document.body.classList.contains('dark-mode');
                 themeIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                localStorage.setItem('resumora_theme', isDark ? 'dark' : 'light');
             });
         }
 
-        // Background particles
+        // ================= VISA HUB DATA & ENGINE =================
+        const visaData = {
+            usa: {
+                title: "United States of America (USA)", flag: "🇺🇸", visaType: "F-1 Academic Student Visa / STEM OPT", intakes: "Fall (Aug/Sep) & Spring (Jan)",
+                highlights: ["3 Years STEM OPT (Work Permit)", "On-Campus 20hrs/week work", "World's Top Universities"],
+                steps: [
+                    "University Application & Offer Letter (I-20 Form Issue).",
+                    "Pay SEVIS I-901 Fee ($350) online.",
+                    "Fill DS-160 Online Nonimmigrant Visa Application Form.",
+                    "Schedule Biometrics (OFC) and F-1 Consular Interview.",
+                    "Attend Visa Interview with Financial proof (Liquid funds for 1st year)."
+                ],
+                costs: [
+                    { item: "Visa Application Fee (MRV)", amount: "$185 (approx ₹15,500)" },
+                    { item: "SEVIS I-901 Fee", amount: "$350 (approx ₹29,400)" },
+                    { item: "Average Tuition Fees", amount: "$22,000 - $48,000 / year" },
+                    { item: "Living Expenses (I-20 Requirement)", amount: "$12,000 - $18,000 / year" }
+                ],
+                routes: "F-1 Student Visa &rarr; OPT (1-3 yrs) &rarr; H-1B Specialty Occupation &rarr; Green Card (EB-2/EB-3).",
+                latestUpdate: "F-1 applicants can apply up to 365 days in advance of program start date."
+            },
+            australia: {
+                title: "Australia", flag: "🇦🇺", visaType: "Student Visa (Subclass 500) & Subclass 485", intakes: "Semester 1 (Feb) & Semester 2 (July)",
+                highlights: ["48 hrs/fortnight part-time work", "2 to 4 years Post-Study Work (Subclass 485)", "PR pathways (189/190/491)"],
+                steps: [
+                    "Receive Letter of Offer & make initial deposit for CoE.",
+                    "Complete Genuine Student (GS) Requirement statement.",
+                    "Purchase OSHC (Overseas Student Health Cover).",
+                    "Gather financial evidence (AUD 29,710/year living cost proof).",
+                    "Submit Subclass 500 Visa online on ImmiAccount."
+                ],
+                costs: [
+                    { item: "Subclass 500 Visa Fee", amount: "AUD 1,600 (approx ₹88,000)" },
+                    { item: "OSHC Health Cover", amount: "AUD 600 - 1,200 / year" },
+                    { item: "Average Tuition Fees", amount: "AUD 24,000 - 42,000 / year" },
+                    { item: "Required Living Proof", amount: "AUD 29,710 / year" }
+                ],
+                routes: "Subclass 500 &rarr; Subclass 485 Temporary Graduate &rarr; Skill Assessment &rarr; PR Points System.",
+                latestUpdate: "Genuine Student (GS) criteria active with minimum IELTS 6.5 requirement."
+            },
+            germany: {
+                title: "Germany & EU Blue Card", flag: "🇩🇪", visaType: "National Visa for Study (§ 16b AufenthG)", intakes: "Winter (Oct) & Summer (Apr)",
+                highlights: ["Almost Zero Tuition Fees in Public Universities", "Opportunity Card (Chancenkarte) for Job seekers", "18-month Job Seeking Visa post-graduation"],
+                steps: [
+                    "University Admission Letter (Zulassungsbescheid).",
+                    "Open a German Blocked Account (Sperrkonto) with minimum €11,904.",
+                    "Get APS Certificate (Mandatory for Indian students) via aps-india.de.",
+                    "Book German National Visa appointment via VFS Global."
+                ],
+                costs: [
+                    { item: "National Visa Application Fee", amount: "€75 (approx ₹6,800)" },
+                    { item: "APS Certificate Verification", amount: "₹18,000 (One-time)" },
+                    { item: "Blocked Account Deposit", amount: "€11,904 / year (approx ₹10.8 Lakhs - refundable monthly)" },
+                    { item: "Public University Tuition", amount: "€0 (Semester contribution €150-€350 only)" }
+                ],
+                routes: "Study Visa &rarr; 18-Month Post Study Work (§ 20) &rarr; EU Blue Card (§ 18b) &rarr; Permanent Settlement.",
+                latestUpdate: "APS Certificate mandatory prior to booking visa appointment slots."
+            },
+            newzealand: {
+                title: "New Zealand", flag: "🇳🇿", visaType: "Fee Paying Student Visa / PSW Visa", intakes: "Feb & July Intakes",
+                highlights: ["30 hrs/week work rights (Green List)", "Up to 3 Years Post-Study Work Visa", "High Quality of Life"],
+                steps: [
+                    "Get unconditional Offer of Place from NZQA-approved institution.",
+                    "Submit Application to Immigration New Zealand (INZ) online.",
+                    "Approval in Principle (AIP) issued by INZ.",
+                    "Pay 1st year Tuition fees only AFTER receiving AIP."
+                ],
+                costs: [
+                    { item: "Student Visa Application Fee", amount: "NZD $750 (approx ₹38,000)" },
+                    { item: "Living Cost Requirement", amount: "NZD $20,000 / year" },
+                    { item: "Average Tuition Fees", amount: "NZD $25,000 - $38,000 / year" }
+                ],
+                routes: "Fee Paying Student Visa &rarr; Post-Study Work Visa (1-3 yrs) &rarr; Skilled Migrant Category.",
+                latestUpdate: "AIP system protects student funds until visa is provisionally approved."
+            },
+            canada: {
+                title: "Canada", flag: "🇨🇦", visaType: "Study Permit (PAL System) & PGWP", intakes: "Fall, Winter, Spring",
+                highlights: ["Post-Graduation Work Permit (PGWP) up to 3 years", "Spouse open work permit for Masters", "Direct Express Entry PR"],
+                steps: [
+                    "Get Provincial Attestation Letter (PAL) + DLI Offer.",
+                    "Purchase GIC (Guaranteed Investment Certificate) of CAD $20,635.",
+                    "Pay 1st Year full tuition fee.",
+                    "Submit Study Permit on IRCC Portal & give Biometrics."
+                ],
+                costs: [
+                    { item: "Study Permit Fee", amount: "CAD $150 (approx ₹9,200)" },
+                    { item: "GIC Living Funds", amount: "CAD $20,635 (approx ₹12.6 Lakhs)" },
+                    { item: "College/Uni Tuition", amount: "CAD $16,000 - $32,000 / year" }
+                ],
+                routes: "Study Permit &rarr; PGWP &rarr; Canadian Experience Class &rarr; Express Entry PR.",
+                latestUpdate: "Provincial Attestation Letter (PAL) required for degree applicants."
+            },
+            europe: {
+                title: "Europe & Schengen Area", flag: "🇪🇺", visaType: "Long-Stay Type D Student Visa / EU Blue Card", intakes: "Sept/Oct & Jan/Feb",
+                highlights: ["Free travel across 29 Schengen member states", "Generous government scholarships (DSU, Erasmus)", "2 years work search visa (France/Ireland)"],
+                steps: [
+                    "Acceptance from state-recognized University or Grande École.",
+                    "Complete Campus France / Universitaly pre-enrollment.",
+                    "Show financial subsistence proof (€615 - €850 per month).",
+                    "Apply for Long Stay National Visa at Embassy/VFS."
+                ],
+                costs: [
+                    { item: "Schengen Long-Stay Visa Fee", amount: "€80 - €99" },
+                    { item: "Tuition in Public Universities", amount: "€1,500 - €4,500 / year (or Free via DSU)" },
+                    { item: "Monthly Living Cost", amount: "€700 - €1,100 / month" }
+                ],
+                routes: "Study Visa D &rarr; Job Search Permit &rarr; EU Blue Card / Work Permit.",
+                latestUpdate: "France grants 5-year short-stay Schengen visa for Indian master's alumni."
+            }
+        };
+
+        function renderVisaTab(countryKey) {
+            const data = visaData[countryKey] || visaData.usa;
+            const container = document.getElementById('visaDynamicContent');
+            
+            const costsRows = data.costs.map(c => `
+                <tr>
+                    <td><strong>${c.item}</strong></td>
+                    <td style="color:#2563eb; font-weight:700;">${c.amount}</td>
+                </tr>
+            `).join('');
+
+            const stepsList = data.steps.map(s => `<li>${s}</li>`).join('');
+            const highlightsPills = data.highlights.map(h => `<span class="badge-pill"><i class="fa-solid fa-star" style="font-size:9px;"></i> ${h}</span>`).join('');
+
+            container.innerHTML = `
+                <div class="visa-card-body">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                        <div>
+                            <h4 style="font-size:18px; font-weight:800; color:var(--text-main); display:flex; align-items:center; gap:8px;">
+                                <span>${data.flag}</span> <span>${data.title}</span>
+                            </h4>
+                            <span style="font-size:12px; color:var(--text-muted); font-weight:600;">Main Visa: ${data.visaType}</span>
+                        </div>
+                        <span style="background:#e0f2fe; color:#0369a1; font-size:11px; font-weight:700; padding:4px 10px; border-radius:12px;">
+                            ${data.intakes}
+                        </span>
+                    </div>
+
+                    <div class="visa-badge-row">${highlightsPills}</div>
+
+                    <div class="visa-section-title"><i class="fa-solid fa-list-check" style="color:var(--primary);"></i> Step-by-Step Procedure</div>
+                    <ul class="step-list">${stepsList}</ul>
+
+                    <div class="visa-section-title"><i class="fa-solid fa-receipt" style="color:var(--primary);"></i> Official Fees & Expected Costs</div>
+                    <table class="cost-table">
+                        <thead><tr><th>Category / Expense</th><th>Approx. Amount</th></tr></thead>
+                        <tbody>${costsRows}</tbody>
+                    </table>
+
+                    <div class="visa-section-title"><i class="fa-solid fa-route" style="color:var(--primary);"></i> Pathway to Work & PR / Settlement</div>
+                    <p style="font-size:12.5px; color:var(--text-main); line-height:1.5; background:var(--glass-bg); padding:10px 14px; border-radius:8px; border:1px solid var(--glass-border);">
+                        ${data.routes}
+                    </p>
+
+                    <div style="margin-top:12px; padding:10px 12px; background:#fef3c7; border-left:4px solid #f59e0b; border-radius:6px; font-size:12px; color:#92400e;">
+                        <strong>Latest Policy Alert:</strong> ${data.latestUpdate}
+                    </div>
+                </div>
+            `;
+        }
+
+        // ================= MODALS & DROPDOWNS =================
+        const visaModal = document.getElementById('visaModal');
+        const atsModal = document.getElementById('atsModal');
+
+        function openVisaHub() {
+            renderVisaTab('usa');
+            visaModal.classList.add('active');
+        }
+
+        function openAtsChecker() {
+            atsModal.classList.add('active');
+        }
+
+        document.getElementById('navVisaBtn').onclick = openVisaHub;
+        document.getElementById('heroVisaBtn').onclick = openVisaHub;
+        document.getElementById('closeVisaModal').onclick = () => visaModal.classList.remove('active');
+
+        document.getElementById('navAtsBtn').onclick = openAtsChecker;
+        document.getElementById('heroAtsBtn').onclick = openAtsChecker;
+        document.getElementById('closeAtsModal').onclick = () => atsModal.classList.remove('active');
+
+        // Close on backdrop
+        window.onclick = (e) => {
+            if (e.target === visaModal) visaModal.classList.remove('active');
+            if (e.target === atsModal) atsModal.classList.remove('active');
+        };
+
+        // Tabs
+        document.getElementById('countryTabs').onclick = (e) => {
+            const btn = e.target.closest('.country-btn');
+            if (!btn) return;
+            document.querySelectorAll('.country-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderVisaTab(btn.dataset.country);
+        };
+
+        // Refresh banner
+        document.getElementById('refreshVisaUpdatesBtn').onclick = () => {
+            const el = document.getElementById('liveStatusText');
+            el.textContent = "Connecting to Embassy Immigration Servers...";
+            setTimeout(() => {
+                const now = new Date();
+                el.textContent = `Live Feed Synchronized • Latest embassy updates as of ${now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+            }, 700);
+        };
+
+        // ATS Auditor
+        document.getElementById('runAtsCheckBtn').onclick = () => {
+            const txt = document.getElementById('atsResumeInput').value.trim();
+            if (!txt || txt.length < 35) {
+                alert("Please paste your resume text (at least 35 characters) to run ATS audit.");
+                return;
+            }
+            triggerConfetti();
+
+            let score = 68;
+            const lower = txt.toLowerCase();
+            const checks = [];
+
+            if (lower.includes('experience') || lower.includes('work history')) {
+                score += 8;
+                checks.push("✔ Clear Experience Header detected.");
+            } else {
+                checks.push("⚠️ Missing standard 'Experience' header.");
+            }
+
+            if (lower.includes('skills') || lower.includes('technologies')) {
+                score += 8;
+                checks.push("✔ Dedicated Skills section present.");
+            } else {
+                checks.push("⚠️ Add a focused Skills inventory.");
+            }
+
+            if (/\d+%|\$\d+|\b\d+\b/g.test(txt)) {
+                score += 9;
+                checks.push("✔ Quantifiable metrics and numbers detected.");
+            } else {
+                checks.push("⚠️ Try adding measurable impact (e.g. boosted efficiency by 25%).");
+            }
+
+            score = Math.min(score, 95);
+            document.getElementById('atsScoreVal').textContent = score;
+            document.getElementById('atsAnalysisList').innerHTML = checks.map(c => `<div style="margin-bottom:6px;">${c}</div>`).join('');
+            document.getElementById('atsResultBox').style.display = 'block';
+        };
+
+        // Utilities Dropdown
+        const utilityBtn = document.getElementById('utilityDropdownBtn');
+        const utilityMenu = document.getElementById('utilityDropdownMenu');
+        const utilityList = document.getElementById('utilityDropdownList');
+        const utilitySearch = document.getElementById('utilitySearchInput');
+
+        const utilityTools = [];
+        document.querySelectorAll('.glass-card').forEach(card => {
+            const id = card.id;
+            const title = card.querySelector('.card-meta h3')?.innerText.trim() || '';
+            const iconClass = card.querySelector('.card-icon i')?.className || 'fa-solid fa-gear';
+            if (id && title) utilityTools.push({ id, title, iconClass });
+        });
+
+        function populateDropdown(filterText = '') {
+            utilityList.innerHTML = '';
+            const filtered = utilityTools.filter(t => t.title.toLowerCase().includes(filterText.toLowerCase()));
+            filtered.forEach(tool => {
+                const item = document.createElement('div');
+                item.className = 'dropdown-item';
+                item.innerHTML = `<i class="${tool.iconClass}"></i><span>${tool.title}</span>`;
+                item.onclick = () => {
+                    utilityMenu.classList.remove('active');
+                    const targetCard = document.getElementById(tool.id);
+                    if (targetCard) {
+                        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        targetCard.classList.add('highlight-card');
+                        setTimeout(() => targetCard.classList.remove('highlight-card'), 2200);
+                    }
+                };
+                utilityList.appendChild(item);
+            });
+        }
+        populateDropdown();
+
+        utilityBtn.onclick = (e) => {
+            e.stopPropagation();
+            const isOpen = utilityMenu.classList.toggle('active');
+            if (isOpen) {
+                utilitySearch.value = '';
+                populateDropdown();
+                setTimeout(() => utilitySearch.focus(), 50);
+            }
+        };
+
+        utilitySearch.oninput = (e) => populateDropdown(e.target.value);
+
+        document.addEventListener('click', (e) => {
+            if (!utilityMenu.contains(e.target) && !utilityBtn.contains(e.target)) {
+                utilityMenu.classList.remove('active');
+            }
+        });
+
+        // ================= BACKGROUND PARTICLES =================
         const canvas = document.getElementById('universeCanvas');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
@@ -2018,7 +2001,7 @@
         });
 
         const particles = [];
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 45; i++) {
             particles.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
@@ -2055,7 +2038,7 @@
         }
         render5DCanvas();
 
-        // Confetti Trigger
+        // Confetti
         const cCanvas = document.getElementById('confettiCanvas');
         const cCtx = cCanvas.getContext('2d');
         let confettis = [];
@@ -2064,7 +2047,7 @@
             cCanvas.height = window.innerHeight;
             confettis = [];
             const colors = ['#2563eb', '#06b6d4', '#10b981', '#f59e0b', '#ec4899'];
-            for (let i = 0; i < 60; i++) {
+            for (let i = 0; i < 50; i++) {
                 confettis.push({
                     x: window.innerWidth / 2,
                     y: window.innerHeight / 2,
@@ -2072,7 +2055,7 @@
                     vy: (Math.random() - 0.7) * 14,
                     size: Math.random() * 7 + 4,
                     color: colors[Math.floor(Math.random() * colors.length)],
-                    life: 90
+                    life: 80
                 });
             }
             animateConfetti();
@@ -2080,9 +2063,9 @@
         function animateConfetti() {
             cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
             confettis.forEach(c => {
-                c.x += c.vx; c.y += c.vy; c.vy += 0.35; c.life -= 1.4;
+                c.x += c.vx; c.y += c.vy; c.vy += 0.35; c.life -= 1.5;
                 cCtx.fillStyle = c.color;
-                cCtx.globalAlpha = Math.max(0, c.life / 90);
+                cCtx.globalAlpha = Math.max(0, c.life / 80);
                 cCtx.fillRect(c.x, c.y, c.size, c.size);
             });
             cCtx.globalAlpha = 1;
@@ -2090,383 +2073,8 @@
             if (confettis.length > 0) requestAnimationFrame(animateConfetti);
         }
 
-        // ================= GLOBAL VISA HUB DATABASE =================
-        const visaData = {
-            usa: {
-                title: "United States of America (USA)",
-                flag: "🇺🇸",
-                visaType: "F-1 Academic Student Visa / STEM OPT / J-1",
-                intakes: "Fall (Aug/Sep) & Spring (Jan/Feb)",
-                highlights: ["3 Years STEM OPT (Work Permit)", "On-Campus 20hrs/week work", "World's Top Universities"],
-                steps: [
-                    "University Application & Offer Letter (I-20 Form Issue).",
-                    "Pay SEVIS I-901 Fee ($350) online.",
-                    "Fill DS-160 Online Nonimmigrant Visa Application Form.",
-                    "Schedule Biometrics (OFC) and F-1 Consular Interview.",
-                    "Attend Visa Interview with Financial proof (Liquid funds for 1st year)."
-                ],
-                costs: [
-                    { item: "Visa Application Fee (MRV)", amount: "$185 (approx ₹15,500)" },
-                    { item: "SEVIS I-901 Fee", amount: "$350 (approx ₹29,400)" },
-                    { item: "Average Tuition Fees", amount: "$22,000 - $48,000 / year" },
-                    { item: "Living Expenses (I-20 Requirement)", amount: "$12,000 - $18,000 / year" }
-                ],
-                routes: "F-1 Student Visa &rarr; OPT (1-3 yrs) &rarr; H-1B Specialty Occupation &rarr; Green Card (EB-2/EB-3).",
-                latestUpdate: "F-1 applicants can now apply up to 365 days in advance of program start date. High priority on liquid funds proof."
-            },
-            australia: {
-                title: "Australia",
-                flag: "🇦🇺",
-                visaType: "Student Visa (Subclass 500) & Subclass 485 (PSW)",
-                intakes: "Semester 1 (Feb/March) & Semester 2 (July/Aug)",
-                highlights: ["48 hrs/fortnight part-time work", "2 to 4 years Post-Study Work (Subclass 485)", "Clear PR points pathways (189/190/491)"],
-                steps: [
-                    "Receive Letter of Offer & make initial deposit for CoE (Confirmation of Enrolment).",
-                    "Complete Genuine Student (GS) Requirement statement.",
-                    "Purchase OSHC (Overseas Student Health Cover).",
-                    "Gather financial evidence (AUD 29,710/year living cost proof).",
-                    "Submit Subclass 500 Visa online on ImmiAccount and give Biometrics."
-                ],
-                costs: [
-                    { item: "Subclass 500 Visa Fee", amount: "AUD 1,600 (approx ₹88,000)" },
-                    { item: "OSHC Health Cover", amount: "AUD 600 - 1,200 / year" },
-                    { item: "Average Tuition Fees", amount: "AUD 24,000 - 42,000 / year" },
-                    { item: "Required Living Proof", amount: "AUD 29,710 / year (approx ₹16.3 Lakhs)" }
-                ],
-                routes: "Subclass 500 Student &rarr; Subclass 485 Temporary Graduate &rarr; Skill Assessment &rarr; PR (189/190/491 points system).",
-                latestUpdate: "Genuine Student (GS) criteria active. Minimum English score IELTS 6.5 (or 6.0 min for packaged courses)."
-            },
-            germany: {
-                title: "Germany & EU Blue Card",
-                flag: "🇩🇪",
-                visaType: "National Visa for Study (§ 16b AufenthG) / Opportunity Card (Chancenkarte)",
-                intakes: "Winter (October) & Summer (April)",
-                highlights: ["Almost Zero Tuition Fees in Public Universities", "Opportunity Card (Chancenkarte) for Job seekers", "18-month Job Seeking Visa post-graduation"],
-                steps: [
-                    "University Admission Letter (Zulassungsbescheid).",
-                    "Open a German Blocked Account (Sperrkonto) with minimum €11,904.",
-                    "Get APS Certificate (Mandatory for Indian students) via aps-india.de.",
-                    "Book German National Visa appointment via VFS Global.",
-                    "Travel, register address (Anmeldung) and get Residence Permit."
-                ],
-                costs: [
-                    { item: "National Visa Application Fee", amount: "€75 (approx ₹6,800)" },
-                    { item: "APS Certificate Verification", amount: "₹18,000 (One-time)" },
-                    { item: "Blocked Account Deposit", amount: "€11,904 / year (approx ₹10.8 Lakhs - refundable monthly)" },
-                    { item: "Public University Tuition", amount: "€0 (Semester contribution €150-€350 only)" }
-                ],
-                routes: "Study Visa &rarr; 18-Month Post Study Work (§ 20) &rarr; EU Blue Card (§ 18b) &rarr; Permanent Settlement (Niederlassungserlaubnis).",
-                latestUpdate: "APS certificate processing is strictly mandatory prior to booking visa slots. Chancenkarte points-based route open."
-            },
-            newzealand: {
-                title: "New Zealand",
-                flag: "🇳🇿",
-                visaType: "Fee Paying Student Visa / Post Study Work Visa",
-                intakes: "February & July Intakes",
-                highlights: ["30 hrs/week work rights (Green List courses)", "Up to 3 Years Post-Study Work Visa", "Peaceful & High Quality of Life"],
-                steps: [
-                    "Get unconditional Offer of Place from NZQA-approved institution.",
-                    "Submit Application to Immigration New Zealand (INZ) online.",
-                    "Approval in Principle (AIP) issued by INZ.",
-                    "Pay 1st year Tuition fees only AFTER receiving AIP.",
-                    "Provide Medical tests (eMedical) and Police Clearance Certificate (PCC)."
-                ],
-                costs: [
-                    { item: "Student Visa Application Fee", amount: "NZD $750 (approx ₹38,000)" },
-                    { item: "Living Cost Requirement", amount: "NZD $20,000 / year" },
-                    { item: "Average Tuition Fees", amount: "NZD $25,000 - $38,000 / year" },
-                    { item: "Medical & Insurance", amount: "NZD $600 - $900" }
-                ],
-                routes: "Fee Paying Student Visa &rarr; Post-Study Work Visa (1-3 yrs) &rarr; Skilled Migrant Category (SMC 6-point PR system).",
-                latestUpdate: "Straight to Residence Green List updated for Tech, Healthcare, and Engineering graduates."
-            },
-            canada: {
-                title: "Canada",
-                flag: "🇨🇦",
-                visaType: "Study Permit (PAL System) & PGWP",
-                intakes: "Fall (September), Winter (January), Spring (May)",
-                highlights: ["Post-Graduation Work Permit (PGWP) up to 3 years", "Spouse open work permit for Master's/Doctorate", "Direct Express Entry PR (CEC/PNP)"],
-                steps: [
-                    "Get Provincial Attestation Letter (PAL) from province + DLI College Offer.",
-                    "Purchase GIC (Guaranteed Investment Certificate) of CAD $20,635.",
-                    "Pay 1st Year full tuition fee.",
-                    "Complete Upfront Medical Exam & submit Study Permit on IRCC Portal.",
-                    "Give Biometrics at VFS."
-                ],
-                costs: [
-                    { item: "Study Permit Fee", amount: "CAD $150 (approx ₹9,200)" },
-                    { item: "Biometrics Fee", amount: "CAD $85 (approx ₹5,200)" },
-                    { item: "GIC Living Funds", amount: "CAD $20,635 (approx ₹12.6 Lakhs)" },
-                    { item: "College/Uni Tuition", amount: "CAD $16,000 - $32,000 / year" }
-                ],
-                routes: "Study Permit &rarr; PGWP &rarr; Canadian Experience Class (CEC) &rarr; Express Entry PR.",
-                latestUpdate: "Study permit caps active; degree students need Provincial Attestation Letter (PAL)."
-            },
-            europe: {
-                title: "Europe & Schengen Area (France, Italy, Ireland, Sweden)",
-                flag: "🇪🇺",
-                visaType: "Long-Stay Type D Student Visa / EU Blue Card",
-                intakes: "September/October & January/February",
-                highlights: ["Free travel across 29 Schengen member states", "Extensive government scholarships (Erasmus, Eiffel, DSU)", "2 years work search visa (France/Ireland)"],
-                steps: [
-                    "Get accepted into state-recognized University or Grande École.",
-                    "Complete Campus France (for France) or Universitaly pre-enrollment.",
-                    "Secure accommodation proof (Attestation d'hébergement).",
-                    "Show financial subsistence (€615 - €850 per month).",
-                    "Apply for Long Stay National Visa (Type D) at Embassy/VFS."
-                ],
-                costs: [
-                    { item: "Schengen Long-Stay Visa Fee", amount: "€80 - €99 (approx ₹7,500 - ₹9,000)" },
-                    { item: "Tuition in France/Italy (Public)", amount: "€1,500 - €4,500 / year (or Free via DSU)" },
-                    { item: "Tuition in Ireland", amount: "€12,000 - €22,000 / year" },
-                    { item: "Monthly Living Cost", amount: "€700 - €1,100 / month" }
-                ],
-                routes: "Study Visa D &rarr; Post-Study Job Search Permit (APS France, Stamp 1G Ireland) &rarr; EU Blue Card.",
-                latestUpdate: "France grants 5-year short-stay Schengen visa for Indian alumni holding a master's degree."
-            }
-        };
-
-        function renderVisaTab(countryKey) {
-            const data = visaData[countryKey] || visaData.usa;
-            const container = document.getElementById('visaDynamicContent');
-            
-            let costsRows = data.costs.map(c => `
-                <tr>
-                    <td><strong>${c.item}</strong></td>
-                    <td style="color:#2563eb; font-weight:700;">${c.amount}</td>
-                </tr>
-            `).join('');
-
-            let stepsList = data.steps.map(s => `<li>${s}</li>`).join('');
-            let highlightsPills = data.highlights.map(h => `<span class="badge-pill"><i class="fa-solid fa-star" style="font-size:9px;"></i> ${h}</span>`).join('');
-
-            container.innerHTML = `
-                <div class="visa-card-body">
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
-                        <div>
-                            <h4 style="font-size:18px; font-weight:800; color:var(--text-main); display:flex; align-items:center; gap:8px;">
-                                <span>${data.flag}</span> <span>${data.title}</span>
-                            </h4>
-                            <span style="font-size:12px; color:var(--text-muted); font-weight:600;">Main Visa: ${data.visaType}</span>
-                        </div>
-                        <span style="background:#e0f2fe; color:#0369a1; font-size:11px; font-weight:700; padding:4px 10px; border-radius:12px;">
-                            ${data.intakes}
-                        </span>
-                    </div>
-
-                    <div class="visa-badge-row">
-                        ${highlightsPills}
-                    </div>
-
-                    <div class="visa-section-title"><i class="fa-solid fa-list-check" style="color:var(--primary);"></i> Step-by-Step Procedure</div>
-                    <ul class="step-list">
-                        ${stepsList}
-                    </ul>
-
-                    <div class="visa-section-title"><i class="fa-solid fa-receipt" style="color:var(--primary);"></i> Official Fees & Expected Costs</div>
-                    <table class="cost-table">
-                        <thead>
-                            <tr>
-                                <th>Category / Expense</th>
-                                <th>Approx. Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${costsRows}
-                        </tbody>
-                    </table>
-
-                    <div class="visa-section-title"><i class="fa-solid fa-route" style="color:var(--primary);"></i> Pathway to Work & PR / Settlement</div>
-                    <p style="font-size:12.5px; color:var(--text-main); line-height:1.5; background:var(--glass-bg); padding:10px 14px; border-radius:8px; border:1px solid var(--glass-border);">
-                        ${data.routes}
-                    </p>
-
-                    <div style="margin-top:12px; padding:10px 12px; background:#fef3c7; border-left:4px solid #f59e0b; border-radius:6px; font-size:12px; color:#92400e;">
-                        <strong>Latest Policy Alert:</strong> ${data.latestUpdate}
-                    </div>
-                </div>
-            `;
-        }
-
-        // Navigation & Modals Init
-        document.addEventListener('DOMContentLoaded', () => {
-            const utilityDropdownBtn = document.getElementById('utilityDropdownBtn');
-            const utilityDropdownMenu = document.getElementById('utilityDropdownMenu');
-            const utilityDropdownList = document.getElementById('utilityDropdownList');
-            const utilitySearchInput = document.getElementById('utilitySearchInput');
-
-            // VISA MODAL ELEMENTS
-            const navVisaBtn = document.getElementById('navVisaBtn');
-            const heroVisaBtn = document.getElementById('heroVisaBtn');
-            const visaModal = document.getElementById('visaModal');
-            const closeVisaModal = document.getElementById('closeVisaModal');
-            const countryTabs = document.getElementById('countryTabs');
-            const refreshVisaUpdatesBtn = document.getElementById('refreshVisaUpdatesBtn');
-
-            // ATS MODAL ELEMENTS
-            const navAtsBtn = document.getElementById('navAtsBtn');
-            const heroAtsBtn = document.getElementById('heroAtsBtn');
-            const atsModal = document.getElementById('atsModal');
-            const closeAtsModal = document.getElementById('closeAtsModal');
-            const runAtsCheckBtn = document.getElementById('runAtsCheckBtn');
-            const atsResumeInput = document.getElementById('atsResumeInput');
-            const atsResultBox = document.getElementById('atsResultBox');
-            const atsScoreVal = document.getElementById('atsScoreVal');
-            const atsAnalysisList = document.getElementById('atsAnalysisList');
-
-            const utilityTools = [];
-            document.querySelectorAll('.glass-card').forEach(card => {
-                const id = card.id;
-                const title = card.querySelector('.card-meta h3')?.innerText.trim() || '';
-                const iconClass = card.querySelector('.card-icon i')?.className || 'fa-solid fa-gear';
-                if (id && title) utilityTools.push({ id, title, iconClass });
-            });
-
-            function populateDropdown(filterText = '') {
-                utilityDropdownList.innerHTML = '';
-                const filtered = utilityTools.filter(t => t.title.toLowerCase().includes(filterText.toLowerCase()));
-                if (filtered.length === 0) {
-                    utilityDropdownList.innerHTML = `<div style="padding:12px; font-size:12px; color:#64748b; text-align:center;">No utility found</div>`;
-                    return;
-                }
-                filtered.forEach(tool => {
-                    const item = document.createElement('div');
-                    item.className = 'dropdown-item';
-                    item.innerHTML = `<i class="${tool.iconClass}"></i><span>${tool.title}</span>`;
-                    item.onclick = () => {
-                        playChime(640);
-                        utilityDropdownMenu.classList.remove('active');
-                        const targetCard = document.getElementById(tool.id);
-                        if (targetCard) {
-                            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            targetCard.classList.add('highlight-card');
-                            setTimeout(() => targetCard.classList.remove('highlight-card'), 2200);
-                        }
-                    };
-                    utilityDropdownList.appendChild(item);
-                });
-            }
-            populateDropdown();
-
-            if (utilityDropdownBtn) {
-                utilityDropdownBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    playChime(540);
-                    const isOpen = utilityDropdownMenu.classList.toggle('active');
-                    if (isOpen) {
-                        utilitySearchInput.value = '';
-                        populateDropdown();
-                        setTimeout(() => utilitySearchInput.focus(), 50);
-                    }
-                };
-            }
-
-            if (utilitySearchInput) {
-                utilitySearchInput.oninput = (e) => populateDropdown(e.target.value);
-            }
-
-            document.addEventListener('click', (e) => {
-                if (utilityDropdownMenu && !utilityDropdownMenu.contains(e.target) && !utilityDropdownBtn.contains(e.target)) {
-                    utilityDropdownMenu.classList.remove('active');
-                }
-            });
-
-            // Open Visa Modal
-            function openVisaHub() {
-                playChime(640);
-                renderVisaTab('usa');
-                visaModal.classList.add('active');
-            }
-            if (navVisaBtn) navVisaBtn.onclick = openVisaHub;
-            if (heroVisaBtn) heroVisaBtn.onclick = openVisaHub;
-            if (closeVisaModal) closeVisaModal.onclick = () => visaModal.classList.remove('active');
-
-            // Country tab switching
-            if (countryTabs) {
-                countryTabs.addEventListener('click', (e) => {
-                    const btn = e.target.closest('.country-btn');
-                    if (!btn) return;
-                    playChime(520);
-                    document.querySelectorAll('.country-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    renderVisaTab(btn.dataset.country);
-                });
-            }
-
-            // Live updates simulated fetcher
-            if (refreshVisaUpdatesBtn) {
-                refreshVisaUpdatesBtn.onclick = () => {
-                    playChime(800);
-                    const statusText = document.getElementById('liveStatusText');
-                    statusText.textContent = "Fetching official embassy feeds...";
-                    setTimeout(() => {
-                        const now = new Date();
-                        statusText.textContent = `Live Feed Synchronized • Latest embassy updates as of ${now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-                    }, 800);
-                };
-            }
-
-            // Open ATS Modal
-            function openAtsModal() {
-                playChime(600);
-                atsModal.classList.add('active');
-            }
-            if (navAtsBtn) navAtsBtn.onclick = openAtsModal;
-            if (heroAtsBtn) heroAtsBtn.onclick = openAtsModal;
-            if (closeAtsModal) closeAtsModal.onclick = () => atsModal.classList.remove('active');
-
-            // Run ATS Checker Engine
-            if (runAtsCheckBtn) {
-                runAtsCheckBtn.onclick = () => {
-                    const text = atsResumeInput.value.trim();
-                    if (!text || text.length < 40) {
-                        alert("Please paste your resume content (at least 40 characters) to analyze ATS compatibility.");
-                        return;
-                    }
-                    playChime(750);
-                    triggerConfetti();
-
-                    let score = 65;
-                    const words = text.toLowerCase();
-                    const checks = [];
-
-                    if (words.includes('experience') || words.includes('work history')) {
-                        score += 8;
-                        checks.push("✔ Clear Experience Header detected.");
-                    } else {
-                        checks.push("⚠️ Missing standard 'Experience' header.");
-                    }
-
-                    if (words.includes('skills') || words.includes('technologies')) {
-                        score += 8;
-                        checks.push("✔ Dedicated Skills section present.");
-                    } else {
-                        checks.push("⚠️ Add a focused Skills inventory.");
-                    }
-
-                    if (/\d+%|\$\d+|\b\d+\b/g.test(text)) {
-                        score += 9;
-                        checks.push("✔ Quantifiable metrics and numbers detected.");
-                    } else {
-                        checks.push("⚠️ Try adding measurable impact (e.g. boosted efficiency by 25%).");
-                    }
-
-                    if (text.length > 300) {
-                        score += 6;
-                        checks.push("✔ Strong content depth for keyword parsers.");
-                    }
-
-                    score = Math.min(score, 94);
-                    atsScoreVal.textContent = score;
-                    atsAnalysisList.innerHTML = checks.map(c => `<div style="margin-bottom:6px;">${c}</div>`).join('');
-                    atsResultBox.style.display = 'block';
-                };
-            }
-        });
-
-        // Daily Utility Engines
+        // ================= CALCULATORS ENGINE =================
         document.getElementById('calcAgeBtn').onclick = () => {
-            playChime(500);
             const val = document.getElementById('ageDob').value;
             if (!val) return;
             const dob = new Date(val);
@@ -2480,7 +2088,6 @@
         };
 
         document.getElementById('calcIntBtn').onclick = () => {
-            playChime(500);
             const p = parseFloat(document.getElementById('intPrincipal').value) || 0;
             const r = parseFloat(document.getElementById('intRate').value) || 0;
             const t = parseFloat(document.getElementById('intTime').value) || 0;
@@ -2490,7 +2097,6 @@
         };
 
         document.getElementById('calcDiscBtn').onclick = () => {
-            playChime(500);
             const price = parseFloat(document.getElementById('discPrice').value) || 0;
             const pct = parseFloat(document.getElementById('discPercent').value) || 0;
             const savings = (price * pct) / 100;
@@ -2498,7 +2104,6 @@
         };
 
         document.getElementById('calcEmiBtn').onclick = () => {
-            playChime(500);
             const p = parseFloat(document.getElementById('emiAmount').value) || 0;
             const annualR = parseFloat(document.getElementById('emiRate').value) || 0;
             const n = parseFloat(document.getElementById('emiTenure').value) || 0;
@@ -2508,13 +2113,11 @@
         };
 
         document.getElementById('genQrBtn').onclick = () => {
-            playChime(500);
             const text = encodeURIComponent(document.getElementById('qrText').value || 'https://resumora.github.io');
             document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${text}`;
         };
 
         document.getElementById('genPwdBtn').onclick = () => {
-            playChime(500);
             const len = parseInt(document.getElementById('pwdLength').value) || 16;
             const incSym = document.getElementById('pwdSymbols').value === 'yes';
             const chars = incSym ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -2537,7 +2140,6 @@
         document.getElementById('mergePdfBtn').onclick = async () => {
             const files = document.getElementById('pdfMergeFiles').files;
             if (files.length < 2) { alert('Please select at least 2 PDF files.'); return; }
-            playChime(550);
             document.getElementById('pdfMergeOutput').textContent = "Merging PDFs...";
             try {
                 const mergedPdf = await PDFLib.PDFDocument.create();
@@ -2563,7 +2165,6 @@
                 alert("Please upload a valid PDF and specify page range.");
                 return;
             }
-            playChime(550);
             document.getElementById('pdfSplitOutput').textContent = "Splitting PDF...";
             try {
                 const arrayBuffer = await file.arrayBuffer();
@@ -2583,234 +2184,6 @@
             }
         };
 
-        document.getElementById('extractPdfBtn').onclick = async () => {
-            const file = document.getElementById('pdfExtractFile').files[0];
-            const rawPages = document.getElementById('pdfExtractPages').value;
-            if (!file || !rawPages.trim()) { alert("Please provide PDF and page numbers"); return; }
-            playChime(550);
-            try {
-                const arrayBuffer = await file.arrayBuffer();
-                const srcPdf = await PDFLib.PDFDocument.load(arrayBuffer);
-                const pageIndices = rawPages.split(',').map(s => parseInt(s.trim()) - 1).filter(n => !isNaN(n) && n >= 0 && n < srcPdf.getPageCount());
-                if (pageIndices.length === 0) { alert("No valid page numbers found."); return; }
-                const newPdf = await PDFLib.PDFDocument.create();
-                const copiedPages = await newPdf.copyPages(srcPdf, pageIndices);
-                copiedPages.forEach(p => newPdf.addPage(p));
-                const bytes = await newPdf.save();
-                downloadBlob(new Blob([bytes], { type: 'application/pdf' }), 'extracted_pages.pdf');
-                document.getElementById('pdfExtractOutput').textContent = "Pages extracted!";
-            } catch(e) {
-                document.getElementById('pdfExtractOutput').textContent = "Error: " + e.message;
-            }
-        };
-
-        document.getElementById('convertJpgPdfBtn').onclick = async () => {
-            const files = document.getElementById('jpgToPdfFile').files;
-            if (files.length === 0) { alert("Select JPG files first"); return; }
-            playChime(550);
-            document.getElementById('jpgPdfOutput').textContent = "Converting...";
-            try {
-                const pdf = await PDFLib.PDFDocument.create();
-                for (let file of files) {
-                    const bytes = await file.arrayBuffer();
-                    const img = await pdf.embedJpg(bytes);
-                    const page = pdf.addPage([img.width, img.height]);
-                    page.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height });
-                }
-                const pdfBytes = await pdf.save();
-                downloadBlob(new Blob([pdfBytes], { type: 'application/pdf' }), 'images.pdf');
-                document.getElementById('jpgPdfOutput').textContent = "Converted to PDF!";
-            } catch(e) {
-                document.getElementById('jpgPdfOutput').textContent = "Error: " + e.message;
-            }
-        };
-
-        document.getElementById('convertPngPdfBtn').onclick = async () => {
-            const files = document.getElementById('pngToPdfFile').files;
-            if (files.length === 0) { alert("Select PNG files first"); return; }
-            playChime(550);
-            document.getElementById('pngPdfOutput').textContent = "Converting...";
-            try {
-                const pdf = await PDFLib.PDFDocument.create();
-                for (let file of files) {
-                    const bytes = await file.arrayBuffer();
-                    const img = await pdf.embedPng(bytes);
-                    const page = pdf.addPage([img.width, img.height]);
-                    page.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height });
-                }
-                const pdfBytes = await pdf.save();
-                downloadBlob(new Blob([pdfBytes], { type: 'application/pdf' }), 'images.pdf');
-                document.getElementById('pngPdfOutput').textContent = "Converted to PDF!";
-            } catch(e) {
-                document.getElementById('pngPdfOutput').textContent = "Error: " + e.message;
-            }
-        };
-
-        document.getElementById('compressQuality').oninput = (e) => {
-            document.getElementById('qualityVal').textContent = e.target.value;
-        };
-        document.getElementById('compressImgBtn').onclick = () => {
-            const file = document.getElementById('compressImgFile').files[0];
-            if (!file) { alert("Select an image first"); return; }
-            playChime(550);
-            const quality = parseFloat(document.getElementById('compressQuality').value) || 0.7;
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-                const img = new Image();
-                img.onload = () => {
-                    const cvs = document.createElement('canvas');
-                    cvs.width = img.width;
-                    cvs.height = img.height;
-                    const c = cvs.getContext('2d');
-                    c.drawImage(img, 0, 0);
-                    cvs.toBlob((blob) => {
-                        downloadBlob(blob, 'compressed_' + file.name);
-                        document.getElementById('compressOutput').textContent = `Compressed: ${(blob.size / 1024).toFixed(1)} KB`;
-                    }, 'image/jpeg', quality);
-                };
-                img.src = ev.target.result;
-            };
-            reader.readAsDataURL(file);
-        };
-
-        document.getElementById('resizeImgBtn').onclick = () => {
-            const file = document.getElementById('resizeImgFile').files[0];
-            const w = parseInt(document.getElementById('resizeWidth').value);
-            const h = parseInt(document.getElementById('resizeHeight').value);
-            if (!file || !w || !h) { alert("Please provide image, width, and height"); return; }
-            playChime(550);
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-                const img = new Image();
-                img.onload = () => {
-                    const cvs = document.createElement('canvas');
-                    cvs.width = w;
-                    cvs.height = h;
-                    const c = cvs.getContext('2d');
-                    c.drawImage(img, 0, 0, w, h);
-                    cvs.toBlob((blob) => {
-                        downloadBlob(blob, `resized_${w}x${h}_` + file.name);
-                        document.getElementById('resizeOutput').textContent = `Resized to ${w}x${h}px!`;
-                    }, file.type || 'image/jpeg', 0.95);
-                };
-                img.src = ev.target.result;
-            };
-            reader.readAsDataURL(file);
-        };
-
-        let cropper = null;
-        document.getElementById('cropImgFile').onchange = (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (ev) => {
-                    const imgEl = document.getElementById('cropImgElement');
-                    imgEl.src = ev.target.result;
-                    document.getElementById('cropContainer').style.display = 'block';
-                    if (cropper) cropper.destroy();
-                    cropper = new Cropper(imgEl, { aspectRatio: NaN, viewMode: 1 });
-                };
-                reader.readAsDataURL(file);
-            }
-        };
-        document.getElementById('cropImgBtn').onclick = () => {
-            if (!cropper) { alert("Upload image first!"); return; }
-            playChime(550);
-            cropper.getCroppedCanvas().toBlob((blob) => {
-                downloadBlob(blob, 'cropped_image.png');
-                document.getElementById('cropOutput').textContent = "Cropped & downloaded!";
-            });
-        };
-
-        let html5QrCode = null;
-        document.getElementById('startScanBtn').onclick = () => {
-            playChime(500);
-            if (!html5QrCode) html5QrCode = new Html5Qrcode("qrReader");
-            html5QrCode.start(
-                { facingMode: "environment" },
-                { fps: 10, qrbox: 250 },
-                (qrCodeMessage) => {
-                    document.getElementById('qrScanOutput').innerHTML = `Result: <strong>${qrCodeMessage}</strong>`;
-                    html5QrCode.stop();
-                },
-                (err) => {}
-            ).catch(err => {
-                document.getElementById('qrScanOutput').textContent = "Camera access error: " + err;
-            });
-        };
-        document.getElementById('stopScanBtn').onclick = () => {
-            if (html5QrCode) html5QrCode.stop().then(() => {
-                document.getElementById('qrScanOutput').textContent = "Scanner stopped.";
-            });
-        };
-        document.getElementById('qrFileInput').onchange = (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                if (!html5QrCode) html5QrCode = new Html5Qrcode("qrReader");
-                html5QrCode.scanFile(file, true)
-                .then(qrCodeMessage => {
-                    document.getElementById('qrScanOutput').innerHTML = `Result: <strong>${qrCodeMessage}</strong>`;
-                })
-                .catch(err => {
-                    document.getElementById('qrScanOutput').textContent = "No QR detected: " + err;
-                });
-            }
-        };
-
-        document.getElementById('formatJsonBtn').onclick = () => {
-            playChime(500);
-            const val = document.getElementById('jsonFormatInput').value;
-            try {
-                const parsed = JSON.parse(val);
-                document.getElementById('jsonFormatOutput').textContent = JSON.stringify(parsed, null, 2);
-            } catch(e) {
-                document.getElementById('jsonFormatOutput').textContent = "Invalid JSON: " + e.message;
-            }
-        };
-
-        document.getElementById('validateJsonBtn').onclick = () => {
-            playChime(500);
-            const val = document.getElementById('jsonValidInput').value;
-            try {
-                JSON.parse(val);
-                document.getElementById('jsonValidOutput').innerHTML = `<span style="color:#10b981; font-weight:700;">Valid JSON!</span>`;
-            } catch(e) {
-                document.getElementById('jsonValidOutput').innerHTML = `<span style="color:#ef4444; font-weight:700;">Invalid JSON: ${e.message}</span>`;
-            }
-        };
-
-        document.getElementById('b64EncodeBtn').onclick = () => {
-            playChime(500);
-            try {
-                document.getElementById('b64Output').textContent = btoa(document.getElementById('b64Input').value);
-            } catch(e) { document.getElementById('b64Output').textContent = "Encoding error: " + e.message; }
-        };
-        document.getElementById('b64DecodeBtn').onclick = () => {
-            playChime(500);
-            try {
-                document.getElementById('b64Output').textContent = atob(document.getElementById('b64Input').value);
-            } catch(e) { document.getElementById('b64Output').textContent = "Invalid Base64 string"; }
-        };
-
-        document.getElementById('urlEncodeBtn').onclick = () => {
-            playChime(500);
-            document.getElementById('urlOutput').textContent = encodeURIComponent(document.getElementById('urlInput').value);
-        };
-        document.getElementById('urlDecodeBtn').onclick = () => {
-            playChime(500);
-            try {
-                document.getElementById('urlOutput').textContent = decodeURIComponent(document.getElementById('urlInput').value);
-            } catch(e) { document.getElementById('urlOutput').textContent = "Error decoding URL"; }
-        };
-
-        document.getElementById('genUuidBtn').onclick = () => {
-            playChime(500);
-            const uuid = ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-            );
-            document.getElementById('uuidOutput').textContent = uuid;
-        };
-
         document.getElementById('textCounterInput').oninput = (e) => {
             const val = e.target.value;
             const words = val.trim() ? val.trim().split(/\s+/).length : 0;
@@ -2819,21 +2192,7 @@
             document.getElementById('textCounterOutput').textContent = `Words: ${words} | Characters: ${chars} | Spaces: ${spaces}`;
         };
 
-        document.getElementById('convertCaseBtn').onclick = () => {
-            playChime(500);
-            const txt = document.getElementById('caseInput').value;
-            const type = document.getElementById('caseType').value;
-            let res = txt;
-            if (type === 'upper') res = txt.toUpperCase();
-            else if (type === 'lower') res = txt.toLowerCase();
-            else if (type === 'title') res = txt.replace(/\b\w/g, l => l.toUpperCase());
-            else if (type === 'kebab') res = txt.trim().toLowerCase().replace(/\s+/g, '-');
-            else if (type === 'camel') res = txt.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) => +match === 0 ? "" : index === 0 ? match.toLowerCase() : match.toUpperCase());
-            document.getElementById('caseOutput').textContent = res;
-        };
-
         document.getElementById('calcGstBtn').onclick = () => {
-            playChime(500);
             const amount = parseFloat(document.getElementById('gstAmount').value) || 0;
             const rate = parseFloat(document.getElementById('gstRate').value) || 18;
             const type = document.getElementById('gstType').value;
@@ -2848,6 +2207,15 @@
         };
 
         document.getElementById('calcSalaryBtn').onclick = () => {
-            playChime(500);
             const ctc = parseFloat(document.getElementById('salaryCtc').value) || 0;
-            const pfType = document.getElementById('salaryPf').
+            const pfType = document.getElementById('salaryPf').value;
+            const monthlyGross = ctc / 12;
+            let pf = 1800;
+            if (pfType === '12') pf = (monthlyGross * 0.5) * 0.12;
+            else if (pfType === '0') pf = 0;
+            const inHand = monthlyGross - pf - 200;
+            document.getElementById('salaryResult').innerHTML = `Monthly In-Hand: ~<strong>₹${Math.round(inHand).toLocaleString()}</strong>`;
+        };
+    </script>
+</body>
+</html>
