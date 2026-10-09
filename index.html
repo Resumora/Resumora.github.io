@@ -14,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resumora Universe - Free ATS Resume Builder & Smart Utility Portal</title>
     <meta name="description" content="Access Resumora's free ATS resume engine, career AI Genie, real-time calculators, games and daily positive breaking news.">
-    <link rel="canonical" href="https://resumora.github.io/">
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,9 +36,9 @@
             --indigo-accent: #4f46e5;
             --text-main: #0f172a;
             --text-muted: #64748b;
-            --glass-bg: rgba(255, 255, 255, 0.88);
-            --glass-border: rgba(226, 232, 240, 0.85);
-            --glass-shadow: 0 12px 36px -8px rgba(15, 23, 42, 0.08), 0 4px 16px -2px rgba(37, 99, 235, 0.05);
+            --glass-bg: rgba(255, 255, 255, 0.94);
+            --glass-border: rgba(226, 232, 240, 0.9);
+            --glass-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
             --font-heading: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
@@ -56,21 +55,17 @@
             min-height: 100vh;
         }
 
-        /* Background Canvas */
         #universeCanvas {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             pointer-events: none !important;
             z-index: 0;
         }
 
         .cursor-spotlight {
             position: fixed;
-            width: 500px;
-            height: 500px;
+            width: 500px; height: 500px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, rgba(6, 182, 212, 0.03) 50%, transparent 70%);
             pointer-events: none !important;
@@ -78,14 +73,12 @@
             z-index: 1;
         }
 
-        /* Topbar */
         .topbar {
             position: sticky;
             top: 0;
             z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--glass-border);
             padding: 12px 36px;
             display: flex;
@@ -102,8 +95,7 @@
         }
 
         .brand-logo-badge {
-            width: 40px;
-            height: 40px;
+            width: 40px; height: 40px;
             border-radius: 12px;
             background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
             display: flex;
@@ -155,7 +147,6 @@
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             outline: none;
-            user-select: none;
         }
 
         .btn-dropdown-toggle {
@@ -167,13 +158,10 @@
         .btn-dropdown-toggle:hover {
             background: #f8fafc;
             border-color: #cbd5e1;
-            transform: translateY(-2px);
+            box-shadow: 0 0 14px rgba(37, 99, 235, 0.25);
         }
 
-        .utilities-dropdown-wrapper {
-            position: relative;
-        }
-
+        .utilities-dropdown-wrapper { position: relative; }
         .utilities-dropdown-menu {
             position: absolute;
             top: calc(100% + 10px);
@@ -188,15 +176,11 @@
             overflow: hidden;
             z-index: 2500;
         }
-
-        .utilities-dropdown-menu.active {
-            display: flex !important;
-        }
+        .utilities-dropdown-menu.active { display: flex !important; }
 
         .dropdown-search-box {
             padding: 10px 14px;
             border-bottom: 1px solid #f1f5f9;
-            background: #ffffff;
         }
 
         .dropdown-search-input {
@@ -207,7 +191,6 @@
             padding: 6px 12px;
             font-size: 12.5px;
             outline: none;
-            font-family: inherit;
         }
 
         .dropdown-items-list {
@@ -231,7 +214,7 @@
         .dropdown-item:hover {
             background: #eff6ff;
             color: var(--primary);
-            transform: translateX(4px);
+            box-shadow: 0 0 10px rgba(37, 99, 235, 0.15);
         }
 
         .btn-play-genie {
@@ -240,8 +223,7 @@
             box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
         }
         .btn-play-genie:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(109, 40, 217, 0.45);
+            box-shadow: 0 0 18px rgba(139, 92, 246, 0.6);
         }
 
         .btn-surprise {
@@ -250,8 +232,7 @@
             box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
         }
         .btn-surprise:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 0 18px rgba(245, 158, 11, 0.5);
         }
 
         .btn-genie {
@@ -260,8 +241,7 @@
             box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
         }
         .btn-genie:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 0 18px rgba(2, 132, 199, 0.5);
         }
 
         .btn-primary {
@@ -272,8 +252,7 @@
             overflow: hidden;
         }
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
         }
 
         .btn-shine {
@@ -289,7 +268,6 @@
             100% { left: 160%; }
         }
 
-        /* Hero */
         .hero {
             position: relative;
             z-index: 10;
@@ -313,11 +291,9 @@
         }
 
         .pulse-dot {
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             background-color: #10b981;
             border-radius: 50%;
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
             animation: pulse-ring 1.8s infinite;
         }
 
@@ -359,7 +335,7 @@
             flex-wrap: wrap;
         }
 
-        /* Tools Section */
+        /* Tools Section & Glowing Cards */
         .tools-section {
             position: relative;
             z-index: 10;
@@ -388,10 +364,10 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 22px;
-            perspective: 1400px;
             position: relative;
         }
 
+        /* NO ZOOM, OUTSIDE GLOW ON HOVER */
         .glass-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -399,20 +375,22 @@
             padding: 24px;
             box-shadow: var(--glass-shadow);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             position: relative;
             display: flex;
             flex-direction: column;
-            transform-style: preserve-3d;
-            will-change: transform, box-shadow;
-            transition: transform 0.1s ease-out, box-shadow 0.25s ease;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
             z-index: 2;
             scroll-margin-top: 100px;
         }
 
+        .glass-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 0 25px rgba(37, 99, 235, 0.45), 0 0 50px rgba(6, 182, 212, 0.2);
+        }
+
         .glass-card.highlight-card {
             border-color: var(--primary) !important;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25), 0 20px 40px rgba(37, 99, 235, 0.2) !important;
+            box-shadow: 0 0 35px rgba(37, 99, 235, 0.8), 0 0 10px #2563eb !important;
         }
 
         .card-top {
@@ -423,8 +401,7 @@
         }
 
         .card-icon {
-            width: 44px;
-            height: 44px;
+            width: 44px; height: 44px;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -451,10 +428,7 @@
             color: var(--text-main);
         }
 
-        .card-meta p {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
+        .card-meta p { font-size: 12px; color: var(--text-muted); }
 
         .tool-form {
             display: flex;
@@ -500,7 +474,7 @@
 
         .tool-input:focus, .tool-select:focus, .tool-textarea:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+            box-shadow: 0 0 12px rgba(37, 99, 235, 0.25);
         }
 
         .tool-output {
@@ -531,7 +505,6 @@
             inset: 0;
             background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             z-index: 3000;
             display: none;
             align-items: center;
@@ -539,9 +512,7 @@
             padding: 20px;
         }
 
-        .modal-overlay.active {
-            display: flex !important;
-        }
+        .modal-overlay.active { display: flex !important; }
 
         .modal-box {
             background: #ffffff;
@@ -558,10 +529,8 @@
 
         .modal-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 32px;
-            height: 32px;
+            top: 20px; right: 20px;
+            width: 32px; height: 32px;
             border-radius: 50%;
             background: #f1f5f9;
             border: none;
@@ -571,12 +540,8 @@
             justify-content: center;
             color: var(--text-muted);
             font-size: 18px;
-            transition: all 0.2s;
         }
-        .modal-close:hover {
-            background: #e2e8f0;
-            color: #0f172a;
-        }
+        .modal-close:hover { background: #e2e8f0; color: #0f172a; }
 
         /* Genie Styles */
         .genie-avatar-container {
@@ -590,8 +555,7 @@
 
         .genie-orb {
             position: relative;
-            width: 86px;
-            height: 86px;
+            width: 86px; height: 86px;
             border-radius: 50%;
             background: radial-gradient(circle, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
             box-shadow: 0 0 35px rgba(56, 189, 248, 0.7);
@@ -600,37 +564,13 @@
             justify-content: center;
         }
 
-        .genie-eyes {
-            display: flex;
-            gap: 12px;
-        }
+        .genie-eyes { display: flex; gap: 12px; }
+        .genie-eye { width: 9px; height: 12px; background: #ffffff; border-radius: 50%; }
 
-        .genie-eye {
-            width: 9px;
-            height: 12px;
-            background: #ffffff;
-            border-radius: 50%;
-        }
+        .genie-title { margin-top: 12px; font-family: var(--font-heading); font-size: 20px; font-weight: 800; }
+        .genie-subtitle { font-size: 13px; color: var(--text-muted); }
 
-        .genie-title {
-            margin-top: 12px;
-            font-family: var(--font-heading);
-            font-size: 20px;
-            font-weight: 800;
-        }
-
-        .genie-subtitle {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .genie-modes {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
-
+        .genie-modes { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
         .mode-chip {
             background: #f0f9ff;
             border: 1px solid #bae6fd;
@@ -641,10 +581,7 @@
             font-weight: 600;
             cursor: pointer;
         }
-        .mode-chip.active {
-            background: #0284c7;
-            color: #ffffff;
-        }
+        .mode-chip.active { background: #0284c7; color: #ffffff; }
 
         .genie-chat-box {
             background: #f8fafc;
@@ -660,22 +597,10 @@
             white-space: pre-wrap;
         }
 
-        /* Gaming Arena */
+        /* 3D Chess Arena */
         .gaming-modal-box {
-            max-width: 820px;
+            max-width: 580px;
             padding: 24px;
-        }
-
-        .gaming-modal-box.game-fullscreen {
-            max-width: 100vw !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            max-height: 100vh !important;
-            border-radius: 0 !important;
-            inset: 0 !important;
-            display: flex;
-            flex-direction: column;
-            padding: 16px 24px !important;
         }
 
         .game-nav-bar {
@@ -687,135 +612,68 @@
             border-bottom: 1px solid #e2e8f0;
         }
 
-        .game-tabs {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .game-tab-btn {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            padding: 7px 16px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #475569;
-        }
-
-        .game-tab-btn.active {
-            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
-            color: #ffffff;
-            border-color: transparent;
-        }
-
-        .btn-fullscreen {
-            background: #f8fafc;
-            border: 1px solid #cbd5e1;
-            padding: 7px 14px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .game-panel {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 440px;
-            width: 100%;
-        }
-        .game-panel.active {
-            display: flex !important;
-        }
-
-        /* Chess Board */
         .chess-board {
             display: grid;
-            grid-template-columns: repeat(8, 48px);
-            grid-template-rows: repeat(8, 48px);
-            border: 4px solid #334155;
-            border-radius: 8px;
-            margin: 10px 0;
+            grid-template-columns: repeat(8, 52px);
+            grid-template-rows: repeat(8, 52px);
+            border: 8px solid #1e293b;
+            border-radius: 12px;
+            box-shadow: 0 16px 36px rgba(0,0,0,0.3), inset 0 2px 8px rgba(0,0,0,0.25);
+            margin: 14px auto;
             user-select: none;
+            background: #334155;
         }
+
         .chess-square {
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
             cursor: pointer;
-        }
-        .chess-square.light { background: #f8fafc; }
-        .chess-square.dark { background: #94a3b8; }
-        .chess-square.selected { background: #fef08a !important; }
-
-        /* Ludo Board */
-        .ludo-arena-board {
-            width: 360px;
-            height: 360px;
-            background: #ffffff;
-            border: 4px solid #1e293b;
-            border-radius: 12px;
-            display: grid;
-            grid-template-columns: repeat(15, 1fr);
-            grid-template-rows: repeat(15, 1fr);
-            margin: 12px 0;
-        }
-        .ludo-cell {
-            border: 0.5px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .ludo-home-r { background: #ef4444; }
-        .ludo-home-g { background: #10b981; }
-        .ludo-home-y { background: #f59e0b; }
-        .ludo-home-b { background: #2563eb; }
-
-        .ludo-dice-box {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-top: 10px;
-        }
-        .ludo-dice {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            background: #1e293b;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 800;
-            cursor: pointer;
+            position: relative;
         }
 
-        #snakeCanvas {
-            background: #0f172a;
-            border: 3px solid #38bdf8;
-            border-radius: 12px;
+        .chess-square.light { background: #e2e8f0; }
+        .chess-square.dark { background: #64748b; }
+        .chess-square.selected { background: #fde047 !important; box-shadow: inset 0 0 10px rgba(0,0,0,0.3); }
+
+        /* 3D Piece Styling */
+        .chess-piece-3d {
+            font-size: 38px;
+            line-height: 1;
+            transition: transform 0.15s ease;
+            display: inline-block;
+        }
+
+        .chess-piece-3d.white-piece {
+            color: #ffffff;
+            text-shadow: 
+                0 1px 0 #cbd5e1,
+                0 2px 0 #94a3b8,
+                0 3px 1px rgba(0,0,0,0.4),
+                0 6px 12px rgba(0,0,0,0.3);
+            filter: drop-shadow(0px 3px 2px rgba(0,0,0,0.25));
+        }
+
+        .chess-piece-3d.black-piece {
+            color: #1e1e24;
+            text-shadow: 
+                0 1px 0 #3f3f46,
+                0 2px 0 #18181b,
+                0 3px 2px rgba(0,0,0,0.8),
+                0 5px 10px rgba(0,0,0,0.5);
+            filter: drop-shadow(0px 3px 2px rgba(0,0,0,0.35));
+        }
+
+        .chess-square:hover .chess-piece-3d {
+            transform: translateY(-3px) scale(1.08);
         }
 
         #confettiCanvas {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             pointer-events: none !important;
             z-index: 4000;
         }
@@ -835,9 +693,9 @@
             .hero h1 { font-size: 32px; }
             .topbar { padding: 12px 18px; flex-wrap: wrap; gap: 10px; }
             .cards-grid { grid-template-columns: 1fr; }
-            .chess-board { grid-template-columns: repeat(8, 36px); grid-template-rows: repeat(8, 36px); }
-            .chess-square { width: 36px; height: 36px; font-size: 24px; }
-            .ludo-arena-board { width: 290px; height: 290px; }
+            .chess-board { grid-template-columns: repeat(8, 38px); grid-template-rows: repeat(8, 38px); }
+            .chess-square { width: 38px; height: 38px; }
+            .chess-piece-3d { font-size: 26px; }
         }
     </style>
 </head>
@@ -849,7 +707,7 @@
 
     <!-- Topbar Navigation -->
     <header class="topbar">
-        <a href="https://resumora.github.io" class="brand-container">
+        <a href="index.html" class="brand-container">
             <div class="brand-logo-badge">R</div>
             <div>
                 <div class="brand-title">Resumora</div>
@@ -875,7 +733,7 @@
 
             <!-- 2. Play with Genie Button -->
             <button class="btn btn-play-genie" id="playWithGenieBtn" type="button">
-                <i class="fa-solid fa-gamepad"></i> <span>Play with Genie</span>
+                <i class="fa-solid fa-chess"></i> <span>Play Chess</span>
             </button>
 
             <!-- 3. Surprise Me Button -->
@@ -888,8 +746,8 @@
                 <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Ask Genie</span>
             </button>
 
-            <!-- 5. Create My Resume Button -->
-            <a href="https://resumora.github.io/app/" class="btn btn-primary" id="topbarResumeBtn">
+            <!-- 5. Create My Resume Button (Linked to app/ folder) -->
+            <a href="app/index.html" class="btn btn-primary" id="topbarResumeBtn">
                 <span class="btn-shine"></span>
                 <i class="fa-solid fa-file-invoice"></i> <span>Create My Resume</span>
             </a>
@@ -910,7 +768,7 @@
         </p>
 
         <div class="hero-action-row">
-            <a href="https://resumora.github.io/app/" class="btn btn-primary" style="padding: 12px 28px; font-size: 15px;">
+            <a href="app/index.html" class="btn btn-primary" style="padding: 12px 28px; font-size: 15px;">
                 <span class="btn-shine"></span>
                 <i class="fa-solid fa-file-lines"></i> <span>Create My Resume (100% Free)</span>
             </a>
@@ -931,6 +789,7 @@
         </div>
 
         <div class="cards-grid">
+            <!-- Age Chrono Calculator -->
             <div class="glass-card" id="tool-age">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-calendar-day"></i></div>
@@ -949,6 +808,7 @@
                 </div>
             </div>
 
+            <!-- Interest Yield Analyzer -->
             <div class="glass-card" id="tool-interest">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-chart-line"></i></div>
@@ -986,6 +846,7 @@
                 </div>
             </div>
 
+            <!-- Percentage & Discount -->
             <div class="glass-card" id="tool-percentage">
                 <div class="card-top">
                     <div class="card-icon icon-purple"><i class="fa-solid fa-percent"></i></div>
@@ -1010,6 +871,7 @@
                 </div>
             </div>
 
+            <!-- Loan / EMI Calculator -->
             <div class="glass-card" id="tool-emi">
                 <div class="card-top">
                     <div class="card-icon icon-blue"><i class="fa-solid fa-wallet"></i></div>
@@ -1038,6 +900,7 @@
                 </div>
             </div>
 
+            <!-- QR Generator -->
             <div class="glass-card" id="tool-qr-generator">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-qrcode"></i></div>
@@ -1058,6 +921,7 @@
                 </div>
             </div>
 
+            <!-- Cipher Password Generator -->
             <div class="glass-card" id="tool-password-generator">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-shield-halved"></i></div>
@@ -1088,6 +952,7 @@
                 </div>
             </div>
 
+            <!-- PDF Merger -->
             <div class="glass-card" id="tool-pdf-merger">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-file-pdf"></i></div>
@@ -1106,6 +971,7 @@
                 </div>
             </div>
 
+            <!-- PDF Splitter -->
             <div class="glass-card" id="tool-pdf-splitter">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-scissors"></i></div>
@@ -1134,6 +1000,7 @@
                 </div>
             </div>
 
+            <!-- PDF Page Extractor -->
             <div class="glass-card" id="tool-pdf-page-extractor">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-file-export"></i></div>
@@ -1156,6 +1023,7 @@
                 </div>
             </div>
 
+            <!-- JPG to PDF -->
             <div class="glass-card" id="tool-jpg-pdf">
                 <div class="card-top">
                     <div class="card-icon icon-teal"><i class="fa-solid fa-file-image"></i></div>
@@ -1167,19 +1035,20 @@
                 <div class="tool-form">
                     <div>
                         <label class="field-label">Select JPG Image(s)</label>
-                        <input type="file" id="jpgToPdfFile" class="tool-input" accept="image/jpeg" multiple>
+                        <input type="file" id="jpgToPdfFile" class="tool-input" accept="image/jpeg,image/jpg" multiple>
                     </div>
                     <button class="btn btn-primary" id="convertJpgPdfBtn" style="justify-content:center;">Convert to PDF</button>
                     <div class="tool-output" id="jpgPdfOutput">Upload JPG images</div>
                 </div>
             </div>
 
+            <!-- PNG to PDF -->
             <div class="glass-card" id="tool-png-pdf">
                 <div class="card-top">
                     <div class="card-icon icon-teal"><i class="fa-solid fa-images"></i></div>
                     <div class="card-meta">
                         <h3>PNG &rarr; PDF</h3>
-                        <p>Convert transparent or flat PNGs to PDF</p>
+                        <p>Convert PNGs to PDF document</p>
                     </div>
                 </div>
                 <div class="tool-form">
@@ -1192,12 +1061,13 @@
                 </div>
             </div>
 
+            <!-- Image Compressor -->
             <div class="glass-card" id="tool-image-compressor">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-compress"></i></div>
                     <div class="card-meta">
                         <h3>Image Compressor</h3>
-                        <p>Compress image weight with canvas quality</p>
+                        <p>Compress image weight client-side</p>
                     </div>
                 </div>
                 <div class="tool-form">
@@ -1206,7 +1076,7 @@
                         <input type="file" id="compressImgFile" class="tool-input" accept="image/*">
                     </div>
                     <div>
-                        <label class="field-label">Quality (0.1 - 0.9)</label>
+                        <label class="field-label">Quality: <span id="qualityVal">0.7</span></label>
                         <input type="range" id="compressQuality" min="0.1" max="0.9" step="0.1" value="0.7" style="width:100%;">
                     </div>
                     <button class="btn btn-primary" id="compressImgBtn" style="justify-content:center;">Compress & Download</button>
@@ -1214,6 +1084,7 @@
                 </div>
             </div>
 
+            <!-- Image Resize -->
             <div class="glass-card" id="tool-image-resize">
                 <div class="card-top">
                     <div class="card-icon icon-indigo"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
@@ -1242,6 +1113,7 @@
                 </div>
             </div>
 
+            <!-- Image Crop -->
             <div class="glass-card" id="tool-image-crop">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-crop-simple"></i></div>
@@ -1263,12 +1135,13 @@
                 </div>
             </div>
 
+            <!-- QR Scanner -->
             <div class="glass-card" id="tool-qr-scanner">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-camera"></i></div>
                     <div class="card-meta">
                         <h3>QR Scanner</h3>
-                        <p>Scan QR codes via device camera or files</p>
+                        <p>Scan QR codes via camera or image</p>
                     </div>
                 </div>
                 <div class="tool-form">
@@ -1285,6 +1158,7 @@
                 </div>
             </div>
 
+            <!-- JSON Formatter -->
             <div class="glass-card" id="tool-json-formatter">
                 <div class="card-top">
                     <div class="card-icon icon-blue"><i class="fa-solid fa-code"></i></div>
@@ -1303,6 +1177,7 @@
                 </div>
             </div>
 
+            <!-- JSON Validator -->
             <div class="glass-card" id="tool-json-validator">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-spell-check"></i></div>
@@ -1321,12 +1196,13 @@
                 </div>
             </div>
 
+            <!-- Base64 Engine -->
             <div class="glass-card" id="tool-base64">
                 <div class="card-top">
                     <div class="card-icon icon-purple"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
                     <div class="card-meta">
                         <h3>Base64 Engine</h3>
-                        <p>Encode or decode text in UTF-8 Base64</p>
+                        <p>Encode or decode text in Base64</p>
                     </div>
                 </div>
                 <div class="tool-form">
@@ -1342,6 +1218,7 @@
                 </div>
             </div>
 
+            <!-- URL Encoder / Decoder -->
             <div class="glass-card" id="tool-url-encoder">
                 <div class="card-top">
                     <div class="card-icon icon-slate"><i class="fa-solid fa-link"></i></div>
@@ -1363,6 +1240,7 @@
                 </div>
             </div>
 
+            <!-- UUID Generator -->
             <div class="glass-card" id="tool-uuid-generator">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-fingerprint"></i></div>
@@ -1377,6 +1255,7 @@
                 </div>
             </div>
 
+            <!-- Word Counter -->
             <div class="glass-card" id="tool-word-counter">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-i-cursor"></i></div>
@@ -1394,6 +1273,7 @@
                 </div>
             </div>
 
+            <!-- Case Converter -->
             <div class="glass-card" id="tool-case-converter">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-font"></i></div>
@@ -1421,6 +1301,7 @@
                 </div>
             </div>
 
+            <!-- GST Calculator -->
             <div class="glass-card" id="tool-gst">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-receipt"></i></div>
@@ -1457,6 +1338,7 @@
                 </div>
             </div>
 
+            <!-- Salary Breakdown -->
             <div class="glass-card" id="tool-salary">
                 <div class="card-top">
                     <div class="card-icon icon-indigo"><i class="fa-solid fa-money-bill-wave"></i></div>
@@ -1491,7 +1373,6 @@
     <div class="modal-overlay" id="genieModal">
         <div class="modal-box">
             <button class="modal-close" id="closeGenieModal">&times;</button>
-            
             <div class="genie-avatar-container">
                 <div class="genie-orb">
                     <div class="genie-eyes">
@@ -1507,15 +1388,12 @@
                 <button class="mode-chip active" data-mode="bullet">✨ Re-write Resume Bullet</button>
                 <button class="mode-chip" data-mode="interview">🎯 Mock Interview Questions</button>
                 <button class="mode-chip" data-mode="salary">💼 Salary Negotiation Pitch</button>
-                <button class="mode-chip" data-mode="search">🌐 Web & Google Search</button>
             </div>
 
-            <div class="genie-chat-box" id="genieResponseBox">
-Welcome! Tell me what you need, or select one of the quick modes above. I convert normal job descriptions into Google XYZ-formula bullets that pass recruiter screenings with top scores.
-            </div>
+            <div class="genie-chat-box" id="genieResponseBox">Welcome! Ask any career or interview question or paste your bullet point.</div>
 
             <div style="display:flex; gap:10px;">
-                <input type="text" id="genieInput" class="tool-input" placeholder="e.g., I managed network routers and fixed bugs...">
+                <input type="text" id="genieInput" class="tool-input" placeholder="e.g., I worked on customer support...">
                 <button class="btn btn-genie" id="genieSendBtn"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
@@ -1525,118 +1403,71 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
     <div class="modal-overlay" id="surpriseModal">
         <div class="modal-box">
             <button class="modal-close" id="closeSurpriseModal">&times;</button>
-            
             <div style="text-align: center; margin-bottom: 20px;">
                 <div style="font-size: 40px; margin-bottom: 8px;">🌟</div>
                 <h3 style="font-family: var(--font-heading); font-size: 22px; font-weight: 800;">Today's Happy Pulse</h3>
-                <p style="font-size: 13px; color: var(--text-muted);">Verified uplifting breakthroughs, good news, and human achievements</p>
+                <p style="font-size: 13px; color: var(--text-muted);">Verified uplifting breakthroughs & achievements</p>
             </div>
 
             <div id="happyNewsCard" style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:14px; padding:20px; margin-bottom:20px;">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span style="font-size:11px; font-weight:700; background:#22c55e; color:#fff; padding:3px 8px; border-radius:6px; text-transform:uppercase;" id="newsCategory">Positive Science</span>
+                    <span style="font-size:11px; font-weight:700; background:#22c55e; color:#fff; padding:3px 8px; border-radius:6px; text-transform:uppercase;" id="newsCategory">Science</span>
                     <span style="font-size:11px; color:#15803d;" id="newsDate">Today</span>
                 </div>
-                <h4 style="font-size:16px; color:#14532d; font-family:var(--font-heading); margin-bottom:8px;" id="newsHeadline">Solar Energy Becomes Cheapest Electricity Source in History</h4>
-                <p style="font-size:13px; color:#166534; line-height:1.6;" id="newsBody">Global clean energy reports confirm solar installations have surpassed record forecasts, drastically cutting emissions while generating hundreds of thousands of new green technology careers worldwide.</p>
+                <h4 style="font-size:16px; color:#14532d; font-family:var(--font-heading); margin-bottom:8px;" id="newsHeadline">Clean Energy Sets New Global Record</h4>
+                <p style="font-size:13px; color:#166534; line-height:1.6;" id="newsBody">Solar and renewable energy capacity jumped by record levels globally, bringing sustainable electricity to millions of families.</p>
             </div>
 
             <div style="display: flex; gap: 10px; justify-content: center;">
                 <button class="btn btn-surprise" id="nextNewsBtn">
-                    <i class="fa-solid fa-shuffle"></i> <span>Read Another Good News</span>
+                    <i class="fa-solid fa-shuffle"></i> <span>Read Another</span>
                 </button>
-                <a href="https://resumora.github.io/app/" class="btn btn-primary">
+                <a href="app/index.html" class="btn btn-primary">
                     <i class="fa-solid fa-file-invoice"></i> <span>Build My Resume Now</span>
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Modal 3: Play with Genie (Games) -->
+    <!-- Modal 3: Play with Genie (Chess Only with 3D Icons) -->
     <div class="modal-overlay" id="gameModal">
         <div class="modal-box gaming-modal-box" id="gameModalBox">
             <button class="modal-close" id="closeGameModal">&times;</button>
             
             <div class="game-nav-bar">
-                <div class="game-tabs">
-                    <button class="game-tab-btn active" data-game="chess"><i class="fa-solid fa-chess"></i> <span>Chess AI</span></button>
-                    <button class="game-tab-btn" data-game="ludo"><i class="fa-solid fa-dice"></i> <span>Ludo Arena</span></button>
-                    <button class="game-tab-btn" data-game="snake"><i class="fa-solid fa-worm"></i> <span>Cyber Snake</span></button>
-                </div>
-                <div class="game-controls-right">
-                    <button class="btn-fullscreen" id="toggleGameFullscreenBtn">
-                        <i class="fa-solid fa-expand" id="fullscreenIcon"></i> <span id="fullscreenText">Full Screen</span>
-                    </button>
-                </div>
+                <h3 style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; display:flex; align-items:center; gap:8px;">
+                    <i class="fa-solid fa-chess" style="color:var(--indigo-accent);"></i> <span>Resumora Chess 3D</span>
+                </h3>
+                <span id="chessTurnText" style="font-size:13px; font-weight:700; color:var(--primary);">White's Turn</span>
             </div>
 
-            <!-- Chess -->
-            <div class="game-panel active" id="chessPanel">
-                <div style="display:flex; justify-content:space-between; align-items:center; width:100%; max-width:400px; margin-bottom:8px;">
-                    <div>
-                        <label style="font-size:11px; font-weight:700; color:var(--text-muted);">Opponent:</label>
-                        <select id="chessModeSelect" class="tool-select" style="padding:4px 8px; width:auto; display:inline-block;">
-                            <option value="ai">Play vs Computer (Genie)</option>
-                            <option value="pvp">Pass & Play (2 Players)</option>
-                        </select>
-                    </div>
-                    <span id="chessTurnText" style="font-size:13px; font-weight:700; color:var(--primary);">White's Turn</span>
-                    <button class="btn btn-primary" id="resetChessBtn" style="padding:4px 10px; font-size:11px;">Reset</button>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                <div>
+                    <label style="font-size:11px; font-weight:700; color:var(--text-muted);">Opponent:</label>
+                    <select id="chessModeSelect" class="tool-select" style="padding:4px 8px; width:auto; display:inline-block;">
+                        <option value="ai">Play vs Genie AI</option>
+                        <option value="pvp">Pass & Play (2 Players)</option>
+                    </select>
                 </div>
-                <div class="chess-board" id="chessBoard"></div>
-                <div style="font-size:12px; color:var(--text-muted);" id="chessStatus">Select a piece to move.</div>
+                <button class="btn btn-primary" id="resetChessBtn" style="padding:5px 12px; font-size:12px;">New Game</button>
             </div>
 
-            <!-- Ludo -->
-            <div class="game-panel" id="ludoPanel">
-                <div style="display:flex; justify-content:space-between; align-items:center; width:100%; max-width:380px;">
-                    <span style="font-weight:700; font-size:13px;" id="ludoTurnText">Player: <strong style="color:#ef4444;">RED</strong></span>
-                    <button class="btn btn-primary" id="resetLudoBtn" style="padding:4px 10px; font-size:11px;">New Game</button>
-                </div>
-                <div class="ludo-arena-board" id="ludoBoard"></div>
-                <div class="ludo-dice-box">
-                    <div class="ludo-dice" id="ludoDice">🎲</div>
-                    <button class="btn btn-surprise" id="rollDiceBtn" style="padding:10px 18px;">Roll Dice</button>
-                    <span id="ludoDiceResult" style="font-size:14px; font-weight:700; color:var(--primary);">Roll the dice!</span>
-                </div>
-            </div>
-
-            <!-- Snake -->
-            <div class="game-panel" id="snakePanel">
-                <div style="display:flex; justify-content:space-between; align-items:center; width:100%; max-width:360px; margin-bottom:8px;">
-                    <span style="font-size:13px; font-weight:700;">Score: <span id="snakeScore" style="color:var(--primary);">0</span> | Best: <span id="snakeHighScore">0</span></span>
-                    <button class="btn btn-primary" id="startSnakeBtn" style="padding:5px 12px; font-size:12px;">Start / Restart</button>
-                </div>
-                <canvas id="snakeCanvas" width="340" height="340"></canvas>
-                <div style="display:flex; gap:6px; margin-top:10px;">
-                    <button class="btn btn-dropdown-toggle" id="snakeUp"><i class="fa-solid fa-arrow-up"></i></button>
-                </div>
-                <div style="display:flex; gap:20px; margin-top:4px;">
-                    <button class="btn btn-dropdown-toggle" id="snakeLeft"><i class="fa-solid fa-arrow-left"></i></button>
-                    <button class="btn btn-dropdown-toggle" id="snakeDown"><i class="fa-solid fa-arrow-down"></i></button>
-                    <button class="btn btn-dropdown-toggle" id="snakeRight"><i class="fa-solid fa-arrow-right"></i></button>
-                </div>
-            </div>
+            <div class="chess-board" id="chessBoard"></div>
+            <div style="font-size:12px; color:var(--text-muted); text-align:center;" id="chessStatus">Click a piece to make a move.</div>
         </div>
     </div>
 
-    <!-- Portal Footer -->
     <footer class="portal-footer">
         <p>&copy; 2026 Resumora Universe. 100% Free Career Infrastructure & Native Utility Matrix.</p>
     </footer>
 
-    <!-- Safe Script -->
     <script>
         // Audio Chime Wrapper
         let audioCtx = null;
         function playChime(freq = 520, type = 'sine', duration = 0.15) {
             try {
-                if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
                 osc.type = type;
@@ -1650,7 +1481,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             } catch(e){}
         }
 
-        // 5D Canvas Background
+        // Universe Canvas Background
         const canvas = document.getElementById('universeCanvas');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
@@ -1682,7 +1513,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
 
         function render5DCanvas() {
             ctx.clearRect(0, 0, width, height);
-            particles.forEach((p, idx) => {
+            particles.forEach((p) => {
                 p.x += p.vx; p.y += p.vy; p.z += p.vz;
                 if (p.x < 0 || p.x > width) p.vx *= -1;
                 if (p.y < 0 || p.y > height) p.vy *= -1;
@@ -1708,7 +1539,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             cCanvas.height = window.innerHeight;
             confettis = [];
             const colors = ['#2563eb', '#06b6d4', '#10b981', '#f59e0b', '#ec4899'];
-            for (let i = 0; i < 70; i++) {
+            for (let i = 0; i < 60; i++) {
                 confettis.push({
                     x: window.innerWidth / 2,
                     y: window.innerHeight / 2,
@@ -1735,7 +1566,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
         }
 
         // ==========================================
-        // SAFE TOPBAR BUTTON BINDINGS
+        // TOPBAR NAVIGATION & MODALS
         // ==========================================
         document.addEventListener('DOMContentLoaded', () => {
             const utilityDropdownBtn = document.getElementById('utilityDropdownBtn');
@@ -1757,15 +1588,13 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             const genieModal = document.getElementById('genieModal');
             const closeGenieModal = document.getElementById('closeGenieModal');
 
-            // 1. Utilities Button & Dropdown
+            // Utilities Dropdown
             const utilityTools = [];
             document.querySelectorAll('.glass-card').forEach(card => {
                 const id = card.id;
                 const title = card.querySelector('.card-meta h3')?.innerText.trim() || '';
                 const iconClass = card.querySelector('.card-icon i')?.className || 'fa-solid fa-gear';
-                if (id && title) {
-                    utilityTools.push({ id, title, iconClass });
-                }
+                if (id && title) utilityTools.push({ id, title, iconClass });
             });
 
             function populateDropdown(filterText = '') {
@@ -1817,20 +1646,15 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
                 }
             });
 
-            // 2. Play with Genie Button
             if (playWithGenieBtn) {
                 playWithGenieBtn.onclick = () => {
                     playChime(700);
                     gameModal.classList.add('active');
                     initChess();
-                    initLudo();
                 };
             }
-            if (closeGameModal) {
-                closeGameModal.onclick = () => gameModal.classList.remove('active');
-            }
+            if (closeGameModal) closeGameModal.onclick = () => gameModal.classList.remove('active');
 
-            // 3. Surprise Me Button
             function openSurprise() {
                 playChime(900);
                 triggerConfetti();
@@ -1838,63 +1662,27 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             }
             if (navSurpriseBtn) navSurpriseBtn.onclick = openSurprise;
             if (heroSurpriseBtn) heroSurpriseBtn.onclick = openSurprise;
-            if (closeSurpriseModal) {
-                closeSurpriseModal.onclick = () => surpriseModal.classList.remove('active');
-            }
+            if (closeSurpriseModal) closeSurpriseModal.onclick = () => surpriseModal.classList.remove('active');
 
-            // 4. Ask Genie Button
             function openGenie() {
                 playChime(640);
                 genieModal.classList.add('active');
             }
             if (navGenieBtn) navGenieBtn.onclick = openGenie;
             if (heroGenieBtn) heroGenieBtn.onclick = openGenie;
-            if (closeGenieModal) {
-                closeGenieModal.onclick = () => genieModal.classList.remove('active');
-            }
+            if (closeGenieModal) closeGenieModal.onclick = () => genieModal.classList.remove('active');
         });
 
         // ==========================================
-        // GAMES LOGIC
+        // CHESS ENGINE WITH 3D PIECES
         // ==========================================
-        const gameModalBox = document.getElementById('gameModalBox');
-        const toggleGameFullscreenBtn = document.getElementById('toggleGameFullscreenBtn');
-        const fullscreenIcon = document.getElementById('fullscreenIcon');
-        const fullscreenText = document.getElementById('fullscreenText');
-
-        if (toggleGameFullscreenBtn) {
-            toggleGameFullscreenBtn.onclick = () => {
-                playChime(600);
-                const isFull = gameModalBox.classList.toggle('game-fullscreen');
-                if (isFull) {
-                    fullscreenIcon.className = 'fa-solid fa-compress';
-                    fullscreenText.textContent = 'Exit Fullscreen';
-                } else {
-                    fullscreenIcon.className = 'fa-solid fa-expand';
-                    fullscreenText.textContent = 'Full Screen';
-                }
-            };
-        }
-
-        document.querySelectorAll('.game-tab-btn').forEach(btn => {
-            btn.onclick = () => {
-                playChime(520);
-                document.querySelectorAll('.game-tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.game-panel').forEach(p => p.classList.remove('active'));
-                btn.classList.add('active');
-                const targetGame = btn.dataset.game;
-                document.getElementById(targetGame + 'Panel').classList.add('active');
-                if (targetGame === 'snake' && !snakeInterval) initSnake();
-            };
-        });
-
-        // Chess
         const chessBoardEl = document.getElementById('chessBoard');
         let chessBoardState = [];
         let selectedSquare = null;
         let chessTurn = 'w';
+
         const pieceUnicode = {
-            'wP':'♙','wR':'♖','wN':'♘','wB':'♗','wQ':'♕','wK':'♔',
+            'wP':'♟','wR':'♜','wN':'♞','wB':'♝','wQ':'♛','wK':'♚',
             'bP':'♟','bR':'♜','bN':'♞','bB':'♝','bQ':'♛','bK':'♚'
         };
 
@@ -1912,6 +1700,7 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             chessTurn = 'w';
             selectedSquare = null;
             document.getElementById('chessTurnText').textContent = "White's Turn";
+            document.getElementById('chessStatus').textContent = "Click a piece to make a move.";
             renderChessBoard();
         }
 
@@ -1922,7 +1711,12 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
                     const sq = document.createElement('div');
                     sq.className = `chess-square ${(r + c) % 2 === 0 ? 'light' : 'dark'}`;
                     const piece = chessBoardState[r][c];
-                    if (piece) sq.textContent = pieceUnicode[piece] || '';
+                    if (piece) {
+                        const pieceSpan = document.createElement('span');
+                        pieceSpan.className = `chess-piece-3d ${piece[0] === 'w' ? 'white-piece' : 'black-piece'}`;
+                        pieceSpan.textContent = pieceUnicode[piece] || '';
+                        sq.appendChild(pieceSpan);
+                    }
                     if (selectedSquare && selectedSquare.r === r && selectedSquare.c === c) sq.classList.add('selected');
                     sq.onclick = () => handleChessClick(r, c);
                     chessBoardEl.appendChild(sq);
@@ -1991,108 +1785,13 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
         }
         document.getElementById('resetChessBtn').onclick = initChess;
 
-        // Ludo
-        const ludoBoardEl = document.getElementById('ludoBoard');
-        const ludoDiceResult = document.getElementById('ludoDiceResult');
-        const ludoTurnText = document.getElementById('ludoTurnText');
-        let currentLudoPlayer = 0;
-        const ludoColors = ['#ef4444', '#10b981', '#f59e0b', '#2563eb'];
-        const ludoNames = ['RED', 'GREEN', 'YELLOW', 'BLUE'];
-        let ludoPositions = [0, 0, 0, 0];
+        // ==========================================
+        // DAILY UTILITY ENGINES COMPLETE SCRIPTS
+        // ==========================================
 
-        function initLudo() {
-            ludoBoardEl.innerHTML = '';
-            for (let i = 0; i < 225; i++) {
-                const c = document.createElement('div');
-                c.className = 'ludo-cell';
-                const row = Math.floor(i / 15);
-                const col = i % 15;
-                if (row < 6 && col < 6) c.classList.add('ludo-home-r');
-                else if (row < 6 && col > 8) c.classList.add('ludo-home-g');
-                else if (row > 8 && col < 6) c.classList.add('ludo-home-b');
-                else if (row > 8 && col > 8) c.classList.add('ludo-home-y');
-                ludoBoardEl.appendChild(c);
-            }
-            ludoPositions = [0, 0, 0, 0];
-            currentLudoPlayer = 0;
-            ludoTurnText.innerHTML = `Player: <strong style="color:${ludoColors[0]};">${ludoNames[0]}</strong>`;
-        }
-
-        function rollLudoDice() {
-            playChime(850);
-            const val = Math.floor(Math.random() * 6) + 1;
-            document.getElementById('ludoDice').textContent = ['⚀','⚁','⚂','⚃','⚄','⚅'][val - 1];
-            ludoPositions[currentLudoPlayer] += val;
-            ludoDiceResult.textContent = `${ludoNames[currentLudoPlayer]} rolled ${val}! Steps: ${ludoPositions[currentLudoPlayer]}/50`;
-            if (ludoPositions[currentLudoPlayer] >= 50) {
-                triggerConfetti();
-                alert(`Winner: ${ludoNames[currentLudoPlayer]}!`);
-                initLudo();
-                return;
-            }
-            currentLudoPlayer = (currentLudoPlayer + 1) % 4;
-            ludoTurnText.innerHTML = `Player: <strong style="color:${ludoColors[currentLudoPlayer]};">${ludoNames[currentLudoPlayer]}</strong>`;
-        }
-        document.getElementById('rollDiceBtn').onclick = rollLudoDice;
-        document.getElementById('ludoDice').onclick = rollLudoDice;
-        document.getElementById('resetLudoBtn').onclick = initLudo;
-
-        // Snake
-        const sCanvas = document.getElementById('snakeCanvas');
-        const sCtx = sCanvas.getContext('2d');
-        let snake = [{ x: 10, y: 10 }];
-        let food = { x: 14, y: 14 };
-        let dx = 1, dy = 0;
-        let snakeInterval = null;
-        let snakeScore = 0;
-        let snakeHighScore = 0;
-
-        function initSnake() {
-            clearInterval(snakeInterval);
-            snake = [{ x: 10, y: 10 }, { x: 9, y: 10 }];
-            dx = 1; dy = 0;
-            snakeScore = 0;
-            document.getElementById('snakeScore').textContent = 0;
-            snakeInterval = setInterval(updateSnake, 120);
-        }
-
-        function updateSnake() {
-            const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-            if (head.x < 0 || head.x >= 17 || head.y < 0 || head.y >= 17) {
-                clearInterval(snakeInterval);
-                snakeInterval = null;
-                return;
-            }
-            snake.unshift(head);
-            if (head.x === food.x && head.y === food.y) {
-                playChime(950);
-                snakeScore += 10;
-                document.getElementById('snakeScore').textContent = snakeScore;
-                if (snakeScore > snakeHighScore) {
-                    snakeHighScore = snakeScore;
-                    document.getElementById('snakeHighScore').textContent = snakeHighScore;
-                }
-                food = { x: Math.floor(Math.random() * 17), y: Math.floor(Math.random() * 17) };
-            } else {
-                snake.pop();
-            }
-            sCtx.fillStyle = '#0f172a';
-            sCtx.fillRect(0, 0, sCanvas.width, sCanvas.height);
-            sCtx.fillStyle = '#f43f5e';
-            sCtx.fillRect(food.x * 20, food.y * 20, 18, 18);
-            snake.forEach((part, i) => {
-                sCtx.fillStyle = i === 0 ? '#38bdf8' : '#0284c7';
-                sCtx.fillRect(part.x * 20, part.y * 20, 18, 18);
-            });
-        }
-        document.getElementById('snakeUp').onclick = () => { if (dy === 0) { dx = 0; dy = -1; } };
-        document.getElementById('snakeDown').onclick = () => { if (dy === 0) { dx = 0; dy = 1; } };
-        document.getElementById('snakeLeft').onclick = () => { if (dx === 0) { dx = -1; dy = 0; } };
-        document.getElementById('snakeRight').onclick = () => { if (dx === 0) { dx = 1; dy = 0; } };
-        document.getElementById('startSnakeBtn').onclick = initSnake;
-
-        // Tool 1-6 Basic calculations
+        // 1. Age Chrono Calculator
         document.getElementById('calcAgeBtn').onclick = () => {
+            playChime(500);
             const val = document.getElementById('ageDob').value;
             if (!val) return;
             const dob = new Date(val);
@@ -2105,23 +1804,29 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             document.getElementById('ageResult').innerHTML = `Age: <strong>${years}y ${months}m ${days}d</strong>`;
         };
 
+        // 2. Interest Yield Analyzer
         document.getElementById('calcIntBtn').onclick = () => {
+            playChime(500);
             const p = parseFloat(document.getElementById('intPrincipal').value) || 0;
             const r = parseFloat(document.getElementById('intRate').value) || 0;
             const t = parseFloat(document.getElementById('intTime').value) || 0;
             const type = document.getElementById('intType').value;
             let maturity = type === 'simple' ? p + (p * r * t) / 100 : p * Math.pow(1 + (r / 100), t);
-            document.getElementById('intResult').innerHTML = `Maturity: <strong>₹${Math.round(maturity).toLocaleString()}</strong>`;
+            document.getElementById('intResult').innerHTML = `Maturity: <strong>₹${Math.round(maturity).toLocaleString()}</strong> (Interest: ₹${Math.round(maturity - p).toLocaleString()})`;
         };
 
+        // 3. Percentage & Discount
         document.getElementById('calcDiscBtn').onclick = () => {
+            playChime(500);
             const price = parseFloat(document.getElementById('discPrice').value) || 0;
             const pct = parseFloat(document.getElementById('discPercent').value) || 0;
             const savings = (price * pct) / 100;
-            document.getElementById('discResult').innerHTML = `Pay: <strong>₹${(price - savings).toFixed(2)}</strong>`;
+            document.getElementById('discResult').innerHTML = `Pay: <strong>₹${(price - savings).toFixed(2)}</strong> (Saved: ₹${savings.toFixed(2)})`;
         };
 
+        // 4. EMI Calculator
         document.getElementById('calcEmiBtn').onclick = () => {
+            playChime(500);
             const p = parseFloat(document.getElementById('emiAmount').value) || 0;
             const annualR = parseFloat(document.getElementById('emiRate').value) || 0;
             const n = parseFloat(document.getElementById('emiTenure').value) || 0;
@@ -2130,17 +1835,389 @@ Welcome! Tell me what you need, or select one of the quick modes above. I conver
             document.getElementById('emiResult').innerHTML = `Monthly EMI: <strong>₹${Math.round(emi).toLocaleString()}</strong>`;
         };
 
+        // 5. QR Generator
         document.getElementById('genQrBtn').onclick = () => {
+            playChime(500);
             const text = encodeURIComponent(document.getElementById('qrText').value || 'https://resumora.github.io');
             document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${text}`;
         };
 
+        // 6. Cipher Shield Password
         document.getElementById('genPwdBtn').onclick = () => {
+            playChime(500);
             const len = parseInt(document.getElementById('pwdLength').value) || 16;
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+            const incSym = document.getElementById('pwdSymbols').value === 'yes';
+            const chars = incSym ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
             let res = '';
             for (let i = 0; i < len; i++) res += chars.charAt(Math.floor(Math.random() * chars.length));
             document.getElementById('pwdText').textContent = res;
+        };
+
+        // Helper to download files
+        function downloadBlob(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // 7. PDF Merger
+        document.getElementById('mergePdfBtn').onclick = async () => {
+            const files = document.getElementById('pdfMergeFiles').files;
+            if (files.length < 2) {
+                alert('Please select at least 2 PDF files.');
+                return;
+            }
+            playChime(550);
+            document.getElementById('pdfMergeOutput').textContent = "Merging PDFs...";
+            try {
+                const mergedPdf = await PDFLib.PDFDocument.create();
+                for (let file of files) {
+                    const arrayBuffer = await file.arrayBuffer();
+                    const pdf = await PDFLib.PDFDocument.load(arrayBuffer);
+                    const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+                    copiedPages.forEach((page) => mergedPdf.addPage(page));
+                }
+                const pdfBytes = await mergedPdf.save();
+                downloadBlob(new Blob([pdfBytes], { type: 'application/pdf' }), 'merged.pdf');
+                document.getElementById('pdfMergeOutput').textContent = "PDFs merged successfully!";
+            } catch(e) {
+                document.getElementById('pdfMergeOutput').textContent = "Error merging files: " + e.message;
+            }
+        };
+
+        // 8. PDF Splitter
+        document.getElementById('splitPdfBtn').onclick = async () => {
+            const file = document.getElementById('pdfSplitFile').files[0];
+            const from = parseInt(document.getElementById('splitFrom').value) - 1;
+            const to = parseInt(document.getElementById('splitTo').value) - 1;
+            if (!file || isNaN(from) || isNaN(to) || from < 0 || to < from) {
+                alert("Please upload a valid PDF and specify page range.");
+                return;
+            }
+            playChime(550);
+            document.getElementById('pdfSplitOutput').textContent = "Splitting PDF...";
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const srcPdf = await PDFLib.PDFDocument.load(arrayBuffer);
+                const totalPages = srcPdf.getPageCount();
+                if (to >= totalPages) {
+                    alert(`Document only has ${totalPages} pages.`);
+                    return;
+                }
+                const newPdf = await PDFLib.PDFDocument.create();
+                const pagesToCopy = [];
+                for (let i = from; i <= to; i++) pagesToCopy.push(i);
+                const copiedPages = await newPdf.copyPages(srcPdf, pagesToCopy);
+                copiedPages.forEach(p => newPdf.addPage(p));
+                const bytes = await newPdf.save();
+                downloadBlob(new Blob([bytes], { type: 'application/pdf' }), `split_${from+1}_to_${to+1}.pdf`);
+                document.getElementById('pdfSplitOutput').textContent = "Split complete & downloaded!";
+            } catch(e) {
+                document.getElementById('pdfSplitOutput').textContent = "Error: " + e.message;
+            }
+        };
+
+        // 9. PDF Page Extractor
+        document.getElementById('extractPdfBtn').onclick = async () => {
+            const file = document.getElementById('pdfExtractFile').files[0];
+            const rawPages = document.getElementById('pdfExtractPages').value;
+            if (!file || !rawPages.trim()) {
+                alert("Please provide PDF and page numbers (e.g. 1, 3, 4)");
+                return;
+            }
+            playChime(550);
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const srcPdf = await PDFLib.PDFDocument.load(arrayBuffer);
+                const pageIndices = rawPages.split(',').map(s => parseInt(s.trim()) - 1).filter(n => !isNaN(n) && n >= 0 && n < srcPdf.getPageCount());
+                if (pageIndices.length === 0) {
+                    alert("No valid page numbers found.");
+                    return;
+                }
+                const newPdf = await PDFLib.PDFDocument.create();
+                const copiedPages = await newPdf.copyPages(srcPdf, pageIndices);
+                copiedPages.forEach(p => newPdf.addPage(p));
+                const bytes = await newPdf.save();
+                downloadBlob(new Blob([bytes], { type: 'application/pdf' }), 'extracted_pages.pdf');
+                document.getElementById('pdfExtractOutput').textContent = "Pages extracted!";
+            } catch(e) {
+                document.getElementById('pdfExtractOutput').textContent = "Error: " + e.message;
+            }
+        };
+
+        // 10. JPG to PDF
+        document.getElementById('convertJpgPdfBtn').onclick = async () => {
+            const files = document.getElementById('jpgToPdfFile').files;
+            if (files.length === 0) { alert("Select JPG files first"); return; }
+            playChime(550);
+            document.getElementById('jpgPdfOutput').textContent = "Converting...";
+            try {
+                const pdf = await PDFLib.PDFDocument.create();
+                for (let file of files) {
+                    const bytes = await file.arrayBuffer();
+                    const img = await pdf.embedJpg(bytes);
+                    const page = pdf.addPage([img.width, img.height]);
+                    page.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height });
+                }
+                const pdfBytes = await pdf.save();
+                downloadBlob(new Blob([pdfBytes], { type: 'application/pdf' }), 'images.pdf');
+                document.getElementById('jpgPdfOutput').textContent = "Converted to PDF!";
+            } catch(e) {
+                document.getElementById('jpgPdfOutput').textContent = "Error: " + e.message;
+            }
+        };
+
+        // 11. PNG to PDF
+        document.getElementById('convertPngPdfBtn').onclick = async () => {
+            const files = document.getElementById('pngToPdfFile').files;
+            if (files.length === 0) { alert("Select PNG files first"); return; }
+            playChime(550);
+            document.getElementById('pngPdfOutput').textContent = "Converting...";
+            try {
+                const pdf = await PDFLib.PDFDocument.create();
+                for (let file of files) {
+                    const bytes = await file.arrayBuffer();
+                    const img = await pdf.embedPng(bytes);
+                    const page = pdf.addPage([img.width, img.height]);
+                    page.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height });
+                }
+                const pdfBytes = await pdf.save();
+                downloadBlob(new Blob([pdfBytes], { type: 'application/pdf' }), 'images.pdf');
+                document.getElementById('pngPdfOutput').textContent = "Converted to PDF!";
+            } catch(e) {
+                document.getElementById('pngPdfOutput').textContent = "Error: " + e.message;
+            }
+        };
+
+        // 12. Image Compressor
+        document.getElementById('compressQuality').oninput = (e) => {
+            document.getElementById('qualityVal').textContent = e.target.value;
+        };
+        document.getElementById('compressImgBtn').onclick = () => {
+            const file = document.getElementById('compressImgFile').files[0];
+            if (!file) { alert("Select an image first"); return; }
+            playChime(550);
+            const quality = parseFloat(document.getElementById('compressQuality').value) || 0.7;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const img = new Image();
+                img.onload = () => {
+                    const cvs = document.createElement('canvas');
+                    cvs.width = img.width;
+                    cvs.height = img.height;
+                    const c = cvs.getContext('2d');
+                    c.drawImage(img, 0, 0);
+                    cvs.toBlob((blob) => {
+                        downloadBlob(blob, 'compressed_' + file.name);
+                        document.getElementById('compressOutput').textContent = `Compressed: ${(blob.size / 1024).toFixed(1)} KB`;
+                    }, 'image/jpeg', quality);
+                };
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        };
+
+        // 13. Image Resize
+        document.getElementById('resizeImgBtn').onclick = () => {
+            const file = document.getElementById('resizeImgFile').files[0];
+            const w = parseInt(document.getElementById('resizeWidth').value);
+            const h = parseInt(document.getElementById('resizeHeight').value);
+            if (!file || !w || !h) { alert("Please provide image, width, and height"); return; }
+            playChime(550);
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const img = new Image();
+                img.onload = () => {
+                    const cvs = document.createElement('canvas');
+                    cvs.width = w;
+                    cvs.height = h;
+                    const c = cvs.getContext('2d');
+                    c.drawImage(img, 0, 0, w, h);
+                    cvs.toBlob((blob) => {
+                        downloadBlob(blob, `resized_${w}x${h}_` + file.name);
+                        document.getElementById('resizeOutput').textContent = `Resized to ${w}x${h}px!`;
+                    }, file.type || 'image/jpeg', 0.95);
+                };
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        };
+
+        // 14. Image Crop with Cropper.js
+        let cropper = null;
+        document.getElementById('cropImgFile').onchange = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    const imgEl = document.getElementById('cropImgElement');
+                    imgEl.src = ev.target.result;
+                    document.getElementById('cropContainer').style.display = 'block';
+                    if (cropper) cropper.destroy();
+                    cropper = new Cropper(imgEl, { aspectRatio: NaN, viewMode: 1 });
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+        document.getElementById('cropImgBtn').onclick = () => {
+            if (!cropper) { alert("Upload image first!"); return; }
+            playChime(550);
+            cropper.getCroppedCanvas().toBlob((blob) => {
+                downloadBlob(blob, 'cropped_image.png');
+                document.getElementById('cropOutput').textContent = "Cropped & downloaded!";
+            });
+        };
+
+        // 15. QR Scanner
+        let html5QrCode = null;
+        document.getElementById('startScanBtn').onclick = () => {
+            playChime(500);
+            if (!html5QrCode) html5QrCode = new Html5Qrcode("qrReader");
+            html5QrCode.start(
+                { facingMode: "environment" },
+                { fps: 10, qrbox: 250 },
+                (qrCodeMessage) => {
+                    document.getElementById('qrScanOutput').innerHTML = `Result: <strong>${qrCodeMessage}</strong>`;
+                    html5QrCode.stop();
+                },
+                (err) => {}
+            ).catch(err => {
+                document.getElementById('qrScanOutput').textContent = "Camera access error: " + err;
+            });
+        };
+        document.getElementById('stopScanBtn').onclick = () => {
+            if (html5QrCode) html5QrCode.stop().then(() => {
+                document.getElementById('qrScanOutput').textContent = "Scanner stopped.";
+            });
+        };
+        document.getElementById('qrFileInput').onchange = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                if (!html5QrCode) html5QrCode = new Html5Qrcode("qrReader");
+                html5QrCode.scanFile(file, true)
+                .then(qrCodeMessage => {
+                    document.getElementById('qrScanOutput').innerHTML = `Result: <strong>${qrCodeMessage}</strong>`;
+                })
+                .catch(err => {
+                    document.getElementById('qrScanOutput').textContent = "No QR detected: " + err;
+                });
+            }
+        };
+
+        // 16. JSON Formatter
+        document.getElementById('formatJsonBtn').onclick = () => {
+            playChime(500);
+            const val = document.getElementById('jsonFormatInput').value;
+            try {
+                const parsed = JSON.parse(val);
+                document.getElementById('jsonFormatOutput').textContent = JSON.stringify(parsed, null, 2);
+            } catch(e) {
+                document.getElementById('jsonFormatOutput').textContent = "Invalid JSON: " + e.message;
+            }
+        };
+
+        // 17. JSON Validator
+        document.getElementById('validateJsonBtn').onclick = () => {
+            playChime(500);
+            const val = document.getElementById('jsonValidInput').value;
+            try {
+                JSON.parse(val);
+                document.getElementById('jsonValidOutput').innerHTML = `<span style="color:#10b981; font-weight:700;">Valid JSON!</span>`;
+            } catch(e) {
+                document.getElementById('jsonValidOutput').innerHTML = `<span style="color:#ef4444; font-weight:700;">Invalid JSON: ${e.message}</span>`;
+            }
+        };
+
+        // 18. Base64
+        document.getElementById('b64EncodeBtn').onclick = () => {
+            playChime(500);
+            try {
+                document.getElementById('b64Output').textContent = btoa(document.getElementById('b64Input').value);
+            } catch(e) { document.getElementById('b64Output').textContent = "Encoding error: " + e.message; }
+        };
+        document.getElementById('b64DecodeBtn').onclick = () => {
+            playChime(500);
+            try {
+                document.getElementById('b64Output').textContent = atob(document.getElementById('b64Input').value);
+            } catch(e) { document.getElementById('b64Output').textContent = "Invalid Base64 string"; }
+        };
+
+        // 19. URL Encoder / Decoder
+        document.getElementById('urlEncodeBtn').onclick = () => {
+            playChime(500);
+            document.getElementById('urlOutput').textContent = encodeURIComponent(document.getElementById('urlInput').value);
+        };
+        document.getElementById('urlDecodeBtn').onclick = () => {
+            playChime(500);
+            try {
+                document.getElementById('urlOutput').textContent = decodeURIComponent(document.getElementById('urlInput').value);
+            } catch(e) { document.getElementById('urlOutput').textContent = "Error decoding URL"; }
+        };
+
+        // 20. UUID Generator
+        document.getElementById('genUuidBtn').onclick = () => {
+            playChime(500);
+            const uuid = ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+            );
+            document.getElementById('uuidOutput').textContent = uuid;
+        };
+
+        // 21. Word & Character Counter
+        document.getElementById('textCounterInput').oninput = (e) => {
+            const val = e.target.value;
+            const words = val.trim() ? val.trim().split(/\s+/).length : 0;
+            const chars = val.length;
+            const spaces = (val.match(/\s/g) || []).length;
+            document.getElementById('textCounterOutput').textContent = `Words: ${words} | Characters: ${chars} | Spaces: ${spaces}`;
+        };
+
+        // 22. Case Converter
+        document.getElementById('convertCaseBtn').onclick = () => {
+            playChime(500);
+            const txt = document.getElementById('caseInput').value;
+            const type = document.getElementById('caseType').value;
+            let res = txt;
+            if (type === 'upper') res = txt.toUpperCase();
+            else if (type === 'lower') res = txt.toLowerCase();
+            else if (type === 'title') res = txt.replace(/\b\w/g, l => l.toUpperCase());
+            else if (type === 'kebab') res = txt.trim().toLowerCase().replace(/\s+/g, '-');
+            else if (type === 'camel') res = txt.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) => +match === 0 ? "" : index === 0 ? match.toLowerCase() : match.toUpperCase());
+            document.getElementById('caseOutput').textContent = res;
+        };
+
+        // 23. GST Calculator
+        document.getElementById('calcGstBtn').onclick = () => {
+            playChime(500);
+            const amount = parseFloat(document.getElementById('gstAmount').value) || 0;
+            const rate = parseFloat(document.getElementById('gstRate').value) || 18;
+            const type = document.getElementById('gstType').value;
+            if (type === 'exclusive') {
+                const gst = (amount * rate) / 100;
+                document.getElementById('gstResult').innerHTML = `Total: <strong>₹${(amount + gst).toFixed(2)}</strong> (GST: ₹${gst.toFixed(2)})`;
+            } else {
+                const base = amount / (1 + (rate / 100));
+                const gst = amount - base;
+                document.getElementById('gstResult').innerHTML = `Base: <strong>₹${base.toFixed(2)}</strong> (GST: ₹${gst.toFixed(2)})`;
+            }
+        };
+
+        // 24. Salary Breakdown
+        document.getElementById('calcSalaryBtn').onclick = () => {
+            playChime(500);
+            const ctc = parseFloat(document.getElementById('salaryCtc').value) || 0;
+            const pfType = document.getElementById('salaryPf').value;
+            const monthlyGross = ctc / 12;
+            let pf = 1800;
+            if (pfType === '12') pf = (monthlyGross * 0.5) * 0.12;
+            else if (pfType === '0') pf = 0;
+            const inHand = monthlyGross - pf - 200; // approx ₹200 prof tax
+            document.getElementById('salaryResult').innerHTML = `Monthly In-Hand: ~<strong>₹${Math.round(inHand).toLocaleString()}</strong>`;
         };
     </script>
 </body>
