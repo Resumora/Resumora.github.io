@@ -13,39 +13,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resumora Universe - Free ATS Resume Builder & Smart Utility Portal</title>
-    <meta name="description" content="Access Resumora's free ATS resume builder, career AI Genie, real-time calculators (Age, EMI, GST), PDF tools, and daily productivity utilities.">
-    <meta name="keywords" content="ATS resume builder, free resume builder, age calculator, EMI calculator, GST calculator, PDF merger, QR code generator, Resumora">
+    <meta name="description" content="Access Resumora's free ATS resume builder, career AI Genie, and client-side calculators for age, EMI, GST, password generation, and PDF utilities.">
+    <meta name="keywords" content="ATS resume builder, free online calculator, age calculator, GST calculator India, loan EMI calculator, client side PDF merger, Resumora">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://resumora.github.io/">
 
-    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+    <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://resumora.github.io/">
     <meta property="og:title" content="Resumora Universe - Free ATS Resume Builder & Smart Utility Portal">
-    <meta property="og:description" content="Build recruiter-approved ATS resumes, compute everyday financial math, and use free client-side PDF & image tools online.">
+    <meta property="og:description" content="Instant zero-cost utilities, client-side privacy-first calculators, and recruiter-approved ATS resumes.">
     <meta property="og:site_name" content="Resumora">
 
-    <!-- Twitter Meta Tags -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://resumora.github.io/">
     <meta name="twitter:title" content="Resumora Universe - Free ATS Resume Builder & Smart Utility Portal">
-    <meta name="twitter:description" content="Access free ATS resume generator, financial calculators, and smart web utilities on Resumora.">
+    <meta name="twitter:description" content="Create ATS resumes and run fast financial and file utilities right in your browser.">
 
-    <!-- Structured Data (Schema.org JSON-LD) -->
+    <!-- Schema.org WebApplication & FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Resumora Universe",
-      "url": "https://resumora.github.io/",
-      "description": "All-in-one portal featuring free ATS Resume Builder, Age Calculator, Loan EMI Calculator, GST Calculator, and client-side PDF utilities.",
-      "applicationCategory": "ProductivityApplication",
-      "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Resumora Universe Portal",
+          "url": "https://resumora.github.io/",
+          "description": "Multi-utility platform with free ATS resume building, client-side PDF processors, and financial calculation tools.",
+          "applicationCategory": "ProductivityApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Are calculations and files processed on the server?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. All PDF operations, image resizing, and mathematical calculations execute entirely client-side inside your browser for maximum privacy."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Resumora ATS Resume Builder free forever?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Resumora provides clean A4 resumes with zero watermarks and no hidden subscriptions."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 
@@ -369,13 +394,12 @@
             flex-wrap: wrap;
         }
 
-        /* Tools Section & Glowing Cards */
         .tools-section {
             position: relative;
             z-index: 10;
             max-width: 1300px;
             margin: 0 auto;
-            padding: 20px 24px 80px 24px;
+            padding: 20px 24px 60px 24px;
         }
 
         .section-header {
@@ -401,7 +425,6 @@
             position: relative;
         }
 
-        /* NO ZOOM, OUTSIDE GLOW ON HOVER */
         .glass-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -533,6 +556,62 @@
             font-size: 15px;
         }
 
+        /* Informative SEO Section */
+        .seo-content-block {
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px 24px;
+            background: #ffffff;
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .seo-content-block h2 {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+
+        .seo-content-block p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .faq-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .faq-card h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        .faq-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+
         /* Modal Overlay System */
         .modal-overlay {
             position: fixed;
@@ -577,7 +656,6 @@
         }
         .modal-close:hover { background: #e2e8f0; color: #0f172a; }
 
-        /* Genie Styles */
         .genie-avatar-container {
             display: flex;
             flex-direction: column;
@@ -631,12 +709,7 @@
             white-space: pre-wrap;
         }
 
-        /* 3D Chess Arena */
-        .gaming-modal-box {
-            max-width: 580px;
-            padding: 24px;
-        }
-
+        .gaming-modal-box { max-width: 580px; padding: 24px; }
         .game-nav-bar {
             display: flex;
             align-items: center;
@@ -672,7 +745,6 @@
         .chess-square.dark { background: #64748b; }
         .chess-square.selected { background: #fde047 !important; box-shadow: inset 0 0 10px rgba(0,0,0,0.3); }
 
-        /* 3D Piece Styling */
         .chess-piece-3d {
             font-size: 38px;
             line-height: 1;
@@ -682,21 +754,13 @@
 
         .chess-piece-3d.white-piece {
             color: #ffffff;
-            text-shadow: 
-                0 1px 0 #cbd5e1,
-                0 2px 0 #94a3b8,
-                0 3px 1px rgba(0,0,0,0.4),
-                0 6px 12px rgba(0,0,0,0.3);
+            text-shadow: 0 1px 0 #cbd5e1, 0 2px 0 #94a3b8, 0 3px 1px rgba(0,0,0,0.4), 0 6px 12px rgba(0,0,0,0.3);
             filter: drop-shadow(0px 3px 2px rgba(0,0,0,0.25));
         }
 
         .chess-piece-3d.black-piece {
             color: #1e1e24;
-            text-shadow: 
-                0 1px 0 #3f3f46,
-                0 2px 0 #18181b,
-                0 3px 2px rgba(0,0,0,0.8),
-                0 5px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 1px 0 #3f3f46, 0 2px 0 #18181b, 0 3px 2px rgba(0,0,0,0.8), 0 5px 10px rgba(0,0,0,0.5);
             filter: drop-shadow(0px 3px 2px rgba(0,0,0,0.35));
         }
 
@@ -727,6 +791,7 @@
             .hero h1 { font-size: 32px; }
             .topbar { padding: 12px 18px; flex-wrap: wrap; gap: 10px; }
             .cards-grid { grid-template-columns: 1fr; }
+            .faq-grid { grid-template-columns: 1fr; }
             .chess-board { grid-template-columns: repeat(8, 38px); grid-template-rows: repeat(8, 38px); }
             .chess-square { width: 38px; height: 38px; }
             .chess-piece-3d { font-size: 26px; }
@@ -750,7 +815,7 @@
         </a>
 
         <div class="nav-actions">
-            <!-- 1. Utilities Dropdown Button -->
+            <!-- Utilities Dropdown -->
             <div class="utilities-dropdown-wrapper">
                 <button class="btn btn-dropdown-toggle" id="utilityDropdownBtn" type="button">
                     <i class="fa-solid fa-shapes" style="color:var(--primary);"></i>
@@ -765,22 +830,22 @@
                 </div>
             </div>
 
-            <!-- 2. Play with Genie Button -->
+            <!-- Play Chess -->
             <button class="btn btn-play-genie" id="playWithGenieBtn" type="button">
                 <i class="fa-solid fa-chess"></i> <span>Play Chess</span>
             </button>
 
-            <!-- 3. Surprise Me Button -->
+            <!-- Surprise Me -->
             <button class="btn btn-surprise" id="navSurpriseBtn" type="button">
                 <i class="fa-solid fa-gift"></i> <span>Surprise Me</span>
             </button>
 
-            <!-- 4. Ask Genie Button -->
+            <!-- Ask Genie -->
             <button class="btn btn-genie" id="navGenieBtn" type="button">
                 <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Ask Genie</span>
             </button>
 
-            <!-- 5. Create My Resume Button (Linked to app/ folder) -->
+            <!-- Create My Resume -->
             <a href="app/index.html" class="btn btn-primary" id="topbarResumeBtn">
                 <span class="btn-shine"></span>
                 <i class="fa-solid fa-file-invoice"></i> <span>Create My Resume</span>
@@ -955,7 +1020,7 @@
                 </div>
             </div>
 
-            <!-- Cipher Password Generator -->
+            <!-- Cipher Shield Password -->
             <div class="glass-card" id="tool-password-generator">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-shield-halved"></i></div>
@@ -1403,6 +1468,41 @@
         </div>
     </main>
 
+    <!-- SEO Content & FAQ Section -->
+    <section class="seo-content-block">
+        <h2>About Resumora Universe</h2>
+        <p>
+            Resumora Universe is a privacy-first web utilities matrix designed for professionals, developers, and students. Every calculator, image editor, and PDF tool runs directly in your local browser using modern WebAssembly and JavaScript engines. No files or private numbers are sent to external servers, guaranteeing zero latency and maximum data security.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-card">
+                <h4>Is the ATS Resume Builder completely free?</h4>
+                <p>Yes. Resumora does not ask for card details, logins, or fees. You can customize resume templates and export high-res A4 PDFs without watermarks.</p>
+            </div>
+            <div class="faq-card">
+                <h4>Are my PDF documents safe when merging or splitting?</h4>
+                <p>Absolutely. PDF manipulation executes on your device using PDF-Lib. Your files are never uploaded or stored on any server.</p>
+            </div>
+            <div class="faq-card">
+                <h4>How accurate are the financial calculators?</h4>
+                <p>All calculations (including Compound Interest, Loan EMI, and GST slabs) follow standard banking amortization algorithms.</p>
+            </div>
+            <div class="faq-card">
+                <h4>Can I access these tools on mobile devices?</h4>
+                <p>Yes, all 24 tools and the resume builder are fully responsive and work seamlessly on both mobile screens and desktop monitors.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adsterra Clean Static Banner (Safe, no click hijacks) -->
+    <div style="text-align: center; margin: 30px auto; padding: 10px; max-width: 100%; overflow: hidden;">
+        <a href="https://beta.publishers.adsterra.com/referral/33k6WpueEs" target="_blank" rel="nofollow noopener">
+            <img src="https://landings-cdn.adsterratech.com/referralBanners/gif/720x90_adsterra_reff.gif" alt="Support Portal" style="max-width: 100%; height: auto; display: inline-block; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        </a>
+    </div>
+
     <!-- Modal 1: Genie -->
     <div class="modal-overlay" id="genieModal">
         <div class="modal-box">
@@ -1463,7 +1563,7 @@
         </div>
     </div>
 
-    <!-- Modal 3: Play with Genie (Chess Only with 3D Icons) -->
+    <!-- Modal 3: Chess -->
     <div class="modal-overlay" id="gameModal">
         <div class="modal-box gaming-modal-box" id="gameModalBox">
             <button class="modal-close" id="closeGameModal">&times;</button>
@@ -1515,7 +1615,7 @@
             } catch(e){}
         }
 
-        // Universe Canvas Background
+        // Background particles
         const canvas = document.getElementById('universeCanvas');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
@@ -1599,9 +1699,7 @@
             if (confettis.length > 0) requestAnimationFrame(animateConfetti);
         }
 
-        // ==========================================
-        // TOPBAR NAVIGATION & MODALS
-        // ==========================================
+        // Navigation & Modals
         document.addEventListener('DOMContentLoaded', () => {
             const utilityDropdownBtn = document.getElementById('utilityDropdownBtn');
             const utilityDropdownMenu = document.getElementById('utilityDropdownMenu');
@@ -1622,7 +1720,6 @@
             const genieModal = document.getElementById('genieModal');
             const closeGenieModal = document.getElementById('closeGenieModal');
 
-            // Utilities Dropdown
             const utilityTools = [];
             document.querySelectorAll('.glass-card').forEach(card => {
                 const id = card.id;
@@ -1707,9 +1804,7 @@
             if (closeGenieModal) closeGenieModal.onclick = () => genieModal.classList.remove('active');
         });
 
-        // ==========================================
-        // CHESS ENGINE WITH 3D PIECES
-        // ==========================================
+        // Chess Engine
         const chessBoardEl = document.getElementById('chessBoard');
         let chessBoardState = [];
         let selectedSquare = null;
@@ -1819,11 +1914,7 @@
         }
         document.getElementById('resetChessBtn').onclick = initChess;
 
-        // ==========================================
-        // DAILY UTILITY ENGINES COMPLETE SCRIPTS
-        // ==========================================
-
-        // 1. Age Chrono Calculator
+        // Daily Utility Engines
         document.getElementById('calcAgeBtn').onclick = () => {
             playChime(500);
             const val = document.getElementById('ageDob').value;
@@ -1838,7 +1929,6 @@
             document.getElementById('ageResult').innerHTML = `Age: <strong>${years}y ${months}m ${days}d</strong>`;
         };
 
-        // 2. Interest Yield Analyzer
         document.getElementById('calcIntBtn').onclick = () => {
             playChime(500);
             const p = parseFloat(document.getElementById('intPrincipal').value) || 0;
@@ -1849,7 +1939,6 @@
             document.getElementById('intResult').innerHTML = `Maturity: <strong>₹${Math.round(maturity).toLocaleString()}</strong> (Interest: ₹${Math.round(maturity - p).toLocaleString()})`;
         };
 
-        // 3. Percentage & Discount
         document.getElementById('calcDiscBtn').onclick = () => {
             playChime(500);
             const price = parseFloat(document.getElementById('discPrice').value) || 0;
@@ -1858,7 +1947,6 @@
             document.getElementById('discResult').innerHTML = `Pay: <strong>₹${(price - savings).toFixed(2)}</strong> (Saved: ₹${savings.toFixed(2)})`;
         };
 
-        // 4. EMI Calculator
         document.getElementById('calcEmiBtn').onclick = () => {
             playChime(500);
             const p = parseFloat(document.getElementById('emiAmount').value) || 0;
@@ -1869,14 +1957,12 @@
             document.getElementById('emiResult').innerHTML = `Monthly EMI: <strong>₹${Math.round(emi).toLocaleString()}</strong>`;
         };
 
-        // 5. QR Generator
         document.getElementById('genQrBtn').onclick = () => {
             playChime(500);
             const text = encodeURIComponent(document.getElementById('qrText').value || 'https://resumora.github.io');
             document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${text}`;
         };
 
-        // 6. Cipher Shield Password
         document.getElementById('genPwdBtn').onclick = () => {
             playChime(500);
             const len = parseInt(document.getElementById('pwdLength').value) || 16;
@@ -1887,7 +1973,6 @@
             document.getElementById('pwdText').textContent = res;
         };
 
-        // Helper to download files
         function downloadBlob(blob, filename) {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -1899,13 +1984,9 @@
             URL.revokeObjectURL(url);
         }
 
-        // 7. PDF Merger
         document.getElementById('mergePdfBtn').onclick = async () => {
             const files = document.getElementById('pdfMergeFiles').files;
-            if (files.length < 2) {
-                alert('Please select at least 2 PDF files.');
-                return;
-            }
+            if (files.length < 2) { alert('Please select at least 2 PDF files.'); return; }
             playChime(550);
             document.getElementById('pdfMergeOutput').textContent = "Merging PDFs...";
             try {
@@ -1920,11 +2001,10 @@
                 downloadBlob(new Blob([pdfBytes], { type: 'application/pdf' }), 'merged.pdf');
                 document.getElementById('pdfMergeOutput').textContent = "PDFs merged successfully!";
             } catch(e) {
-                document.getElementById('pdfMergeOutput').textContent = "Error merging files: " + e.message;
+                document.getElementById('pdfMergeOutput').textContent = "Error: " + e.message;
             }
         };
 
-        // 8. PDF Splitter
         document.getElementById('splitPdfBtn').onclick = async () => {
             const file = document.getElementById('pdfSplitFile').files[0];
             const from = parseInt(document.getElementById('splitFrom').value) - 1;
@@ -1939,10 +2019,7 @@
                 const arrayBuffer = await file.arrayBuffer();
                 const srcPdf = await PDFLib.PDFDocument.load(arrayBuffer);
                 const totalPages = srcPdf.getPageCount();
-                if (to >= totalPages) {
-                    alert(`Document only has ${totalPages} pages.`);
-                    return;
-                }
+                if (to >= totalPages) { alert(`Document only has ${totalPages} pages.`); return; }
                 const newPdf = await PDFLib.PDFDocument.create();
                 const pagesToCopy = [];
                 for (let i = from; i <= to; i++) pagesToCopy.push(i);
@@ -1956,23 +2033,16 @@
             }
         };
 
-        // 9. PDF Page Extractor
         document.getElementById('extractPdfBtn').onclick = async () => {
             const file = document.getElementById('pdfExtractFile').files[0];
             const rawPages = document.getElementById('pdfExtractPages').value;
-            if (!file || !rawPages.trim()) {
-                alert("Please provide PDF and page numbers (e.g. 1, 3, 4)");
-                return;
-            }
+            if (!file || !rawPages.trim()) { alert("Please provide PDF and page numbers"); return; }
             playChime(550);
             try {
                 const arrayBuffer = await file.arrayBuffer();
                 const srcPdf = await PDFLib.PDFDocument.load(arrayBuffer);
                 const pageIndices = rawPages.split(',').map(s => parseInt(s.trim()) - 1).filter(n => !isNaN(n) && n >= 0 && n < srcPdf.getPageCount());
-                if (pageIndices.length === 0) {
-                    alert("No valid page numbers found.");
-                    return;
-                }
+                if (pageIndices.length === 0) { alert("No valid page numbers found."); return; }
                 const newPdf = await PDFLib.PDFDocument.create();
                 const copiedPages = await newPdf.copyPages(srcPdf, pageIndices);
                 copiedPages.forEach(p => newPdf.addPage(p));
@@ -1984,7 +2054,6 @@
             }
         };
 
-        // 10. JPG to PDF
         document.getElementById('convertJpgPdfBtn').onclick = async () => {
             const files = document.getElementById('jpgToPdfFile').files;
             if (files.length === 0) { alert("Select JPG files first"); return; }
@@ -2006,7 +2075,6 @@
             }
         };
 
-        // 11. PNG to PDF
         document.getElementById('convertPngPdfBtn').onclick = async () => {
             const files = document.getElementById('pngToPdfFile').files;
             if (files.length === 0) { alert("Select PNG files first"); return; }
@@ -2028,7 +2096,6 @@
             }
         };
 
-        // 12. Image Compressor
         document.getElementById('compressQuality').oninput = (e) => {
             document.getElementById('qualityVal').textContent = e.target.value;
         };
@@ -2056,7 +2123,6 @@
             reader.readAsDataURL(file);
         };
 
-        // 13. Image Resize
         document.getElementById('resizeImgBtn').onclick = () => {
             const file = document.getElementById('resizeImgFile').files[0];
             const w = parseInt(document.getElementById('resizeWidth').value);
@@ -2082,7 +2148,6 @@
             reader.readAsDataURL(file);
         };
 
-        // 14. Image Crop with Cropper.js
         let cropper = null;
         document.getElementById('cropImgFile').onchange = (e) => {
             const file = e.target.files[0];
@@ -2107,7 +2172,6 @@
             });
         };
 
-        // 15. QR Scanner
         let html5QrCode = null;
         document.getElementById('startScanBtn').onclick = () => {
             playChime(500);
@@ -2143,7 +2207,6 @@
             }
         };
 
-        // 16. JSON Formatter
         document.getElementById('formatJsonBtn').onclick = () => {
             playChime(500);
             const val = document.getElementById('jsonFormatInput').value;
@@ -2155,7 +2218,6 @@
             }
         };
 
-        // 17. JSON Validator
         document.getElementById('validateJsonBtn').onclick = () => {
             playChime(500);
             const val = document.getElementById('jsonValidInput').value;
@@ -2167,7 +2229,6 @@
             }
         };
 
-        // 18. Base64
         document.getElementById('b64EncodeBtn').onclick = () => {
             playChime(500);
             try {
@@ -2181,7 +2242,6 @@
             } catch(e) { document.getElementById('b64Output').textContent = "Invalid Base64 string"; }
         };
 
-        // 19. URL Encoder / Decoder
         document.getElementById('urlEncodeBtn').onclick = () => {
             playChime(500);
             document.getElementById('urlOutput').textContent = encodeURIComponent(document.getElementById('urlInput').value);
@@ -2193,7 +2253,6 @@
             } catch(e) { document.getElementById('urlOutput').textContent = "Error decoding URL"; }
         };
 
-        // 20. UUID Generator
         document.getElementById('genUuidBtn').onclick = () => {
             playChime(500);
             const uuid = ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
@@ -2202,7 +2261,6 @@
             document.getElementById('uuidOutput').textContent = uuid;
         };
 
-        // 21. Word & Character Counter
         document.getElementById('textCounterInput').oninput = (e) => {
             const val = e.target.value;
             const words = val.trim() ? val.trim().split(/\s+/).length : 0;
@@ -2211,7 +2269,6 @@
             document.getElementById('textCounterOutput').textContent = `Words: ${words} | Characters: ${chars} | Spaces: ${spaces}`;
         };
 
-        // 22. Case Converter
         document.getElementById('convertCaseBtn').onclick = () => {
             playChime(500);
             const txt = document.getElementById('caseInput').value;
@@ -2225,7 +2282,6 @@
             document.getElementById('caseOutput').textContent = res;
         };
 
-        // 23. GST Calculator
         document.getElementById('calcGstBtn').onclick = () => {
             playChime(500);
             const amount = parseFloat(document.getElementById('gstAmount').value) || 0;
@@ -2241,7 +2297,6 @@
             }
         };
 
-        // 24. Salary Breakdown
         document.getElementById('calcSalaryBtn').onclick = () => {
             playChime(500);
             const ctc = parseFloat(document.getElementById('salaryCtc').value) || 0;
@@ -2250,7 +2305,7 @@
             let pf = 1800;
             if (pfType === '12') pf = (monthlyGross * 0.5) * 0.12;
             else if (pfType === '0') pf = 0;
-            const inHand = monthlyGross - pf - 200; // approx ₹200 prof tax
+            const inHand = monthlyGross - pf - 200;
             document.getElementById('salaryResult').innerHTML = `Monthly In-Hand: ~<strong>₹${Math.round(inHand).toLocaleString()}</strong>`;
         };
     </script>
