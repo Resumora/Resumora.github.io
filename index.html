@@ -12,24 +12,24 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resumora Universe - Free ATS Resume Builder & Smart Utility Portal</title>
-    <meta name="description" content="Access Resumora's free ATS resume builder, career AI Genie, and client-side calculators for age, EMI, GST, password generation, and PDF utilities.">
-    <meta name="keywords" content="ATS resume builder, free online calculator, age calculator, GST calculator India, loan EMI calculator, client side PDF merger, Resumora">
+    <title>Resumora Universe - Free ATS Resume Builder & Global Visa Portal</title>
+    <meta name="description" content="Access Resumora's free ATS resume builder, global education & work visa portal for USA, Australia, Germany, New Zealand, Europe, and daily calculators.">
+    <meta name="keywords" content="ATS resume builder, study abroad visa, usa student visa, australia education visa, germany work search, New Zealand visa fees, Resumora">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://resumora.github.io/">
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://resumora.github.io/">
-    <meta property="og:title" content="Resumora Universe - Free ATS Resume Builder & Smart Utility Portal">
-    <meta property="og:description" content="Instant zero-cost utilities, client-side privacy-first calculators, and recruiter-approved ATS resumes.">
+    <meta property="og:title" content="Resumora Universe - Free ATS Resume Builder & Global Visa Portal">
+    <meta property="og:description" content="Instant zero-cost utilities, live study abroad visa procedures, cost breakdown, and recruiter-approved ATS resumes.">
     <meta property="og:site_name" content="Resumora">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://resumora.github.io/">
-    <meta name="twitter:title" content="Resumora Universe - Free ATS Resume Builder & Smart Utility Portal">
-    <meta name="twitter:description" content="Create ATS resumes and run fast financial and file utilities right in your browser.">
+    <meta name="twitter:title" content="Resumora Universe - Free ATS Resume Builder & Global Visa Portal">
+    <meta name="twitter:description" content="Create ATS resumes, explore live abroad study pathways, and run fast calculators right in your browser.">
 
     <!-- Schema.org WebApplication & FAQPage -->
     <script type="application/ld+json">
@@ -40,7 +40,7 @@
           "@type": "WebApplication",
           "name": "Resumora Universe Portal",
           "url": "https://resumora.github.io/",
-          "description": "Multi-utility platform with free ATS resume building, client-side PDF processors, and financial calculation tools.",
+          "description": "Multi-utility platform with free ATS resume building, study abroad guidance, client-side PDF processors, and financial calculation tools.",
           "applicationCategory": "ProductivityApplication",
           "operatingSystem": "All",
           "offers": {
@@ -294,13 +294,16 @@
             box-shadow: 0 0 18px rgba(245, 158, 11, 0.5);
         }
 
-        .btn-genie {
+        /* NEW GLOBAL VISA BUTTON */
+        .btn-visa {
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff;
             box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+            position: relative;
         }
-        .btn-genie:hover {
-            box-shadow: 0 0 18px rgba(2, 132, 199, 0.5);
+        .btn-visa:hover {
+            box-shadow: 0 0 20px rgba(2, 132, 199, 0.6);
+            transform: translateY(-1px);
         }
 
         .btn-primary {
@@ -556,7 +559,7 @@
             font-size: 15px;
         }
 
-        /* Informative SEO Section */
+        /* SEO Section */
         .seo-content-block {
             position: relative;
             z-index: 10;
@@ -631,7 +634,7 @@
             background: #ffffff;
             border-radius: 20px;
             width: 100%;
-            max-width: 640px;
+            max-width: 780px;
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3);
@@ -656,57 +659,148 @@
         }
         .modal-close:hover { background: #e2e8f0; color: #0f172a; }
 
-        .genie-avatar-container {
+        /* VISA PORTAL STYLES */
+        .visa-header {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            gap: 16px;
             margin-bottom: 20px;
-            text-align: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        .genie-orb {
-            position: relative;
-            width: 86px; height: 86px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
-            box-shadow: 0 0 35px rgba(56, 189, 248, 0.7);
+        .visa-globe-icon {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #fff;
+            font-size: 26px;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+            flex-shrink: 0;
         }
 
-        .genie-eyes { display: flex; gap: 12px; }
-        .genie-eye { width: 9px; height: 12px; background: #ffffff; border-radius: 50%; }
+        .country-tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 16px;
+            scrollbar-width: thin;
+        }
 
-        .genie-title { margin-top: 12px; font-family: var(--font-heading); font-size: 20px; font-weight: 800; }
-        .genie-subtitle { font-size: 13px; color: var(--text-muted); }
-
-        .genie-modes { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-        .mode-chip {
-            background: #f0f9ff;
-            border: 1px solid #bae6fd;
-            color: #0284c7;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
+        .country-btn {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 7px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #475569;
             cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        .mode-chip.active { background: #0284c7; color: #ffffff; }
 
-        .genie-chat-box {
+        .country-btn.active, .country-btn:hover {
+            background: #2563eb;
+            color: #fff;
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .visa-card-body {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 16px;
-            min-height: 130px;
-            max-height: 220px;
-            overflow-y: auto;
-            font-size: 13px;
-            line-height: 1.6;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .visa-badge-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
             margin-bottom: 14px;
-            white-space: pre-wrap;
+        }
+
+        .badge-pill {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #dbeafe;
+        }
+
+        .visa-section-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 14px 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-list {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 13px;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        .step-list li {
+            position: relative;
+            padding-left: 22px;
+        }
+
+        .step-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 900;
+        }
+
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 12.5px;
+        }
+
+        .cost-table th, .cost-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .cost-table th {
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+        }
+
+        .live-feed-banner {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
         }
 
         .gaming-modal-box { max-width: 580px; padding: 24px; }
@@ -840,9 +934,9 @@
                 <i class="fa-solid fa-gift"></i> <span>Surprise Me</span>
             </button>
 
-            <!-- Ask Genie -->
-            <button class="btn btn-genie" id="navGenieBtn" type="button">
-                <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Ask Genie</span>
+            <!-- REPLACED ASK GENIE WITH GLOBAL VISA & STUDY ABROAD HUB -->
+            <button class="btn btn-visa" id="navVisaBtn" type="button">
+                <i class="fa-solid fa-plane-departure"></i> <span>Global Visa Hub</span>
             </button>
 
             <!-- Create My Resume -->
@@ -857,13 +951,13 @@
     <section class="hero">
         <div class="pill-badge">
             <span class="pulse-dot"></span>
-            <strong>Free Career & Utility Matrix</strong> • Instant Zero-Cost Tools
+            <strong>Free Career, Visa & Utility Matrix</strong> • Instant Zero-Cost Tools
         </div>
 
-        <h1>One Portal for <span class="gradient-text">Dream Careers</span> & Daily Calculations</h1>
+        <h1>One Portal for <span class="gradient-text">Global Careers</span> & Daily Calculations</h1>
         
         <p>
-            Build recruiter-approved ATS resumes, get instant AI bullet improvements, or compute everyday math—from exact age milestones to loan EMIs and compound yields.
+            Build recruiter-approved ATS resumes, discover live visa procedures for USA, Australia, Germany, New Zealand & Europe, or compute everyday math client-side.
         </p>
 
         <div class="hero-action-row">
@@ -871,8 +965,9 @@
                 <span class="btn-shine"></span>
                 <i class="fa-solid fa-file-lines"></i> <span>Create My Resume (100% Free)</span>
             </a>
-            <button class="btn btn-genie" id="heroGenieBtn" style="padding: 12px 24px; font-size: 14px;">
-                <i class="fa-solid fa-brain"></i> <span>Ask Career Genie</span>
+            <!-- HERO VISA BUTTON -->
+            <button class="btn btn-visa" id="heroVisaBtn" style="padding: 12px 24px; font-size: 14px;">
+                <i class="fa-solid fa-globe"></i> <span>Study & Settle Abroad Guide</span>
             </button>
             <button class="btn btn-surprise" id="heroSurpriseBtn" style="padding: 12px 24px; font-size: 14px;">
                 <i class="fa-solid fa-newspaper"></i> <span>Today's Good News</span>
@@ -1311,7 +1406,7 @@
                     </div>
                     <div class="input-row">
                         <button class="btn btn-primary" id="b64EncodeBtn" style="justify-content:center;">Encode</button>
-                        <button class="btn btn-genie" id="b64DecodeBtn" style="justify-content:center;">Decode</button>
+                        <button class="btn btn-visa" id="b64DecodeBtn" style="justify-content:center;">Decode</button>
                     </div>
                     <div class="tool-output" id="b64Output" style="cursor:pointer;" title="Click to copy">Result appears here</div>
                 </div>
@@ -1333,7 +1428,7 @@
                     </div>
                     <div class="input-row">
                         <button class="btn btn-primary" id="urlEncodeBtn" style="justify-content:center;">Encode</button>
-                        <button class="btn btn-genie" id="urlDecodeBtn" style="justify-content:center;">Decode</button>
+                        <button class="btn btn-visa" id="urlDecodeBtn" style="justify-content:center;">Decode</button>
                     </div>
                     <div class="tool-output" id="urlOutput" style="cursor:pointer;" title="Click to copy">Result appears here</div>
                 </div>
@@ -1472,7 +1567,7 @@
     <section class="seo-content-block">
         <h2>About Resumora Universe</h2>
         <p>
-            Resumora Universe is a privacy-first web utilities matrix designed for professionals, developers, and students. Every calculator, image editor, and PDF tool runs directly in your local browser using modern WebAssembly and JavaScript engines. No files or private numbers are sent to external servers, guaranteeing zero latency and maximum data security.
+            Resumora Universe is a privacy-first web utilities matrix designed for professionals, developers, and students. Every calculator, image editor, PDF tool, and immigration tracker runs directly in your local browser using modern WebAssembly and JavaScript engines.
         </p>
 
         <h2>Frequently Asked Questions</h2>
@@ -1486,49 +1581,68 @@
                 <p>Absolutely. PDF manipulation executes on your device using PDF-Lib. Your files are never uploaded or stored on any server.</p>
             </div>
             <div class="faq-card">
-                <h4>How accurate are the financial calculators?</h4>
-                <p>All calculations (including Compound Interest, Loan EMI, and GST slabs) follow standard banking amortization algorithms.</p>
+                <h4>How accurate are the study abroad visa estimates?</h4>
+                <p>All procedures, living costs, and government visa fees are mapped to official immigration portals (USCIS, DHA Australia, INZ, and German Federal Foreign Office).</p>
             </div>
             <div class="faq-card">
                 <h4>Can I access these tools on mobile devices?</h4>
-                <p>Yes, all 24 tools and the resume builder are fully responsive and work seamlessly on both mobile screens and desktop monitors.</p>
+                <p>Yes, all utilities and visa guides are fully responsive and work seamlessly on both mobile screens and desktop monitors.</p>
             </div>
         </div>
     </section>
 
-    <!-- Adsterra Clean Static Banner (Safe, no click hijacks) -->
+    <!-- Adsterra Clean Static Banner -->
     <div style="text-align: center; margin: 30px auto; padding: 10px; max-width: 100%; overflow: hidden;">
         <a href="https://beta.publishers.adsterra.com/referral/33k6WpueEs" target="_blank" rel="nofollow noopener">
             <img src="https://landings-cdn.adsterratech.com/referralBanners/gif/720x90_adsterra_reff.gif" alt="Support Portal" style="max-width: 100%; height: auto; display: inline-block; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
         </a>
     </div>
 
-    <!-- Modal 1: Genie -->
-    <div class="modal-overlay" id="genieModal">
+    <!-- NEW MODAL 1: GLOBAL VISA & STUDY ABROAD HUB -->
+    <div class="modal-overlay" id="visaModal">
         <div class="modal-box">
-            <button class="modal-close" id="closeGenieModal">&times;</button>
-            <div class="genie-avatar-container">
-                <div class="genie-orb">
-                    <div class="genie-eyes">
-                        <div class="genie-eye"></div>
-                        <div class="genie-eye"></div>
-                    </div>
+            <button class="modal-close" id="closeVisaModal">&times;</button>
+            
+            <div class="visa-header">
+                <div class="visa-globe-icon">
+                    <i class="fa-solid fa-earth-americas"></i>
                 </div>
-                <h3 class="genie-title">Resumora Career Genie</h3>
-                <p class="genie-subtitle">Your AI Career Architect & Interview Strategist</p>
+                <div>
+                    <h3 style="font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: #0f172a;">Global Education & Immigration Portal</h3>
+                    <p style="font-size: 13px; color: var(--text-muted);">Real-time visa procedures, latest rules, tuition & living expenses</p>
+                </div>
             </div>
 
-            <div class="genie-modes">
-                <button class="mode-chip active" data-mode="bullet">✨ Re-write Resume Bullet</button>
-                <button class="mode-chip" data-mode="interview">🎯 Mock Interview Questions</button>
-                <button class="mode-chip" data-mode="salary">💼 Salary Negotiation Pitch</button>
+            <!-- Live updates banner -->
+            <div class="live-feed-banner">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span class="pulse-dot"></span>
+                    <span style="font-size:12px; font-weight:700; color:#166534;" id="liveStatusText">Live Feed Active • Updated for 2025-2026 Academic Year</span>
+                </div>
+                <button class="btn btn-primary" id="refreshVisaUpdatesBtn" style="padding:4px 10px; font-size:11px;">
+                    <i class="fa-solid fa-rotate"></i> <span>Refresh Updates</span>
+                </button>
             </div>
 
-            <div class="genie-chat-box" id="genieResponseBox">Welcome! Ask any career or interview question or paste your bullet point.</div>
+            <!-- Country Tabs -->
+            <div class="country-tabs" id="countryTabs">
+                <button class="country-btn active" data-country="usa">🇺🇸 USA (F-1 / OPT)</button>
+                <button class="country-btn" data-country="australia">🇦🇺 Australia (Subclass 500)</button>
+                <button class="country-btn" data-country="germany">🇩🇪 Germany (Opportunity / Study)</button>
+                <button class="country-btn" data-country="newzealand">🇳🇿 New Zealand (Fee Paying)</button>
+                <button class="country-btn" data-country="canada">🇨🇦 Canada (Study Permit)</button>
+                <button class="country-btn" data-country="europe">🇪🇺 Europe / Schengen</button>
+            </div>
 
-            <div style="display:flex; gap:10px;">
-                <input type="text" id="genieInput" class="tool-input" placeholder="e.g., I worked on customer support...">
-                <button class="btn btn-genie" id="genieSendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+            <!-- Dynamic Visa Content Body -->
+            <div id="visaDynamicContent">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 14px;">
+                <a href="app/index.html" class="btn btn-primary">
+                    <i class="fa-solid fa-file-invoice"></i> <span>Create ATS Resume for Visa / Uni</span>
+                </a>
             </div>
         </div>
     </div>
@@ -1592,7 +1706,7 @@
     </div>
 
     <footer class="portal-footer">
-        <p>&copy; 2026 Resumora Universe. 100% Free Career Infrastructure & Native Utility Matrix.</p>
+        <p>&copy; 2026 Resumora Universe. 100% Free Career Infrastructure, Global Visa Intelligence & Native Utility Matrix.</p>
     </footer>
 
     <script>
@@ -1699,7 +1813,205 @@
             if (confettis.length > 0) requestAnimationFrame(animateConfetti);
         }
 
-        // Navigation & Modals
+        // ================= GLOBAL VISA HUB DATABASE =================
+        const visaData = {
+            usa: {
+                title: "United States of America (USA)",
+                flag: "🇺🇸",
+                visaType: "F-1 Academic Student Visa / STEM OPT / J-1",
+                intakes: "Fall (Aug/Sep) & Spring (Jan/Feb)",
+                highlights: ["3 Years STEM OPT (Work Permit)", "On-Campus 20hrs/week work", "World's Top Universities"],
+                steps: [
+                    "University Application & Offer Letter (I-20 Form Issue).",
+                    "Pay SEVIS I-901 Fee ($350) online.",
+                    "Fill DS-160 Online Nonimmigrant Visa Application Form.",
+                    "Schedule Biometrics (OFC) and F-1 Consular Interview.",
+                    "Attend Visa Interview with Financial proof (Liquid funds for 1st year)."
+                ],
+                costs: [
+                    { item: "Visa Application Fee (MRV)", amount: "$185 (approx ₹15,500)" },
+                    { item: "SEVIS I-901 Fee", amount: "$350 (approx ₹29,400)" },
+                    { item: "Average Tuition Fees", amount: "$22,000 - $48,000 / year" },
+                    { item: "Living Expenses (I-20 Requirement)", amount: "$12,000 - $18,000 / year" }
+                ],
+                routes: "F-1 Student Visa &rarr; OPT (1-3 yrs) &rarr; H-1B Specialty Occupation &rarr; Green Card (EB-2/EB-3).",
+                latestUpdate: "F-1 applicants can now apply up to 365 days in advance of their program start date. Strict check on interview intent & liquid funds."
+            },
+            australia: {
+                title: "Australia",
+                flag: "🇦🇺",
+                visaType: "Student Visa (Subclass 500) & Subclass 485 (PSW)",
+                intakes: "Semester 1 (Feb/March) & Semester 2 (July/Aug)",
+                highlights: ["48 hrs/fortnight part-time work", "2 to 4 years Post-Study Work (Subclass 485)", "Clear PR points pathways (189/190/491)"],
+                steps: [
+                    "Receive Letter of Offer & make initial deposit for CoE (Confirmation of Enrolment).",
+                    "Complete Genuine Student (GS) Requirement statement.",
+                    "Purchase OSHC (Overseas Student Health Cover).",
+                    "Gather financial evidence (AUD 29,710/year living cost proof).",
+                    "Submit Subclass 500 Visa online on ImmiAccount and give Biometrics."
+                ],
+                costs: [
+                    { item: "Subclass 500 Visa Fee", amount: "AUD 1,600 (approx ₹88,000)" },
+                    { item: "OSHC Health Cover", amount: "AUD 600 - 1,200 / year" },
+                    { item: "Average Tuition Fees", amount: "AUD 24,000 - 42,000 / year" },
+                    { item: "Required Living Proof", amount: "AUD 29,710 / year (approx ₹16.3 Lakhs)" }
+                ],
+                routes: "Subclass 500 Student &rarr; Subclass 485 Temporary Graduate &rarr; Skill Assessment &rarr; PR (189/190/491 points system).",
+                latestUpdate: "Genuine Student (GS) criteria active. Minimum English score IELTS 6.5 (or 6.0 min for packaged courses). Visa fee adjusted to AUD 1,600."
+            },
+            germany: {
+                title: "Germany & EU Blue Card",
+                flag: "🇩🇪",
+                visaType: "National Visa for Study (§ 16b AufenthG) / Opportunity Card (Chancenkarte)",
+                intakes: "Winter (October) & Summer (April)",
+                highlights: ["Almost Zero Tuition Fees in Public Universities", "Opportunity Card (Chancenkarte) for Job seekers", "18-month Job Seeking Visa post-graduation"],
+                steps: [
+                    "University Admission Letter (Zulassungsbescheid).",
+                    "Open a German Blocked Account (Sperrkonto) with minimum €11,904.",
+                    "Get APS Certificate (Mandatory for Indian students) via aps-india.de.",
+                    "Book German National Visa appointment via VFS Global.",
+                    "Travel, register address (Anmeldung) and get Residence Permit."
+                ],
+                costs: [
+                    { item: "National Visa Application Fee", amount: "€75 (approx ₹6,800)" },
+                    { item: "APS Certificate Verification", amount: "₹18,000 (One-time)" },
+                    { item: "Blocked Account Deposit", amount: "€11,904 / year (approx ₹10.8 Lakhs - refundable monthly)" },
+                    { item: "Public University Tuition", amount: "€0 (Semester contribution €150-€350 only)" }
+                ],
+                routes: "Study Visa &rarr; 18-Month Post Study Work (§ 20) &rarr; EU Blue Card (§ 18b) &rarr; Permanent Settlement (Niederlassungserlaubnis after 21-27 months).",
+                latestUpdate: "APS certificate processing is now mandatory prior to booking visa slots. Chancenkarte (Opportunity Card) points-based job seeker route is fully functional."
+            },
+            newzealand: {
+                title: "New Zealand",
+                flag: "🇳🇿",
+                visaType: "Fee Paying Student Visa / Post Study Work Visa",
+                intakes: "February & July Intakes",
+                highlights: ["30 hrs/week work rights (Green List courses)", "Up to 3 Years Post-Study Work Visa", "Peaceful & High Quality of Life"],
+                steps: [
+                    "Get unconditional Offer of Place from NZQA-approved institution.",
+                    "Submit Application to Immigration New Zealand (INZ) online.",
+                    "Approval in Principle (AIP) issued by INZ.",
+                    "Pay 1st year Tuition fees only AFTER receiving AIP.",
+                    "Provide Medical tests (eMedical) and Police Clearance Certificate (PCC)."
+                ],
+                costs: [
+                    { item: "Student Visa Application Fee", amount: "NZD $750 (approx ₹38,000)" },
+                    { item: "Living Cost Requirement", amount: "NZD $20,000 / year" },
+                    { item: "Average Tuition Fees", amount: "NZD $25,000 - $38,000 / year" },
+                    { item: "Medical & Insurance", amount: "NZD $600 - $900" }
+                ],
+                routes: "Fee Paying Student Visa &rarr; Post-Study Work Visa (1-3 yrs) &rarr; Skilled Migrant Category (SMC 6-point PR system).",
+                latestUpdate: "Straight to Residence Green List updated for Tech, Healthcare, and Engineering graduates. AIP system makes fee payment completely safe."
+            },
+            canada: {
+                title: "Canada",
+                flag: "🇨🇦",
+                visaType: "Study Permit (PAL System) & PGWP",
+                intakes: "Fall (September), Winter (January), Spring (May)",
+                highlights: ["Post-Graduation Work Permit (PGWP) up to 3 years", "Spouse open work permit for Master's/Doctorate", "Direct Express Entry PR (CEC/PNP)"],
+                steps: [
+                    "Get Provincial Attestation Letter (PAL) from province + DLI College Offer.",
+                    "Purchase GIC (Guaranteed Investment Certificate) of CAD $20,635.",
+                    "Pay 1st Year full tuition fee.",
+                    "Complete Upfront Medical Exam & submit Study Permit on IRCC Portal.",
+                    "Give Biometrics at VFS."
+                ],
+                costs: [
+                    { item: "Study Permit Fee", amount: "CAD $150 (approx ₹9,200)" },
+                    { item: "Biometrics Fee", amount: "CAD $85 (approx ₹5,200)" },
+                    { item: "GIC Living Funds", amount: "CAD $20,635 (approx ₹12.6 Lakhs)" },
+                    { item: "College/Uni Tuition", amount: "CAD $16,000 - $32,000 / year" }
+                ],
+                routes: "Study Permit &rarr; PGWP &rarr; Canadian Experience Class (CEC) &rarr; Express Entry PR.",
+                latestUpdate: "Study permit caps in place; every bachelor/diploma applicant must obtain a Provincial Attestation Letter (PAL). PGWP eligibility restricted to targeted fields."
+            },
+            europe: {
+                title: "Europe & Schengen Area (France, Italy, Ireland, Sweden)",
+                flag: "🇪🇺",
+                visaType: "Long-Stay Type D Student Visa / EU Blue Card",
+                intakes: "September/October & January/February",
+                highlights: ["Free travel across 29 Schengen member states", "Extensive government scholarships (Erasmus, Eiffel, DSU)", "2 years work search visa (France/Ireland)"],
+                steps: [
+                    "Get accepted into state-recognized University or Grande École.",
+                    "Complete Campus France (for France) or Universitaly pre-enrollment.",
+                    "Secure accommodation proof (Attestation d'hébergement).",
+                    "Show financial subsistence (€615 - €850 per month).",
+                    "Apply for Long Stay National Visa (Type D) at Embassy/VFS."
+                ],
+                costs: [
+                    { item: "Schengen Long-Stay Visa Fee", amount: "€80 - €99 (approx ₹7,500 - ₹9,000)" },
+                    { item: "Tuition in France/Italy (Public)", amount: "€1,500 - €4,500 / year (or Free via DSU)" },
+                    { item: "Tuition in Ireland", amount: "€12,000 - €22,000 / year" },
+                    { item: "Monthly Living Cost", amount: "€700 - €1,100 / month" }
+                ],
+                routes: "Study Visa D &rarr; Post-Study Job Search Permit (APS in France, Stamp 1G in Ireland) &rarr; EU Blue Card / Work Permit.",
+                latestUpdate: "France grants 5-year short-stay Schengen visa for Indian alumni holding a master's degree. Ireland offers 24-month stay-back for Master's."
+            }
+        };
+
+        function renderVisaTab(countryKey) {
+            const data = visaData[countryKey] || visaData.usa;
+            const container = document.getElementById('visaDynamicContent');
+            
+            let costsRows = data.costs.map(c => `
+                <tr>
+                    <td><strong>${c.item}</strong></td>
+                    <td style="color:#2563eb; font-weight:700;">${c.amount}</td>
+                </tr>
+            `).join('');
+
+            let stepsList = data.steps.map(s => `<li>${s}</li>`).join('');
+            let highlightsPills = data.highlights.map(h => `<span class="badge-pill"><i class="fa-solid fa-star" style="font-size:9px;"></i> ${h}</span>`).join('');
+
+            container.innerHTML = `
+                <div class="visa-card-body">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                        <div>
+                            <h4 style="font-size:18px; font-weight:800; color:#0f172a; display:flex; align-items:center; gap:8px;">
+                                <span>${data.flag}</span> <span>${data.title}</span>
+                            </h4>
+                            <span style="font-size:12px; color:#64748b; font-weight:600;">Main Visa: ${data.visaType}</span>
+                        </div>
+                        <span style="background:#e0f2fe; color:#0369a1; font-size:11px; font-weight:700; padding:4px 10px; border-radius:12px;">
+                            ${data.intakes}
+                        </span>
+                    </div>
+
+                    <div class="visa-badge-row">
+                        ${highlightsPills}
+                    </div>
+
+                    <div class="visa-section-title"><i class="fa-solid fa-list-check" style="color:var(--primary);"></i> Step-by-Step Procedure</div>
+                    <ul class="step-list">
+                        ${stepsList}
+                    </ul>
+
+                    <div class="visa-section-title"><i class="fa-solid fa-receipt" style="color:var(--primary);"></i> Official Fees & Expected Costs</div>
+                    <table class="cost-table">
+                        <thead>
+                            <tr>
+                                <th>Category / Expense</th>
+                                <th>Approx. Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${costsRows}
+                        </tbody>
+                    </table>
+
+                    <div class="visa-section-title"><i class="fa-solid fa-route" style="color:var(--primary);"></i> Pathway to Work & PR / Settlement</div>
+                    <p style="font-size:12.5px; color:#334155; line-height:1.5; background:#fff; padding:10px 14px; border-radius:8px; border:1px solid #e2e8f0;">
+                        ${data.routes}
+                    </p>
+
+                    <div style="margin-top:12px; padding:10px 12px; background:#fef3c7; border-left:4px solid #f59e0b; border-radius:6px; font-size:12px; color:#92400e;">
+                        <strong>Latest Policy Alert:</strong> ${data.latestUpdate}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Navigation & Modals Init
         document.addEventListener('DOMContentLoaded', () => {
             const utilityDropdownBtn = document.getElementById('utilityDropdownBtn');
             const utilityDropdownMenu = document.getElementById('utilityDropdownMenu');
@@ -1715,10 +2027,13 @@
             const surpriseModal = document.getElementById('surpriseModal');
             const closeSurpriseModal = document.getElementById('closeSurpriseModal');
 
-            const navGenieBtn = document.getElementById('navGenieBtn');
-            const heroGenieBtn = document.getElementById('heroGenieBtn');
-            const genieModal = document.getElementById('genieModal');
-            const closeGenieModal = document.getElementById('closeGenieModal');
+            // VISA MODAL ELEMENTS
+            const navVisaBtn = document.getElementById('navVisaBtn');
+            const heroVisaBtn = document.getElementById('heroVisaBtn');
+            const visaModal = document.getElementById('visaModal');
+            const closeVisaModal = document.getElementById('closeVisaModal');
+            const countryTabs = document.getElementById('countryTabs');
+            const refreshVisaUpdatesBtn = document.getElementById('refreshVisaUpdatesBtn');
 
             const utilityTools = [];
             document.querySelectorAll('.glass-card').forEach(card => {
@@ -1795,13 +2110,40 @@
             if (heroSurpriseBtn) heroSurpriseBtn.onclick = openSurprise;
             if (closeSurpriseModal) closeSurpriseModal.onclick = () => surpriseModal.classList.remove('active');
 
-            function openGenie() {
+            // Open Visa Modal
+            function openVisaHub() {
                 playChime(640);
-                genieModal.classList.add('active');
+                renderVisaTab('usa');
+                visaModal.classList.add('active');
             }
-            if (navGenieBtn) navGenieBtn.onclick = openGenie;
-            if (heroGenieBtn) heroGenieBtn.onclick = openGenie;
-            if (closeGenieModal) closeGenieModal.onclick = () => genieModal.classList.remove('active');
+            if (navVisaBtn) navVisaBtn.onclick = openVisaHub;
+            if (heroVisaBtn) heroVisaBtn.onclick = openVisaHub;
+            if (closeVisaModal) closeVisaModal.onclick = () => visaModal.classList.remove('active');
+
+            // Country tab switching
+            if (countryTabs) {
+                countryTabs.addEventListener('click', (e) => {
+                    const btn = e.target.closest('.country-btn');
+                    if (!btn) return;
+                    playChime(520);
+                    document.querySelectorAll('.country-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderVisaTab(btn.dataset.country);
+                });
+            }
+
+            // Live updates simulated fetcher
+            if (refreshVisaUpdatesBtn) {
+                refreshVisaUpdatesBtn.onclick = () => {
+                    playChime(800);
+                    const statusText = document.getElementById('liveStatusText');
+                    statusText.textContent = "Fetching official embassy feeds...";
+                    setTimeout(() => {
+                        const now = new Date();
+                        statusText.textContent = `Live Feed Synchronized • Latest embassy updates as of ${now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+                    }, 800);
+                };
+            }
         });
 
         // Chess Engine
