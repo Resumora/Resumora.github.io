@@ -71,11 +71,11 @@
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" client-side rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
-    <!-- Utility Dependencies (Clean & Verified CDNs) -->
+    <!-- Utility Dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 
     <style>
@@ -844,6 +844,52 @@
             font-size: 15px;
         }
 
+        /* COMPRESSOR SPECIFIC STYLES */
+        .img-drop-area {
+            border: 2px dashed #93c5fd;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            background: rgba(239, 246, 255, 0.4);
+            transition: all 0.2s ease;
+        }
+        .img-drop-area:hover {
+            border-color: var(--primary);
+            background: rgba(239, 246, 255, 0.8);
+        }
+        body.dark-mode .img-drop-area {
+            background: rgba(30, 41, 59, 0.5);
+            border-color: #3b82f6;
+        }
+        .preset-buttons {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+        .preset-btn {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #475569;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+        .preset-btn:hover, .preset-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+        body.dark-mode .preset-btn {
+            background: #1e293b;
+            border-color: #334155;
+            color: #cbd5e1;
+        }
+
         /* SEO Section */
         .seo-content-block {
             position: relative;
@@ -1304,6 +1350,65 @@
         </div>
 
         <div class="cards-grid">
+
+            <!-- 0. IMAGE COMPRESSOR & RESIZER CARD (NEW) -->
+            <div class="glass-card" id="tool-image-compressor">
+                <div class="card-top">
+                    <div class="card-icon icon-cyan"><i class="fa-solid fa-file-image"></i></div>
+                    <div class="card-meta">
+                        <h3>Image Compressor & Resizer</h3>
+                        <p>JPG, PNG, WebP to exact 20KB, 50KB or custom</p>
+                    </div>
+                </div>
+                <div class="tool-form">
+                    <!-- Drop/Upload Box -->
+                    <div class="img-drop-area" id="imgDropZone" onclick="document.getElementById('imgFileInput').click()">
+                        <input type="file" id="imgFileInput" accept="image/jpeg,image/png,image/webp,image/jpg" style="display:none">
+                        <i class="fa-solid fa-cloud-arrow-up" style="font-size: 24px; color: var(--primary); margin-bottom: 6px;"></i>
+                        <p style="font-size: 12.5px; font-weight: 700; margin: 0;" id="imgUploadPrompt">Click or Drag Image Here</p>
+                        <span style="font-size: 10px; color: var(--text-muted);">Supports JPG, JPEG, PNG, WebP</span>
+                    </div>
+
+                    <!-- Target Size Presets -->
+                    <div>
+                        <label class="field-label">Target File Size</label>
+                        <div class="preset-buttons">
+                            <button type="button" class="preset-btn" onclick="applyPresetKB(20)">20 KB</button>
+                            <button type="button" class="preset-btn" onclick="applyPresetKB(50)">50 KB</button>
+                            <button type="button" class="preset-btn" onclick="applyPresetKB(100)">100 KB</button>
+                        </div>
+                        <input type="number" id="imgTargetKb" class="tool-input" placeholder="Target size in KB (e.g. 50)" value="50" min="5" max="15000">
+                    </div>
+
+                    <!-- Dimensions & Ratio -->
+                    <div class="input-row">
+                        <div>
+                            <label class="field-label">Width (px)</label>
+                            <input type="number" id="imgWidth" class="tool-input" placeholder="Auto">
+                        </div>
+                        <div>
+                            <label class="field-label">Height (px)</label>
+                            <input type="number" id="imgHeight" class="tool-input" placeholder="Auto">
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="imgKeepRatio" checked style="cursor: pointer;">
+                        <label for="imgKeepRatio" style="font-size: 12px; color: var(--text-muted); cursor: pointer; user-select: none;">Keep Aspect Ratio</label>
+                    </div>
+
+                    <!-- Compress Action -->
+                    <button class="btn btn-primary" id="compressImageBtn" style="justify-content:center;">Compress & Optimize</button>
+                    
+                    <!-- Output / Download -->
+                    <div class="tool-output" id="imgCompressOutput" style="display: none; flex-direction: column; align-items: flex-start; gap: 8px;">
+                        <span id="imgSizeSummary" style="font-size: 12.5px;">Ready</span>
+                        <a id="imgDownloadLink" class="btn btn-primary" style="padding: 6px 14px; font-size: 12px; text-decoration: none;" download="resumora-optimized.jpg">
+                            <i class="fa-solid fa-download"></i> Download Image
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Age Chrono Calculator -->
             <div class="glass-card" id="tool-age">
                 <div class="card-top">
@@ -1710,7 +1815,6 @@
 
     <script>
         // ================= ANTI-HIJACK & POPUNDER SHIELD =================
-        // Kisi bhi injected adsterra redirect ya click-jacking script ko block karein
         window.open = function(url, target, features) {
             if (url && (url.includes('onclick') || url.includes('adsterra') || url.includes('syndication') || url.includes('popunder'))) {
                 return null;
@@ -1740,7 +1844,7 @@
         }
 
         document.addEventListener('click', (e) => {
-            if (e.target.closest('button, .btn, .dropdown-item')) {
+            if (e.target.closest('button, .btn, .dropdown-item, .preset-btn')) {
                 playChime(560);
             }
         });
@@ -1789,6 +1893,127 @@
                 applyTheme(willBeDark);
             });
         }
+
+        // ================= IMAGE COMPRESSOR & RESIZER ENGINE =================
+        let activeUploadedImg = null;
+        let originalImgBytes = 0;
+        let originalImgRatio = 1;
+
+        const imgFileInput = document.getElementById('imgFileInput');
+        const imgDropZone = document.getElementById('imgDropZone');
+        const imgWidth = document.getElementById('imgWidth');
+        const imgHeight = document.getElementById('imgHeight');
+        const imgKeepRatio = document.getElementById('imgKeepRatio');
+        const imgTargetKb = document.getElementById('imgTargetKb');
+
+        function handleSelectedFile(file) {
+            if (!file || !file.type.startsWith('image/')) {
+                alert('Please select a valid image file (JPG, PNG, WebP).');
+                return;
+            }
+            originalImgBytes = file.size;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    activeUploadedImg = img;
+                    originalImgRatio = img.width / img.height;
+                    imgWidth.value = img.width;
+                    imgHeight.value = img.height;
+                    document.getElementById('imgUploadPrompt').innerHTML = `Selected: <strong>${file.name}</strong> (${(file.size / 1024).toFixed(1)} KB)`;
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        imgFileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) handleSelectedFile(e.target.files[0]);
+        });
+
+        // Drag & drop support
+        imgDropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            imgDropZone.style.borderColor = 'var(--primary)';
+        });
+        imgDropZone.addEventListener('dragleave', () => {
+            imgDropZone.style.borderColor = '#93c5fd';
+        });
+        imgDropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            imgDropZone.style.borderColor = '#93c5fd';
+            if (e.dataTransfer.files.length > 0) handleSelectedFile(e.dataTransfer.files[0]);
+        });
+
+        // Aspect ratio handling
+        imgWidth.addEventListener('input', () => {
+            if (imgKeepRatio.checked && originalImgRatio && imgWidth.value) {
+                imgHeight.value = Math.round(imgWidth.value / originalImgRatio);
+            }
+        });
+        imgHeight.addEventListener('input', () => {
+            if (imgKeepRatio.checked && originalImgRatio && imgHeight.value) {
+                imgWidth.value = Math.round(imgHeight.value * originalImgRatio);
+            }
+        });
+
+        function applyPresetKB(kb) {
+            imgTargetKb.value = kb;
+            document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+            if (event && event.target) event.target.classList.add('active');
+        }
+
+        // Iterative compression solver
+        document.getElementById('compressImageBtn').addEventListener('click', async (e) => {
+            e.preventDefault();
+            if (!activeUploadedImg) {
+                alert('Pehle ek image upload karein!');
+                return;
+            }
+
+            const targetKB = parseFloat(imgTargetKb.value) || 50;
+            const targetBytes = targetKB * 1024;
+            let targetW = parseInt(imgWidth.value) || activeUploadedImg.width;
+            let targetH = parseInt(imgHeight.value) || activeUploadedImg.height;
+
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = targetW;
+            canvas.height = targetH;
+            ctx.drawImage(activeUploadedImg, 0, 0, targetW, targetH);
+
+            let minQ = 0.05, maxQ = 0.98, bestBlob = null;
+            for (let i = 0; i < 6; i++) {
+                const midQ = (minQ + maxQ) / 2;
+                const blob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', midQ));
+                bestBlob = blob;
+                if (blob.size > targetBytes) {
+                    maxQ = midQ;
+                } else {
+                    minQ = midQ;
+                }
+            }
+
+            // Downscale resolution slightly if file size still exceeds target by 10%
+            if (bestBlob && bestBlob.size > targetBytes * 1.1) {
+                const scale = Math.sqrt(targetBytes / bestBlob.size);
+                canvas.width = Math.round(targetW * scale);
+                canvas.height = Math.round(targetH * scale);
+                ctx.drawImage(activeUploadedImg, 0, 0, canvas.width, canvas.height);
+                bestBlob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.72));
+            }
+
+            const outputDiv = document.getElementById('imgCompressOutput');
+            const sizeSummary = document.getElementById('imgSizeSummary');
+            const dlLink = document.getElementById('imgDownloadLink');
+
+            const origKB = (originalImgBytes / 1024).toFixed(1);
+            const optKB = (bestBlob.size / 1024).toFixed(1);
+
+            sizeSummary.innerHTML = `Original: <strong>${origKB} KB</strong> &rarr; Target: <strong>${targetKB} KB</strong> &rarr; Optimized: <strong style="color:var(--primary);">${optKB} KB</strong>`;
+            dlLink.href = URL.createObjectURL(bestBlob);
+            outputDiv.style.display = 'flex';
+        });
 
         // ================= VISA HUB DATA & ENGINE =================
         const visaData = {
@@ -2190,7 +2415,6 @@
             c.fillRect(0, 0, size, size);
             c.fillStyle = '#0f172a';
             
-            // Draw standard corners
             const drawFinder = (x, y) => {
                 c.fillRect(x, y, 24, 24);
                 c.clearRect(x + 4, y + 4, 16, 16);
@@ -2200,7 +2424,6 @@
             drawFinder(60, 6);
             drawFinder(6, 60);
 
-            // Pseudo-random deterministic payload grid based on text length
             let hash = 0;
             for(let i = 0; i < text.length; i++) {
                 hash = ((hash << 5) - hash) + text.charCodeAt(i);
