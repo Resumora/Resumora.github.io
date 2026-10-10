@@ -12,7 +12,7 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Resumora Universe - Free ATS Resume Builder & Global Visa Portal</title>
     <meta name="description" content="Access Resumora's free ATS resume builder, free ATS score check, global education & work visa portal for USA, Australia, Germany, New Zealand, and daily calculators.">
     <meta name="keywords" content="ATS resume builder, free ATS score, study abroad visa, usa student visa, australia education visa, germany work search, New Zealand visa fees, Resumora">
@@ -99,12 +99,18 @@
             --topbar-bg: rgba(255, 255, 255, 0.88);
         }
 
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             color: var(--text-main);
             font-family: var(--font-body);
-            overflow-x: hidden;
             position: relative;
             min-height: 100vh;
             background-color: var(--bg-page);
@@ -186,11 +192,12 @@
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             border-bottom: 1px solid var(--glass-border);
-            padding: 11px 32px;
+            padding: 11px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+            width: 100%;
         }
 
         .brand-container {
@@ -242,16 +249,17 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             z-index: 1100;
         }
 
-        /* BUTTONS WITH HOVER GLOW & CLICK VISIBILITY */
+        /* BUTTONS */
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            padding: 9px 16px;
+            padding: 9px 15px;
             border-radius: 11px;
             font-family: var(--font-heading);
             font-size: 13px;
@@ -263,6 +271,7 @@
             outline: none;
             user-select: none;
             z-index: 10;
+            white-space: nowrap;
         }
 
         .btn:active {
@@ -289,7 +298,8 @@
             position: absolute;
             top: calc(100% + 10px);
             left: 0;
-            width: 310px;
+            width: 300px;
+            max-width: 90vw;
             background: #ffffff;
             border: 1px solid var(--glass-border);
             border-radius: 14px;
@@ -311,14 +321,14 @@
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 12.5px;
+            padding: 8px 12px;
+            font-size: 14px;
             outline: none;
         }
 
         .dropdown-items-list {
             overflow-y: auto;
-            max-height: 340px;
+            max-height: 320px;
             padding: 6px;
         }
 
@@ -390,6 +400,7 @@
             box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
         }
         .btn-primary:hover {
             transform: translateY(-2px);
@@ -412,7 +423,7 @@
         /* 5. FROSTED GLASS THEME TOGGLE */
         .glass-theme-btn {
             position: relative;
-            width: 42px; height: 38px;
+            width: 40px; height: 38px;
             border-radius: 11px;
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(16px);
@@ -428,6 +439,7 @@
             transition: all 0.25s ease;
             outline: none;
             z-index: 10;
+            flex-shrink: 0;
         }
 
         .glass-theme-btn:hover {
@@ -448,9 +460,7 @@
             --topbar-bg: rgba(11, 17, 32, 0.88);
         }
 
-        body.dark-mode .dissolve-layer {
-            filter: blur(100px);
-        }
+        body.dark-mode .dissolve-layer { filter: blur(100px); }
         body.dark-mode .stage-blue {
             background: radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.3), transparent 50%),
                         radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.22), transparent 55%),
@@ -596,9 +606,10 @@
             position: relative;
             z-index: 10;
             text-align: center;
-            padding: 65px 24px 45px 24px;
+            padding: 50px 20px 35px 20px;
             max-width: 1000px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .pill-badge {
@@ -613,6 +624,9 @@
             box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
             margin-bottom: 20px;
             backdrop-filter: blur(10px);
+            max-width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .pulse-dot {
@@ -620,6 +634,7 @@
             background-color: #10b981;
             border-radius: 50%;
             animation: pulse-ring 1.8s infinite;
+            flex-shrink: 0;
         }
 
         @keyframes pulse-ring {
@@ -630,12 +645,13 @@
 
         .hero h1 {
             font-family: var(--font-heading);
-            font-size: 46px;
+            font-size: 44px;
             font-weight: 900;
-            line-height: 1.15;
+            line-height: 1.18;
             letter-spacing: -1.2px;
             margin-bottom: 16px;
             color: #0f172a;
+            word-wrap: break-word;
         }
 
         .hero h1 span.gradient-text {
@@ -645,10 +661,10 @@
         }
 
         .hero p {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text-muted);
             max-width: 680px;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 28px auto;
             line-height: 1.6;
         }
 
@@ -656,8 +672,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 14px;
+            gap: 12px;
             flex-wrap: wrap;
+            width: 100%;
         }
 
         .tools-section {
@@ -665,7 +682,8 @@
             z-index: 10;
             max-width: 1300px;
             margin: 0 auto;
-            padding: 20px 24px 60px 24px;
+            padding: 20px 20px 60px 20px;
+            width: 100%;
         }
 
         .section-header {
@@ -673,6 +691,8 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .section-header h2 {
@@ -686,16 +706,17 @@
 
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
             position: relative;
+            width: 100%;
         }
 
         .glass-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: 16px;
-            padding: 24px;
+            padding: 22px;
             box-shadow: var(--glass-shadow);
             backdrop-filter: blur(16px);
             position: relative;
@@ -704,6 +725,7 @@
             transition: all 0.25s ease;
             z-index: 2;
             scroll-margin-top: 100px;
+            width: 100%;
         }
 
         .glass-card:hover {
@@ -733,6 +755,7 @@
             font-size: 18px;
             color: #ffffff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            flex-shrink: 0;
         }
 
         .icon-blue { background: linear-gradient(135deg, #2563eb, #3b82f6); }
@@ -777,17 +800,24 @@
             letter-spacing: 0.5px;
         }
 
+        /* 16px on mobile prevents iOS and Chrome auto-zoom */
         .tool-input, .tool-select, .tool-textarea {
             width: 100%;
             background: #ffffff;
             border: 1px solid #cbd5e1;
             border-radius: 8px;
-            padding: 8px 12px;
-            font-size: 13px;
+            padding: 9px 12px;
+            font-size: 16px;
             color: var(--text-main);
             outline: none;
             transition: all 0.2s;
             font-family: inherit;
+        }
+
+        @media (min-width: 768px) {
+            .tool-input, .tool-select, .tool-textarea {
+                font-size: 13.5px;
+            }
         }
 
         .tool-textarea {
@@ -814,7 +844,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            word-break: break-all;
+            word-break: break-word;
             white-space: pre-wrap;
         }
 
@@ -835,6 +865,7 @@
             border-radius: 18px;
             box-shadow: var(--glass-shadow);
             backdrop-filter: blur(14px);
+            width: calc(100% - 40px);
         }
 
         .seo-content-block h2 {
@@ -890,7 +921,7 @@
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
         }
 
         .modal-overlay.active { display: flex !important; }
@@ -905,14 +936,14 @@
             box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3);
             border: 1px solid var(--glass-border);
             position: relative;
-            padding: 28px;
+            padding: 24px;
             z-index: 3100;
         }
 
         .modal-close {
             position: absolute;
-            top: 20px; right: 20px;
-            width: 32px; height: 32px;
+            top: 16px; right: 16px;
+            width: 34px; height: 34px;
             border-radius: 50%;
             background: #f1f5f9;
             border: none;
@@ -936,14 +967,14 @@
         }
 
         .visa-globe-icon {
-            width: 54px; height: 54px;
+            width: 50px; height: 50px;
             border-radius: 14px;
             background: linear-gradient(135deg, #0d9488 0%, #2563eb 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 24px;
+            font-size: 22px;
             box-shadow: 0 8px 20px rgba(13, 148, 136, 0.25);
             flex-shrink: 0;
         }
@@ -952,9 +983,10 @@
             display: flex;
             gap: 8px;
             overflow-x: auto;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
             margin-bottom: 16px;
             scrollbar-width: thin;
+            -webkit-overflow-scrolling: touch;
         }
 
         .country-btn {
@@ -971,6 +1003,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            flex-shrink: 0;
         }
 
         .country-btn.active, .country-btn:hover {
@@ -984,13 +1017,13 @@
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 14px;
-            padding: 20px;
+            padding: 18px;
             margin-bottom: 16px;
         }
 
         .visa-badge-row {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 14px;
         }
@@ -1039,11 +1072,18 @@
             font-weight: 900;
         }
 
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         .cost-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
             font-size: 12.5px;
+            min-width: 280px;
         }
 
         .cost-table th, .cost-table td {
@@ -1062,11 +1102,13 @@
             background: #f0fdf4;
             border: 1px solid #86efac;
             border-radius: 12px;
-            padding: 12px 16px;
+            padding: 12px 14px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 16px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         /* ATS CHECKER MODAL */
@@ -1103,19 +1145,72 @@
             z-index: 10;
             border-top: 1px solid var(--glass-border);
             background: rgba(255, 255, 255, 0.92);
-            padding: 24px;
+            padding: 24px 16px;
             text-align: center;
             font-size: 12.5px;
             color: var(--text-muted);
             backdrop-filter: blur(10px);
+            width: 100%;
         }
 
-        @media (max-width: 840px) {
-            .hero h1 { font-size: 32px; }
-            .topbar { padding: 10px 16px; flex-wrap: wrap; gap: 10px; }
-            .nav-actions { width: 100%; justify-content: space-between; overflow-x: auto; padding-bottom: 4px; }
-            .cards-grid { grid-template-columns: 1fr; }
-            .faq-grid { grid-template-columns: 1fr; }
+        /* ================= MOBILE OPTIMIZATIONS (PREVENTS ZOOM & SQUISHING) ================= */
+        @media (max-width: 900px) {
+            .topbar {
+                padding: 10px 14px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            .brand-container {
+                justify-content: space-between;
+                width: 100%;
+            }
+            .nav-actions {
+                width: 100%;
+                display: flex;
+                overflow-x: auto;
+                padding-bottom: 6px;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+                gap: 8px;
+            }
+            .nav-actions::-webkit-scrollbar {
+                display: none;
+            }
+            .hero {
+                padding: 35px 16px 25px 16px;
+            }
+            .hero h1 { 
+                font-size: 28px; 
+                line-height: 1.25;
+            }
+            .hero p {
+                font-size: 14px;
+            }
+            .hero-action-row {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-action-row .btn {
+                width: 100%;
+            }
+            .tools-section {
+                padding: 15px 14px 40px 14px;
+            }
+            .cards-grid { 
+                grid-template-columns: 1fr; 
+                gap: 16px;
+            }
+            .faq-grid { 
+                grid-template-columns: 1fr; 
+            }
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+            .modal-box {
+                padding: 18px 14px;
+                border-radius: 16px;
+            }
         }
     </style>
 </head>
@@ -1136,11 +1231,17 @@
     <!-- Topbar Navigation -->
     <header class="topbar">
         <a href="index.html" class="brand-container">
-            <div class="brand-logo-badge">R</div>
-            <div>
-                <div class="brand-title">Resumora</div>
-                <div class="brand-tag">Universe Portal</div>
+            <div style="display:flex; align-items:center; gap:12px;">
+                <div class="brand-logo-badge">R</div>
+                <div>
+                    <div class="brand-title">Resumora</div>
+                    <div class="brand-tag">Universe Portal</div>
+                </div>
             </div>
+            <!-- Frosted Glass Dark Mode Toggle on mobile next to brand -->
+            <button class="glass-theme-btn" id="themeToggleBtnMobile" type="button" title="Toggle Dark/Light Mode" style="display: none;">
+                <i class="fa-solid fa-moon" id="themeIconMobile"></i>
+            </button>
         </a>
 
         <div class="nav-actions">
@@ -1172,7 +1273,7 @@
                 <span>ATS Score Check</span>
             </button>
 
-            <!-- 4. FROSTED GLASS THEME TOGGLE (Dark/White Mode) -->
+            <!-- 4. FROSTED GLASS THEME TOGGLE (Desktop) -->
             <button class="glass-theme-btn" id="themeToggleBtn" type="button" title="Toggle Dark/Light Mode">
                 <i class="fa-solid fa-moon" id="themeIcon"></i>
             </button>
@@ -1199,14 +1300,14 @@
         </p>
 
         <div class="hero-action-row">
-            <a href="app/index.html" class="btn btn-primary" style="padding: 12px 28px; font-size: 15px;">
+            <a href="app/index.html" class="btn btn-primary" style="padding: 12px 24px; font-size: 15px;">
                 <span class="btn-shine"></span>
                 <i class="fa-solid fa-file-lines"></i> <span>Create My Resume (100% Free)</span>
             </a>
-            <button class="btn btn-visa-pro" id="heroVisaBtn" style="padding: 12px 24px; font-size: 14px;">
+            <button class="btn btn-visa-pro" id="heroVisaBtn" style="padding: 12px 20px; font-size: 14px;">
                 <i class="fa-solid fa-globe"></i> <span>Study & Settle Abroad Guide</span>
             </button>
-            <button class="btn btn-ats-check" id="heroAtsBtn" style="padding: 12px 24px; font-size: 14px;">
+            <button class="btn btn-ats-check" id="heroAtsBtn" style="padding: 12px 20px; font-size: 14px;">
                 <i class="fa-solid fa-clipboard-check"></i> <span>Quick ATS Score Audit</span>
             </button>
         </div>
@@ -1547,7 +1648,7 @@
                     <i class="fa-solid fa-earth-americas"></i>
                 </div>
                 <div>
-                    <h3 style="font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: var(--text-main);">Global Education & Immigration Portal</h3>
+                    <h3 style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--text-main);">Global Education & Immigration Portal</h3>
                     <p style="font-size: 13px; color: var(--text-muted);">Real-time visa procedures, latest rules, tuition & living expenses</p>
                 </div>
             </div>
@@ -1590,7 +1691,7 @@
                 <div style="width: 50px; height: 50px; border-radius: 12px; background:#eff6ff; color:#2563eb; display:flex; align-items:center; justify-content:center; font-size:24px; margin:0 auto 10px auto;">
                     <i class="fa-solid fa-bolt"></i>
                 </div>
-                <h3 style="font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: var(--text-main);">Instant ATS Resume Checker</h3>
+                <h3 style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--text-main);">Instant ATS Resume Checker</h3>
                 <p style="font-size: 13px; color: var(--text-muted);">Paste your resume text to audit formatting, keywords & score</p>
             </div>
 
@@ -1625,7 +1726,7 @@
     </footer>
 
     <script>
-        // ================= BULLETPROOF AUDIO CHIME (Plays on Every Interaction) =================
+        // ================= BULLETPROOF AUDIO CHIME =================
         let audioCtx = null;
         function playChime(freq = 520, type = 'sine', duration = 0.14) {
             try {
@@ -1673,19 +1774,27 @@
         const themeToggleBtn = document.getElementById('themeToggleBtn');
         const themeIcon = document.getElementById('themeIcon');
 
+        function applyTheme(isDark) {
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+                if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+            } else {
+                document.body.classList.remove('dark-mode');
+                if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
+            }
+            localStorage.setItem('resumora_theme', isDark ? 'dark' : 'light');
+        }
+
         if (localStorage.getItem('resumora_theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+            applyTheme(true);
         }
 
         if (themeToggleBtn) {
             themeToggleBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 playChime(680, 'triangle');
-                document.body.classList.toggle('dark-mode');
-                const isDark = document.body.classList.contains('dark-mode');
-                themeIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-                localStorage.setItem('resumora_theme', isDark ? 'dark' : 'light');
+                const willBeDark = !document.body.classList.contains('dark-mode');
+                applyTheme(willBeDark);
             });
         }
 
@@ -1816,9 +1925,9 @@
 
             container.innerHTML = `
                 <div class="visa-card-body">
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; gap:8px; flex-wrap:wrap;">
                         <div>
-                            <h4 style="font-size:18px; font-weight:800; color:var(--text-main); display:flex; align-items:center; gap:8px;">
+                            <h4 style="font-size:17px; font-weight:800; color:var(--text-main); display:flex; align-items:center; gap:8px;">
                                 <span>${data.flag}</span> <span>${data.title}</span>
                             </h4>
                             <span style="font-size:12px; color:var(--text-muted); font-weight:600;">Main Visa: ${data.visaType}</span>
@@ -1834,10 +1943,12 @@
                     <ul class="step-list">${stepsList}</ul>
 
                     <div class="visa-section-title"><i class="fa-solid fa-receipt" style="color:var(--primary);"></i> Official Fees & Expected Costs</div>
-                    <table class="cost-table">
-                        <thead><tr><th>Category / Expense</th><th>Approx. Amount</th></tr></thead>
-                        <tbody>${costsRows}</tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="cost-table">
+                            <thead><tr><th>Category / Expense</th><th>Approx. Amount</th></tr></thead>
+                            <tbody>${costsRows}</tbody>
+                        </table>
+                    </div>
 
                     <div class="visa-section-title"><i class="fa-solid fa-route" style="color:var(--primary);"></i> Pathway to Work & PR / Settlement</div>
                     <p style="font-size:12.5px; color:var(--text-main); line-height:1.5; background:var(--glass-bg); padding:10px 14px; border-radius:8px; border:1px solid var(--glass-border);">
@@ -1872,13 +1983,11 @@
         document.getElementById('heroAtsBtn').onclick = openAtsChecker;
         document.getElementById('closeAtsModal').onclick = () => atsModal.classList.remove('active');
 
-        // Close on backdrop
         window.onclick = (e) => {
             if (e.target === visaModal) visaModal.classList.remove('active');
             if (e.target === atsModal) atsModal.classList.remove('active');
         };
 
-        // Tabs
         document.getElementById('countryTabs').onclick = (e) => {
             const btn = e.target.closest('.country-btn');
             if (!btn) return;
@@ -1887,7 +1996,6 @@
             renderVisaTab(btn.dataset.country);
         };
 
-        // Refresh banner
         document.getElementById('refreshVisaUpdatesBtn').onclick = () => {
             const el = document.getElementById('liveStatusText');
             el.textContent = "Connecting to Embassy Immigration Servers...";
@@ -2002,14 +2110,14 @@
         });
 
         const particles = [];
-        for (let i = 0; i < 45; i++) {
+        for (let i = 0; i < 40; i++) {
             particles.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
                 z: Math.random() * 800 + 200,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
-                vz: (Math.random() - 0.5) * 0.7,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                vz: (Math.random() - 0.5) * 0.6,
                 radius: Math.random() * 2 + 1
             });
         }
@@ -2032,7 +2140,7 @@
                 const projY = (p.y - height / 2) * scale + height / 2;
                 ctx.beginPath();
                 ctx.arc(projX, projY, Math.max(0.5, p.radius * scale), 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(37, 99, 235, 0.4)`;
+                ctx.fillStyle = `rgba(37, 99, 235, 0.35)`;
                 ctx.fill();
             });
             requestAnimationFrame(render5DCanvas);
@@ -2048,7 +2156,7 @@
             cCanvas.height = window.innerHeight;
             confettis = [];
             const colors = ['#2563eb', '#06b6d4', '#10b981', '#f59e0b', '#ec4899'];
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 45; i++) {
                 confettis.push({
                     x: window.innerWidth / 2,
                     y: window.innerHeight / 2,
