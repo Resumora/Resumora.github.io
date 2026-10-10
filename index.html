@@ -1963,57 +1963,87 @@
             if (event && event.target) event.target.classList.add('active');
         }
 
-        // Iterative compression solver
-        document.getElementById('compressImageBtn').addEventListener('click', async (e) => {
-            e.preventDefault();
-            if (!activeUploadedImg) {
-                alert('Pehle ek image upload karein!');
-                return;
+       // ================= GUARANTEED TARGET SIZE COMPRESSION SOLVER =================
+document.getElementById('compressImageBtn').addEventListener('click', async (e) => {
+    e.preventDefault();
+    if (!activeUploadedImg) {
+        alert('Pehle ek image upload karein!');
+        return;
+    }
+
+    const targetKB = parseFloat(imgTargetKb.value) || 50;
+    const targetBytes = targetKB * 1024;
+
+    const userW = parseInt(imgWidth.value) || activeUploadedImg.width;
+    const userH = parseInt(imgHeight.value) || activeUploadedImg.height;
+
+    const btn = document.getElementById('compressImageBtn');
+    btn.innerText = "Compressing...";
+    btn.disabled = true;
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    let curW = userW;
+    let curH = userH;
+    let bestBlob = null;
+
+    // Outer Loop: Agar dimensions bahut bade hain, toh dimensions scale down karo
+    for (let loop = 0; loop < 10; loop++) {
+        canvas.width = curW;
+        canvas.height = curH;
+        ctx.clearRect(0, 0, curW, curH);
+        ctx.drawImage(activeUploadedImg, 0, 0, curW, curH);
+
+        // Binary Search on JPEG Quality (0.05 se 0.95)
+        let lowQ = 0.05, highQ = 0.95;
+        let passBlob = null;
+
+        for (let i = 0; i < 7; i++) {
+            const midQ = (lowQ + highQ) / 2;
+            const blob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', midQ));
+
+            if (blob.size <= targetBytes) {
+                passBlob = blob;
+                lowQ = midQ; // Quality badhane ki koshish karo target ke andar rehte hue
+            } else {
+                highQ = midQ; // Quality kam karo
             }
+        }
 
-            const targetKB = parseFloat(imgTargetKb.value) || 50;
-            const targetBytes = targetKB * 1024;
-            let targetW = parseInt(imgWidth.value) || activeUploadedImg.width;
-            let targetH = parseInt(imgHeight.value) || activeUploadedImg.height;
-
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = targetW;
-            canvas.height = targetH;
-            ctx.drawImage(activeUploadedImg, 0, 0, targetW, targetH);
-
-            let minQ = 0.05, maxQ = 0.98, bestBlob = null;
-            for (let i = 0; i < 6; i++) {
-                const midQ = (minQ + maxQ) / 2;
-                const blob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', midQ));
-                bestBlob = blob;
-                if (blob.size > targetBytes) {
-                    maxQ = midQ;
-                } else {
-                    minQ = midQ;
-                }
+        if (passBlob) {
+            bestBlob = passBlob;
+            // Agar file target size ke 80% - 100% ke beech aa gayi, stop
+            if (passBlob.size >= targetBytes * 0.75 || curW < 300) {
+                break;
             }
+        }
 
-            // Downscale resolution slightly if file size still exceeds target by 10%
-            if (bestBlob && bestBlob.size > targetBytes * 1.1) {
-                const scale = Math.sqrt(targetBytes / bestBlob.size);
-                canvas.width = Math.round(targetW * scale);
-                canvas.height = Math.round(targetH * scale);
-                ctx.drawImage(activeUploadedImg, 0, 0, canvas.width, canvas.height);
-                bestBlob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.72));
-            }
+        // Agar lowest quality par bhi targetBytes se badi hai, resolution 20% chhota karo
+        curW = Math.round(curW * 0.80);
+        curH = Math.round(curH * 0.80);
+        if (curW < 100 || curH < 100) break;
+    }
 
-            const outputDiv = document.getElementById('imgCompressOutput');
-            const sizeSummary = document.getElementById('imgSizeSummary');
-            const dlLink = document.getElementById('imgDownloadLink');
+    // Fallback safety agar canvas fir bhi exceed kare
+    if (!bestBlob) {
+        bestBlob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.1));
+    }
 
-            const origKB = (originalImgBytes / 1024).toFixed(1);
-            const optKB = (bestBlob.size / 1024).toFixed(1);
+    btn.innerText = "Compress & Optimize";
+    btn.disabled = false;
 
-            sizeSummary.innerHTML = `Original: <strong>${origKB} KB</strong> &rarr; Target: <strong>${targetKB} KB</strong> &rarr; Optimized: <strong style="color:var(--primary);">${optKB} KB</strong>`;
-            dlLink.href = URL.createObjectURL(bestBlob);
-            outputDiv.style.display = 'flex';
-        });
+    const outputDiv = document.getElementById('imgCompressOutput');
+    const sizeSummary = document.getElementById('imgSizeSummary');
+    const dlLink = document.getElementById('imgDownloadLink');
+
+    const origKB = (originalImgBytes / 1024).toFixed(1);
+    const optKB = (bestBlob.size / 1024).toFixed(1);
+
+    sizeSummary.innerHTML = `Original: <strong>${origKB} KB</strong> &rarr; Target: <strong>${targetKB} KB</strong> &rarr; Optimized: <strong style="color:var(--primary);">${optKB} KB</strong>`;
+    dlLink.href = URL.createObjectURL(bestBlob);
+    outputDiv.style.display = 'flex';
+});
 
         // ================= VISA HUB DATA & ENGINE =================
         const visaData = {
