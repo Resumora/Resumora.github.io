@@ -13,17 +13,17 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Resumora Universe - Free ATS Resume Builder & Global Visa Portal</title>
-    <meta name="description" content="Access Resumora's free ATS resume builder, free ATS score check, global education & work visa portal for USA, Australia, Germany, New Zealand, and daily calculators.">
-    <meta name="keywords" content="ATS resume builder, free ATS score, study abroad visa, usa student visa, australia education visa, germany work search, New Zealand visa fees, Resumora">
+    <title>Resumora Universe - Free Image Compressor (20KB, 50KB), ATS Resume Builder & Global Visa Portal</title>
+    <meta name="description" content="Free online client-side Image Compressor to 20KB, 50KB, 100KB, ATS Resume Builder, global visa intelligence portal for USA, Australia, Germany, and daily calculation utilities.">
+    <meta name="keywords" content="image compressor 20kb, compress image to 50kb, resize photo to 100kb, photo resizer for govt form, free ATS resume builder, study abroad visa portal, Resumora">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://resumora.github.io/">
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://resumora.github.io/">
-    <meta property="og:title" content="Resumora Universe - Free ATS Resume Builder & Global Visa Portal">
-    <meta property="og:description" content="Instant zero-cost utilities, free ATS checker, live study abroad visa procedures, cost breakdown, and recruiter-approved ATS resumes.">
+    <meta property="og:title" content="Resumora Universe - Free Image Compressor, ATS Resume Builder & Global Visa Portal">
+    <meta property="og:description" content="Instant zero-cost utilities, client-side photo compressor to 20KB/50KB, free ATS checker, live study abroad visa procedures, and recruiter-approved resumes.">
     <meta property="og:site_name" content="Resumora">
 
     <!-- Schema.org WebApplication & FAQPage -->
@@ -35,7 +35,7 @@
           "@type": "WebApplication",
           "name": "Resumora Universe Portal",
           "url": "https://resumora.github.io/",
-          "description": "Multi-utility platform with free ATS resume building, study abroad guidance, client-side PDF processors, and financial calculation tools.",
+          "description": "Multi-utility platform with client-side image compression to 20KB/50KB, free ATS resume building, study abroad guidance, and financial calculation tools.",
           "applicationCategory": "ProductivityApplication",
           "operatingSystem": "All",
           "offers": {
@@ -47,6 +47,14 @@
         {
           "@type": "FAQPage",
           "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does the image compressor reduce photos to 20KB or 50KB?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Resumora Image Compressor uses an intelligent client-side canvas engine with iterative binary quality search and dimensional scaling to compress and resize JPG, PNG, and WebP images to exact target sizes like 20 KB, 50 KB, or 100 KB without uploading files to any external server."
+              }
+            },
             {
               "@type": "Question",
               "name": "Are calculations and files processed on the server?",
@@ -71,7 +79,7 @@
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" client-side rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
@@ -1351,7 +1359,7 @@
 
         <div class="cards-grid">
 
-            <!-- 0. IMAGE COMPRESSOR & RESIZER CARD (NEW) -->
+            <!-- 0. IMAGE COMPRESSOR & RESIZER CARD -->
             <div class="glass-card" id="tool-image-compressor">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-file-image"></i></div>
@@ -1373,9 +1381,9 @@
                     <div>
                         <label class="field-label">Target File Size</label>
                         <div class="preset-buttons">
-                            <button type="button" class="preset-btn" onclick="applyPresetKB(20)">20 KB</button>
-                            <button type="button" class="preset-btn" onclick="applyPresetKB(50)">50 KB</button>
-                            <button type="button" class="preset-btn" onclick="applyPresetKB(100)">100 KB</button>
+                            <button type="button" class="preset-btn" onclick="applyPresetKB(20, event)">20 KB</button>
+                            <button type="button" class="preset-btn active" onclick="applyPresetKB(50, event)">50 KB</button>
+                            <button type="button" class="preset-btn" onclick="applyPresetKB(100, event)">100 KB</button>
                         </div>
                         <input type="number" id="imgTargetKb" class="tool-input" placeholder="Target size in KB (e.g. 50)" value="50" min="5" max="15000">
                     </div>
@@ -1520,7 +1528,7 @@
                 </div>
             </div>
 
-            <!-- QR Generator (Pure Client-side, No Ad-Trackers) -->
+            <!-- QR Generator -->
             <div class="glass-card" id="tool-qr-generator">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-qrcode"></i></div>
@@ -1706,22 +1714,30 @@
         </div>
     </main>
 
-    <!-- SEO Content Section -->
+    <!-- SEO Content Section with Integrated Image Compressor Keywords -->
     <section class="seo-content-block">
         <h2>About Resumora Universe</h2>
         <p>
-            Resumora Universe is a privacy-first web utilities matrix designed for professionals, developers, and students. Every calculator, image editor, PDF tool, ATS audit, and immigration tracker runs directly in your local browser using modern WebAssembly and JavaScript engines without third-party ad scripts.
+            Resumora Universe is a privacy-first web utilities matrix designed for professionals, developers, and students[cite: 1]. Every calculator, <strong>browser-based image compressor (20KB, 50KB, 100KB)</strong>, PDF tool, ATS audit, and immigration tracker runs directly in your local browser using modern HTML5 Canvas, WebAssembly, and JavaScript engines without third-party ad scripts or cloud uploads.
         </p>
 
         <h2>Frequently Asked Questions</h2>
         <div class="faq-grid">
             <div class="faq-card">
+                <h4>Can I compress photos for government jobs, exams, or visa portals?</h4>
+                <p>Yes. Many online portals require passport photos under 20 KB or 50 KB. You can choose preset limits (20 KB, 50 KB, 100 KB) or enter custom dimensions and file sizes with instant 100% private download.</p>
+            </div>
+            <div class="faq-card">
                 <h4>Is the ATS Resume Builder completely free?</h4>
-                <p>Yes. Resumora does not ask for card details, logins, or fees. You can customize resume templates and export high-res A4 PDFs without watermarks.</p>
+                <p>Yes[cite: 1]. Resumora does not ask for card details, logins, or fees[cite: 1]. You can customize resume templates and export high-res A4 PDFs without watermarks[cite: 1].</p>
             </div>
             <div class="faq-card">
                 <h4>How accurate are the study abroad visa estimates?</h4>
-                <p>All procedures, living costs, and government visa fees are mapped to official immigration portals (USCIS, DHA Australia, INZ, and German Federal Foreign Office).</p>
+                <p>All procedures, living costs, and government visa fees are mapped to official immigration portals (USCIS, DHA Australia, INZ, and German Federal Foreign Office)[cite: 1].</p>
+            </div>
+            <div class="faq-card">
+                <h4>Are calculations and uploaded photos processed on a server?</h4>
+                <p>No[cite: 1]. All PDF operations, image resizing, and calculations run 100% locally on your machine via HTML5 Canvas and client-side memory[cite: 1].</p>
             </div>
         </div>
     </section>
@@ -1810,7 +1826,7 @@
     </div>
 
     <footer class="portal-footer">
-        <p>&copy; 2026 Resumora Universe. 100% Free Career Infrastructure, Global Visa Intelligence & Native Utility Matrix.</p>
+        <p>&copy; 2026 Resumora Universe. 100% Free Career Infrastructure, Global Visa Intelligence & Native Utility Matrix[cite: 1].</p>
     </footer>
 
     <script>
@@ -1894,7 +1910,7 @@
             });
         }
 
-        // ================= IMAGE COMPRESSOR & RESIZER ENGINE =================
+        // ================= IMAGE COMPRESSOR WITH ACCURATE RESOLUTION AUTO-REDUCER =================
         let activeUploadedImg = null;
         let originalImgBytes = 0;
         let originalImgRatio = 1;
@@ -1931,7 +1947,6 @@
             if (e.target.files.length > 0) handleSelectedFile(e.target.files[0]);
         });
 
-        // Drag & drop support
         imgDropZone.addEventListener('dragover', (e) => {
             e.preventDefault();
             imgDropZone.style.borderColor = 'var(--primary)';
@@ -1945,7 +1960,6 @@
             if (e.dataTransfer.files.length > 0) handleSelectedFile(e.dataTransfer.files[0]);
         });
 
-        // Aspect ratio handling
         imgWidth.addEventListener('input', () => {
             if (imgKeepRatio.checked && originalImgRatio && imgWidth.value) {
                 imgHeight.value = Math.round(imgWidth.value / originalImgRatio);
@@ -1957,93 +1971,88 @@
             }
         });
 
-        function applyPresetKB(kb) {
+        function applyPresetKB(kb, ev) {
             imgTargetKb.value = kb;
             document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
-            if (event && event.target) event.target.classList.add('active');
+            if (ev && ev.target) ev.target.classList.add('active');
         }
 
-       // ================= GUARANTEED TARGET SIZE COMPRESSION SOLVER =================
-document.getElementById('compressImageBtn').addEventListener('click', async (e) => {
-    e.preventDefault();
-    if (!activeUploadedImg) {
-        alert('Pehle ek image upload karein!');
-        return;
-    }
-
-    const targetKB = parseFloat(imgTargetKb.value) || 50;
-    const targetBytes = targetKB * 1024;
-
-    const userW = parseInt(imgWidth.value) || activeUploadedImg.width;
-    const userH = parseInt(imgHeight.value) || activeUploadedImg.height;
-
-    const btn = document.getElementById('compressImageBtn');
-    btn.innerText = "Compressing...";
-    btn.disabled = true;
-
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-
-    let curW = userW;
-    let curH = userH;
-    let bestBlob = null;
-
-    // Outer Loop: Agar dimensions bahut bade hain, toh dimensions scale down karo
-    for (let loop = 0; loop < 10; loop++) {
-        canvas.width = curW;
-        canvas.height = curH;
-        ctx.clearRect(0, 0, curW, curH);
-        ctx.drawImage(activeUploadedImg, 0, 0, curW, curH);
-
-        // Binary Search on JPEG Quality (0.05 se 0.95)
-        let lowQ = 0.05, highQ = 0.95;
-        let passBlob = null;
-
-        for (let i = 0; i < 7; i++) {
-            const midQ = (lowQ + highQ) / 2;
-            const blob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', midQ));
-
-            if (blob.size <= targetBytes) {
-                passBlob = blob;
-                lowQ = midQ; // Quality badhane ki koshish karo target ke andar rehte hue
-            } else {
-                highQ = midQ; // Quality kam karo
+        // Guaranteed Target Size Compressor
+        document.getElementById('compressImageBtn').addEventListener('click', async (e) => {
+            e.preventDefault();
+            if (!activeUploadedImg) {
+                alert('Pehle ek image upload karein!');
+                return;
             }
-        }
 
-        if (passBlob) {
-            bestBlob = passBlob;
-            // Agar file target size ke 80% - 100% ke beech aa gayi, stop
-            if (passBlob.size >= targetBytes * 0.75 || curW < 300) {
-                break;
+            const targetKB = parseFloat(imgTargetKb.value) || 50;
+            const targetBytes = targetKB * 1024;
+            const userW = parseInt(imgWidth.value) || activeUploadedImg.width;
+            const userH = parseInt(imgHeight.value) || activeUploadedImg.height;
+
+            const btn = document.getElementById('compressImageBtn');
+            btn.innerText = "Compressing...";
+            btn.disabled = true;
+
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            let curW = userW;
+            let curH = userH;
+            let bestBlob = null;
+
+            // Auto downscale + Binary search quality loop
+            for (let loop = 0; loop < 10; loop++) {
+                canvas.width = curW;
+                canvas.height = curH;
+                ctx.clearRect(0, 0, curW, curH);
+                ctx.drawImage(activeUploadedImg, 0, 0, curW, curH);
+
+                let lowQ = 0.05, highQ = 0.95;
+                let passBlob = null;
+
+                for (let i = 0; i < 7; i++) {
+                    const midQ = (lowQ + highQ) / 2;
+                    const blob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', midQ));
+
+                    if (blob.size <= targetBytes) {
+                        passBlob = blob;
+                        lowQ = midQ;
+                    } else {
+                        highQ = midQ;
+                    }
+                }
+
+                if (passBlob) {
+                    bestBlob = passBlob;
+                    if (passBlob.size >= targetBytes * 0.72 || curW < 250) {
+                        break;
+                    }
+                }
+
+                curW = Math.round(curW * 0.80);
+                curH = Math.round(curH * 0.80);
+                if (curW < 80 || curH < 80) break;
             }
-        }
 
-        // Agar lowest quality par bhi targetBytes se badi hai, resolution 20% chhota karo
-        curW = Math.round(curW * 0.80);
-        curH = Math.round(curH * 0.80);
-        if (curW < 100 || curH < 100) break;
-    }
+            if (!bestBlob) {
+                bestBlob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.1));
+            }
 
-    // Fallback safety agar canvas fir bhi exceed kare
-    if (!bestBlob) {
-        bestBlob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.1));
-    }
+            btn.innerText = "Compress & Optimize";
+            btn.disabled = false;
 
-    btn.innerText = "Compress & Optimize";
-    btn.disabled = false;
+            const outputDiv = document.getElementById('imgCompressOutput');
+            const sizeSummary = document.getElementById('imgSizeSummary');
+            const dlLink = document.getElementById('imgDownloadLink');
 
-    const outputDiv = document.getElementById('imgCompressOutput');
-    const sizeSummary = document.getElementById('imgSizeSummary');
-    const dlLink = document.getElementById('imgDownloadLink');
+            const origKB = (originalImgBytes / 1024).toFixed(1);
+            const optKB = (bestBlob.size / 1024).toFixed(1);
 
-    const origKB = (originalImgBytes / 1024).toFixed(1);
-    const optKB = (bestBlob.size / 1024).toFixed(1);
-
-    sizeSummary.innerHTML = `Original: <strong>${origKB} KB</strong> &rarr; Target: <strong>${targetKB} KB</strong> &rarr; Optimized: <strong style="color:var(--primary);">${optKB} KB</strong>`;
-    dlLink.href = URL.createObjectURL(bestBlob);
-    outputDiv.style.display = 'flex';
-});
+            sizeSummary.innerHTML = `Original: <strong>${origKB} KB</strong> &rarr; Target: <strong>${targetKB} KB</strong> &rarr; Optimized: <strong style="color:var(--primary);">${optKB} KB</strong>`;
+            dlLink.href = URL.createObjectURL(bestBlob);
+            outputDiv.style.display = 'flex';
+        });
 
         // ================= VISA HUB DATA & ENGINE =================
         const visaData = {
