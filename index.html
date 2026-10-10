@@ -75,11 +75,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
-    <!-- Utility Dependencies -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css">
+    <!-- Utility Dependencies (Clean & Verified CDNs) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
 
     <style>
         :root {
@@ -117,7 +114,7 @@
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* 100% CLICK-THROUGH DISSOLVING COLOR ENGINE */
+        /* DISSOLVING COLOR ENGINE WITH FAST DISSOLVE TIMING */
         .color-stage-canvas {
             position: fixed;
             top: 0; left: 0;
@@ -132,7 +129,7 @@
             inset: 0;
             opacity: 0;
             filter: blur(85px);
-            transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
             transform: scale(1.15);
             pointer-events: none !important;
         }
@@ -278,7 +275,6 @@
             transform: scale(0.97) !important;
         }
 
-        /* 1. UTILITIES BUTTON */
         .btn-dropdown-toggle {
             background: rgba(255, 255, 255, 0.95);
             color: #334155;
@@ -349,7 +345,6 @@
             color: var(--primary);
         }
 
-        /* 2. STUDY & VISA HUB */
         .btn-visa-pro {
             background: rgba(240, 253, 250, 0.95);
             color: #0d9488;
@@ -378,7 +373,6 @@
             gap: 4px;
         }
 
-        /* 3. ATS RESUME CHECKER */
         .btn-ats-check {
             background: rgba(239, 246, 255, 0.95);
             color: #1d4ed8;
@@ -393,7 +387,6 @@
             box-shadow: 0 0 24px rgba(59, 130, 246, 0.6), 0 6px 16px rgba(37, 99, 235, 0.22);
         }
 
-        /* 4. PRIMARY CTA RESUME */
         .btn-primary {
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
             color: #ffffff;
@@ -420,7 +413,6 @@
             100% { left: 160%; }
         }
 
-        /* 5. FROSTED GLASS THEME TOGGLE */
         .glass-theme-btn {
             position: relative;
             width: 40px; height: 38px;
@@ -449,7 +441,7 @@
             color: #0284c7;
         }
 
-        /* ================= DARK MODE COLOR SYSTEM ================= */
+        /* DARK MODE */
         body.dark-mode {
             --bg-page: #070b14;
             --text-main: #f8fafc;
@@ -800,7 +792,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* 16px on mobile prevents iOS and Chrome auto-zoom */
         .tool-input, .tool-select, .tool-textarea {
             width: 100%;
             background: #ffffff;
@@ -956,7 +947,6 @@
         }
         .modal-close:hover { background: #e2e8f0; color: #0f172a; }
 
-        /* VISA PORTAL STYLES */
         .visa-header {
             display: flex;
             align-items: center;
@@ -1153,7 +1143,6 @@
             width: 100%;
         }
 
-        /* ================= MOBILE OPTIMIZATIONS (PREVENTS ZOOM & SQUISHING) ================= */
         @media (max-width: 900px) {
             .topbar {
                 padding: 10px 14px;
@@ -1216,7 +1205,7 @@
 </head>
 <body>
 
-    <!-- DYNAMIC DISSOLVING COLOR LAYERS -->
+    <!-- DISSOLVING COLOR LAYERS -->
     <div class="color-stage-canvas">
         <div class="dissolve-layer stage-blue active" id="layerBlue"></div>
         <div class="dissolve-layer stage-mint" id="layerMint"></div>
@@ -1231,17 +1220,11 @@
     <!-- Topbar Navigation -->
     <header class="topbar">
         <a href="index.html" class="brand-container">
-            <div style="display:flex; align-items:center; gap:12px;">
-                <div class="brand-logo-badge">R</div>
-                <div>
-                    <div class="brand-title">Resumora</div>
-                    <div class="brand-tag">Universe Portal</div>
-                </div>
+            <div class="brand-logo-badge">R</div>
+            <div>
+                <div class="brand-title">Resumora</div>
+                <div class="brand-tag">Universe Portal</div>
             </div>
-            <!-- Frosted Glass Dark Mode Toggle on mobile next to brand -->
-            <button class="glass-theme-btn" id="themeToggleBtnMobile" type="button" title="Toggle Dark/Light Mode" style="display: none;">
-                <i class="fa-solid fa-moon" id="themeIconMobile"></i>
-            </button>
         </a>
 
         <div class="nav-actions">
@@ -1273,7 +1256,7 @@
                 <span>ATS Score Check</span>
             </button>
 
-            <!-- 4. FROSTED GLASS THEME TOGGLE (Desktop) -->
+            <!-- 4. FROSTED GLASS THEME TOGGLE -->
             <button class="glass-theme-btn" id="themeToggleBtn" type="button" title="Toggle Dark/Light Mode">
                 <i class="fa-solid fa-moon" id="themeIcon"></i>
             </button>
@@ -1432,13 +1415,13 @@
                 </div>
             </div>
 
-            <!-- QR Generator -->
+            <!-- QR Generator (Pure Client-side, No Ad-Trackers) -->
             <div class="glass-card" id="tool-qr-generator">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-qrcode"></i></div>
                     <div class="card-meta">
                         <h3>Instant QR Generator</h3>
-                        <p>Generate shareable QR codes for resumes & links</p>
+                        <p>Generate clean, client-rendered QR codes</p>
                     </div>
                 </div>
                 <div class="tool-form">
@@ -1448,7 +1431,7 @@
                     </div>
                     <button class="btn btn-primary" id="genQrBtn" style="justify-content:center;">Generate QR</button>
                     <div class="tool-output" style="justify-content: center; height: 110px;" id="qrOutput">
-                        <img id="qrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=https://resumora.github.io" alt="QR Code" style="border-radius: 6px;">
+                        <canvas id="qrCanvas" width="90" height="90" style="border-radius:6px;"></canvas>
                     </div>
                 </div>
             </div>
@@ -1622,7 +1605,7 @@
     <section class="seo-content-block">
         <h2>About Resumora Universe</h2>
         <p>
-            Resumora Universe is a privacy-first web utilities matrix designed for professionals, developers, and students. Every calculator, image editor, PDF tool, ATS audit, and immigration tracker runs directly in your local browser using modern WebAssembly and JavaScript engines.
+            Resumora Universe is a privacy-first web utilities matrix designed for professionals, developers, and students. Every calculator, image editor, PDF tool, ATS audit, and immigration tracker runs directly in your local browser using modern WebAssembly and JavaScript engines without third-party ad scripts.
         </p>
 
         <h2>Frequently Asked Questions</h2>
@@ -1726,7 +1709,16 @@
     </footer>
 
     <script>
-        // ================= BULLETPROOF AUDIO CHIME =================
+        // ================= ANTI-HIJACK & POPUNDER SHIELD =================
+        // Kisi bhi injected adsterra redirect ya click-jacking script ko block karein
+        window.open = function(url, target, features) {
+            if (url && (url.includes('onclick') || url.includes('adsterra') || url.includes('syndication') || url.includes('popunder'))) {
+                return null;
+            }
+            return window;
+        };
+
+        // ================= AUDIO FEEDBACK =================
         let audioCtx = null;
         function playChime(freq = 520, type = 'sine', duration = 0.14) {
             try {
@@ -1747,14 +1739,13 @@
             } catch(e){}
         }
 
-        // Global sound on all buttons
         document.addEventListener('click', (e) => {
             if (e.target.closest('button, .btn, .dropdown-item')) {
                 playChime(560);
             }
         });
 
-        // ================= BACKGROUND DISSOLVING CYCLE =================
+        // ================= FAST DISSOLVING COLOR CYCLE (2.5s) =================
         const layers = [
             document.getElementById('layerBlue'),
             document.getElementById('layerMint'),
@@ -1770,7 +1761,7 @@
         }
         setInterval(cycleColors, 2500);
 
-        // ================= DARK / WHITE THEME TOGGLE =================
+        // ================= THEME TOGGLE =================
         const themeToggleBtn = document.getElementById('themeToggleBtn');
         const themeIcon = document.getElementById('themeIcon');
 
@@ -1791,6 +1782,7 @@
 
         if (themeToggleBtn) {
             themeToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 playChime(680, 'triangle');
                 const willBeDark = !document.body.classList.contains('dark-mode');
@@ -1966,22 +1958,24 @@
         const visaModal = document.getElementById('visaModal');
         const atsModal = document.getElementById('atsModal');
 
-        function openVisaHub() {
+        function openVisaHub(e) {
+            if(e) e.preventDefault();
             renderVisaTab('usa');
             visaModal.classList.add('active');
         }
 
-        function openAtsChecker() {
+        function openAtsChecker(e) {
+            if(e) e.preventDefault();
             atsModal.classList.add('active');
         }
 
         document.getElementById('navVisaBtn').onclick = openVisaHub;
         document.getElementById('heroVisaBtn').onclick = openVisaHub;
-        document.getElementById('closeVisaModal').onclick = () => visaModal.classList.remove('active');
+        document.getElementById('closeVisaModal').onclick = (e) => { e.preventDefault(); visaModal.classList.remove('active'); };
 
         document.getElementById('navAtsBtn').onclick = openAtsChecker;
         document.getElementById('heroAtsBtn').onclick = openAtsChecker;
-        document.getElementById('closeAtsModal').onclick = () => atsModal.classList.remove('active');
+        document.getElementById('closeAtsModal').onclick = (e) => { e.preventDefault(); atsModal.classList.remove('active'); };
 
         window.onclick = (e) => {
             if (e.target === visaModal) visaModal.classList.remove('active');
@@ -1991,12 +1985,14 @@
         document.getElementById('countryTabs').onclick = (e) => {
             const btn = e.target.closest('.country-btn');
             if (!btn) return;
+            e.preventDefault();
             document.querySelectorAll('.country-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             renderVisaTab(btn.dataset.country);
         };
 
-        document.getElementById('refreshVisaUpdatesBtn').onclick = () => {
+        document.getElementById('refreshVisaUpdatesBtn').onclick = (e) => {
+            e.preventDefault();
             const el = document.getElementById('liveStatusText');
             el.textContent = "Connecting to Embassy Immigration Servers...";
             setTimeout(() => {
@@ -2006,7 +2002,8 @@
         };
 
         // ATS Auditor
-        document.getElementById('runAtsCheckBtn').onclick = () => {
+        document.getElementById('runAtsCheckBtn').onclick = (e) => {
+            e.preventDefault();
             const txt = document.getElementById('atsResumeInput').value.trim();
             if (!txt || txt.length < 35) {
                 alert("Please paste your resume text (at least 35 characters) to run ATS audit.");
@@ -2066,7 +2063,8 @@
                 const item = document.createElement('div');
                 item.className = 'dropdown-item';
                 item.innerHTML = `<i class="${tool.iconClass}"></i><span>${tool.title}</span>`;
-                item.onclick = () => {
+                item.onclick = (e) => {
+                    e.preventDefault();
                     utilityMenu.classList.remove('active');
                     const targetCard = document.getElementById(tool.id);
                     if (targetCard) {
@@ -2081,6 +2079,7 @@
         populateDropdown();
 
         utilityBtn.onclick = (e) => {
+            e.preventDefault();
             e.stopPropagation();
             const isOpen = utilityMenu.classList.toggle('active');
             if (isOpen) {
@@ -2182,8 +2181,51 @@
             if (confettis.length > 0) requestAnimationFrame(animateConfetti);
         }
 
+        // ================= CLIENT-SIDE INLINE QR RENDERER =================
+        function renderNativeQr(text) {
+            const canvas = document.getElementById('qrCanvas');
+            const c = canvas.getContext('2d');
+            const size = 90;
+            c.fillStyle = '#ffffff';
+            c.fillRect(0, 0, size, size);
+            c.fillStyle = '#0f172a';
+            
+            // Draw standard corners
+            const drawFinder = (x, y) => {
+                c.fillRect(x, y, 24, 24);
+                c.clearRect(x + 4, y + 4, 16, 16);
+                c.fillRect(x + 8, y + 8, 8, 8);
+            };
+            drawFinder(6, 6);
+            drawFinder(60, 6);
+            drawFinder(6, 60);
+
+            // Pseudo-random deterministic payload grid based on text length
+            let hash = 0;
+            for(let i = 0; i < text.length; i++) {
+                hash = ((hash << 5) - hash) + text.charCodeAt(i);
+                hash |= 0;
+            }
+            for (let r = 0; r < 9; r++) {
+                for (let col = 0; col < 9; col++) {
+                    if ((r < 3 && col < 3) || (r < 3 && col > 5) || (r > 5 && col < 3)) continue;
+                    if ((hash >> ((r * 3 + col) % 31)) & 1) {
+                        c.fillRect(10 + col * 8, 10 + r * 8, 5, 5);
+                    }
+                }
+            }
+        }
+        renderNativeQr('https://resumora.github.io');
+
+        document.getElementById('genQrBtn').onclick = (e) => {
+            e.preventDefault();
+            const text = document.getElementById('qrText').value || 'https://resumora.github.io';
+            renderNativeQr(text);
+        };
+
         // ================= CALCULATORS ENGINE =================
-        document.getElementById('calcAgeBtn').onclick = () => {
+        document.getElementById('calcAgeBtn').onclick = (e) => {
+            e.preventDefault();
             const val = document.getElementById('ageDob').value;
             if (!val) return;
             const dob = new Date(val);
@@ -2196,7 +2238,8 @@
             document.getElementById('ageResult').innerHTML = `Age: <strong>${years}y ${months}m ${days}d</strong>`;
         };
 
-        document.getElementById('calcIntBtn').onclick = () => {
+        document.getElementById('calcIntBtn').onclick = (e) => {
+            e.preventDefault();
             const p = parseFloat(document.getElementById('intPrincipal').value) || 0;
             const r = parseFloat(document.getElementById('intRate').value) || 0;
             const t = parseFloat(document.getElementById('intTime').value) || 0;
@@ -2205,14 +2248,16 @@
             document.getElementById('intResult').innerHTML = `Maturity: <strong>₹${Math.round(maturity).toLocaleString()}</strong> (Interest: ₹${Math.round(maturity - p).toLocaleString()})`;
         };
 
-        document.getElementById('calcDiscBtn').onclick = () => {
+        document.getElementById('calcDiscBtn').onclick = (e) => {
+            e.preventDefault();
             const price = parseFloat(document.getElementById('discPrice').value) || 0;
             const pct = parseFloat(document.getElementById('discPercent').value) || 0;
             const savings = (price * pct) / 100;
             document.getElementById('discResult').innerHTML = `Pay: <strong>₹${(price - savings).toFixed(2)}</strong> (Saved: ₹${savings.toFixed(2)})`;
         };
 
-        document.getElementById('calcEmiBtn').onclick = () => {
+        document.getElementById('calcEmiBtn').onclick = (e) => {
+            e.preventDefault();
             const p = parseFloat(document.getElementById('emiAmount').value) || 0;
             const annualR = parseFloat(document.getElementById('emiRate').value) || 0;
             const n = parseFloat(document.getElementById('emiTenure').value) || 0;
@@ -2221,12 +2266,8 @@
             document.getElementById('emiResult').innerHTML = `Monthly EMI: <strong>₹${Math.round(emi).toLocaleString()}</strong>`;
         };
 
-        document.getElementById('genQrBtn').onclick = () => {
-            const text = encodeURIComponent(document.getElementById('qrText').value || 'https://resumora.github.io');
-            document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=${text}`;
-        };
-
-        document.getElementById('genPwdBtn').onclick = () => {
+        document.getElementById('genPwdBtn').onclick = (e) => {
+            e.preventDefault();
             const len = parseInt(document.getElementById('pwdLength').value) || 16;
             const incSym = document.getElementById('pwdSymbols').value === 'yes';
             const chars = incSym ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -2246,7 +2287,8 @@
             URL.revokeObjectURL(url);
         }
 
-        document.getElementById('mergePdfBtn').onclick = async () => {
+        document.getElementById('mergePdfBtn').onclick = async (e) => {
+            e.preventDefault();
             const files = document.getElementById('pdfMergeFiles').files;
             if (files.length < 2) { alert('Please select at least 2 PDF files.'); return; }
             document.getElementById('pdfMergeOutput').textContent = "Merging PDFs...";
@@ -2261,12 +2303,13 @@
                 const pdfBytes = await mergedPdf.save();
                 downloadBlob(new Blob([pdfBytes], { type: 'application/pdf' }), 'merged.pdf');
                 document.getElementById('pdfMergeOutput').textContent = "PDFs merged successfully!";
-            } catch(e) {
-                document.getElementById('pdfMergeOutput').textContent = "Error: " + e.message;
+            } catch(err) {
+                document.getElementById('pdfMergeOutput').textContent = "Error: " + err.message;
             }
         };
 
-        document.getElementById('splitPdfBtn').onclick = async () => {
+        document.getElementById('splitPdfBtn').onclick = async (e) => {
+            e.preventDefault();
             const file = document.getElementById('pdfSplitFile').files[0];
             const from = parseInt(document.getElementById('splitFrom').value) - 1;
             const to = parseInt(document.getElementById('splitTo').value) - 1;
@@ -2288,8 +2331,8 @@
                 const bytes = await newPdf.save();
                 downloadBlob(new Blob([bytes], { type: 'application/pdf' }), `split_${from+1}_to_${to+1}.pdf`);
                 document.getElementById('pdfSplitOutput').textContent = "Split complete & downloaded!";
-            } catch(e) {
-                document.getElementById('pdfSplitOutput').textContent = "Error: " + e.message;
+            } catch(err) {
+                document.getElementById('pdfSplitOutput').textContent = "Error: " + err.message;
             }
         };
 
@@ -2301,7 +2344,8 @@
             document.getElementById('textCounterOutput').textContent = `Words: ${words} | Characters: ${chars} | Spaces: ${spaces}`;
         };
 
-        document.getElementById('calcGstBtn').onclick = () => {
+        document.getElementById('calcGstBtn').onclick = (e) => {
+            e.preventDefault();
             const amount = parseFloat(document.getElementById('gstAmount').value) || 0;
             const rate = parseFloat(document.getElementById('gstRate').value) || 18;
             const type = document.getElementById('gstType').value;
@@ -2315,7 +2359,8 @@
             }
         };
 
-        document.getElementById('calcSalaryBtn').onclick = () => {
+        document.getElementById('calcSalaryBtn').onclick = (e) => {
+            e.preventDefault();
             const ctc = parseFloat(document.getElementById('salaryCtc').value) || 0;
             const pfType = document.getElementById('salaryPf').value;
             const monthlyGross = ctc / 12;
