@@ -1,5 +1,5 @@
 /* =========================================================
-   Resumora - High-Resolution ATS Styling Engine
+   Resumora - High-Resolution ATS Styling & Multi-Page Engine
    ========================================================= */
 
 * {
@@ -12,15 +12,13 @@
 
 :root {
     --primary: #0f172a;
-    --accent: #2563eb;
-    --bg-page: #f8fafc;
     --border-ui: #e2e8f0;
     --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-resume: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
 body {
-    background-color: var(--bg-page);
+    background-color: #f8fafc;
     color: #0f172a;
     font-family: var(--font-ui);
     line-height: 1.5;
@@ -48,11 +46,7 @@ body {
 .topbar-left { gap: 10px; }
 .topbar-right { justify-content: flex-end; }
 
-.brand-centered {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+.brand-centered { display: flex; align-items: center; gap: 10px; }
 
 .brand-logo-badge {
     width: 32px;
@@ -172,7 +166,7 @@ label {
     margin-bottom: 3px;
 }
 
-input, textarea {
+input, textarea, select {
     width: 100%;
     background: #f8fafc;
     border: 1px solid #cbd5e1;
@@ -183,10 +177,22 @@ input, textarea {
     font-family: inherit;
     outline: none;
 }
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
     background: #fff;
     border-color: #2563eb;
 }
+
+.color-options { display: flex; gap: 8px; margin-top: 6px; }
+.color-choice {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 1px #cbd5e1;
+    background: var(--color);
+    cursor: pointer;
+}
+.color-choice.active { box-shadow: 0 0 0 2px #2563eb; }
 
 .form-grid {
     display: grid;
@@ -273,7 +279,7 @@ input:focus, textarea:focus {
 }
 
 /* =========================================================
-   ATS-CERTIFIED RESUME CANVAS (PURE CLEAN TYPOGRAPHY)
+   ATS-CERTIFIED BASE CANVAS (SCREEN & PRINT)
    ========================================================= */
 .resume {
     width: 794px;
@@ -288,8 +294,6 @@ input:focus, textarea:focus {
 
 /* Header */
 .ats-header {
-    text-align: center;
-    border-bottom: 1.5px solid #0f172a;
     padding-bottom: 8px;
     margin-bottom: 10px;
 }
@@ -299,7 +303,7 @@ input:focus, textarea:focus {
     font-weight: 800;
     letter-spacing: -0.2px;
     text-transform: uppercase;
-    color: #000000;
+    color: var(--primary);
     margin-bottom: 2px;
 }
 
@@ -313,7 +317,6 @@ input:focus, textarea:focus {
 .ats-contact {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     gap: 10px;
     font-size: 10px;
@@ -326,7 +329,7 @@ input:focus, textarea:focus {
     gap: 4px;
 }
 
-/* Standard ATS Sections */
+/* Sections */
 .ats-section {
     margin-top: 10px;
     page-break-inside: avoid !important;
@@ -338,8 +341,8 @@ input:focus, textarea:focus {
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: #000000;
-    border-bottom: 1px solid #0f172a;
+    color: var(--primary);
+    border-bottom: 1px solid var(--primary);
     padding-bottom: 2px;
     margin-bottom: 6px;
 }
@@ -396,7 +399,6 @@ input:focus, textarea:focus {
     margin-bottom: 2px;
 }
 
-/* Skills Line Format (Harvard ATS Standard) */
 .ats-skill-line {
     font-size: 10.5px;
     color: #1e293b;
@@ -409,7 +411,85 @@ input:focus, textarea:focus {
 }
 
 /* =========================================================
-   100% PURE HARDWARE VECTOR PRINT ENGINE (ABSOLUTE CRISP)
+   6 VERIFIED TOP-SCORING ATS TEMPLATES
+   ========================================================= */
+
+/* 1. Harvard Classic (Centered Header, Underline Rows) */
+.resume.template-harvard .ats-header {
+    text-align: center;
+    border-bottom: 1.5px solid var(--primary);
+}
+.resume.template-harvard .ats-contact {
+    justify-content: center;
+}
+
+/* 2. Stanford Modern (Left-Aligned, Clean Horizontal Rules) */
+.resume.template-stanford .ats-header {
+    text-align: left;
+    border-bottom: 2px solid var(--primary);
+}
+.resume.template-stanford .ats-section-title {
+    border-bottom: 1px solid #94a3b8;
+}
+
+/* 3. Corporate Executive (Serif Font, Double Ruled) */
+.resume.template-executive {
+    font-family: 'Merriweather', Georgia, serif;
+}
+.resume.template-executive .ats-header {
+    text-align: center;
+    border-bottom: 3px double var(--primary);
+}
+.resume.template-executive .ats-contact {
+    justify-content: center;
+}
+.resume.template-executive .ats-section-title {
+    border-bottom: 1px solid var(--primary);
+    font-family: 'Merriweather', Georgia, serif;
+}
+
+/* 4. Tech Minimalist (Sans, Accent Hash Prefix) */
+.resume.template-minimalist .ats-header {
+    text-align: left;
+    border-bottom: none;
+    padding-bottom: 4px;
+}
+.resume.template-minimalist .ats-section-title {
+    border-bottom: none;
+    font-size: 11px;
+}
+.resume.template-minimalist .ats-section-title::before {
+    content: "# ";
+    color: var(--primary);
+}
+
+/* 5. Modern Split (Subtle Left Accent Border) */
+.resume.template-modern-split {
+    border-left: 4px solid var(--primary) !important;
+    padding-left: 40px !important;
+}
+.resume.template-modern-split .ats-header {
+    text-align: left;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+/* 6. Compact Dense (Max Density For Heavy Profiles) */
+.resume.template-compact {
+    padding: 30px 36px !important;
+    line-height: 1.35;
+}
+.resume.template-compact .ats-header {
+    text-align: center;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--primary);
+}
+.resume.template-compact .ats-contact { justify-content: center; font-size: 9.5px; }
+.resume.template-compact .ats-section { margin-top: 6px; }
+.resume.template-compact .ats-entry { margin-bottom: 5px; }
+
+/* =========================================================
+   PERFECT A4 MULTI-PAGE AUTOMATIC OVERFLOW (PRINT ENGINE)
    ========================================================= */
 @page {
     size: A4 portrait;
@@ -449,18 +529,26 @@ input:focus, textarea:focus {
     .resume {
         width: 100% !important;
         max-width: 100% !important;
+        min-height: auto !important;
         margin: 0 !important;
         padding: 0 !important;
         border: none !important;
         font-size: 10.5pt !important;
     }
 
-    .ats-section-title {
-        border-bottom: 1pt solid #000000 !important;
-        color: #000000 !important;
+    /* Auto Page Break Rules */
+    .ats-section {
+        page-break-inside: auto !important;
+        break-inside: auto !important;
     }
 
-    .ats-entry-header strong, .ats-header h1 {
-        color: #000000 !important;
+    .ats-entry {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    .ats-section-title {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
     }
 }
