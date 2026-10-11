@@ -20,8 +20,8 @@ const defaultData = {
     email: "candidate@example.com",
     phone: "985*****10",
     location: "Chandigarh, India",
-    linkedin: "linkedin.com/in/example-profile",
-    github: "github.com/example-profile",
+    linkedin: "linkedin.com/in/example",
+    github: "github.com/example",
     summary: "Results-driven Systems Engineer with 4+ years of experience managing enterprise hybrid-cloud networks and Linux infrastructure. Proven track record in BGP/OSPF routing, automated configuration audits, and reducing critical incident response times by 35%.",
     template: "harvard",
     color: "#0f172a",
@@ -30,16 +30,14 @@ const defaultData = {
             position: "Senior Systems Engineer",
             company: "Tech Systems Solutions",
             location: "Mohali, India",
-            start: "June 2023",
-            end: "Present",
+            start: "June 2023 – Present",
             bullets: "Architected enterprise SD-WAN routing across 14 branch offices, cutting network latency by 28%.\nManaged multi-vendor firewall rules and automated nightly configuration backups with Ansible.\nCollaborated with DevOps teams to deploy scalable AWS VPCs using Terraform."
         },
         {
             position: "Network Support Engineer",
             company: "Global Infrastructure Ltd",
             location: "Noida, India",
-            start: "Aug 2021",
-            end: "May 2023",
+            start: "Aug 2021 – May 2023",
             bullets: "Resolved Level 2 and Level 3 escalations, maintaining 99.8% SLA adherence for high-traffic servers.\nMonitored critical server bandwidth using Wireshark and configured site-to-site IPsec VPN tunnels."
         }
     ],
@@ -71,7 +69,7 @@ const defaultData = {
 let resumeData = JSON.parse(JSON.stringify(defaultData));
 
 const setValue = (id, val) => { 
-    const el = $(`#${id}`); 
+    const el = document.getElementById(id); 
     if (el) el.value = val || ""; 
 };
 
@@ -80,10 +78,10 @@ const setValue = (id, val) => {
    ========================================================= */
 
 function renderExperienceEditor() {
-    const container = $("#experienceList");
+    const container = document.getElementById("experienceList");
     if (!container) return;
     container.innerHTML = "";
-    resumeData.experience.forEach((item, index) => {
+    (resumeData.experience || []).forEach((item, index) => {
         const div = document.createElement("div");
         div.className = "dynamic-item";
         div.innerHTML = `
@@ -96,23 +94,23 @@ function renderExperienceEditor() {
             <div class="form-grid">
                 <div>
                     <label>Job Title</label>
-                    <input type="text" data-section="experience" data-index="${index}" data-field="position" value="${escapeHTML(item.position)}">
+                    <input type="text" data-section="experience" data-index="${index}" data-field="position" value="${escapeHTML(item.position || '')}">
                 </div>
                 <div>
                     <label>Company</label>
-                    <input type="text" data-section="experience" data-index="${index}" data-field="company" value="${escapeHTML(item.company)}">
+                    <input type="text" data-section="experience" data-index="${index}" data-field="company" value="${escapeHTML(item.company || '')}">
                 </div>
                 <div>
                     <label>Location</label>
-                    <input type="text" data-section="experience" data-index="${index}" data-field="location" value="${escapeHTML(item.location)}">
+                    <input type="text" data-section="experience" data-index="${index}" data-field="location" value="${escapeHTML(item.location || '')}">
                 </div>
                 <div>
-                    <label>Dates (e.g. 2023 - Present)</label>
-                    <input type="text" data-section="experience" data-index="${index}" data-field="start" value="${escapeHTML(item.start + (item.end ? ' – ' + item.end : ''))}">
+                    <label>Dates (e.g. 2023 – Present)</label>
+                    <input type="text" data-section="experience" data-index="${index}" data-field="start" value="${escapeHTML(item.start || '')}">
                 </div>
                 <div class="field full">
                     <label>Bullet Points (One per line)</label>
-                    <textarea rows="3" data-section="experience" data-index="${index}" data-field="bullets">${escapeHTML(item.bullets || "")}</textarea>
+                    <textarea rows="3" data-section="experience" data-index="${index}" data-field="bullets">${escapeHTML(item.bullets || '')}</textarea>
                 </div>
             </div>
         `;
@@ -121,10 +119,10 @@ function renderExperienceEditor() {
 }
 
 function renderEducationEditor() {
-    const container = $("#educationList");
+    const container = document.getElementById("educationList");
     if (!container) return;
     container.innerHTML = "";
-    resumeData.education.forEach((item, index) => {
+    (resumeData.education || []).forEach((item, index) => {
         const div = document.createElement("div");
         div.className = "dynamic-item";
         div.innerHTML = `
@@ -137,15 +135,15 @@ function renderEducationEditor() {
             <div class="form-grid">
                 <div class="field full">
                     <label>Degree</label>
-                    <input type="text" data-section="education" data-index="${index}" data-field="degree" value="${escapeHTML(item.degree)}">
+                    <input type="text" data-section="education" data-index="${index}" data-field="degree" value="${escapeHTML(item.degree || '')}">
                 </div>
                 <div>
                     <label>School / University</label>
-                    <input type="text" data-section="education" data-index="${index}" data-field="institution" value="${escapeHTML(item.institution)}">
+                    <input type="text" data-section="education" data-index="${index}" data-field="institution" value="${escapeHTML(item.institution || '')}">
                 </div>
                 <div>
                     <label>Year</label>
-                    <input type="text" data-section="education" data-index="${index}" data-field="year" value="${escapeHTML(item.year)}">
+                    <input type="text" data-section="education" data-index="${index}" data-field="year" value="${escapeHTML(item.year || '')}">
                 </div>
             </div>
         `;
@@ -154,10 +152,10 @@ function renderEducationEditor() {
 }
 
 function renderSkillsEditor() {
-    const container = $("#skillsList");
+    const container = document.getElementById("skillsList");
     if (!container) return;
     container.innerHTML = "";
-    resumeData.skills.forEach((item, index) => {
+    (resumeData.skills || []).forEach((item, index) => {
         const div = document.createElement("div");
         div.className = "dynamic-item";
         div.innerHTML = `
@@ -170,11 +168,11 @@ function renderSkillsEditor() {
             <div class="form-grid">
                 <div>
                     <label>Category Name</label>
-                    <input type="text" data-section="skills" data-index="${index}" data-field="category" value="${escapeHTML(item.category)}">
+                    <input type="text" data-section="skills" data-index="${index}" data-field="category" value="${escapeHTML(item.category || '')}">
                 </div>
                 <div>
                     <label>Skills (Comma-separated)</label>
-                    <input type="text" data-section="skills" data-index="${index}" data-field="items" value="${escapeHTML(item.items)}">
+                    <input type="text" data-section="skills" data-index="${index}" data-field="items" value="${escapeHTML(item.items || '')}">
                 </div>
             </div>
         `;
@@ -183,10 +181,10 @@ function renderSkillsEditor() {
 }
 
 function renderProjectsEditor() {
-    const container = $("#projectsList");
+    const container = document.getElementById("projectsList");
     if (!container) return;
     container.innerHTML = "";
-    resumeData.projects.forEach((item, index) => {
+    (resumeData.projects || []).forEach((item, index) => {
         const div = document.createElement("div");
         div.className = "dynamic-item";
         div.innerHTML = `
@@ -199,15 +197,15 @@ function renderProjectsEditor() {
             <div class="form-grid">
                 <div>
                     <label>Project Name</label>
-                    <input type="text" data-section="projects" data-index="${index}" data-field="title" value="${escapeHTML(item.title)}">
+                    <input type="text" data-section="projects" data-index="${index}" data-field="title" value="${escapeHTML(item.title || '')}">
                 </div>
                 <div>
                     <label>Repo / Live URL</label>
-                    <input type="text" data-section="projects" data-index="${index}" data-field="link" value="${escapeHTML(item.link)}">
+                    <input type="text" data-section="projects" data-index="${index}" data-field="link" value="${escapeHTML(item.link || '')}">
                 </div>
                 <div class="field full">
                     <label>Bullet Points</label>
-                    <textarea rows="2" data-section="projects" data-index="${index}" data-field="bullets">${escapeHTML(item.bullets || "")}</textarea>
+                    <textarea rows="2" data-section="projects" data-index="${index}" data-field="bullets">${escapeHTML(item.bullets || '')}</textarea>
                 </div>
             </div>
         `;
@@ -216,10 +214,10 @@ function renderProjectsEditor() {
 }
 
 function renderCertificationsEditor() {
-    const container = $("#certificationsList");
+    const container = document.getElementById("certificationsList");
     if (!container) return;
     container.innerHTML = "";
-    resumeData.certifications.forEach((item, index) => {
+    (resumeData.certifications || []).forEach((item, index) => {
         const div = document.createElement("div");
         div.className = "dynamic-item";
         div.innerHTML = `
@@ -232,15 +230,15 @@ function renderCertificationsEditor() {
             <div class="form-grid">
                 <div class="field full">
                     <label>Certification Name</label>
-                    <input type="text" data-section="certifications" data-index="${index}" data-field="title" value="${escapeHTML(item.title)}">
+                    <input type="text" data-section="certifications" data-index="${index}" data-field="title" value="${escapeHTML(item.title || '')}">
                 </div>
                 <div>
                     <label>Issuer</label>
-                    <input type="text" data-section="certifications" data-index="${index}" data-field="issuer" value="${escapeHTML(item.issuer)}">
+                    <input type="text" data-section="certifications" data-index="${index}" data-field="issuer" value="${escapeHTML(item.issuer || '')}">
                 </div>
                 <div>
                     <label>Year</label>
-                    <input type="text" data-section="certifications" data-index="${index}" data-field="year" value="${escapeHTML(item.year)}">
+                    <input type="text" data-section="certifications" data-index="${index}" data-field="year" value="${escapeHTML(item.year || '')}">
                 </div>
             </div>
         `;
@@ -257,16 +255,15 @@ function renderAllEditors() {
 }
 
 /* =========================================================
-   LIVE ATS PREVIEW ENGINE & TEMPLATES
+   LIVE ATS PREVIEW ENGINE
    ========================================================= */
 
 function applyTemplateAndColor() {
-    const resume = $("#resume");
+    const resume = document.getElementById("resume");
     if (!resume) return;
 
     resume.className = "resume";
     resume.classList.add(`template-${resumeData.template || "harvard"}`);
-
     document.documentElement.style.setProperty("--primary", resumeData.color || "#0f172a");
 }
 
@@ -274,10 +271,10 @@ function updatePreview() {
     applyTemplateAndColor();
 
     // Identity
-    const pName = $("#previewName");
-    const pTitle = $("#previewTitle");
-    if (pName) pName.textContent = resumeData.fullName || "Your Full Name";
-    if (pTitle) pTitle.textContent = resumeData.jobTitle || "";
+    const pName = document.getElementById("previewName");
+    const pTitle = document.getElementById("previewTitle");
+    if (pName) pName.textContent = resumeData.fullName || "Candidate Name";
+    if (pTitle) pTitle.textContent = resumeData.jobTitle || "Target Role / Title";
 
     // Contact
     const contactParts = [];
@@ -287,19 +284,19 @@ function updatePreview() {
     if (resumeData.linkedin) contactParts.push(`<span><i class="fa-brands fa-linkedin"></i> ${escapeHTML(resumeData.linkedin)}</span>`);
     if (resumeData.github) contactParts.push(`<span><i class="fa-brands fa-github"></i> ${escapeHTML(resumeData.github)}</span>`);
     
-    const pContact = $("#previewContact");
+    const pContact = document.getElementById("previewContact");
     if (pContact) pContact.innerHTML = contactParts.join("");
 
     // Summary
     const summaryText = resumeData.summary || "";
-    const pSummary = $("#previewSummary");
-    const sSection = $("#summarySection");
+    const pSummary = document.getElementById("previewSummary");
+    const sSection = document.getElementById("summarySection");
     if (pSummary) pSummary.textContent = summaryText;
     if (sSection) sSection.style.display = summaryText.trim() ? "block" : "none";
 
-    // Experience
-    const pExp = $("#previewExperience");
-    const expSection = $("#experienceSection");
+    // Work Experience
+    const pExp = document.getElementById("previewExperience");
+    const expSection = document.getElementById("experienceSection");
     if (pExp && expSection) {
         if (!resumeData.experience || !resumeData.experience.length) {
             expSection.style.display = "none";
@@ -316,11 +313,11 @@ function updatePreview() {
                 return `
                     <div class="ats-entry">
                         <div class="ats-entry-header">
-                            <strong>${escapeHTML(exp.position)}</strong>
+                            <strong>${escapeHTML(exp.position || "Position")}</strong>
                             <span>${escapeHTML(exp.start || "")}</span>
                         </div>
                         <div class="ats-entry-sub">
-                            <span>${escapeHTML(exp.company)}${exp.location ? ' · ' + escapeHTML(exp.location) : ''}</span>
+                            <span>${escapeHTML(exp.company || "Company")}${exp.location ? ' · ' + escapeHTML(exp.location) : ''}</span>
                         </div>
                         ${bullets ? `<ul class="ats-bullet-list">${bullets}</ul>` : ""}
                     </div>
@@ -330,8 +327,8 @@ function updatePreview() {
     }
 
     // Projects
-    const pProjects = $("#previewProjects");
-    const projSection = $("#projectsSection");
+    const pProjects = document.getElementById("previewProjects");
+    const projSection = document.getElementById("projectsSection");
     if (pProjects && projSection) {
         if (!resumeData.projects || !resumeData.projects.length) {
             projSection.style.display = "none";
@@ -348,7 +345,7 @@ function updatePreview() {
                 return `
                     <div class="ats-entry">
                         <div class="ats-entry-header">
-                            <strong>${escapeHTML(proj.title)}</strong>
+                            <strong>${escapeHTML(proj.title || "Project")}</strong>
                             <span>${escapeHTML(proj.link || "")}</span>
                         </div>
                         ${bullets ? `<ul class="ats-bullet-list">${bullets}</ul>` : ""}
@@ -359,8 +356,8 @@ function updatePreview() {
     }
 
     // Education
-    const pEdu = $("#previewEducation");
-    const eduSection = $("#educationSection");
+    const pEdu = document.getElementById("previewEducation");
+    const eduSection = document.getElementById("educationSection");
     if (pEdu && eduSection) {
         if (!resumeData.education || !resumeData.education.length) {
             eduSection.style.display = "none";
@@ -369,11 +366,11 @@ function updatePreview() {
             pEdu.innerHTML = resumeData.education.map(edu => `
                 <div class="ats-entry">
                     <div class="ats-entry-header">
-                        <strong>${escapeHTML(edu.degree)}</strong>
+                        <strong>${escapeHTML(edu.degree || "Degree")}</strong>
                         <span>${escapeHTML(edu.year || "")}</span>
                     </div>
                     <div class="ats-entry-sub">
-                        <span>${escapeHTML(edu.institution)}</span>
+                        <span>${escapeHTML(edu.institution || "University")}</span>
                     </div>
                 </div>
             `).join("");
@@ -381,8 +378,8 @@ function updatePreview() {
     }
 
     // Skills
-    const pSkills = $("#previewSkills");
-    const skillsSection = $("#skillsSection");
+    const pSkills = document.getElementById("previewSkills");
+    const skillsSection = document.getElementById("skillsSection");
     if (pSkills && skillsSection) {
         if (!resumeData.skills || !resumeData.skills.length) {
             skillsSection.style.display = "none";
@@ -390,15 +387,15 @@ function updatePreview() {
             skillsSection.style.display = "block";
             pSkills.innerHTML = resumeData.skills.map(sk => `
                 <div class="ats-skill-line">
-                    <strong>${escapeHTML(sk.category)}:</strong> ${escapeHTML(sk.items)}
+                    <strong>${escapeHTML(sk.category || "Skills")}:</strong> ${escapeHTML(sk.items || "")}
                 </div>
             `).join("");
         }
     }
 
     // Certifications
-    const pCert = $("#previewCertifications");
-    const certSection = $("#certificationSection");
+    const pCert = document.getElementById("previewCertifications");
+    const certSection = document.getElementById("certificationSection");
     if (pCert && certSection) {
         if (!resumeData.certifications || !resumeData.certifications.length) {
             certSection.style.display = "none";
@@ -407,7 +404,7 @@ function updatePreview() {
             pCert.innerHTML = resumeData.certifications.map(c => `
                 <div class="ats-entry" style="margin-bottom: 4px;">
                     <div class="ats-entry-header">
-                        <strong>${escapeHTML(c.title)}</strong>
+                        <strong>${escapeHTML(c.title || "Certification")}</strong>
                         <span>${escapeHTML(c.year || "")}</span>
                     </div>
                     <div class="ats-entry-sub">
@@ -420,15 +417,14 @@ function updatePreview() {
 }
 
 /* =========================================================
-   EVENT DELEGATION (ROBUST CLICK & INPUT LISTENERS)
+   EVENT DELEGATION & LISTENERS
    ========================================================= */
 
-// Text Input Events
 document.addEventListener("input", (e) => {
     const target = e.target;
     if (!target) return;
 
-    // Single identity fields
+    // Single Inputs
     if (["fullName", "jobTitle", "email", "phone", "location", "linkedin", "github", "summary"].includes(target.id)) {
         resumeData[target.id] = target.value;
         updatePreview();
@@ -436,7 +432,7 @@ document.addEventListener("input", (e) => {
         return;
     }
 
-    // Dynamic section fields
+    // Array Items
     const section = target.dataset.section;
     const index = target.dataset.index;
     const field = target.dataset.field;
@@ -451,12 +447,11 @@ document.addEventListener("input", (e) => {
     }
 });
 
-// Click Events (Add, Remove, Reset, Print, Theme)
 document.addEventListener("click", (e) => {
     const target = e.target;
     if (!target) return;
 
-    // Delete item handler
+    // Delete item
     const removeBtn = target.closest("button[data-action='remove']");
     if (removeBtn) {
         const section = removeBtn.dataset.section;
@@ -483,52 +478,52 @@ document.addEventListener("click", (e) => {
 });
 
 // Add Item Handlers
-$("#addExperience")?.addEventListener("click", () => {
+document.getElementById("addExperience")?.addEventListener("click", () => {
     resumeData.experience.push({ position: "", company: "", location: "", start: "2023 – Present", bullets: "" });
     renderExperienceEditor();
     updatePreview();
     saveData();
 });
 
-$("#addEducation")?.addEventListener("click", () => {
+document.getElementById("addEducation")?.addEventListener("click", () => {
     resumeData.education.push({ degree: "", institution: "", year: "2023" });
     renderEducationEditor();
     updatePreview();
     saveData();
 });
 
-$("#addSkill")?.addEventListener("click", () => {
+document.getElementById("addSkill")?.addEventListener("click", () => {
     resumeData.skills.push({ category: "Tools", items: "" });
     renderSkillsEditor();
     updatePreview();
     saveData();
 });
 
-$("#addProject")?.addEventListener("click", () => {
+document.getElementById("addProject")?.addEventListener("click", () => {
     resumeData.projects.push({ title: "", link: "", bullets: "" });
     renderProjectsEditor();
     updatePreview();
     saveData();
 });
 
-$("#addCertification")?.addEventListener("click", () => {
+document.getElementById("addCertification")?.addEventListener("click", () => {
     resumeData.certifications.push({ title: "", issuer: "", year: "2024" });
     renderCertificationsEditor();
     updatePreview();
     saveData();
 });
 
-// Template Switcher
-$("#templateSelect")?.addEventListener("change", (e) => {
+// Template Switch
+document.getElementById("templateSelect")?.addEventListener("change", (e) => {
     resumeData.template = e.target.value;
     updatePreview();
     saveData();
 });
 
 // Reset Sample
-$("#clearBtn")?.addEventListener("click", () => {
-    if (confirm("Reset to default clean sample resume?")) {
-        localStorage.removeItem("jobcv-data-v4");
+document.getElementById("clearBtn")?.addEventListener("click", () => {
+    if (confirm("Reset to clean sample template?")) {
+        localStorage.removeItem("jobcv-data-v6");
         resumeData = JSON.parse(JSON.stringify(defaultData));
         loadFormData();
         renderAllEditors();
@@ -536,7 +531,7 @@ $("#clearBtn")?.addEventListener("click", () => {
     }
 });
 
-// Clean Print Dispatcher
+// Clean Print Trigger
 function triggerHighDefPrint() {
     const originalTitle = document.title;
     const cleanName = (resumeData.fullName || "Candidate").replace(/[^a-zA-Z0-9]/g, "_");
@@ -551,24 +546,22 @@ function triggerHighDefPrint() {
     setTimeout(() => { document.title = originalTitle; }, 1000);
 }
 
-$("#mainPrintBtn")?.addEventListener("click", triggerHighDefPrint);
-$("#previewPrintBtn")?.addEventListener("click", triggerHighDefPrint);
+document.getElementById("mainPrintBtn")?.addEventListener("click", triggerHighDefPrint);
+document.getElementById("previewPrintBtn")?.addEventListener("click", triggerHighDefPrint);
 
 /* =========================================================
-   STORAGE & INITIALIZATION
+   STORAGE & BOOTSTRAP
    ========================================================= */
 
 function saveData() {
     try {
-        localStorage.setItem("jobcv-data-v4", JSON.stringify(resumeData));
-        const status = $("#saveStatus");
+        localStorage.setItem("jobcv-data-v6", JSON.stringify(resumeData));
+        const status = document.getElementById("saveStatus");
         if (status) {
             status.innerHTML = `<i class="fa-solid fa-check"></i> Auto-saved`;
             status.style.opacity = "1";
         }
-    } catch (e) {
-        console.warn("Storage quota warning:", e);
-    }
+    } catch (e) {}
 }
 
 function loadFormData() {
@@ -581,17 +574,20 @@ function loadFormData() {
     setValue("github", resumeData.github);
     setValue("summary", resumeData.summary);
 
-    if ($("#templateSelect")) $("#templateSelect").value = resumeData.template \vert{}\vert{} "harvard";     $$(".color-choice").forEach(btn => {
+    const tSelect = document.getElementById("templateSelect");
+    if (tSelect) tSelect.value = resumeData.template || "harvard";
+
+    $$(".color-choice").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.color === resumeData.color);
     });
 }
 
 function initialize() {
     try {
-        const saved = localStorage.getItem("jobcv-data-v4");
+        const saved = localStorage.getItem("jobcv-data-v6");
         if (saved) {
             const parsed = JSON.parse(saved);
-            if (parsed && typeof parsed === "object" && parsed.fullName) {
+            if (parsed && Array.isArray(parsed.experience) && parsed.experience.length > 0) {
                 resumeData = { ...defaultData, ...parsed };
             } else {
                 resumeData = JSON.parse(JSON.stringify(defaultData));
@@ -608,5 +604,5 @@ function initialize() {
     updatePreview();
 }
 
-// Start application
+// Start
 initialize();
