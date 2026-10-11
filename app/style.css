@@ -1,5 +1,5 @@
 /* =========================================================
-   Resumora - Hybrid Production Engine (Screen + Print)
+   Resumora - High Precision UI & Print Stylesheet
    ========================================================= */
 
 :root {
@@ -10,20 +10,7 @@
   --mut: #64748b;
   --ac: #2563eb;
   --in: #f8fafc;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
   box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0b1220;
-    --card: #111a2e;
-    --bd: #25324d;
-    --tx: #e5e7eb;
-    --mut: #94a3b8;
-    --in: #0b1220;
-  }
 }
 
 * {
@@ -45,7 +32,7 @@ body {
 /* TOPBAR */
 .top {
   position: sticky;
-  top: env(safe-area-inset-top, 0px);
+  top: 0;
   z-index: 100;
   background: var(--card);
   border-bottom: 1px solid var(--bd);
@@ -53,8 +40,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
 }
 
 .brand {
@@ -63,7 +48,6 @@ body {
   gap: 8px;
   font-weight: 800;
   font-size: 18px;
-  color: var(--tx);
 }
 
 .logo {
@@ -128,11 +112,11 @@ button {
   align-items: start;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1050px) {
   .app { grid-template-columns: 1fr; }
 }
 
-/* CARDS & INPUTS */
+/* EDITOR CARDS */
 .card {
   background: var(--card);
   border: 1px solid var(--bd);
@@ -168,10 +152,10 @@ input, textarea, select {
   font-size: 12px;
   font-family: inherit;
   outline: none;
-  transition: border-color 0.2s;
 }
 input:focus, textarea:focus, select:focus {
   border-color: var(--ac);
+  background: #fff;
 }
 
 .g {
@@ -245,7 +229,7 @@ input:focus, textarea:focus, select:focus {
   margin-top: 4px;
 }
 
-/* CANVAS PREVIEW */
+/* RIGHT CANVAS WRAPPER */
 .prev {
   position: sticky;
   top: 70px;
@@ -253,16 +237,13 @@ input:focus, textarea:focus, select:focus {
   max-height: calc(100vh - 90px);
   background: #475569;
   border-radius: 8px;
-  padding: 20px;
+  padding: 24px;
   display: flex;
   justify-content: center;
 }
 
-@media (max-width: 1024px) {
-  .prev {
-    position: static;
-    max-height: none;
-  }
+@media (max-width: 1050px) {
+  .prev { position: static; max-height: none; }
 }
 
 /* =========================================================
@@ -271,15 +252,13 @@ input:focus, textarea:focus, select:focus {
 .resume {
   --p: #0f172a;
   width: 794px;
-  flex: none;
   min-height: 1123px;
-  margin: 0 auto;
   background: #ffffff !important;
   color: #0f172a !important;
   padding: 44px 50px;
   font-family: 'Inter', Arial, sans-serif;
   line-height: 1.42;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
 }
 
 .resume h1 {
@@ -376,77 +355,29 @@ input:focus, textarea:focus, select:focus {
   color: #000000;
 }
 
-/* =========================================================
-   6 VERIFIED TEMPLATES
-   ========================================================= */
+/* TEMPLATES */
+.t-harvard .hd { text-align: center; border-bottom: 1.5px solid var(--p); }
+.t-harvard .ct { justify-content: center; }
 
-/* 1. Harvard Classic */
-.t-harvard .hd {
-  text-align: center;
-  border-bottom: 1.5px solid var(--p);
-}
-.t-harvard .ct {
-  justify-content: center;
-}
+.t-stanford .hd { border-bottom: 2px solid var(--p); }
+.t-stanford .st { border-bottom: 1px solid #94a3b8; }
 
-/* 2. Stanford Modern */
-.t-stanford .hd {
-  border-bottom: 2px solid var(--p);
-}
-.t-stanford .st {
-  border-bottom: 1px solid #94a3b8;
-}
+.t-executive { font-family: 'Merriweather', Georgia, serif; }
+.t-executive .hd { text-align: center; border-bottom: 3px double var(--p); }
+.t-executive .ct { justify-content: center; }
+.t-executive .st { border-bottom: 1px solid var(--p); }
 
-/* 3. Corporate Executive */
-.t-executive {
-  font-family: 'Merriweather', Georgia, serif;
-}
-.t-executive .hd {
-  text-align: center;
-  border-bottom: 3px double var(--p);
-}
-.t-executive .ct {
-  justify-content: center;
-}
-.t-executive .st {
-  border-bottom: 1px solid var(--p);
-}
+.t-minimalist .st { border: none; }
+.t-minimalist .st::before { content: "# "; }
 
-/* 4. Tech Minimalist */
-.t-minimalist .st {
-  border: none;
-}
-.t-minimalist .st::before {
-  content: "# ";
-}
+.t-split { border-left: 5px solid var(--p); padding-left: 38px; }
+.t-split .hd { border-bottom: 1px solid #cbd5e1; }
 
-/* 5. Modern Split */
-.t-split {
-  border-left: 5px solid var(--p);
-  padding-left: 38px;
-}
-.t-split .hd {
-  border-bottom: 1px solid #cbd5e1;
-}
-
-/* 6. Compact Dense */
-.t-compact {
-  padding: 30px 36px;
-  line-height: 1.35;
-}
-.t-compact .hd {
-  text-align: center;
-  border-bottom: 1px solid var(--p);
-}
-.t-compact .ct {
-  justify-content: center;
-}
-.t-compact .sec {
-  margin-top: 6px;
-}
-.t-compact .en {
-  margin-bottom: 5px;
-}
+.t-compact { padding: 30px 36px; line-height: 1.35; }
+.t-compact .hd { text-align: center; border-bottom: 1px solid var(--p); }
+.t-compact .ct { justify-content: center; }
+.t-compact .sec { margin-top: 6px; }
+.t-compact .en { margin-bottom: 5px; }
 
 /* =========================================================
    100% PURE VECTOR PRINT ENGINE (NO RASTER / MULTI-PAGE A4)
@@ -470,9 +401,7 @@ input:focus, textarea:focus, select:focus {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
   }
 
-  .no-print {
-    display: none !important;
-  }
+  .no-print { display: none !important; }
 
   .app {
     display: block !important;
@@ -499,19 +428,8 @@ input:focus, textarea:focus, select:focus {
     font-size: 10pt !important;
   }
 
-  .t-split {
-    padding-left: 14px !important;
-  }
-
-  .sec {
-    break-inside: auto !important;
-  }
-
-  .en {
-    break-inside: avoid !important;
-  }
-
-  .st {
-    break-after: avoid !important;
-  }
+  .t-split { padding-left: 14px !important; }
+  .sec { break-inside: auto !important; }
+  .en { break-inside: avoid !important; }
+  .st { break-after: avoid !important; }
 }
