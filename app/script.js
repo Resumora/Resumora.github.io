@@ -1,10 +1,10 @@
 /* =========================================================
-   Resumora - Hybrid Production Core Engine
+   Resumora - High Precision ATS Core Logic & Bulletproof State
    ========================================================= */
 
-const KEY = 'resumora_hybrid_v1';
+const KEY = 'resumora_data_final_v1';
 
-// 100% Clean Sample Data with Masked Number
+// Default Verified Sample Data
 const SAMPLE = {
   tpl: 'harvard',
   color: '#0f172a',
@@ -71,76 +71,6 @@ if (!D || !Array.isArray(D.exp) || !D.exp.length) {
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-const COLORS = [
-  ['#0f172a', 'Slate Black'],
-  ['#1e3a8a', 'Navy Blue'],
-  ['#0f766e', 'Forest Teal'],
-  ['#881337', 'Deep Crimson'],
-  ['#581c87', 'Royal Purple'],
-  ['#334155', 'Classic Charcoal']
-];
-
-const BASIC = [
-  ['name', 'Full Name', 1],
-  ['title', 'Job Title', 1],
-  ['email', 'Email'],
-  ['phone', 'Phone Number'],
-  ['loc', 'Location', 1],
-  ['li', 'LinkedIn'],
-  ['gh', 'GitHub / Portfolio']
-];
-
-const LISTS = {
-  exp: {
-    t: 'Work Experience',
-    n: 'Position',
-    f: [
-      ['role', 'Job Title', 1],
-      ['company', 'Company'],
-      ['loc', 'Location'],
-      ['start', 'Start Date'],
-      ['end', 'End Date'],
-      ['bullets', 'Bullet Points (One per line)', 1, 'ta']
-    ]
-  },
-  proj: {
-    t: 'Key Projects',
-    n: 'Project',
-    f: [
-      ['name', 'Project Name'],
-      ['tech', 'Tech Stack / URL'],
-      ['desc', 'Description', 1, 'ta']
-    ]
-  },
-  edu: {
-    t: 'Education',
-    n: 'Degree',
-    f: [
-      ['school', 'School / University', 1],
-      ['degree', 'Degree', 1],
-      ['loc', 'Location'],
-      ['year', 'Years']
-    ]
-  },
-  skills: {
-    t: 'Technical Skills',
-    n: 'Category',
-    f: [
-      ['cat', 'Category Name'],
-      ['items', 'Skills (Comma separated)', 1]
-    ]
-  },
-  certs: {
-    t: 'Certifications',
-    n: 'Certification',
-    f: [
-      ['name', 'Certification Name', 1],
-      ['issuer', 'Issuer Organization'],
-      ['year', 'Year']
-    ]
-  }
-};
-
 let tm;
 function save() {
   try {
@@ -156,47 +86,89 @@ function upd() {
   tm = setTimeout(save, 300);
 }
 
-function field(k, l, full, ta, v, attr) {
-  return `
-    <div class="${full ? 'f' : 'h'}">
-      <label>${l}</label>
-      ${ta ? `<textarea rows="3" ${attr}>${esc(v)}</textarea>` : `<input ${attr} value="${esc(v)}">`}
-    </div>
-  `;
-}
+/* =========================================================
+   LIST EDITORS RENDERING
+   ========================================================= */
 
-function buildEditor() {
-  $('cols').innerHTML = COLORS.map(
-    (c) => `<button type="button" class="cc ${D.color === c[0] ? 'on' : ''}" data-c="${c[0]}" title="${c[1]}" style="background:${c[0]}"></button>`
-  ).join('');
-
-  $('tpl').value = D.tpl \vert{}\vert{} 'harvard';$('summary').value = D.summary || '';
-
-  $('basic').innerHTML = BASIC.map(
-    (b) => field(b[0], b[1], b[2], 0, D[b[0]], `data-k="${b[0]}"`)
-  ).join('');
-
-  $('lists').innerHTML = Object.keys(LISTS).map((key) => {
-    const L = LISTS[key];
-    const items = D[key] || [];
-    return `
-      <div class="card">
-        <h4>${L.t} <button type="button" class="add" data-add="${key}">+ Add</button></h4>
-        ${items.map((it, i) => `
-          <div class="item">
-            <header>
-              <span>${L.n}${i + 1}</span>
-              <button type="button" class="x" data-del="${key}" data-i="${i}" title="Delete">✕</button>
-            </header>
-            <div class="g">
-              ${L.f.map((f) => field(f[0], f[1], f[2], f[3], it[f[0]], `data-l="${key}" data-i="${i}" data-k="${f[0]}"`)).join('')}
-            </div>
-          </div>
-        `).join('')}
+function renderLists() {
+  // Experience
+  $('expList').innerHTML = (D.exp || []).map((it, i) => `
+    <div class="item">
+      <header><span>Position ${i + 1}</span><button type="button" class="x" onclick="delItem('exp', ${i})">✕</button></header>
+      <div class="g">
+        <div class="f"><label>Job Title</label><input value="${esc(it.role)}" oninput="setItem('exp', ${i}, 'role', this.value)"></div>
+        <div class="h"><label>Company</label><input value="${esc(it.company)}" oninput="setItem('exp', ${i}, 'company', this.value)"></div>
+        <div class="h"><label>Location</label><input value="${esc(it.loc)}" oninput="setItem('exp', ${i}, 'loc', this.value)"></div>
+        <div class="h"><label>Start Date</label><input value="${esc(it.start)}" oninput="setItem('exp', ${i}, 'start', this.value)"></div>
+        <div class="h"><label>End Date</label><input value="${esc(it.end)}" oninput="setItem('exp', ${i}, 'end', this.value)"></div>
+        <div class="f"><label>Bullet Points (One per line)</label><textarea rows="3" oninput="setItem('exp', ${i}, 'bullets', this.value)">${esc(it.bullets)}</textarea></div>
       </div>
-    `;
-  }).join('');
+    </div>
+  `).join('');
+
+  // Projects
+  $('projList').innerHTML = (D.proj || []).map((it, i) => `
+    <div class="item">
+      <header><span>Project ${i + 1}</span><button type="button" class="x" onclick="delItem('proj', ${i})">✕</button></header>
+      <div class="g">
+        <div class="f"><label>Project Name</label><input value="${esc(it.name)}" oninput="setItem('proj', ${i}, 'name', this.value)"></div>
+        <div class="f"><label>Tech Stack / URL</label><input value="${esc(it.tech)}" oninput="setItem('proj', ${i}, 'tech', this.value)"></div>
+        <div class="f"><label>Description</label><textarea rows="2" oninput="setItem('proj', ${i}, 'desc', this.value)">${esc(it.desc)}</textarea></div>
+      </div>
+    </div>
+  `).join('');
+
+  // Education
+  $('eduList').innerHTML = (D.edu || []).map((it, i) => `
+    <div class="item">
+      <header><span>Degree ${i + 1}</span><button type="button" class="x" onclick="delItem('edu', ${i})">✕</button></header>
+      <div class="g">
+        <div class="f"><label>School / University</label><input value="${esc(it.school)}" oninput="setItem('edu', ${i}, 'school', this.value)"></div>
+        <div class="f"><label>Degree</label><input value="${esc(it.degree)}" oninput="setItem('edu', ${i}, 'degree', this.value)"></div>
+        <div class="h"><label>Location</label><input value="${esc(it.loc)}" oninput="setItem('edu', ${i}, 'loc', this.value)"></div>
+        <div class="h"><label>Years</label><input value="${esc(it.year)}" oninput="setItem('edu', ${i}, 'year', this.value)"></div>
+      </div>
+    </div>
+  `).join('');
+
+  // Skills
+  $('skillsList').innerHTML = (D.skills || []).map((it, i) => `
+    <div class="item">
+      <header><span>Category ${i + 1}</span><button type="button" class="x" onclick="delItem('skills', ${i})">✕</button></header>
+      <div class="g">
+        <div class="f"><label>Category Name</label><input value="${esc(it.cat)}" oninput="setItem('skills', ${i}, 'cat', this.value)"></div>
+        <div class="f"><label>Skills (Comma separated)</label><input value="${esc(it.items)}" oninput="setItem('skills', ${i}, 'items', this.value)"></div>
+      </div>
+    </div>
+  `).join('');
+
+  // Certifications
+  $('certsList').innerHTML = (D.certs || []).map((it, i) => `
+    <div class="item">
+      <header><span>Certification ${i + 1}</span><button type="button" class="x" onclick="delItem('certs', ${i})">✕</button></header>
+      <div class="g">
+        <div class="f"><label>Certification Name</label><input value="${esc(it.name)}" oninput="setItem('certs', ${i}, 'name', this.value)"></div>
+        <div class="h"><label>Issuer</label><input value="${esc(it.issuer)}" oninput="setItem('certs', ${i}, 'issuer', this.value)"></div>
+        <div class="h"><label>Year</label><input value="${esc(it.year)}" oninput="setItem('certs', ${i}, 'year', this.value)"></div>
+      </div>
+    </div>
+  `).join('');
 }
+
+window.setItem = (sec, i, key, val) => {
+  D[sec][i][key] = val;
+  upd();
+};
+
+window.delItem = (sec, i) => {
+  D[sec].splice(i, 1);
+  renderLists();
+  upd();
+};
+
+/* =========================================================
+   CANVAS RENDERING
+   ========================================================= */
 
 function render() {
   const r = $('resume');
@@ -256,50 +228,53 @@ function render() {
   `;
 }
 
-// Input Listener
-const ed = $('ed');
-ed.addEventListener('input', (e) => {
-  const t = e.target;
-  if (t.id === 'tpl') D.tpl = t.value;
-  else if (t.id === 'summary') D.summary = t.value;
-  else if (t.dataset.l) D[t.dataset.l][+t.dataset.i][t.dataset.k] = t.value;
-  else if (t.dataset.k) D[t.dataset.k] = t.value;
-  else return;
+/* =========================================================
+   EVENTS & LISTENERS
+   ========================================================= */
+
+// Direct Field Inputs
+['name', 'title', 'email', 'phone', 'loc', 'li', 'gh', 'summary'].forEach((id) => {
+  $(id).value = D[id] \vert{}\vert{} '';$(id).addEventListener('input', (e) => {
+    D[id] = e.target.value;
+    upd();
+  });
+});
+
+// Template Switch
+$('tpl').value = D.tpl \vert{}\vert{} 'harvard';$('tpl').addEventListener('change', (e) => {
+  D.tpl = e.target.value;
   upd();
 });
 
-// Click Listener
-ed.addEventListener('click', (e) => {
-  const t = e.target.closest('button');
-  if (!t) return;
-
-  if (t.dataset.c) {
-    D.color = t.dataset.c;
-    buildEditor();
+// Theme Colors
+document.querySelectorAll('.cc').forEach((btn) => {
+  if (btn.dataset.c === D.color) btn.classList.add('on');
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cc').forEach((b) => b.classList.remove('on'));
+    btn.classList.add('on');
+    D.color = btn.dataset.c;
     upd();
-  } else if (t.dataset.add) {
-    const o = {};
-    LISTS[t.dataset.add].f.forEach((f) => (o[f[0]] = ''));
-    D[t.dataset.add].push(o);
-    buildEditor();
-    upd();
-  } else if (t.dataset.del) {
-    D[t.dataset.del].splice(+t.dataset.i, 1);
-    buildEditor();
-    upd();
-  }
+  });
 });
+
+// Add Item Buttons
+$('addExp').onclick = () => { D.exp.push({ role: '', company: '', loc: '', start: '2023', end: 'Present', bullets: '' }); renderLists(); upd(); };
+$('addProj').onclick = () => { D.proj.push({ name: '', tech: '', desc: '' }); renderLists(); upd(); };$('addEdu').onclick = () => { D.edu.push({ school: '', degree: '', loc: '', year: '2023' }); renderLists(); upd(); };
+$('addSkills').onclick = () => { D.skills.push({ cat: 'Category', items: '' }); renderLists(); upd(); };$('addCerts').onclick = () => { D.certs.push({ name: '', issuer: '', year: '2024' }); renderLists(); upd(); };
 
 // Reset Handler
 $('reset').onclick = () => {
-  if (confirm('Sample data se reset karna hai? Aapka current changes hat jayega.')) {
+  if (confirm('Sample data se reset karna hai? Current changes hat jayenge.')) {
+    localStorage.removeItem(KEY);
     D = JSON.parse(JSON.stringify(SAMPLE));
-    buildEditor();
+    ['name', 'title', 'email', 'phone', 'loc', 'li', 'gh', 'summary'].forEach((id) => ($(id).value = D[id] \vert{}\vert{} ''));$('tpl').value = D.tpl;
+    document.querySelectorAll('.cc').forEach((b) => b.classList.toggle('on', b.dataset.c === D.color));
+    renderLists();
     upd();
   }
 };
 
-// High-Def Print Dispatcher with Font Check & Dynamic File Name
+// High-Def Print Dispatcher
 $('print').onclick = () => {
   const originalTitle = document.title;
   const cleanName = (D.name || 'Candidate').trim().replace(/[^a-zA-Z0-9]/g, '_');
@@ -323,6 +298,6 @@ $('print').onclick = () => {
   }
 };
 
-// Boot
-buildEditor();
+// Initial Start
+renderLists();
 render();
