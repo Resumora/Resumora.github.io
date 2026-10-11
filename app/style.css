@@ -87,6 +87,7 @@ body {
     align-items: center;
     gap: 6px;
     text-decoration: none;
+    transition: all 0.2s;
 }
 .secondary-btn:hover { background: #f1f5f9; }
 
@@ -102,6 +103,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    transition: background 0.2s;
 }
 .premium-print-btn:hover { background: #1d4ed8; }
 
@@ -211,6 +213,7 @@ input:focus, textarea:focus, select:focus {
     font-weight: 600;
     cursor: pointer;
 }
+.add-btn:hover { background: #dbeafe; }
 
 .dynamic-item {
     background: #f8fafc;
@@ -230,13 +233,17 @@ input:focus, textarea:focus, select:focus {
 
 .remove-btn {
     background: #fee2e2;
-    border: none;
+    border: 1px solid #fca5a5;
     color: #dc2626;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border-radius: 4px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
+.remove-btn:hover { background: #fecaca; }
 
 /* PREVIEW WORKSPACE */
 .preview-area {
@@ -290,6 +297,7 @@ input:focus, textarea:focus, select:focus {
     font-family: var(--font-resume);
     box-sizing: border-box;
     line-height: 1.42;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
 }
 
 /* Header */
@@ -332,8 +340,8 @@ input:focus, textarea:focus, select:focus {
 /* Sections */
 .ats-section {
     margin-top: 10px;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
 }
 
 .ats-section-title {
@@ -342,9 +350,11 @@ input:focus, textarea:focus, select:focus {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: var(--primary);
-    border-bottom: 1px solid var(--primary);
+    border-bottom: 1.5px solid var(--primary);
     padding-bottom: 2px;
     margin-bottom: 6px;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
 }
 
 .ats-text {
@@ -414,7 +424,7 @@ input:focus, textarea:focus, select:focus {
    6 VERIFIED TOP-SCORING ATS TEMPLATES
    ========================================================= */
 
-/* 1. Harvard Classic (Centered Header, Underline Rows) */
+/* 1. Harvard Classic */
 .resume.template-harvard .ats-header {
     text-align: center;
     border-bottom: 1.5px solid var(--primary);
@@ -423,7 +433,7 @@ input:focus, textarea:focus, select:focus {
     justify-content: center;
 }
 
-/* 2. Stanford Modern (Left-Aligned, Clean Horizontal Rules) */
+/* 2. Stanford Modern */
 .resume.template-stanford .ats-header {
     text-align: left;
     border-bottom: 2px solid var(--primary);
@@ -432,7 +442,7 @@ input:focus, textarea:focus, select:focus {
     border-bottom: 1px solid #94a3b8;
 }
 
-/* 3. Corporate Executive (Serif Font, Double Ruled) */
+/* 3. Corporate Executive */
 .resume.template-executive {
     font-family: 'Merriweather', Georgia, serif;
 }
@@ -448,7 +458,7 @@ input:focus, textarea:focus, select:focus {
     font-family: 'Merriweather', Georgia, serif;
 }
 
-/* 4. Tech Minimalist (Sans, Accent Hash Prefix) */
+/* 4. Tech Minimalist */
 .resume.template-minimalist .ats-header {
     text-align: left;
     border-bottom: none;
@@ -463,17 +473,17 @@ input:focus, textarea:focus, select:focus {
     color: var(--primary);
 }
 
-/* 5. Modern Split (Subtle Left Accent Border) */
+/* 5. Modern Split */
 .resume.template-modern-split {
-    border-left: 4px solid var(--primary) !important;
-    padding-left: 40px !important;
+    border-left: 5px solid var(--primary) !important;
+    padding-left: 38px !important;
 }
 .resume.template-modern-split .ats-header {
     text-align: left;
     border-bottom: 1px solid #cbd5e1;
 }
 
-/* 6. Compact Dense (Max Density For Heavy Profiles) */
+/* 6. Compact Dense */
 .resume.template-compact {
     padding: 30px 36px !important;
     line-height: 1.35;
@@ -534,6 +544,7 @@ input:focus, textarea:focus, select:focus {
         padding: 0 !important;
         border: none !important;
         font-size: 10.5pt !important;
+        box-shadow: none !important;
     }
 
     /* Auto Page Break Rules */
