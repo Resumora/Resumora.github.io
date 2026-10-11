@@ -1,8 +1,9 @@
 /* =========================================================
-   Resumora - High Precision ATS Core Logic
+   Resumora - High Precision ATS Core Logic & Template Engine
    ========================================================= */
 
-const $ = (selector) => document.querySelector(selector);
+const $ = (selector) => document.querySelector(selector); const $$ = (selector) => [...document.querySelectorAll(selector)];
+
 const escapeHTML = (str = "") => {
     return String(str)
         .replaceAll("&", "&amp;")
@@ -17,11 +18,13 @@ const defaultData = {
     fullName: "John Doe",
     jobTitle: "Senior Systems & Cloud Engineer",
     email: "candidate@example.com",
-    phone: "+91 987*****10",
+    phone: "985*****10",
     location: "Chandigarh, India",
     linkedin: "linkedin.com/in/example-profile",
     github: "github.com/example-profile",
     summary: "Results-driven Systems Engineer with 4+ years of experience managing enterprise hybrid-cloud networks and Linux infrastructure. Proven track record in BGP/OSPF routing, automated configuration audits, and reducing critical incident response times by 35%.",
+    template: "harvard",
+    color: "#0f172a",
     experience: [
         {
             position: "Senior Systems Engineer",
@@ -70,7 +73,6 @@ const defaultData = {
 let resumeData = { ...defaultData };
 
 const setValue = (id, val) => { const el = $(`#${id}`); if (el) el.value = val || ""; };
-const getValue = (id) => { const el = $(`#${id}`); return el ? el.value.trim() : ""; };
 
 /* =========================================================
    FORM EDITORS
@@ -209,10 +211,22 @@ function renderAllEditors() {
 }
 
 /* =========================================================
-   LIVE ATS PREVIEW ENGINE
+   LIVE ATS PREVIEW ENGINE & TEMPLATES
    ========================================================= */
 
+function applyTemplateAndColor() {
+    const resume = $("#resume");
+    if (!resume) return;
+
+    resume.className = "resume";
+    resume.classList.add(`template-${resumeData.template || "harvard"}`);
+
+    document.documentElement.style.setProperty("--primary", resumeData.color || "#0f172a");
+}
+
 function updatePreview() {
+    applyTemplateAndColor();
+
     // Header
     $("#previewName").textContent = resumeData.fullName || "Your Full Name";
     $("#previewTitle").textContent = resumeData.jobTitle || "";
@@ -335,6 +349,20 @@ $("#previewPrintBtn")?.addEventListener("click", triggerHighDefPrint);
     });
 });
 
+$("#templateSelect")?.addEventListener("change", (e) => {
+    resumeData.template = e.target.value;
+    updatePreview();
+    saveData();
+});
+
+$$(".color-choice").forEach(btn => {     btn.addEventListener("click", () => {         resumeData.color = btn.dataset.color;         $$
+(".color-choice").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        updatePreview();
+        saveData();
+    });
+});
+
 $("#addExperience")?.addEventListener("click", () => {
     resumeData.experience.push({ position: "", company: "", location: "", start: "2023", end: "Present", bullets: "" });
     renderExperienceEditor();
@@ -367,7 +395,7 @@ $("#addCertification")?.addEventListener("click", () => {
 
 $("#clearBtn")?.addEventListener("click", () => {
     if (confirm("Reset to clean sample template?")) {
-        localStorage.removeItem("jobcv-data-v2");
+        localStorage.removeItem("jobcv-data-v3");
         resumeData = JSON.parse(JSON.stringify(defaultData));
         loadFormData();
         renderAllEditors();
@@ -377,7 +405,7 @@ $("#clearBtn")?.addEventListener("click", () => {
 
 function saveData() {
     try {
-        localStorage.setItem("jobcv-data-v2", JSON.stringify(resumeData));
+        localStorage.setItem("jobcv-data-v3", JSON.stringify(resumeData));
     } catch (e) {}
 }
 
@@ -390,11 +418,15 @@ function loadFormData() {
     setValue("linkedin", resumeData.linkedin);
     setValue("github", resumeData.github);
     setValue("summary", resumeData.summary);
+
+    if ($("#templateSelect")) $("#templateSelect").value = resumeData.template \vert{}\vert{} "harvard";     $$(".color-choice").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.color === resumeData.color);
+    });
 }
 
 function initialize() {
     try {
-        const saved = localStorage.getItem("jobcv-data-v2");
+        const saved = localStorage.getItem("jobcv-data-v3");
         if (saved) {
             resumeData = { ...defaultData, ...JSON.parse(saved) };
         } else {
