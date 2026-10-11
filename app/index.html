@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resumora - High Precision ATS Resume Builder (2026)</title>
-    <meta name="description" content="Build 100% ATS-compliant single and multi-page resumes with instant clean PDF export. Zero sign-up, zero watermarks.">
-    <link rel="canonical" href="https://resumora.github.io/app/index.html">
-
-    <!-- Fonts -->
+    <title>Resumora - High Precision ATS Resume Builder</title>
+    <meta name="description" content="100% ATS-compliant single and multi-page resume builder with crystal clear vector PDF download.">
+    
+    <!-- Core Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -17,7 +16,7 @@
 </head>
 <body>
 
-<!-- TOPBAR -->
+<!-- TOPBAR (HIDDEN IN PRINT) -->
 <header class="topbar no-print">
     <div class="topbar-left">
         <a href="../index.html" class="secondary-btn" title="Back to Home">
@@ -48,7 +47,7 @@
 
 <main class="app-container">
 
-    <!-- EDITOR PANEL -->
+    <!-- LEFT EDITOR PANEL (HIDDEN IN PRINT) -->
     <aside class="editor-panel no-print">
         <div class="editor-heading">
             <h3><i class="fa-solid fa-sliders"></i> Resume Customizer</h3>
@@ -94,7 +93,7 @@
                 </div>
                 <div class="field">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="e.g. candidate@example.com">
+                    <input type="email" id="email" placeholder="candidate@example.com">
                 </div>
                 <div class="field">
                     <label for="phone">Phone Number</label>
@@ -106,11 +105,11 @@
                 </div>
                 <div class="field">
                     <label for="linkedin">LinkedIn URL</label>
-                    <input type="url" id="linkedin" placeholder="linkedin.com/in/profile">
+                    <input type="url" id="linkedin" placeholder="linkedin.com/in/example">
                 </div>
                 <div class="field">
                     <label for="github">GitHub / Portfolio URL</label>
-                    <input type="url" id="github" placeholder="github.com/profile">
+                    <input type="url" id="github" placeholder="github.com/example">
                 </div>
             </div>
         </section>
@@ -118,10 +117,10 @@
         <!-- Summary -->
         <section class="editor-card">
             <div class="card-title"><i class="fa-solid fa-quote-left"></i> <h4>Professional Summary</h4></div>
-            <textarea id="summary" rows="4" placeholder="2-3 impactful sentences highlighting your experience and metrics..."></textarea>
+            <textarea id="summary" rows="4" placeholder="Brief high-impact summary..."></textarea>
         </section>
 
-        <!-- Experience -->
+        <!-- Work Experience -->
         <section class="editor-card">
             <div class="section-header">
                 <div class="card-title"><i class="fa-solid fa-briefcase"></i> <h4>Work Experience</h4></div>
@@ -130,7 +129,7 @@
             <div id="experienceList"></div>
         </section>
 
-        <!-- Projects -->
+        <!-- Key Projects -->
         <section class="editor-card">
             <div class="section-header">
                 <div class="card-title"><i class="fa-solid fa-code"></i> <h4>Key Projects</h4></div>
@@ -148,7 +147,7 @@
             <div id="educationList"></div>
         </section>
 
-        <!-- Skills -->
+        <!-- Technical Skills -->
         <section class="editor-card">
             <div class="section-header">
                 <div class="card-title"><i class="fa-solid fa-bolt"></i> <h4>Technical Skills</h4></div>
@@ -167,7 +166,7 @@
         </section>
     </aside>
 
-    <!-- LIVE RESUME CANVAS -->
+    <!-- RIGHT PREVIEW CANVAS -->
     <section class="preview-area">
         <div class="preview-toolbar no-print">
             <div class="preview-info">
@@ -212,7 +211,7 @@
                     <div id="previewEducation"></div>
                 </section>
 
-                <!-- Technical Skills -->
+                <!-- Skills -->
                 <section class="ats-section" id="skillsSection">
                     <h3 class="ats-section-title">Technical Skills</h3>
                     <div id="previewSkills" class="ats-skills-container"></div>
