@@ -1,5 +1,5 @@
 /* =========================================================
-   Resumora - Stylesheet (High-Definition Clean A4 Engine)
+   Resumora - High-Precision Vector Engine (Zero Subpixel Blur)
    ========================================================= */
 
 * {
@@ -19,8 +19,8 @@
     --border-card: #e2e8f0;
     --text-primary: #0f172a;
     --text-secondary: #64748b;
-    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 body {
@@ -28,12 +28,13 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.5;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 /* =========================================================
-   DYNAMIC CENTERED TOPBAR
+   TOPBAR & CONTROLS
    ========================================================= */
 .topbar {
     position: sticky;
@@ -55,7 +56,6 @@ body {
     display: flex;
     align-items: center;
 }
-
 .topbar-left { justify-content: flex-start; }
 .topbar-right { justify-content: flex-end; }
 
@@ -69,7 +69,6 @@ body {
     cursor: pointer;
     transition: transform 0.25s ease;
 }
-
 .brand-centered:hover { transform: translateY(-1px); }
 
 .brand-logo-badge {
@@ -176,11 +175,6 @@ body {
     transform: translateY(-1.5px);
 }
 
-.premium-print-btn:active {
-    transform: translateY(0.5px);
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
-}
-
 .btn-shine {
     position: absolute;
     top: 0;
@@ -278,23 +272,6 @@ body {
     display: inline-block;
 }
 
-.blinking-dot::after {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border: 2px solid #10b981;
-    border-radius: 50%;
-    animation: radar-pulse 1.6s infinite ease-out;
-}
-
-@keyframes radar-pulse {
-    0% { transform: scale(0.6); opacity: 1; }
-    100% { transform: scale(2.4); opacity: 0; }
-}
-
 .badge-highlight { font-weight: 700; color: #059669; }
 .hero-title { font-size: 30px; font-weight: 800; margin-bottom: 10px; line-height: 1.25; }
 .highlight-green { color: #059669; }
@@ -354,7 +331,6 @@ body {
     gap: 8px;
     margin-bottom: 12px;
 }
-
 .card-title i { color: var(--primary); }
 .card-title h4 { font-size: 13px; font-weight: 600; font-family: var(--font-heading); }
 
@@ -398,7 +374,6 @@ input:focus, textarea:focus, select:focus {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
-
 .field.full { grid-column: span 2; }
 
 .field-hint {
@@ -559,15 +534,15 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* =========================================================
-   BASE A4 RESUME SHEET (SCREEN & CRISP VECTOR PREVIEW)
+   ON-SCREEN RESUME CANVAS
    ========================================================= */
 .resume {
     width: 794px;
     min-height: 1123px;
     background: #ffffff !important;
-    padding: 38px 46px !important;
-    color: #111827 !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    padding: 36px 44px !important;
+    color: #0f172a !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
     box-sizing: border-box;
     font-size: 11px;
     line-height: 1.45;
@@ -686,7 +661,7 @@ input:focus, textarea:focus, select:focus {
     white-space: pre-line;
 }
 
-/* SKILLS SECTION: Crisp Badges With Zero Blur */
+/* SKILLS SECTION: Crisp Badges */
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
@@ -744,9 +719,7 @@ input:focus, textarea:focus, select:focus {
     line-height: 1.45;
 }
 
-/* =========================================================
-   TEMPLATES
-   ========================================================= */
+/* TEMPLATES */
 .resume.modern-template .resume-header { border-bottom: 2px solid var(--primary); }
 
 .resume.professional-template { font-family: 'Times New Roman', Times, serif; }
@@ -889,7 +862,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* =========================================================
-   100% CRYSTAL-CLEAR HIGH-DEFINITION PRINT ENGINE
+   ULTRA-SHARP A4 VECTOR PRINT ENGINE (NO RASTER/NO BLUR)
    ========================================================= */
 @page {
     size: A4 portrait;
@@ -901,6 +874,9 @@ input:focus, textarea:focus, select:focus {
         text-shadow: none !important;
         box-shadow: none !important;
         filter: none !important;
+        opacity: 1 !important;
+        text-rendering: geometricPrecision !important;
+        -webkit-font-smoothing: antialiased !important;
     }
 
     .no-print,
@@ -925,7 +901,8 @@ input:focus, textarea:focus, select:focus {
         height: auto !important;
         margin: 0 !important;
         padding: 0 !important;
-        -webkit-font-smoothing: antialiased;
+        /* System-level fallbacks to guarantee instant vector rendering */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
     }
 
     .app-container, .preview-area, .resume-wrapper {
@@ -947,7 +924,12 @@ input:focus, textarea:focus, select:focus {
         margin: 0 !important;
         padding: 0 !important;
         background: #ffffff !important;
-        color: #0f172a !important;
+        color: #000000 !important;
+        font-size: 11px !important;
+    }
+
+    .resume h1, .resume h2, .resume h3, .resume h4, strong {
+        color: #000000 !important;
     }
 
     .resume-section {
@@ -961,8 +943,14 @@ input:focus, textarea:focus, select:focus {
     }
 
     .skill-tag {
-        border: 1px solid #94a3b8 !important;
-        background: #f8fafc !important;
-        color: #0f172a !important;
+        border: 1px solid #475569 !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    /* Links look clean and razor-sharp in print */
+    .project-entry span, .links-line a, .links-line span {
+        color: #000000 !important;
+        text-decoration: underline;
     }
 }
