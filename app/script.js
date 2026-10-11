@@ -1,5 +1,5 @@
 /* =========================================================
-   Resumora - Resume Engine (Clean Native Print / Save PDF)
+   Resumora - Resume Engine (High-Definition PDF Exporter)
    ========================================================= */
 
 const $ = (selector) => document.querySelector(selector); const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -13,16 +13,16 @@ const escapeHTML = (value = "") => {
         .replaceAll("'", "&#039;");
 };
 
-// Default Realistic Pre-filled Demo Data
+// Clean, ATS-Compliant Demo Sample (Without Math Delimiters or Link Mismatches)
 const defaultData = {
     fullName: "John Doe",
     jobTitle: "Senior Network & Systems Engineer",
-    email: "example@example.com",
-    phone: "+91 **** 43210",
+    email: "john.doe@example.com",
+    phone: "+91 98765 43210",
     location: "Chandigarh, India",
     website: "https://johndoe.dev",
-    linkedin: "https://linkedin.com/in/e.g",
-    github: "https://github.com/e.g",
+    linkedin: "https://linkedin.com/in/johndoe",
+    github: "https://github.com/johndoe",
     summary: "Results-driven Network and Systems Engineer with 4+ years of experience designing, configuring, and optimizing enterprise IT infrastructure. Proven track record in BGP/OSPF routing, cloud network migration, and reducing downtime by 35%.",
     photo: "",
     experience: [
@@ -68,7 +68,7 @@ const defaultData = {
     projects: [
         {
             name: "Automated Network Backup & Compliance Bot",
-            link: "https://github.com/rohsharma/net-backup-tool",
+            link: "https://github.com/johndoe/net-backup-tool",
             description: "Developed a Python tool utilizing Netmiko and Paramiko to backup running configurations from 40+ Cisco switches nightly to a secure AWS S3 bucket."
         }
     ],
@@ -741,8 +741,22 @@ if (removePhotoBtn) {
 }
 
 /* =========================================================
-   BUTTON ACTIONS (CLEAN PRINT & SAVE TO PDF)
+   CLEAN HIGH-DEF PRINT TRIGGER (WITH DYNAMIC FILENAME)
    ========================================================= */
+
+function triggerHighDefPrint() {
+    // Dynamic clean PDF file name based on user name
+    const originalTitle = document.title;
+    const cleanName = (resumeData.fullName || "Candidate").replace(/[^a-zA-Z0-9]/g, "_");
+    document.title = `${cleanName}_Resume`;
+
+    window.print();
+
+    // Restore original SEO Title after print dialog closes
+    setTimeout(() => {
+        document.title = originalTitle;
+    }, 1000);
+}
 
 // Reset Button
 const clearBtn = $("#clearBtn");
@@ -758,23 +772,10 @@ if (clearBtn) {
     });
 }
 
-// Topbar Main Print Button
-const mainPrintBtn = $("#mainPrintBtn");
-if (mainPrintBtn) {
-    mainPrintBtn.addEventListener("click", () => {
-        window.print();
-    });
-}
+$("#mainPrintBtn")?.addEventListener("click", triggerHighDefPrint);
+$("#previewPrintBtn")?.addEventListener("click", triggerHighDefPrint);
 
-// Canvas Toolbar Quick Print Button
-const previewPrintBtn = $("#previewPrintBtn");
-if (previewPrintBtn) {
-    previewPrintBtn.addEventListener("click", () => {
-        window.print();
-    });
-}
-
-// Add Item Handlers
+// Dynamic Add Items
 $("#addExperience")?.addEventListener("click", () => {
     resumeData.experience.push(createExperience());
     renderExperienceEditor();
@@ -811,7 +812,7 @@ $("#addLanguage")?.addEventListener("click", () => {
     updatePreview();
 });
 
-// Remove Item Handlers
+// Dynamic Remove Handlers
 document.addEventListener("click", (event) => {
     const btn = event.target.closest("button");
     if (!btn) return;
