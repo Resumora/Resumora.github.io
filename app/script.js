@@ -1,5 +1,5 @@
 /* =========================================================
-   Resumora - High Precision ATS Core Logic & Template Engine
+   Resumora - High Precision ATS Core Logic & Bulletproof State
    ========================================================= */
 
 const $ = (selector) => document.querySelector(selector); const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -13,7 +13,7 @@ const escapeHTML = (str = "") => {
         .replaceAll("'", "&#039;");
 };
 
-// 100% Generic & ATS Verified Initial Sample
+// 100% Verified Clean Sample Data
 const defaultData = {
     fullName: "John Doe",
     jobTitle: "Senior Systems & Cloud Engineer",
@@ -54,9 +54,7 @@ const defaultData = {
         {
             degree: "B.Tech in Computer Science & Engineering",
             institution: "Punjab Technical University",
-            location: "Punjab, India",
-            year: "2017 – 2021",
-            details: "Graduated with 8.4 CGPA. Specialized in Computer Networks and Operating Systems."
+            year: "2017 – 2021"
         }
     ],
     skills: [
@@ -70,12 +68,15 @@ const defaultData = {
     ]
 };
 
-let resumeData = { ...defaultData };
+let resumeData = JSON.parse(JSON.stringify(defaultData));
 
-const setValue = (id, val) => { const el = $(`#${id}`); if (el) el.value = val || ""; };
+const setValue = (id, val) => { 
+    const el = $(`#${id}`); 
+    if (el) el.value = val || ""; 
+};
 
 /* =========================================================
-   FORM EDITORS
+   FORM EDITORS RENDERING
    ========================================================= */
 
 function renderExperienceEditor() {
@@ -88,14 +89,31 @@ function renderExperienceEditor() {
         div.innerHTML = `
             <div class="dynamic-item-header">
                 <strong>Position ${index + 1}</strong>
-                <button type="button" class="remove-btn" onclick="removeItem('experience', ${index})"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="remove-btn" data-action="remove" data-section="experience" data-index="${index}">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
             </div>
             <div class="form-grid">
-                <div><label>Job Title</label><input value="${escapeHTML(item.position)}" oninput="updateItem('experience', ${index}, 'position', this.value)"></div>
-                <div><label>Company</label><input value="${escapeHTML(item.company)}" oninput="updateItem('experience', ${index}, 'company', this.value)"></div>
-                <div><label>Location</label><input value="${escapeHTML(item.location)}" oninput="updateItem('experience', ${index}, 'location', this.value)"></div>
-                <div><label>Dates (e.g. 2023 - Present)</label><input value="${escapeHTML(item.start + (item.end ? ' – ' + item.end : ''))}" oninput="updateItem('experience', ${index}, 'start', this.value)"></div>
-                <div class="field full"><label>Bullet Points (One per line)</label><textarea rows="3" oninput="updateItem('experience', ${index}, 'bullets', this.value)">${escapeHTML(item.bullets || "")}</textarea></div>
+                <div>
+                    <label>Job Title</label>
+                    <input type="text" data-section="experience" data-index="${index}" data-field="position" value="${escapeHTML(item.position)}">
+                </div>
+                <div>
+                    <label>Company</label>
+                    <input type="text" data-section="experience" data-index="${index}" data-field="company" value="${escapeHTML(item.company)}">
+                </div>
+                <div>
+                    <label>Location</label>
+                    <input type="text" data-section="experience" data-index="${index}" data-field="location" value="${escapeHTML(item.location)}">
+                </div>
+                <div>
+                    <label>Dates (e.g. 2023 - Present)</label>
+                    <input type="text" data-section="experience" data-index="${index}" data-field="start" value="${escapeHTML(item.start + (item.end ? ' – ' + item.end : ''))}">
+                </div>
+                <div class="field full">
+                    <label>Bullet Points (One per line)</label>
+                    <textarea rows="3" data-section="experience" data-index="${index}" data-field="bullets">${escapeHTML(item.bullets || "")}</textarea>
+                </div>
             </div>
         `;
         container.appendChild(div);
@@ -112,12 +130,23 @@ function renderEducationEditor() {
         div.innerHTML = `
             <div class="dynamic-item-header">
                 <strong>Degree ${index + 1}</strong>
-                <button type="button" class="remove-btn" onclick="removeItem('education', ${index})"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="remove-btn" data-action="remove" data-section="education" data-index="${index}">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
             </div>
             <div class="form-grid">
-                <div class="field full"><label>Degree</label><input value="${escapeHTML(item.degree)}" oninput="updateItem('education', ${index}, 'degree', this.value)"></div>
-                <div><label>School / University</label><input value="${escapeHTML(item.institution)}" oninput="updateItem('education', ${index}, 'institution', this.value)"></div>
-                <div><label>Year</label><input value="${escapeHTML(item.year)}" oninput="updateItem('education', ${index}, 'year', this.value)"></div>
+                <div class="field full">
+                    <label>Degree</label>
+                    <input type="text" data-section="education" data-index="${index}" data-field="degree" value="${escapeHTML(item.degree)}">
+                </div>
+                <div>
+                    <label>School / University</label>
+                    <input type="text" data-section="education" data-index="${index}" data-field="institution" value="${escapeHTML(item.institution)}">
+                </div>
+                <div>
+                    <label>Year</label>
+                    <input type="text" data-section="education" data-index="${index}" data-field="year" value="${escapeHTML(item.year)}">
+                </div>
             </div>
         `;
         container.appendChild(div);
@@ -134,11 +163,19 @@ function renderSkillsEditor() {
         div.innerHTML = `
             <div class="dynamic-item-header">
                 <strong>Category ${index + 1}</strong>
-                <button type="button" class="remove-btn" onclick="removeItem('skills', ${index})"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="remove-btn" data-action="remove" data-section="skills" data-index="${index}">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
             </div>
             <div class="form-grid">
-                <div><label>Category Name</label><input value="${escapeHTML(item.category)}" oninput="updateItem('skills', ${index}, 'category', this.value)"></div>
-                <div><label>Skills (Comma-separated)</label><input value="${escapeHTML(item.items)}" oninput="updateItem('skills', ${index}, 'items', this.value)"></div>
+                <div>
+                    <label>Category Name</label>
+                    <input type="text" data-section="skills" data-index="${index}" data-field="category" value="${escapeHTML(item.category)}">
+                </div>
+                <div>
+                    <label>Skills (Comma-separated)</label>
+                    <input type="text" data-section="skills" data-index="${index}" data-field="items" value="${escapeHTML(item.items)}">
+                </div>
             </div>
         `;
         container.appendChild(div);
@@ -155,12 +192,23 @@ function renderProjectsEditor() {
         div.innerHTML = `
             <div class="dynamic-item-header">
                 <strong>Project ${index + 1}</strong>
-                <button type="button" class="remove-btn" onclick="removeItem('projects', ${index})"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="remove-btn" data-action="remove" data-section="projects" data-index="${index}">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
             </div>
             <div class="form-grid">
-                <div><label>Project Name</label><input value="${escapeHTML(item.title)}" oninput="updateItem('projects', ${index}, 'title', this.value)"></div>
-                <div><label>Repo / Live URL</label><input value="${escapeHTML(item.link)}" oninput="updateItem('projects', ${index}, 'link', this.value)"></div>
-                <div class="field full"><label>Bullet Points</label><textarea rows="2" oninput="updateItem('projects', ${index}, 'bullets', this.value)">${escapeHTML(item.bullets || "")}</textarea></div>
+                <div>
+                    <label>Project Name</label>
+                    <input type="text" data-section="projects" data-index="${index}" data-field="title" value="${escapeHTML(item.title)}">
+                </div>
+                <div>
+                    <label>Repo / Live URL</label>
+                    <input type="text" data-section="projects" data-index="${index}" data-field="link" value="${escapeHTML(item.link)}">
+                </div>
+                <div class="field full">
+                    <label>Bullet Points</label>
+                    <textarea rows="2" data-section="projects" data-index="${index}" data-field="bullets">${escapeHTML(item.bullets || "")}</textarea>
+                </div>
             </div>
         `;
         container.appendChild(div);
@@ -177,30 +225,28 @@ function renderCertificationsEditor() {
         div.innerHTML = `
             <div class="dynamic-item-header">
                 <strong>Cert ${index + 1}</strong>
-                <button type="button" class="remove-btn" onclick="removeItem('certifications', ${index})"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="remove-btn" data-action="remove" data-section="certifications" data-index="${index}">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
             </div>
             <div class="form-grid">
-                <div class="field full"><label>Certification Name</label><input value="${escapeHTML(item.title)}" oninput="updateItem('certifications', ${index}, 'title', this.value)"></div>
-                <div><label>Issuer</label><input value="${escapeHTML(item.issuer)}" oninput="updateItem('certifications', ${index}, 'issuer', this.value)"></div>
-                <div><label>Year</label><input value="${escapeHTML(item.year)}" oninput="updateItem('certifications', ${index}, 'year', this.value)"></div>
+                <div class="field full">
+                    <label>Certification Name</label>
+                    <input type="text" data-section="certifications" data-index="${index}" data-field="title" value="${escapeHTML(item.title)}">
+                </div>
+                <div>
+                    <label>Issuer</label>
+                    <input type="text" data-section="certifications" data-index="${index}" data-field="issuer" value="${escapeHTML(item.issuer)}">
+                </div>
+                <div>
+                    <label>Year</label>
+                    <input type="text" data-section="certifications" data-index="${index}" data-field="year" value="${escapeHTML(item.year)}">
+                </div>
             </div>
         `;
         container.appendChild(div);
     });
 }
-
-window.updateItem = (section, idx, field, val) => {
-    resumeData[section][idx][field] = val;
-    updatePreview();
-    saveData();
-};
-
-window.removeItem = (section, idx) => {
-    resumeData[section].splice(idx, 1);
-    renderAllEditors();
-    updatePreview();
-    saveData();
-};
 
 function renderAllEditors() {
     renderExperienceEditor();
@@ -227,102 +273,270 @@ function applyTemplateAndColor() {
 function updatePreview() {
     applyTemplateAndColor();
 
-    // Header
-    $("#previewName").textContent = resumeData.fullName || "Your Full Name";
-    $("#previewTitle").textContent = resumeData.jobTitle || "";
+    // Identity
+    const pName = $("#previewName");
+    const pTitle = $("#previewTitle");
+    if (pName) pName.textContent = resumeData.fullName || "Your Full Name";
+    if (pTitle) pTitle.textContent = resumeData.jobTitle || "";
 
+    // Contact
     const contactParts = [];
     if (resumeData.email) contactParts.push(`<span><i class="fa-solid fa-envelope"></i> ${escapeHTML(resumeData.email)}</span>`);
     if (resumeData.phone) contactParts.push(`<span><i class="fa-solid fa-phone"></i> ${escapeHTML(resumeData.phone)}</span>`);
     if (resumeData.location) contactParts.push(`<span><i class="fa-solid fa-location-dot"></i> ${escapeHTML(resumeData.location)}</span>`);
     if (resumeData.linkedin) contactParts.push(`<span><i class="fa-brands fa-linkedin"></i> ${escapeHTML(resumeData.linkedin)}</span>`);
     if (resumeData.github) contactParts.push(`<span><i class="fa-brands fa-github"></i> ${escapeHTML(resumeData.github)}</span>`);
-    $("#previewContact").innerHTML = contactParts.join("");
+    
+    const pContact = $("#previewContact");
+    if (pContact) pContact.innerHTML = contactParts.join("");
 
     // Summary
     const summaryText = resumeData.summary || "";
-    $("#previewSummary").textContent = summaryText;
-    $("#summarySection").style.display = summaryText.trim() ? "block" : "none";
+    const pSummary = $("#previewSummary");
+    const sSection = $("#summarySection");
+    if (pSummary) pSummary.textContent = summaryText;
+    if (sSection) sSection.style.display = summaryText.trim() ? "block" : "none";
 
     // Experience
-    const expHTML = resumeData.experience.map(exp => {
-        const bullets = (exp.bullets || "").split("\n").filter(b => b.trim()).map(b => `<li>${escapeHTML(b.replace(/^•\s*/, ''))}</li>`).join("");
-        return `
-            <div class="ats-entry">
-                <div class="ats-entry-header">
-                    <strong>${escapeHTML(exp.position)}</strong>
-                    <span>${escapeHTML(exp.start || "")}</span>
-                </div>
-                <div class="ats-entry-sub">
-                    <span>${escapeHTML(exp.company)} · ${escapeHTML(exp.location || "")}</span>
-                </div>
-                ${bullets ? `<ul class="ats-bullet-list">${bullets}</ul>` : ""}
-            </div>
-        `;
-    }).join("");
-    $("#previewExperience").innerHTML = expHTML;
-    $("#experienceSection").style.display = resumeData.experience.length ? "block" : "none";
+    const pExp = $("#previewExperience");
+    const expSection = $("#experienceSection");
+    if (pExp && expSection) {
+        if (!resumeData.experience || !resumeData.experience.length) {
+            expSection.style.display = "none";
+        } else {
+            expSection.style.display = "block";
+            pExp.innerHTML = resumeData.experience.map(exp => {
+                const bullets = (exp.bullets || "")
+                    .split("\n")
+                    .map(b => b.trim())
+                    .filter(b => b.length > 0)
+                    .map(b => `<li>${escapeHTML(b.replace(/^•\s*/, ''))}</li>`)
+                    .join("");
+
+                return `
+                    <div class="ats-entry">
+                        <div class="ats-entry-header">
+                            <strong>${escapeHTML(exp.position)}</strong>
+                            <span>${escapeHTML(exp.start || "")}</span>
+                        </div>
+                        <div class="ats-entry-sub">
+                            <span>${escapeHTML(exp.company)}${exp.location ? ' · ' + escapeHTML(exp.location) : ''}</span>
+                        </div>
+                        ${bullets ? `<ul class="ats-bullet-list">${bullets}</ul>` : ""}
+                    </div>
+                `;
+            }).join("");
+        }
+    }
 
     // Projects
-    const projHTML = resumeData.projects.map(proj => {
-        const bullets = (proj.bullets || "").split("\n").filter(b => b.trim()).map(b => `<li>${escapeHTML(b.replace(/^•\s*/, ''))}</li>`).join("");
-        return `
-            <div class="ats-entry">
-                <div class="ats-entry-header">
-                    <strong>${escapeHTML(proj.title)}</strong>
-                    <span>${escapeHTML(proj.link || "")}</span>
-                </div>
-                ${bullets ? `<ul class="ats-bullet-list">${bullets}</ul>` : ""}
-            </div>
-        `;
-    }).join("");
-    $("#previewProjects").innerHTML = projHTML;
-    $("#projectsSection").style.display = resumeData.projects.length ? "block" : "none";
+    const pProjects = $("#previewProjects");
+    const projSection = $("#projectsSection");
+    if (pProjects && projSection) {
+        if (!resumeData.projects || !resumeData.projects.length) {
+            projSection.style.display = "none";
+        } else {
+            projSection.style.display = "block";
+            pProjects.innerHTML = resumeData.projects.map(proj => {
+                const bullets = (proj.bullets || "")
+                    .split("\n")
+                    .map(b => b.trim())
+                    .filter(b => b.length > 0)
+                    .map(b => `<li>${escapeHTML(b.replace(/^•\s*/, ''))}</li>`)
+                    .join("");
+
+                return `
+                    <div class="ats-entry">
+                        <div class="ats-entry-header">
+                            <strong>${escapeHTML(proj.title)}</strong>
+                            <span>${escapeHTML(proj.link || "")}</span>
+                        </div>
+                        ${bullets ? `<ul class="ats-bullet-list">${bullets}</ul>` : ""}
+                    </div>
+                `;
+            }).join("");
+        }
+    }
 
     // Education
-    const eduHTML = resumeData.education.map(edu => `
-        <div class="ats-entry">
-            <div class="ats-entry-header">
-                <strong>${escapeHTML(edu.degree)}</strong>
-                <span>${escapeHTML(edu.year || "")}</span>
-            </div>
-            <div class="ats-entry-sub">
-                <span>${escapeHTML(edu.institution)}</span>
-            </div>
-        </div>
-    `).join("");
-    $("#previewEducation").innerHTML = eduHTML;
-    $("#educationSection").style.display = resumeData.education.length ? "block" : "none";
+    const pEdu = $("#previewEducation");
+    const eduSection = $("#educationSection");
+    if (pEdu && eduSection) {
+        if (!resumeData.education || !resumeData.education.length) {
+            eduSection.style.display = "none";
+        } else {
+            eduSection.style.display = "block";
+            pEdu.innerHTML = resumeData.education.map(edu => `
+                <div class="ats-entry">
+                    <div class="ats-entry-header">
+                        <strong>${escapeHTML(edu.degree)}</strong>
+                        <span>${escapeHTML(edu.year || "")}</span>
+                    </div>
+                    <div class="ats-entry-sub">
+                        <span>${escapeHTML(edu.institution)}</span>
+                    </div>
+                </div>
+            `).join("");
+        }
+    }
 
     // Skills
-    const skillsHTML = resumeData.skills.map(sk => `
-        <div class="ats-skill-line">
-            <strong>${escapeHTML(sk.category)}:</strong> ${escapeHTML(sk.items)}
-        </div>
-    `).join("");
-    $("#previewSkills").innerHTML = skillsHTML;
-    $("#skillsSection").style.display = resumeData.skills.length ? "block" : "none";
+    const pSkills = $("#previewSkills");
+    const skillsSection = $("#skillsSection");
+    if (pSkills && skillsSection) {
+        if (!resumeData.skills || !resumeData.skills.length) {
+            skillsSection.style.display = "none";
+        } else {
+            skillsSection.style.display = "block";
+            pSkills.innerHTML = resumeData.skills.map(sk => `
+                <div class="ats-skill-line">
+                    <strong>${escapeHTML(sk.category)}:</strong> ${escapeHTML(sk.items)}
+                </div>
+            `).join("");
+        }
+    }
 
     // Certifications
-    const certHTML = resumeData.certifications.map(c => `
-        <div class="ats-entry" style="margin-bottom: 4px;">
-            <div class="ats-entry-header">
-                <strong>${escapeHTML(c.title)}</strong>
-                <span>${escapeHTML(c.year || "")}</span>
-            </div>
-            <div class="ats-entry-sub">
-                <span>${escapeHTML(c.issuer || "")}</span>
-            </div>
-        </div>
-    `).join("");
-    $("#previewCertifications").innerHTML = certHTML;
-    $("#certificationSection").style.display = resumeData.certifications.length ? "block" : "none";
+    const pCert = $("#previewCertifications");
+    const certSection = $("#certificationSection");
+    if (pCert && certSection) {
+        if (!resumeData.certifications || !resumeData.certifications.length) {
+            certSection.style.display = "none";
+        } else {
+            certSection.style.display = "block";
+            pCert.innerHTML = resumeData.certifications.map(c => `
+                <div class="ats-entry" style="margin-bottom: 4px;">
+                    <div class="ats-entry-header">
+                        <strong>${escapeHTML(c.title)}</strong>
+                        <span>${escapeHTML(c.year || "")}</span>
+                    </div>
+                    <div class="ats-entry-sub">
+                        <span>${escapeHTML(c.issuer || "")}</span>
+                    </div>
+                </div>
+            `).join("");
+        }
+    }
 }
 
 /* =========================================================
-   CLEAN VECTOR PRINT DISPATCHER
+   EVENT DELEGATION (ROBUST CLICK & INPUT LISTENERS)
    ========================================================= */
 
+// Text Input Events
+document.addEventListener("input", (e) => {
+    const target = e.target;
+    if (!target) return;
+
+    // Single identity fields
+    if (["fullName", "jobTitle", "email", "phone", "location", "linkedin", "github", "summary"].includes(target.id)) {
+        resumeData[target.id] = target.value;
+        updatePreview();
+        saveData();
+        return;
+    }
+
+    // Dynamic section fields
+    const section = target.dataset.section;
+    const index = target.dataset.index;
+    const field = target.dataset.field;
+
+    if (section && index !== undefined && field) {
+        const itemIdx = Number(index);
+        if (resumeData[section] && resumeData[section][itemIdx]) {
+            resumeData[section][itemIdx][field] = target.value;
+            updatePreview();
+            saveData();
+        }
+    }
+});
+
+// Click Events (Add, Remove, Reset, Print, Theme)
+document.addEventListener("click", (e) => {
+    const target = e.target;
+    if (!target) return;
+
+    // Delete item handler
+    const removeBtn = target.closest("button[data-action='remove']");
+    if (removeBtn) {
+        const section = removeBtn.dataset.section;
+        const index = Number(removeBtn.dataset.index);
+        if (resumeData[section] && resumeData[section][index] !== undefined) {
+            resumeData[section].splice(index, 1);
+            renderAllEditors();
+            updatePreview();
+            saveData();
+        }
+        return;
+    }
+
+    // Color picker
+    const colorChoice = target.closest(".color-choice");
+    if (colorChoice) {
+        resumeData.color = colorChoice.dataset.color;
+        $$(".color-choice").forEach(b => b.classList.remove("active"));
+        colorChoice.classList.add("active");
+        updatePreview();
+        saveData();
+        return;
+    }
+});
+
+// Add Item Handlers
+$("#addExperience")?.addEventListener("click", () => {
+    resumeData.experience.push({ position: "", company: "", location: "", start: "2023 – Present", bullets: "" });
+    renderExperienceEditor();
+    updatePreview();
+    saveData();
+});
+
+$("#addEducation")?.addEventListener("click", () => {
+    resumeData.education.push({ degree: "", institution: "", year: "2023" });
+    renderEducationEditor();
+    updatePreview();
+    saveData();
+});
+
+$("#addSkill")?.addEventListener("click", () => {
+    resumeData.skills.push({ category: "Tools", items: "" });
+    renderSkillsEditor();
+    updatePreview();
+    saveData();
+});
+
+$("#addProject")?.addEventListener("click", () => {
+    resumeData.projects.push({ title: "", link: "", bullets: "" });
+    renderProjectsEditor();
+    updatePreview();
+    saveData();
+});
+
+$("#addCertification")?.addEventListener("click", () => {
+    resumeData.certifications.push({ title: "", issuer: "", year: "2024" });
+    renderCertificationsEditor();
+    updatePreview();
+    saveData();
+});
+
+// Template Switcher
+$("#templateSelect")?.addEventListener("change", (e) => {
+    resumeData.template = e.target.value;
+    updatePreview();
+    saveData();
+});
+
+// Reset Sample
+$("#clearBtn")?.addEventListener("click", () => {
+    if (confirm("Reset to default clean sample resume?")) {
+        localStorage.removeItem("jobcv-data-v4");
+        resumeData = JSON.parse(JSON.stringify(defaultData));
+        loadFormData();
+        renderAllEditors();
+        updatePreview();
+    }
+});
+
+// Clean Print Dispatcher
 function triggerHighDefPrint() {
     const originalTitle = document.title;
     const cleanName = (resumeData.fullName || "Candidate").replace(/[^a-zA-Z0-9]/g, "_");
@@ -340,73 +554,21 @@ function triggerHighDefPrint() {
 $("#mainPrintBtn")?.addEventListener("click", triggerHighDefPrint);
 $("#previewPrintBtn")?.addEventListener("click", triggerHighDefPrint);
 
-/* Global Listeners */
-["fullName", "jobTitle", "email", "phone", "location", "linkedin", "github", "summary"].forEach(id => {
-    $(`#${id}`)?.addEventListener("input", (e) => {
-        resumeData[id] = e.target.value;
-        updatePreview();
-        saveData();
-    });
-});
-
-$("#templateSelect")?.addEventListener("change", (e) => {
-    resumeData.template = e.target.value;
-    updatePreview();
-    saveData();
-});
-
-$$(".color-choice").forEach(btn => {     btn.addEventListener("click", () => {         resumeData.color = btn.dataset.color;         $$
-(".color-choice").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        updatePreview();
-        saveData();
-    });
-});
-
-$("#addExperience")?.addEventListener("click", () => {
-    resumeData.experience.push({ position: "", company: "", location: "", start: "2023", end: "Present", bullets: "" });
-    renderExperienceEditor();
-    updatePreview();
-});
-
-$("#addEducation")?.addEventListener("click", () => {
-    resumeData.education.push({ degree: "", institution: "", year: "2023" });
-    renderEducationEditor();
-    updatePreview();
-});
-
-$("#addSkill")?.addEventListener("click", () => {
-    resumeData.skills.push({ category: "Tools", items: "" });
-    renderSkillsEditor();
-    updatePreview();
-});
-
-$("#addProject")?.addEventListener("click", () => {
-    resumeData.projects.push({ title: "", link: "", bullets: "" });
-    renderProjectsEditor();
-    updatePreview();
-});
-
-$("#addCertification")?.addEventListener("click", () => {
-    resumeData.certifications.push({ title: "", issuer: "", year: "2024" });
-    renderCertificationsEditor();
-    updatePreview();
-});
-
-$("#clearBtn")?.addEventListener("click", () => {
-    if (confirm("Reset to clean sample template?")) {
-        localStorage.removeItem("jobcv-data-v3");
-        resumeData = JSON.parse(JSON.stringify(defaultData));
-        loadFormData();
-        renderAllEditors();
-        updatePreview();
-    }
-});
+/* =========================================================
+   STORAGE & INITIALIZATION
+   ========================================================= */
 
 function saveData() {
     try {
-        localStorage.setItem("jobcv-data-v3", JSON.stringify(resumeData));
-    } catch (e) {}
+        localStorage.setItem("jobcv-data-v4", JSON.stringify(resumeData));
+        const status = $("#saveStatus");
+        if (status) {
+            status.innerHTML = `<i class="fa-solid fa-check"></i> Auto-saved`;
+            status.style.opacity = "1";
+        }
+    } catch (e) {
+        console.warn("Storage quota warning:", e);
+    }
 }
 
 function loadFormData() {
@@ -426,9 +588,14 @@ function loadFormData() {
 
 function initialize() {
     try {
-        const saved = localStorage.getItem("jobcv-data-v3");
+        const saved = localStorage.getItem("jobcv-data-v4");
         if (saved) {
-            resumeData = { ...defaultData, ...JSON.parse(saved) };
+            const parsed = JSON.parse(saved);
+            if (parsed && typeof parsed === "object" && parsed.fullName) {
+                resumeData = { ...defaultData, ...parsed };
+            } else {
+                resumeData = JSON.parse(JSON.stringify(defaultData));
+            }
         } else {
             resumeData = JSON.parse(JSON.stringify(defaultData));
         }
@@ -441,4 +608,5 @@ function initialize() {
     updatePreview();
 }
 
+// Start application
 initialize();
