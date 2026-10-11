@@ -286,7 +286,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* =========================================================
-   ATS-CERTIFIED BASE CANVAS (SCREEN & PRINT)
+   ATS-CERTIFIED BASE CANVAS (SCREEN DISPLAY)
    ========================================================= */
 .resume {
     width: 794px;
@@ -543,11 +543,11 @@ input:focus, textarea:focus, select:focus {
         margin: 0 !important;
         padding: 0 !important;
         border: none !important;
-        font-size: 10.5pt !important;
+        font-size: 10pt !important;
         box-shadow: none !important;
     }
 
-    /* Auto Page Break Rules */
+    /* Multi-Page Continuity Engine */
     .ats-section {
         page-break-inside: auto !important;
         break-inside: auto !important;
