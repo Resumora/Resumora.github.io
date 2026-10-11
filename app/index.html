@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Resumora - High Precision ATS Resume Builder</title>
-<meta name="description" content="100% ATS-compliant single and multi-page resume builder with crystal clear vector PDF download.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="style.css">
@@ -19,12 +18,11 @@
   </div>
   <div class="top-actions">
     <span class="stat" id="st">✓ Auto-saved</span>
-    <button class="btn" id="reset" type="button" title="Reset to initial sample">↺ Reset Sample</button>
-    <button class="btn p" id="print" type="button" title="Download High Resolution PDF">⬇ Download High-Def PDF</button>
+    <button class="btn" id="reset" type="button">↺ Reset Sample</button>
+    <button class="btn p" id="print" type="button">⬇ Download High-Def PDF</button>
   </div>
 </header>
 
-<!-- MAIN APP -->
 <main class="app">
   <!-- LEFT EDITOR -->
   <aside class="no-print" id="ed">
@@ -39,23 +37,90 @@
         <option value="split">Modern Split (Accent Bar)</option>
         <option value="compact">Compact Dense (High-Info Density)</option>
       </select>
+
       <label style="margin-top:10px;">Accent Theme Color</label>
-      <div class="cols" id="cols"></div>
+      <div class="cols" id="cols">
+        <button type="button" class="cc on" data-c="#0f172a" style="background:#0f172a" title="Slate Black"></button>
+        <button type="button" class="cc" data-c="#1e3a8a" style="background:#1e3a8a" title="Navy Blue"></button>
+        <button type="button" class="cc" data-c="#0f766e" style="background:#0f766e" title="Forest Teal"></button>
+        <button type="button" class="cc" data-c="#881337" style="background:#881337" title="Deep Crimson"></button>
+        <button type="button" class="cc" data-c="#581c87" style="background:#581c87" title="Royal Purple"></button>
+        <button type="button" class="cc" data-c="#334155" style="background:#334155" title="Classic Charcoal"></button>
+      </div>
     </div>
 
+    <!-- Contact & Identity -->
     <div class="card">
       <h4>Contact & Identity</h4>
-      <div class="g" id="basic"></div>
+      <div class="g">
+        <div class="f">
+          <label>Full Name</label>
+          <input type="text" id="name" placeholder="John Doe">
+        </div>
+        <div class="f">
+          <label>Target Job Title</label>
+          <input type="text" id="title" placeholder="Senior Systems & Cloud Engineer">
+        </div>
+        <div class="h">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="candidate@example.com">
+        </div>
+        <div class="h">
+          <label>Phone Number</label>
+          <input type="text" id="phone" placeholder="985*****10">
+        </div>
+        <div class="f">
+          <label>Location</label>
+          <input type="text" id="loc" placeholder="Chandigarh, India">
+        </div>
+        <div class="h">
+          <label>LinkedIn</label>
+          <input type="text" id="li" placeholder="linkedin.com/in/example">
+        </div>
+        <div class="h">
+          <label>GitHub / Portfolio</label>
+          <input type="text" id="gh" placeholder="github.com/example">
+        </div>
+      </div>
     </div>
 
+    <!-- Summary -->
     <div class="card">
       <h4>Professional Summary</h4>
       <textarea id="summary" rows="4" placeholder="Brief high-impact career summary..."></textarea>
     </div>
 
-    <div id="lists"></div>
+    <!-- Work Experience -->
+    <div class="card">
+      <h4>Work Experience <button type="button" class="add" id="addExp">+ Add</button></h4>
+      <div id="expList"></div>
+    </div>
 
-    <p class="print-tip">Tip: Print dialog me "Save as PDF" chunein aur "Headers and footers" ko unchecked rakhein.</p>
+    <!-- Key Projects -->
+    <div class="card">
+      <h4>Key Projects <button type="button" class="add" id="addProj">+ Add</button></h4>
+      <div id="projList"></div>
+    </div>
+
+    <!-- Education -->
+    <div class="card">
+      <h4>Education <button type="button" class="add" id="addEdu">+ Add</button></h4>
+      <div id="eduList"></div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="card">
+      <h4>Technical Skills <button type="button" class="add" id="addSkills">+ Add</button></h4>
+      <div id="skillsList"></div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="card">
+      <h4>Certifications <button type="button" class="add" id="addCerts">+ Add</button></h4>
+      <div id="certsList"></div>
+    </div>
+
+    <p class="print-tip">Tip: Print dialog mein "Save as PDF" chunein aur "Headers and footers" ko band rakhein.</p>
   </aside>
 
   <!-- RIGHT LIVE CANVAS -->
