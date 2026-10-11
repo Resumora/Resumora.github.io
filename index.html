@@ -258,43 +258,170 @@
             z-index: 1100;
         }
 
-        /* BUTTONS */
-        .btn {
-            display: inline-flex;
+        /* ================= UIVERSE 3D PUSH BUTTON BASE ================= */
+        .uiverse-btn {
+            position: relative;
+            border: none;
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
+            outline-offset: 4px;
+            transition: filter 250ms;
+            user-select: none;
+            touch-action: manipulation;
+            display: inline-block;
+            font-family: var(--font-heading);
+            text-decoration: none;
+            vertical-align: middle;
+        }
+
+        .uiverse-btn .shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background: hsl(0deg 0% 0% / 0.25);
+            will-change: transform;
+            transform: translateY(2px);
+            transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+        }
+
+        .uiverse-btn .edge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
+        .uiverse-btn .front {
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 9px 15px;
-            border-radius: 11px;
-            font-family: var(--font-heading);
-            font-size: 13px;
+            position: relative;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 13.5px;
             font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid transparent;
-            outline: none;
-            user-select: none;
-            z-index: 10;
+            color: white;
+            will-change: transform;
+            transform: translateY(-4px);
+            transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
             white-space: nowrap;
         }
 
-        .btn:active {
-            transform: scale(0.97) !important;
+        .uiverse-btn:hover {
+            filter: brightness(112%);
         }
 
-        .btn-dropdown-toggle {
-            background: rgba(255, 255, 255, 0.95);
-            color: #334155;
-            border-color: #cbd5e1;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+        .uiverse-btn:hover .front {
+            transform: translateY(-6px);
+            transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
         }
-        .btn-dropdown-toggle:hover {
-            background: #ffffff;
-            color: var(--primary);
-            border-color: #3b82f6;
+
+        .uiverse-btn:active .front {
             transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4), 0 4px 12px rgba(37, 99, 235, 0.15);
+            transition: transform 34ms;
+        }
+
+        .uiverse-btn:hover .shadow {
+            transform: translateY(4px);
+            transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+        }
+
+        .uiverse-btn:active .shadow {
+            transform: translateY(1px);
+            transition: transform 34ms;
+        }
+
+        .uiverse-btn:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        .uiverse-btn.full-width {
+            width: 100%;
+            display: block;
+        }
+        .uiverse-btn.full-width .front {
+            width: 100%;
+        }
+
+        /* ================= COLOR THEMES PER BUTTON ================= */
+        /* 1. Primary Royal Blue (Resume, Main) */
+        .btn-theme-blue .edge {
+            background: linear-gradient(to left, hsl(220, 85%, 22%) 0%, hsl(220, 85%, 35%) 8%, hsl(220, 85%, 35%) 92%, hsl(220, 85%, 22%) 100%);
+        }
+        .btn-theme-blue .front {
+            background: hsl(221, 83%, 53%);
+        }
+
+        /* 2. Teal / Cyan (Visa Hub, Image Compressor) */
+        .btn-theme-teal .edge {
+            background: linear-gradient(to left, hsl(175, 85%, 18%) 0%, hsl(175, 85%, 28%) 8%, hsl(175, 85%, 28%) 92%, hsl(175, 85%, 18%) 100%);
+        }
+        .btn-theme-teal .front {
+            background: hsl(175, 84%, 38%);
+        }
+
+        /* 3. Indigo (ATS Score Checker, Salary) */
+        .btn-theme-indigo .edge {
+            background: linear-gradient(to left, hsl(240, 75%, 25%) 0%, hsl(240, 75%, 35%) 8%, hsl(240, 75%, 35%) 92%, hsl(240, 75%, 25%) 100%);
+        }
+        .btn-theme-indigo .front {
+            background: hsl(243, 75%, 59%);
+        }
+
+        /* 4. Emerald Green (Interest, GST, Success) */
+        .btn-theme-emerald .edge {
+            background: linear-gradient(to left, hsl(155, 90%, 18%) 0%, hsl(155, 90%, 28%) 8%, hsl(155, 90%, 28%) 92%, hsl(155, 90%, 18%) 100%);
+        }
+        .btn-theme-emerald .front {
+            background: hsl(158, 79%, 42%);
+        }
+
+        /* 5. Sky Blue / Cyan (Age Calc, Percentage Card) */
+        .btn-theme-sky .edge {
+            background: linear-gradient(to left, hsl(198, 90%, 22%) 0%, hsl(198, 90%, 34%) 8%, hsl(198, 90%, 34%) 92%, hsl(198, 90%, 22%) 100%);
+        }
+        .btn-theme-sky .front {
+            background: hsl(199, 89%, 48%);
+        }
+
+        /* 6. Purple / Violet (Percentage Discount, University) */
+        .btn-theme-purple .edge {
+            background: linear-gradient(to left, hsl(270, 75%, 25%) 0%, hsl(270, 75%, 38%) 8%, hsl(270, 75%, 38%) 92%, hsl(270, 75%, 25%) 100%);
+        }
+        .btn-theme-purple .front {
+            background: hsl(271, 81%, 56%);
+        }
+
+        /* 7. Crimson / Rose (PDF Splitter, Password) */
+        .btn-theme-rose .edge {
+            background: linear-gradient(to left, hsl(340, 95%, 22%) 0%, hsl(340, 95%, 34%) 8%, hsl(340, 95%, 34%) 92%, hsl(340, 95%, 22%) 100%);
+        }
+        .btn-theme-rose .front {
+            background: hsl(346, 87%, 53%);
+        }
+
+        /* 8. Amber / Orange (PDF Merger, Word Counter) */
+        .btn-theme-amber .edge {
+            background: linear-gradient(to left, hsl(28, 95%, 24%) 0%, hsl(28, 95%, 36%) 8%, hsl(28, 95%, 36%) 92%, hsl(28, 95%, 24%) 100%);
+        }
+        .btn-theme-amber .front {
+            background: hsl(32, 95%, 50%);
+        }
+
+        /* 9. Slate / Dark Neutral (Dropdown toggle) */
+        .btn-theme-slate .edge {
+            background: linear-gradient(to left, hsl(215, 25%, 22%) 0%, hsl(215, 25%, 35%) 8%, hsl(215, 25%, 35%) 92%, hsl(215, 25%, 22%) 100%);
+        }
+        .btn-theme-slate .front {
+            background: hsl(217, 33%, 45%);
+            color: #ffffff;
         }
 
         .utilities-dropdown-wrapper { position: relative; }
@@ -353,22 +480,8 @@
             color: var(--primary);
         }
 
-        .btn-visa-pro {
-            background: rgba(240, 253, 250, 0.95);
-            color: #0d9488;
-            border-color: #99f6e4;
-            box-shadow: 0 2px 8px rgba(13, 148, 136, 0.1);
-        }
-        .btn-visa-pro:hover {
-            background: #ccfbf1;
-            border-color: #14b8a6;
-            color: #0f766e;
-            transform: translateY(-2px);
-            box-shadow: 0 0 24px rgba(20, 184, 166, 0.6), 0 6px 16px rgba(13, 148, 136, 0.25);
-        }
-
         .live-chip-badge {
-            background: #0d9488;
+            background: rgba(255, 255, 255, 0.25);
             color: #ffffff;
             font-size: 10px;
             font-weight: 800;
@@ -379,46 +492,7 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-        }
-
-        .btn-ats-check {
-            background: rgba(239, 246, 255, 0.95);
-            color: #1d4ed8;
-            border-color: #bfdbfe;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
-        }
-        .btn-ats-check:hover {
-            background: #dbeafe;
-            border-color: #60a5fa;
-            color: #1e40af;
-            transform: translateY(-2px);
-            box-shadow: 0 0 24px rgba(59, 130, 246, 0.6), 0 6px 16px rgba(37, 99, 235, 0.22);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            color: #ffffff;
-            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(37, 99, 235, 0.85), 0 0 12px rgba(6, 182, 212, 0.6);
-        }
-
-        .btn-shine {
-            position: absolute;
-            top: 0; left: -100%; width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
-            transform: skewX(-20deg);
-            animation: btn-shine-sweep 3.5s infinite ease-in-out;
-        }
-
-        @keyframes btn-shine-sweep {
-            0%, 65% { left: -100%; }
-            100% { left: 160%; }
+            margin-left: 2px;
         }
 
         .glass-theme-btn {
@@ -486,37 +560,6 @@
             background: linear-gradient(135deg, #ffffff 40%, #60a5fa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        body.dark-mode .btn-dropdown-toggle {
-            background: rgba(30, 41, 59, 0.85);
-            color: #e2e8f0;
-            border-color: rgba(71, 85, 105, 0.6);
-        }
-        body.dark-mode .btn-dropdown-toggle:hover {
-            color: #60a5fa;
-            border-color: #60a5fa;
-            box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
-        }
-
-        body.dark-mode .btn-visa-pro {
-            background: rgba(19, 78, 74, 0.35);
-            color: #2dd4bf;
-            border-color: rgba(45, 212, 191, 0.4);
-        }
-        body.dark-mode .btn-visa-pro:hover {
-            box-shadow: 0 0 24px rgba(45, 212, 191, 0.6);
-            border-color: #2dd4bf;
-        }
-
-        body.dark-mode .btn-ats-check {
-            background: rgba(30, 58, 138, 0.35);
-            color: #93c5fd;
-            border-color: rgba(147, 197, 253, 0.4);
-        }
-        body.dark-mode .btn-ats-check:hover {
-            box-shadow: 0 0 24px rgba(147, 197, 253, 0.6);
-            border-color: #93c5fd;
         }
 
         body.dark-mode .glass-theme-btn {
@@ -672,7 +715,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 16px;
             flex-wrap: wrap;
             width: 100%;
         }
@@ -1287,7 +1330,10 @@
                 flex-direction: column;
                 width: 100%;
             }
-            .hero-action-row .btn {
+            .hero-action-row .uiverse-btn {
+                width: 100%;
+            }
+            .hero-action-row .uiverse-btn .front {
                 width: 100%;
             }
             .tools-section {
@@ -1335,12 +1381,16 @@
         </a>
 
         <div class="nav-actions">
-            <!-- 1. Utilities Dropdown -->
+            <!-- 1. Utilities Dropdown (Slate Style) -->
             <div class="utilities-dropdown-wrapper">
-                <button class="btn btn-dropdown-toggle" id="utilityDropdownBtn" type="button">
-                    <i class="fa-solid fa-shapes" style="color:var(--primary);"></i>
-                    <span>Utilities</span>
-                    <i class="fa-solid fa-chevron-down" style="font-size:10px; margin-left:2px;"></i>
+                <button class="uiverse-btn btn-theme-slate" id="utilityDropdownBtn" type="button">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front">
+                        <i class="fa-solid fa-shapes"></i>
+                        <span>Utilities</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size:10px; margin-left:2px;"></i>
+                    </span>
                 </button>
                 <div class="utilities-dropdown-menu" id="utilityDropdownMenu">
                     <div class="dropdown-search-box">
@@ -1350,17 +1400,25 @@
                 </div>
             </div>
 
-            <!-- 2. HIGH-CTR STUDY & VISA HUB -->
-            <button class="btn btn-visa-pro" id="navVisaBtn" type="button">
-                <i class="fa-solid fa-plane-departure"></i>
-                <span>Study & Visa Hub</span>
-                <span class="live-chip-badge"><span class="pulse-dot" style="width:5px; height:5px; background:#fff;"></span> LIVE</span>
+            <!-- 2. HIGH-CTR STUDY & VISA HUB (Teal 3D) -->
+            <button class="uiverse-btn btn-theme-teal" id="navVisaBtn" type="button">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    <span>Study & Visa Hub</span>
+                    <span class="live-chip-badge"><span class="pulse-dot" style="width:5px; height:5px; background:#fff;"></span> LIVE</span>
+                </span>
             </button>
 
-            <!-- 3. HIGH-CTR ATS RESUME CHECKER -->
-            <button class="btn btn-ats-check" id="navAtsBtn" type="button">
-                <i class="fa-solid fa-bolt" style="color:#2563eb;"></i>
-                <span>ATS Score Check</span>
+            <!-- 3. HIGH-CTR ATS RESUME CHECKER (Indigo 3D) -->
+            <button class="uiverse-btn btn-theme-indigo" id="navAtsBtn" type="button">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>ATS Score Check</span>
+                </span>
             </button>
 
             <!-- 4. FROSTED GLASS THEME TOGGLE -->
@@ -1368,10 +1426,13 @@
                 <i class="fa-solid fa-moon" id="themeIcon"></i>
             </button>
 
-            <!-- 5. PRIMARY CONVERSION CTA -->
-            <a href="app/index.html" class="btn btn-primary" id="topbarResumeBtn">
-                <span class="btn-shine"></span>
-                <i class="fa-solid fa-file-invoice"></i> <span>Create My Resume</span>
+            <!-- 5. PRIMARY CONVERSION CTA (Royal Blue 3D) -->
+            <a href="app/index.html" class="uiverse-btn btn-theme-blue" id="topbarResumeBtn">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                    <i class="fa-solid fa-file-invoice"></i> <span>Create My Resume</span>
+                </span>
             </a>
         </div>
     </header>
@@ -1390,15 +1451,26 @@
         </p>
 
         <div class="hero-action-row">
-            <a href="app/index.html" class="btn btn-primary" style="padding: 12px 24px; font-size: 15px;">
-                <span class="btn-shine"></span>
-                <i class="fa-solid fa-file-lines"></i> <span>Create My Resume (100% Free)</span>
+            <a href="app/index.html" class="uiverse-btn btn-theme-blue" style="font-size: 15px;">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front" style="padding: 12px 24px;">
+                    <i class="fa-solid fa-file-lines"></i> <span>Create My Resume (100% Free)</span>
+                </span>
             </a>
-            <button class="btn btn-visa-pro" id="heroVisaBtn" style="padding: 12px 20px; font-size: 14px;">
-                <i class="fa-solid fa-globe"></i> <span>Study & Settle Abroad Guide</span>
+            <button class="uiverse-btn btn-theme-teal" id="heroVisaBtn" style="font-size: 14px;">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front" style="padding: 12px 20px;">
+                    <i class="fa-solid fa-globe"></i> <span>Study & Settle Abroad Guide</span>
+                </span>
             </button>
-            <button class="btn btn-ats-check" id="heroAtsBtn" style="padding: 12px 20px; font-size: 14px;">
-                <i class="fa-solid fa-clipboard-check"></i> <span>Quick ATS Score Audit</span>
+            <button class="uiverse-btn btn-theme-indigo" id="heroAtsBtn" style="font-size: 14px;">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front" style="padding: 12px 20px;">
+                    <i class="fa-solid fa-clipboard-check"></i> <span>Quick ATS Score Audit</span>
+                </span>
             </button>
         </div>
     </section>
@@ -1412,7 +1484,7 @@
 
         <div class="cards-grid">
 
-            <!-- 0. IMAGE COMPRESSOR & RESIZER CARD -->
+            <!-- 0. IMAGE COMPRESSOR & RESIZER CARD (Teal Color) -->
             <div class="glass-card" id="tool-image-compressor">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-file-image"></i></div>
@@ -1457,20 +1529,26 @@
                         <label for="imgKeepRatio" style="font-size: 12px; color: var(--text-muted); cursor: pointer; user-select: none;">Keep Aspect Ratio</label>
                     </div>
 
-                    <!-- Compress Action -->
-                    <button class="btn btn-primary" id="compressImageBtn" style="justify-content:center;">Compress & Optimize</button>
+                    <!-- Compress Action (Teal Button) -->
+                    <button class="uiverse-btn btn-theme-teal full-width" id="compressImageBtn" type="button">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fa-solid fa-compress"></i> Compress & Optimize</span>
+                    </button>
                     
                     <!-- Output / Download -->
                     <div class="tool-output" id="imgCompressOutput" style="display: none; flex-direction: column; align-items: flex-start; gap: 8px;">
                         <span id="imgSizeSummary" style="font-size: 12.5px;">Ready</span>
-                        <a id="imgDownloadLink" class="btn btn-primary" style="padding: 6px 14px; font-size: 12px; text-decoration: none;" download="resumora-optimized.jpg">
-                            <i class="fa-solid fa-download"></i> Download Image
+                        <a id="imgDownloadLink" class="uiverse-btn btn-theme-emerald" style="text-decoration: none;" download="resumora-optimized.jpg">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front" style="padding: 8px 16px; font-size: 12px;"><i class="fa-solid fa-download"></i> Download Image</span>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Age Chrono Calculator -->
+            <!-- 1. Age Chrono Calculator (Sky Blue Button) -->
             <div class="glass-card" id="tool-age">
                 <div class="card-top">
                     <div class="card-icon icon-cyan"><i class="fa-solid fa-calendar-day"></i></div>
@@ -1484,12 +1562,16 @@
                         <label class="field-label">Date of Birth</label>
                         <input type="date" id="ageDob" class="tool-input" value="2000-01-01">
                     </div>
-                    <button class="btn btn-primary" id="calcAgeBtn" style="justify-content:center;">Compute Age</button>
+                    <button class="uiverse-btn btn-theme-sky full-width" id="calcAgeBtn" type="button">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fa-solid fa-calendar-check"></i> Compute Age</span>
+                    </button>
                     <div class="tool-output" id="ageResult">Enter DOB and calculate</div>
                 </div>
             </div>
 
-            <!-- Interest Yield Analyzer -->
+            <!-- 2. Interest Yield Analyzer (Emerald Green Button) -->
             <div class="glass-card" id="tool-interest">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-chart-line"></i></div>
@@ -1522,12 +1604,16 @@
                             </select>
                         </div>
                     </div>
-                    <button class="btn btn-primary" id="calcIntBtn" style="justify-content:center;">Calculate Maturity</button>
+                    <button class="uiverse-btn btn-theme-emerald full-width" id="calcIntBtn" type="button">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fa-solid fa-calculator"></i> Calculate Maturity</span>
+                    </button>
                     <div class="tool-output" id="intResult">Maturity: ₹64,286 (Interest: ₹14,286)</div>
                 </div>
             </div>
 
-            <!-- Percentage & Discount -->
+            <!-- 3. Percentage & Discount (Purple Button) -->
             <div class="glass-card" id="tool-percentage">
                 <div class="card-top">
                     <div class="card-icon icon-purple"><i class="fa-solid fa-percent"></i></div>
@@ -1547,12 +1633,16 @@
                             <input type="number" id="discPercent" class="tool-input" value="25">
                         </div>
                     </div>
-                    <button class="btn btn-primary" id="calcDiscBtn" style="justify-content:center;">Calculate Final Price</button>
+                    <button class="uiverse-btn btn-theme-purple full-width" id="calcDiscBtn" type="button">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fa-solid fa-tag"></i> Calculate Final Price</span>
+                    </button>
                     <div class="tool-output" id="discResult">Pay: ₹1,499.25 (Saved: ₹499.75)</div>
                 </div>
             </div>
 
-            <!-- Loan / EMI Calculator -->
+            <!-- 4. Loan / EMI Calculator (Royal Blue Button) -->
             <div class="glass-card" id="tool-emi">
                 <div class="card-top">
                     <div class="card-icon icon-blue"><i class="fa-solid fa-wallet"></i></div>
@@ -1576,33 +1666,45 @@
                         <label class="field-label">Tenure (Months)</label>
                         <input type="number" id="emiTenure" class="tool-input" value="36">
                     </div>
-                    <button class="btn btn-primary" id="calcEmiBtn" style="justify-content:center;">Calculate Monthly EMI</button>
+                    <button class="uiverse-btn btn-theme-blue full-width" id="calcEmiBtn" type="button">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fa-solid fa-coins"></i> Calculate Monthly EMI</span>
+                    </button>
                     <div class="tool-output" id="emiResult">Monthly EMI: ₹16,016</div>
                 </div>
             </div>
 
-            <!-- QR Generator -->
-            <div class="glass-card" id="tool-qr-generator">
+            <!-- 5. NEW: School & University Percentage Calculator (Replaced Instant QR Generator) (Amber Button) -->
+            <div class="glass-card" id="tool-school-percentage">
                 <div class="card-top">
-                    <div class="card-icon icon-amber"><i class="fa-solid fa-qrcode"></i></div>
+                    <div class="card-icon icon-amber"><i class="fa-solid fa-graduation-cap"></i></div>
                     <div class="card-meta">
-                        <h3>Instant QR Generator</h3>
-                        <p>Generate clean, client-rendered QR codes</p>
+                        <h3>School & University % Calculator</h3>
+                        <p>Exact score calculation with decimal precision (e.g. 54.7%)</p>
                     </div>
                 </div>
                 <div class="tool-form">
-                    <div>
-                        <label class="field-label">Target URL / Text</label>
-                        <input type="text" id="qrText" class="tool-input" value="https://resumora.github.io">
+                    <div class="input-row">
+                        <div>
+                            <label class="field-label">Marks Obtained</label>
+                            <input type="number" id="marksObtained" class="tool-input" placeholder="e.g. 438" step="any" min="0" value="438">
+                        </div>
+                        <div>
+                            <label class="field-label">Total Marks</label>
+                            <input type="number" id="totalMarks" class="tool-input" placeholder="e.g. 800" step="any" min="1" value="800">
+                        </div>
                     </div>
-                    <button class="btn btn-primary" id="genQrBtn" style="justify-content:center;">Generate QR</button>
-                    <div class="tool-output" style="justify-content: center; height: 110px;" id="qrOutput">
-                        <canvas id="qrCanvas" width="90" height="90" style="border-radius:6px;"></canvas>
-                    </div>
+                    <button class="uiverse-btn btn-theme-amber full-width" id="calcSchoolPercentBtn" type="button">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fa-solid fa-percent"></i> Calculate Percentage</span>
+                    </button>
+                    <div class="tool-output" id="schoolPercentResult">Percentage: <strong>54.75%</strong></div>
                 </div>
             </div>
 
-            <!-- Cipher Shield Password -->
+            <!-- 6. Cipher Shield Password (Rose Red Button) -->
             <div class="glass-card" id="tool-password-generator">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-shield-halved"></i></div>
@@ -1625,7 +1727,11 @@
                             </select>
                         </div>
                     </div>
-                    <button class="btn btn-primary" id="genPwdBtn" style="justify-content:center;">Create Secure Password</button>
+                    <button class="uiverse-btn btn-theme-rose full-width" id="genPwdBtn" type="button">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fa-solid fa-key"></i> Create Secure Password</span>
+                    </button>
                     <div class="tool-output" id="pwdOutput" style="cursor:pointer;" title="Click to copy">
                         <span id="pwdText">k9$Rz!m9#Qv2@Lp1</span>
                         <i class="fa-regular fa-copy" style="color:var(--primary);"></i>
@@ -1633,7 +1739,7 @@
                 </div>
             </div>
 
-            <!-- PDF Merger -->
+            <!-- 7. PDF Merger (Amber Button) -->
             <div class="glass-card" id="tool-pdf-merger">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-file-pdf"></i></div>
@@ -1647,12 +1753,16 @@
                         <label class="field-label">Select 2+ PDF Files</label>
                         <input type="file" id="pdfMergeFiles" class="tool-input" accept="application/pdf" multiple>
                     </div>
-                    <button class="btn btn-primary" id="mergePdfBtn" style="justify-content:center;">Merge PDFs</button>
+                    <button class="uiverse-btn btn-theme-amber full-width" id="mergePdfBtn" type="button">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fa-solid fa-object-group"></i> Merge PDFs</span>
+                    </button>
                     <div class="tool-output" id="pdfMergeOutput">Select files to merge</div>
                 </div>
             </div>
 
-            <!-- PDF Splitter -->
+            <!-- 8. PDF Splitter (Rose Red Button) -->
             <div class="glass-card" id="tool-pdf-splitter">
                 <div class="card-top">
                     <div class="card-icon icon-rose"><i class="fa-solid fa-scissors"></i></div>
@@ -1676,12 +1786,16 @@
                             <input type="number" id="splitTo" class="tool-input" value="2" min="1">
                         </div>
                     </div>
-                    <button class="btn btn-primary" id="splitPdfBtn" style="justify-content:center;">Split & Download</button>
+                    <button class="uiverse-btn btn-theme-rose full-width" id="splitPdfBtn" type="button">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fa-solid fa-file-export"></i> Split & Download</span>
+                    </button>
                     <div class="tool-output" id="pdfSplitOutput">Upload PDF & set page range</div>
                 </div>
             </div>
 
-            <!-- Word Counter -->
+            <!-- 9. Word Counter (Amber Button) -->
             <div class="glass-card" id="tool-word-counter">
                 <div class="card-top">
                     <div class="card-icon icon-amber"><i class="fa-solid fa-i-cursor"></i></div>
@@ -1699,7 +1813,7 @@
                 </div>
             </div>
 
-            <!-- GST Calculator -->
+            <!-- 10. GST Calculator (Emerald Green Button) -->
             <div class="glass-card" id="tool-gst">
                 <div class="card-top">
                     <div class="card-icon icon-emerald"><i class="fa-solid fa-receipt"></i></div>
@@ -1731,12 +1845,16 @@
                             <option value="inclusive">Inclusive (Remove GST)</option>
                         </select>
                     </div>
-                    <button class="btn btn-primary" id="calcGstBtn" style="justify-content:center;">Calculate GST</button>
+                    <button class="uiverse-btn btn-theme-emerald full-width" id="calcGstBtn" type="button">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fa-solid fa-receipt"></i> Calculate GST</span>
+                    </button>
                     <div class="tool-output" id="gstResult">Total: ₹11,800 (GST: ₹1,800)</div>
                 </div>
             </div>
 
-            <!-- Salary Breakdown -->
+            <!-- 11. Salary Breakdown (Indigo Button) -->
             <div class="glass-card" id="tool-salary">
                 <div class="card-top">
                     <div class="card-icon icon-indigo"><i class="fa-solid fa-money-bill-wave"></i></div>
@@ -1760,7 +1878,11 @@
                             </select>
                         </div>
                     </div>
-                    <button class="btn btn-primary" id="calcSalaryBtn" style="justify-content:center;">Estimate In-Hand</button>
+                    <button class="uiverse-btn btn-theme-indigo full-width" id="calcSalaryBtn" type="button">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front"><i class="fa-solid fa-hand-holding-dollar"></i> Estimate In-Hand</span>
+                    </button>
                     <div class="tool-output" id="salaryResult">Monthly In-Hand: ~₹88,200</div>
                 </div>
             </div>
@@ -1815,8 +1937,12 @@
                     <span class="pulse-dot"></span>
                     <span style="font-size:12px; font-weight:700; color:#166534;" id="liveStatusText">Live Feed Active • Updated for 2026 Academic Season</span>
                 </div>
-                <button class="btn btn-primary" id="refreshVisaUpdatesBtn" style="padding:4px 10px; font-size:11px;">
-                    <i class="fa-solid fa-rotate"></i> <span>Refresh Updates</span>
+                <button class="uiverse-btn btn-theme-emerald" id="refreshVisaUpdatesBtn" type="button">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front" style="padding: 6px 14px; font-size: 11px;">
+                        <i class="fa-solid fa-rotate"></i> <span>Refresh Updates</span>
+                    </span>
                 </button>
             </div>
 
@@ -1832,8 +1958,12 @@
             <div id="visaDynamicContent"></div>
 
             <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 14px;">
-                <a href="app/index.html" class="btn btn-primary">
-                    <i class="fa-solid fa-file-invoice"></i> <span>Create ATS Resume for Visa / Uni</span>
+                <a href="app/index.html" class="uiverse-btn btn-theme-blue">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front">
+                        <i class="fa-solid fa-file-invoice"></i> <span>Create ATS Resume for Visa / Uni</span>
+                    </span>
                 </a>
             </div>
         </div>
@@ -1855,8 +1985,12 @@
             <div>
                 <label class="field-label">Paste Resume Content (Summary, Experience, Skills)</label>
                 <textarea id="atsResumeInput" class="tool-textarea" style="min-height: 120px;" placeholder="Paste resume plain text here to evaluate ATS pass rate..."></textarea>
-                <button class="btn btn-primary" id="runAtsCheckBtn" style="width: 100%; justify-content: center; margin-top: 10px;">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Audit My Resume (ATS Check)</span>
+                <button class="uiverse-btn btn-theme-indigo full-width" id="runAtsCheckBtn" type="button" style="margin-top: 10px;">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Audit My Resume (ATS Check)</span>
+                    </span>
                 </button>
             </div>
 
@@ -1870,8 +2004,12 @@
                 <div id="atsAnalysisList"></div>
 
                 <div style="text-align: center; margin-top: 16px;">
-                    <a href="app/index.html" class="btn btn-primary" style="padding: 10px 24px;">
-                        <i class="fa-solid fa-file-circle-check"></i> <span>Build 100% Score ATS Resume Now</span>
+                    <a href="app/index.html" class="uiverse-btn btn-theme-blue" style="padding: 0;">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front" style="padding: 10px 24px;">
+                            <i class="fa-solid fa-file-circle-check"></i> <span>Build 100% Score ATS Resume Now</span>
+                        </span>
                     </a>
                 </div>
             </div>
@@ -1913,7 +2051,7 @@
         }
 
         document.addEventListener('click', (e) => {
-            if (e.target.closest('button, .btn, .dropdown-item, .preset-btn')) {
+            if (e.target.closest('button, .uiverse-btn, .dropdown-item, .preset-btn')) {
                 playChime(560);
             }
         });
@@ -2044,7 +2182,8 @@
             const userH = parseInt(imgHeight.value) || activeUploadedImg.height;
 
             const btn = document.getElementById('compressImageBtn');
-            btn.innerText = "Compressing...";
+            const btnFront = btn.querySelector('.front');
+            btnFront.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Compressing...`;
             btn.disabled = true;
 
             const canvas = document.createElement('canvas');
@@ -2092,7 +2231,7 @@
                 bestBlob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.1));
             }
 
-            btn.innerText = "Compress & Optimize";
+            btnFront.innerHTML = `<i class="fa-solid fa-compress"></i> Compress & Optimize`;
             btn.disabled = false;
 
             const outputDiv = document.getElementById('imgCompressOutput');
@@ -2318,7 +2457,7 @@
             }, 700);
         };
 
-        // ================= ENTERPRISE ATS PARSER ENGINE (Workday, Taleo & Greenhouse Standards) =================
+        // ================= ENTERPRISE ATS PARSER ENGINE =================
         document.getElementById('runAtsCheckBtn').onclick = (e) => {
             e.preventDefault();
             const rawTxt = document.getElementById('atsResumeInput').value.trim();
@@ -2334,10 +2473,10 @@
             let totalScore = 0;
             const feedback = [];
 
-            // Detect Profile Type (Blue-collar / Entry-level vs Professional Corporate)
+            // Detect Profile Type
             const isBlueCollarOrEntry = /\b(driver|peon|helper|delivery|security|guard|10th|12th|matric|intermediate|iti|attendant|loader|cleaner|housekeeping|license|dl|hmv|lmv)\b/i.test(rawTxt);
 
-            // 1. CONTACT INFORMATION & PARSING IDENTIFIERS (Max 20 pts)
+            // 1. CONTACT INFORMATION & PARSING IDENTIFIERS
             let contactScore = 0;
             const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
             const phoneRegex = /(\+?\d{1,4}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}|\b\d{10}\b/;
@@ -2374,7 +2513,7 @@
                 });
             }
 
-            // 2. PARSING STANDARD HEADERS & SECTIONING (Max 25 pts)
+            // 2. PARSING STANDARD HEADERS & SECTIONING
             let sectionScore = 0;
             if (isBlueCollarOrEntry) {
                 if (/\b(10th|12th|matric|high school|intermediate|cbse|hbse|pseb|up board|bihar board|iti|pass|education)\b/i.test(rawTxt)) {
@@ -2436,7 +2575,7 @@
                 }
             }
 
-            // 3. ACTION-ORIENTED IMPACT & POWER KEYWORDS (Max 20 pts)
+            // 3. ACTION-ORIENTED IMPACT & POWER KEYWORDS
             if (isBlueCollarOrEntry) {
                 const trustKeywords = ["hardworking", "honest", "punctual", "responsible", "duty", "safe", "verified", "active", "support", "deliver", "drive", "manage", "clean", "assist", "route"];
                 const matchedTrust = trustKeywords.filter(w => new RegExp(`\\b${w}\\b`, 'i').test(rawTxt));
@@ -2482,7 +2621,7 @@
                 }
             }
 
-            // 4. QUANTIFIABLE METRICS & DATA PROOF (Max 20 pts)
+            // 4. QUANTIFIABLE METRICS & DATA PROOF
             const metricMatches = rawTxt.match(/(\b\d+(\.\d+)?%|\$\d+[\d,]*|₹\d+[\d,]*|\b\d{2,}\b\+?|\b\d+x\b)/gi) || [];
             let metricScore = 0;
             if (isBlueCollarOrEntry) {
@@ -2519,7 +2658,7 @@
                 }
             }
 
-            // 5. WORD COUNT & PARSE DENSITY BALANCE (Max 15 pts)
+            // 5. WORD COUNT & PARSE DENSITY BALANCE
             let densityScore = 0;
             if (isBlueCollarOrEntry) {
                 if (wordCount >= 70 && wordCount <= 400) {
@@ -2748,47 +2887,28 @@
             if (confettis.length > 0) requestAnimationFrame(animateConfetti);
         }
 
-        // ================= CLIENT-SIDE INLINE QR RENDERER =================
-        function renderNativeQr(text) {
-            const canvas = document.getElementById('qrCanvas');
-            const c = canvas.getContext('2d');
-            const size = 90;
-            c.fillStyle = '#ffffff';
-            c.fillRect(0, 0, size, size);
-            c.fillStyle = '#0f172a';
-            
-            const drawFinder = (x, y) => {
-                c.fillRect(x, y, 24, 24);
-                c.clearRect(x + 4, y + 4, 16, 16);
-                c.fillRect(x + 8, y + 8, 8, 8);
-            };
-            drawFinder(6, 6);
-            drawFinder(60, 6);
-            drawFinder(6, 60);
-
-            let hash = 0;
-            for(let i = 0; i < text.length; i++) {
-                hash = ((hash << 5) - hash) + text.charCodeAt(i);
-                hash |= 0;
-            }
-            for (let r = 0; r < 9; r++) {
-                for (let col = 0; col < 9; col++) {
-                    if ((r < 3 && col < 3) || (r < 3 && col > 5) || (r > 5 && col < 3)) continue;
-                    if ((hash >> ((r * 3 + col) % 31)) & 1) {
-                        c.fillRect(10 + col * 8, 10 + r * 8, 5, 5);
-                    }
-                }
-            }
-        }
-        renderNativeQr('https://resumora.github.io');
-
-        document.getElementById('genQrBtn').onclick = (e) => {
+        // ================= CALCULATORS ENGINE =================
+        // School / University Percentage Calculator logic (Handles 54.7% precision cleanly)
+        document.getElementById('calcSchoolPercentBtn').onclick = (e) => {
             e.preventDefault();
-            const text = document.getElementById('qrText').value || 'https://resumora.github.io';
-            renderNativeQr(text);
+            const obtained = parseFloat(document.getElementById('marksObtained').value);
+            const total = parseFloat(document.getElementById('totalMarks').value);
+
+            if (isNaN(obtained) || isNaN(total) || total <= 0) {
+                alert('Valid Marks Obtained aur Total Marks enter karein.');
+                return;
+            }
+            if (obtained > total) {
+                alert('Marks Obtained, Total Marks se zyada nahi ho sakte.');
+                return;
+            }
+
+            const rawPercent = (obtained / total) * 100;
+            // Clean dynamic float: e.g. 54.7 instead of 54.700000000001
+            const formatted = parseFloat(rawPercent.toFixed(2));
+            document.getElementById('schoolPercentResult').innerHTML = `Percentage: <strong>${formatted}%</strong>`;
         };
 
-        // ================= CALCULATORS ENGINE =================
         document.getElementById('calcAgeBtn').onclick = (e) => {
             e.preventDefault();
             const val = document.getElementById('ageDob').value;
