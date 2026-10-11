@@ -17,7 +17,7 @@ const defaultData = {
     fullName: "John Doe",
     jobTitle: "Senior Systems & Cloud Engineer",
     email: "candidate@example.com",
-    phone: "+91 98765 43210",
+    phone: "+91 987*****10",
     location: "Chandigarh, India",
     linkedin: "linkedin.com/in/example-profile",
     github: "github.com/example-profile",
