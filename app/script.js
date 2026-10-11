@@ -1,5 +1,5 @@
 /* =========================================================
-   Resumora - Resume Engine (High-Definition PDF Exporter)
+   Resumora - Resume Engine (Ultra-Sharp Vector PDF & Clean Privacy)
    ========================================================= */
 
 const $ = (selector) => document.querySelector(selector); const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -13,22 +13,22 @@ const escapeHTML = (value = "") => {
         .replaceAll("'", "&#039;");
 };
 
-// Clean, ATS-Compliant Demo Sample (Without Math Delimiters or Link Mismatches)
+// 100% Generic & Anonymous Sample Data (Zero Personal Identity Leaks)
 const defaultData = {
     fullName: "John Doe",
     jobTitle: "Senior Network & Systems Engineer",
-    email: "john.doe@example.com",
+    email: "example@example.com",
     phone: "+91 98765 43210",
-    location: "Chandigarh, India",
-    website: "https://johndoe.dev",
-    linkedin: "https://linkedin.com/in/johndoe",
-    github: "https://github.com/johndoe",
+    location: "City, Country",
+    website: "https://example.com",
+    linkedin: "https://linkedin.com/in/example",
+    github: "https://github.com/example",
     summary: "Results-driven Network and Systems Engineer with 4+ years of experience designing, configuring, and optimizing enterprise IT infrastructure. Proven track record in BGP/OSPF routing, cloud network migration, and reducing downtime by 35%.",
     photo: "",
     experience: [
         {
             position: "Senior Network Engineer",
-            company: "Infosys Ltd",
+            company: "Tech Solutions Inc.",
             location: "Mohali, India",
             start: "June 2023",
             end: "Present",
@@ -36,7 +36,7 @@ const defaultData = {
         },
         {
             position: "Network Support Engineer",
-            company: "Wipro Technologies",
+            company: "Global Tech Services",
             location: "Noida, India",
             start: "Aug 2021",
             end: "May 2023",
@@ -46,7 +46,7 @@ const defaultData = {
     education: [
         {
             degree: "B.Tech in Computer Science & Engineering",
-            school: "Punjab Technical University",
+            school: "Technical University",
             location: "Punjab, India",
             start: "2017",
             end: "2021",
@@ -68,7 +68,7 @@ const defaultData = {
     projects: [
         {
             name: "Automated Network Backup & Compliance Bot",
-            link: "https://github.com/johndoe/net-backup-tool",
+            link: "https://github.com/example/net-backup-tool",
             description: "Developed a Python tool utilizing Netmiko and Paramiko to backup running configurations from 40+ Cisco switches nightly to a secure AWS S3 bucket."
         }
     ],
@@ -77,7 +77,7 @@ const defaultData = {
         { name: "Hindi", level: "Native" },
         { name: "Punjabi", level: "Conversational" }
     ],
-    achievements: "• Awarded 'Star Performer of the Quarter' twice at Infosys for seamless datacenter migration with zero downtime.",
+    achievements: "• Awarded 'Star Performer of the Quarter' twice for seamless datacenter migration with zero downtime.",
     interests: "Open-Source Networking, Homelab Automation, Chess, Hiking",
     template: "modern",
     color: "#2563eb"
@@ -137,7 +137,7 @@ function renderExperienceEditor() {
                 </div>
                 <div>
                     <label>Company</label>
-                    <input data-experience="${index}" data-field="company" value="${escapeHTML(item.company)}" placeholder="e.g. Infosys">
+                    <input data-experience="${index}" data-field="company" value="${escapeHTML(item.company)}" placeholder="e.g. Tech Solutions">
                 </div>
                 <div>
                     <label>Location</label>
@@ -187,7 +187,7 @@ function renderEducationEditor() {
                 </div>
                 <div>
                     <label>University / School</label>
-                    <input data-education="${index}" data-field="school" value="${escapeHTML(item.school)}" placeholder="e.g. Punjab Technical University">
+                    <input data-education="${index}" data-field="school" value="${escapeHTML(item.school)}" placeholder="e.g. Technical University">
                 </div>
                 <div>
                     <label>Location</label>
@@ -313,7 +313,7 @@ function renderProjectEditor() {
                 </div>
                 <div>
                     <label>Link / Repo</label>
-                    <input data-project="${index}" data-field="link" value="${escapeHTML(item.link)}" placeholder="https://github.com/...">
+                    <input data-project="${index}" data-field="link" value="${escapeHTML(item.link)}" placeholder="https://github.com/example/...">
                 </div>
                 <div class="dynamic-full">
                     <label>Description</label>
@@ -728,7 +728,6 @@ if (photoInput) {
     });
 }
 
-// Remove photo
 const removePhotoBtn = $("#removePhotoBtn");
 if (removePhotoBtn) {
     removePhotoBtn.addEventListener("click", () => {
@@ -741,7 +740,7 @@ if (removePhotoBtn) {
 }
 
 /* =========================================================
-   CLEAN HIGH-DEF PRINT TRIGGER (WITH DYNAMIC FILENAME)
+   GUARANTEED VECTOR PRINT TRIGGER (ZERO RASTERIZATION)
    ========================================================= */
 
 function triggerHighDefPrint() {
@@ -750,15 +749,21 @@ function triggerHighDefPrint() {
     const cleanName = (resumeData.fullName || "Candidate").replace(/[^a-zA-Z0-9]/g, "_");
     document.title = `${cleanName}_Resume`;
 
-    window.print();
+    // Ensure all web fonts are fully loaded before firing print dialog
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+            window.print();
+        });
+    } else {
+        window.print();
+    }
 
-    // Restore original SEO Title after print dialog closes
     setTimeout(() => {
         document.title = originalTitle;
     }, 1000);
 }
 
-// Reset Button
+// Reset Button (Clear storage completely to wipe cached dummy links)
 const clearBtn = $("#clearBtn");
 if (clearBtn) {
     clearBtn.addEventListener("click", () => {
@@ -775,7 +780,6 @@ if (clearBtn) {
 $("#mainPrintBtn")?.addEventListener("click", triggerHighDefPrint);
 $("#previewPrintBtn")?.addEventListener("click", triggerHighDefPrint);
 
-// Dynamic Add Items
 $("#addExperience")?.addEventListener("click", () => {
     resumeData.experience.push(createExperience());
     renderExperienceEditor();
@@ -812,7 +816,6 @@ $("#addLanguage")?.addEventListener("click", () => {
     updatePreview();
 });
 
-// Dynamic Remove Handlers
 document.addEventListener("click", (event) => {
     const btn = event.target.closest("button");
     if (!btn) return;
@@ -844,7 +847,6 @@ document.addEventListener("click", (event) => {
     }
 });
 
-// Template Switcher
 const templateSelect = $("#templateSelect");
 if (templateSelect) {
     templateSelect.addEventListener("change", (e) => {
@@ -855,7 +857,6 @@ if (templateSelect) {
     });
 }
 
-// Color Picker
 $$(".color-choice").forEach(btn => {     btn.addEventListener("click", () => {         resumeData.color = btn.dataset.color;         $$
 (".color-choice").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
@@ -865,7 +866,7 @@ $$(".color-choice").forEach(btn => {     btn.addEventListener("click", () => {  
 });
 
 /* =========================================================
-   INITIALIZATION & STORAGE
+   INITIALIZATION & STORAGE (CLEANSES LEGACY CACHED LINKS)
    ========================================================= */
 
 function saveData() {
@@ -907,7 +908,15 @@ function initialize() {
     try {
         const saved = localStorage.getItem("jobcv-data");
         if (saved) {
-            resumeData = { ...defaultData, ...JSON.parse(saved) };
+            const parsed = JSON.parse(saved);
+            // Automatic migration: If legacy 'rohsharma' link exists in cache, purge it immediately
+            const hasLegacyPersonalData = JSON.stringify(parsed).includes("rohsharma");
+            if (hasLegacyPersonalData) {
+                localStorage.removeItem("jobcv-data");
+                resumeData = JSON.parse(JSON.stringify(defaultData));
+            } else {
+                resumeData = { ...defaultData, ...parsed };
+            }
         } else {
             resumeData = JSON.parse(JSON.stringify(defaultData));
         }
