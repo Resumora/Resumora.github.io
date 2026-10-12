@@ -1,235 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=en>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8968728526572963"
-     crossorigin="anonymous"></script>
-    <title>Resumora - High Precision ATS Resume Builder</title>
-    <meta name="description" content="100% ATS-compliant single and multi-page resume builder with crystal clear vector PDF download.">
-    
-    <!-- Core Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css">
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8968728526572963" crossorigin=anonymous></script>
+<title>Resumora - High Precision ATS Resume Builder</title>
+<meta name=description content="100% ATS-compliant single and multi-page resume builder with crystal clear vector PDF download.">
+<link rel=preconnect href=https://fonts.googleapis.com>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css>
+<link rel=stylesheet href=style.css>
 </head>
 <body>
-
-<!-- TOPBAR (HIDDEN IN PRINT) -->
 <header class="topbar no-print">
-    <div class="topbar-left">
-        <a href="../index.html" class="secondary-btn" title="Back to Home">
-            <i class="fa-solid fa-house"></i> <span>Home</span>
-        </a>
-        <button class="secondary-btn" id="clearBtn" type="button" title="Reset all fields to sample">
-            <i class="fa-solid fa-rotate-left"></i> <span>Reset Sample</span>
-        </button>
-    </div>
-
-    <div class="brand-centered">
-        <div class="brand-logo-badge">
-            <span class="logo-letter">R</span>
-        </div>
-        <div class="brand-text">
-            <h1>Resumora</h1>
-            <span class="brand-subline">Precision ATS Engine</span>
-        </div>
-    </div>
-
-    <div class="topbar-right">
-        <button class="premium-print-btn" id="mainPrintBtn" type="button">
-            <i class="fa-solid fa-download"></i>
-            <span class="btn-text">Download High-Def PDF</span>
-        </button>
-    </div>
+<div class=topbar-left>
+<a href=../index.html class=secondary-btn title="Back to Home">
+<i class="fa-solid fa-house"></i> <span>Home</span>
+</a>
+<button class=secondary-btn id=clearBtn type=button title="Reset all fields to sample">
+<i class="fa-solid fa-rotate-left"></i> <span>Reset Sample</span>
+</button>
+</div>
+<div class=brand-centered>
+<div class=brand-logo-badge>
+<span class=logo-letter>R</span>
+</div>
+<div class=brand-text>
+<h1>Resumora</h1>
+<span class=brand-subline>Precision ATS Engine</span>
+</div>
+</div>
+<div class=topbar-right>
+<button class=premium-print-btn id=mainPrintBtn type=button>
+<i class="fa-solid fa-download"></i>
+<span class=btn-text>Download High-Def PDF</span>
+</button>
+</div>
 </header>
-
-<main class="app-container">
-
-    <!-- LEFT EDITOR PANEL (HIDDEN IN PRINT) -->
-    <aside class="editor-panel no-print">
-        <div class="editor-heading">
-            <h3><i class="fa-solid fa-sliders"></i> Resume Customizer</h3>
-            <div class="save-status" id="saveStatus"><i class="fa-solid fa-check"></i> Auto-saved</div>
-        </div>
-
-        <!-- Template & Color Selection -->
-        <section class="editor-card">
-            <div class="card-title"><i class="fa-solid fa-layer-group"></i> <h4>Template & Styling</h4></div>
-            
-            <label for="templateSelect">ATS Verified Templates</label>
-            <select id="templateSelect">
-                <option value="harvard">Harvard Classic (Ivy League Standard)</option>
-                <option value="stanford">Stanford Modern (Clean Tech)</option>
-                <option value="executive">Corporate Executive (Classic Serif)</option>
-                <option value="minimalist">Tech Minimalist (Left-Aligned Clean)</option>
-                <option value="modern-split">Modern Split (Accent Bar)</option>
-                <option value="compact">Compact Dense (High-Info Density)</option>
-            </select>
-
-            <label style="margin-top: 12px;">Accent Theme Color</label>
-            <div class="color-options">
-                <button type="button" class="color-choice active" data-color="#0f172a" style="--color:#0f172a" title="Slate Black"></button>
-                <button type="button" class="color-choice" data-color="#1e3a8a" style="--color:#1e3a8a" title="Navy Blue"></button>
-                <button type="button" class="color-choice" data-color="#0f766e" style="--color:#0f766e" title="Forest Teal"></button>
-                <button type="button" class="color-choice" data-color="#881337" style="--color:#881337" title="Deep Crimson"></button>
-                <button type="button" class="color-choice" data-color="#581c87" style="--color:#581c87" title="Royal Purple"></button>
-                <button type="button" class="color-choice" data-color="#334155" style="--color:#334155" title="Classic Charcoal"></button>
-            </div>
-        </section>
-
-        <!-- Personal Info -->
-        <section class="editor-card">
-            <div class="card-title"><i class="fa-regular fa-user"></i> <h4>Contact & Identity</h4></div>
-            <div class="form-grid">
-                <div class="field full">
-                    <label for="fullName">Full Name</label>
-                    <input type="text" id="fullName" placeholder="e.g. John Doe">
-                </div>
-                <div class="field full">
-                    <label for="jobTitle">Target Job Title</label>
-                    <input type="text" id="jobTitle" placeholder="e.g. Senior Network & Systems Engineer">
-                </div>
-                <div class="field">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="candidate@example.com">
-                </div>
-                <div class="field">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" placeholder="985*****10">
-                </div>
-                <div class="field full">
-                    <label for="location">Location</label>
-                    <input type="text" id="location" placeholder="City, Country">
-                </div>
-                <div class="field">
-                    <label for="linkedin">LinkedIn URL</label>
-                    <input type="url" id="linkedin" placeholder="linkedin.com/in/example">
-                </div>
-                <div class="field">
-                    <label for="github">GitHub / Portfolio URL</label>
-                    <input type="url" id="github" placeholder="github.com/example">
-                </div>
-            </div>
-        </section>
-
-        <!-- Summary -->
-        <section class="editor-card">
-            <div class="card-title"><i class="fa-solid fa-quote-left"></i> <h4>Professional Summary</h4></div>
-            <textarea id="summary" rows="4" placeholder="Brief high-impact summary..."></textarea>
-        </section>
-
-        <!-- Work Experience -->
-        <section class="editor-card">
-            <div class="section-header">
-                <div class="card-title"><i class="fa-solid fa-briefcase"></i> <h4>Work Experience</h4></div>
-                <button type="button" class="add-btn" id="addExperience"><i class="fa-solid fa-plus"></i> Add</button>
-            </div>
-            <div id="experienceList"></div>
-        </section>
-
-        <!-- Key Projects -->
-        <section class="editor-card">
-            <div class="section-header">
-                <div class="card-title"><i class="fa-solid fa-code"></i> <h4>Key Projects</h4></div>
-                <button type="button" class="add-btn" id="addProject"><i class="fa-solid fa-plus"></i> Add</button>
-            </div>
-            <div id="projectsList"></div>
-        </section>
-
-        <!-- Education -->
-        <section class="editor-card">
-            <div class="section-header">
-                <div class="card-title"><i class="fa-solid fa-graduation-cap"></i> <h4>Education</h4></div>
-                <button type="button" class="add-btn" id="addEducation"><i class="fa-solid fa-plus"></i> Add</button>
-            </div>
-            <div id="educationList"></div>
-        </section>
-
-        <!-- Technical Skills -->
-        <section class="editor-card">
-            <div class="section-header">
-                <div class="card-title"><i class="fa-solid fa-bolt"></i> <h4>Technical Skills</h4></div>
-                <button type="button" class="add-btn" id="addSkill"><i class="fa-solid fa-plus"></i> Add</button>
-            </div>
-            <div id="skillsList"></div>
-        </section>
-
-        <!-- Certifications -->
-        <section class="editor-card">
-            <div class="section-header">
-                <div class="card-title"><i class="fa-solid fa-certificate"></i> <h4>Certifications</h4></div>
-                <button type="button" class="add-btn" id="addCertification"><i class="fa-solid fa-plus"></i> Add</button>
-            </div>
-            <div id="certificationsList"></div>
-        </section>
-    </aside>
-
-    <!-- RIGHT PREVIEW CANVAS -->
-    <section class="preview-area">
-        <div class="preview-toolbar no-print">
-            <div class="preview-info">
-                <strong>ATS Compliance Canvas</strong>
-                <small>Auto Multi-Page A4 Overflow Support</small>
-            </div>
-            <button type="button" class="preview-quick-print" id="previewPrintBtn">
-                <i class="fa-solid fa-print"></i> Quick Print
-            </button>
-        </div>
-
-        <div class="resume-wrapper">
-            <article id="resume" class="resume template-harvard">
-                <!-- Header -->
-                <header class="ats-header">
-                    <h1 id="previewName">Candidate Name</h1>
-                    <h2 id="previewTitle">Target Role / Title</h2>
-                    <div class="ats-contact" id="previewContact"></div>
-                </header>
-
-                <!-- Summary -->
-                <section class="ats-section" id="summarySection">
-                    <h3 class="ats-section-title">Professional Summary</h3>
-                    <p id="previewSummary" class="ats-text"></p>
-                </section>
-
-                <!-- Experience -->
-                <section class="ats-section" id="experienceSection">
-                    <h3 class="ats-section-title">Work Experience</h3>
-                    <div id="previewExperience"></div>
-                </section>
-
-                <!-- Projects -->
-                <section class="ats-section" id="projectsSection">
-                    <h3 class="ats-section-title">Key Projects</h3>
-                    <div id="previewProjects"></div>
-                </section>
-
-                <!-- Education -->
-                <section class="ats-section" id="educationSection">
-                    <h3 class="ats-section-title">Education</h3>
-                    <div id="previewEducation"></div>
-                </section>
-
-                <!-- Skills -->
-                <section class="ats-section" id="skillsSection">
-                    <h3 class="ats-section-title">Technical Skills</h3>
-                    <div id="previewSkills" class="ats-skills-container"></div>
-                </section>
-
-                <!-- Certifications -->
-                <section class="ats-section" id="certificationSection">
-                    <h3 class="ats-section-title">Certifications</h3>
-                    <div id="previewCertifications"></div>
-                </section>
-            </article>
-        </div>
-    </section>
-
+<main class=app-container>
+<aside class="editor-panel no-print">
+<div class=editor-heading>
+<h3><i class="fa-solid fa-sliders"></i> Resume Customizer</h3>
+<div class=save-status id=saveStatus><i class="fa-solid fa-check"></i> Auto-saved</div>
+</div>
+<section class=editor-card>
+<div class=card-title><i class="fa-solid fa-layer-group"></i> <h4>Template & Styling</h4></div>
+<label for=templateSelect>ATS Verified Templates</label>
+<select id=templateSelect>
+<option value=harvard>Harvard Classic (Ivy League Standard)</option>
+<option value=stanford>Stanford Modern (Clean Tech)</option>
+<option value=executive>Corporate Executive (Classic Serif)</option>
+<option value=minimalist>Tech Minimalist (Left-Aligned Clean)</option>
+<option value=modern-split>Modern Split (Accent Bar)</option>
+<option value=compact>Compact Dense (High-Info Density)</option>
+</select>
+<label style=margin-top:12px>Accent Theme Color</label>
+<div class=color-options>
+<button type=button class="color-choice active" data-color=#0f172a style=--color:#0f172a title="Slate Black"></button>
+<button type=button class=color-choice data-color=#1e3a8a style=--color:#1e3a8a title="Navy Blue"></button>
+<button type=button class=color-choice data-color=#0f766e style=--color:#0f766e title="Forest Teal"></button>
+<button type=button class=color-choice data-color=#881337 style=--color:#881337 title="Deep Crimson"></button>
+<button type=button class=color-choice data-color=#581c87 style=--color:#581c87 title="Royal Purple"></button>
+<button type=button class=color-choice data-color=#334155 style=--color:#334155 title="Classic Charcoal"></button>
+</div>
+</section>
+<section class=editor-card>
+<div class=card-title><i class="fa-regular fa-user"></i> <h4>Contact & Identity</h4></div>
+<div class=form-grid>
+<div class="field full">
+<label for=fullName>Full Name</label>
+<input type=text id=fullName placeholder="e.g. John Doe">
+</div>
+<div class="field full">
+<label for=jobTitle>Target Job Title</label>
+<input type=text id=jobTitle placeholder="e.g. Senior Network & Systems Engineer">
+</div>
+<div class=field>
+<label for=email>Email</label>
+<input type=email id=email placeholder=candidate@example.com>
+</div>
+<div class=field>
+<label for=phone>Phone Number</label>
+<input type=tel id=phone placeholder=985*****10>
+</div>
+<div class="field full">
+<label for=location>Location</label>
+<input type=text id=location placeholder="City, Country">
+</div>
+<div class=field>
+<label for=linkedin>LinkedIn URL</label>
+<input type=url id=linkedin placeholder=linkedin.com/in/example>
+</div>
+<div class=field>
+<label for=github>GitHub / Portfolio URL</label>
+<input type=url id=github placeholder=github.com/example>
+</div>
+</div>
+</section>
+<section class=editor-card>
+<div class=card-title><i class="fa-solid fa-quote-left"></i> <h4>Professional Summary</h4></div>
+<textarea id=summary rows=4 placeholder="Brief high-impact summary..."></textarea>
+</section>
+<section class=editor-card>
+<div class=section-header>
+<div class=card-title><i class="fa-solid fa-briefcase"></i> <h4>Work Experience</h4></div>
+<button type=button class=add-btn id=addExperience><i class="fa-solid fa-plus"></i> Add</button>
+</div>
+<div id=experienceList></div>
+</section>
+<section class=editor-card>
+<div class=section-header>
+<div class=card-title><i class="fa-solid fa-code"></i> <h4>Key Projects</h4></div>
+<button type=button class=add-btn id=addProject><i class="fa-solid fa-plus"></i> Add</button>
+</div>
+<div id=projectsList></div>
+</section>
+<section class=editor-card>
+<div class=section-header>
+<div class=card-title><i class="fa-solid fa-graduation-cap"></i> <h4>Education</h4></div>
+<button type=button class=add-btn id=addEducation><i class="fa-solid fa-plus"></i> Add</button>
+</div>
+<div id=educationList></div>
+</section>
+<section class=editor-card>
+<div class=section-header>
+<div class=card-title><i class="fa-solid fa-bolt"></i> <h4>Technical Skills</h4></div>
+<button type=button class=add-btn id=addSkill><i class="fa-solid fa-plus"></i> Add</button>
+</div>
+<div id=skillsList></div>
+</section>
+<section class=editor-card>
+<div class=section-header>
+<div class=card-title><i class="fa-solid fa-certificate"></i> <h4>Certifications</h4></div>
+<button type=button class=add-btn id=addCertification><i class="fa-solid fa-plus"></i> Add</button>
+</div>
+<div id=certificationsList></div>
+</section>
+</aside>
+<section class=preview-area>
+<div class="preview-toolbar no-print">
+<div class=preview-info>
+<strong>ATS Compliance Canvas</strong>
+<small>Auto Multi-Page A4 Overflow Support</small>
+</div>
+<button type=button class=preview-quick-print id=previewPrintBtn>
+<i class="fa-solid fa-print"></i> Quick Print
+</button>
+</div>
+<div class=resume-wrapper>
+<article id=resume class="resume template-harvard">
+<header class=ats-header>
+<h1 id=previewName>Candidate Name</h1>
+<h2 id=previewTitle>Target Role / Title</h2>
+<div class=ats-contact id=previewContact></div>
+</header>
+<section class=ats-section id=summarySection>
+<h3 class=ats-section-title>Professional Summary</h3>
+<p id=previewSummary class=ats-text></p>
+</section>
+<section class=ats-section id=experienceSection>
+<h3 class=ats-section-title>Work Experience</h3>
+<div id=previewExperience></div>
+</section>
+<section class=ats-section id=projectsSection>
+<h3 class=ats-section-title>Key Projects</h3>
+<div id=previewProjects></div>
+</section>
+<section class=ats-section id=educationSection>
+<h3 class=ats-section-title>Education</h3>
+<div id=previewEducation></div>
+</section>
+<section class=ats-section id=skillsSection>
+<h3 class=ats-section-title>Technical Skills</h3>
+<div id=previewSkills class=ats-skills-container></div>
+</section>
+<section class=ats-section id=certificationSection>
+<h3 class=ats-section-title>Certifications</h3>
+<div id=previewCertifications></div>
+</section>
+</article>
+</div>
+</section>
 </main>
-
-<script src="script.js"></script>
+<script src=script.js></script>
 </body>
 </html>
