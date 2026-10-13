@@ -398,6 +398,108 @@ label.field-label{display:block;font-size:11.5px;font-weight:700;color:var(--tex
       </div>
     </div>
 
+    <!-- Word to PDF (New Engine Card) -->
+    <div class="glass-card" id="tool-word-to-pdf">
+      <div class="card-top">
+        <div class="card-icon icon-blue"><i class="fa-solid fa-file-word"></i></div>
+        <div class="card-meta">
+          <h3>Word to PDF</h3>
+          <p>Convert DOCX & DOC to exact-layout PDF</p>
+        </div>
+      </div>
+      <div class="tool-form">
+        <div>
+          <label class="field-label" for="wordToPdfFile">Upload Word Document (.docx, .doc)</label>
+          <input type="file" id="wordToPdfFile" class="tool-input" accept=".docx,.doc,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" aria-label="Select Word file to convert">
+        </div>
+        <button class="uiverse-btn btn-theme-blue full-width" id="convertWordToPdfBtn" type="button" aria-label="Convert Word to PDF">
+          <span class="shadow"></span>
+          <span class="edge"></span>
+          <span class="front"><i class="fa-solid fa-file-pdf"></i> Convert to PDF</span>
+        </button>
+        <div class="tool-output" id="wordToPdfOutput">Upload DOCX & click Convert</div>
+      </div>
+    </div>
+
+    <!-- PDF to Word (New Engine Card) -->
+    <div class="glass-card" id="tool-pdf-to-word">
+      <div class="card-top">
+        <div class="card-icon icon-indigo"><i class="fa-solid fa-file-lines"></i></div>
+        <div class="card-meta">
+          <h3>PDF to Word</h3>
+          <p>Extract tables, styles & fonts to DOCX</p>
+        </div>
+      </div>
+      <div class="tool-form">
+        <div>
+          <label class="field-label" for="pdfToWordFile">Upload PDF Document (.pdf)</label>
+          <input type="file" id="pdfToWordFile" class="tool-input" accept="application/pdf" aria-label="Select PDF file to convert to Word">
+        </div>
+        <button class="uiverse-btn btn-theme-indigo full-width" id="convertPdfToWordBtn" type="button" aria-label="Convert PDF to Word">
+          <span class="shadow"></span>
+          <span class="edge"></span>
+          <span class="front"><i class="fa-solid fa-file-word"></i> Convert to Word</span>
+        </button>
+        <div class="tool-output" id="pdfToWordOutput">Upload PDF & click Convert</div>
+      </div>
+    </div>
+
+    <!-- PDF Merger -->
+    <div class="glass-card" id="tool-pdf-merger">
+      <div class="card-top">
+        <div class="card-icon icon-rose"><i class="fa-solid fa-file-pdf"></i></div>
+        <div class="card-meta">
+          <h3>PDF Merger</h3>
+          <p>Combine multiple PDF documents into one</p>
+        </div>
+      </div>
+      <div class="tool-form">
+        <div>
+          <label class="field-label" for="pdfMergeFiles">Select 2+ PDF Files</label>
+          <input type="file" id="pdfMergeFiles" class="tool-input" accept="application/pdf" multiple aria-label="Upload multiple PDFs to merge">
+        </div>
+        <button class="uiverse-btn btn-theme-amber full-width" id="mergePdfBtn" type="button" aria-label="Merge PDFs">
+          <span class="shadow"></span>
+          <span class="edge"></span>
+          <span class="front"><i class="fa-solid fa-object-group"></i> Merge PDFs</span>
+        </button>
+        <div class="tool-output" id="pdfMergeOutput">Select files to merge</div>
+      </div>
+    </div>
+
+    <!-- PDF Splitter -->
+    <div class="glass-card" id="tool-pdf-splitter">
+      <div class="card-top">
+        <div class="card-icon icon-rose"><i class="fa-solid fa-scissors"></i></div>
+        <div class="card-meta">
+          <h3>PDF Splitter</h3>
+          <p>Split a range of pages into a new PDF</p>
+        </div>
+      </div>
+      <div class="tool-form">
+        <div>
+          <label class="field-label" for="pdfSplitFile">Upload PDF</label>
+          <input type="file" id="pdfSplitFile" class="tool-input" accept="application/pdf" aria-label="Select PDF file to split">
+        </div>
+        <div class="input-row">
+          <div>
+            <label class="field-label" for="splitFrom">From Page</label>
+            <input type="number" id="splitFrom" class="tool-input" value="1" min="1" aria-label="Starting page number">
+          </div>
+          <div>
+            <label class="field-label" for="splitTo">To Page</label>
+            <input type="number" id="splitTo" class="tool-input" value="2" min="1" aria-label="Ending page number">
+          </div>
+        </div>
+        <button class="uiverse-btn btn-theme-rose full-width" id="splitPdfBtn" type="button" aria-label="Split and Download PDF">
+          <span class="shadow"></span>
+          <span class="edge"></span>
+          <span class="front"><i class="fa-solid fa-file-export"></i> Split & Download</span>
+        </button>
+        <div class="tool-output" id="pdfSplitOutput">Upload PDF & set page range</div>
+      </div>
+    </div>
+
     <!-- Age Calculator -->
     <div class="glass-card" id="tool-age">
       <div class="card-top">
@@ -589,62 +691,6 @@ label.field-label{display:block;font-size:11.5px;font-weight:700;color:var(--tex
       </div>
     </div>
 
-    <!-- PDF Merger -->
-    <div class="glass-card" id="tool-pdf-merger">
-      <div class="card-top">
-        <div class="card-icon icon-rose"><i class="fa-solid fa-file-pdf"></i></div>
-        <div class="card-meta">
-          <h3>PDF Merger</h3>
-          <p>Combine multiple PDF documents into one</p>
-        </div>
-      </div>
-      <div class="tool-form">
-        <div>
-          <label class="field-label" for="pdfMergeFiles">Select 2+ PDF Files</label>
-          <input type="file" id="pdfMergeFiles" class="tool-input" accept="application/pdf" multiple aria-label="Upload multiple PDFs to merge">
-        </div>
-        <button class="uiverse-btn btn-theme-amber full-width" id="mergePdfBtn" type="button" aria-label="Merge PDFs">
-          <span class="shadow"></span>
-          <span class="edge"></span>
-          <span class="front"><i class="fa-solid fa-object-group"></i> Merge PDFs</span>
-        </button>
-        <div class="tool-output" id="pdfMergeOutput">Select files to merge</div>
-      </div>
-    </div>
-
-    <!-- PDF Splitter -->
-    <div class="glass-card" id="tool-pdf-splitter">
-      <div class="card-top">
-        <div class="card-icon icon-rose"><i class="fa-solid fa-scissors"></i></div>
-        <div class="card-meta">
-          <h3>PDF Splitter</h3>
-          <p>Split a range of pages into a new PDF</p>
-        </div>
-      </div>
-      <div class="tool-form">
-        <div>
-          <label class="field-label" for="pdfSplitFile">Upload PDF</label>
-          <input type="file" id="pdfSplitFile" class="tool-input" accept="application/pdf" aria-label="Select PDF file to split">
-        </div>
-        <div class="input-row">
-          <div>
-            <label class="field-label" for="splitFrom">From Page</label>
-            <input type="number" id="splitFrom" class="tool-input" value="1" min="1" aria-label="Starting page number">
-          </div>
-          <div>
-            <label class="field-label" for="splitTo">To Page</label>
-            <input type="number" id="splitTo" class="tool-input" value="2" min="1" aria-label="Ending page number">
-          </div>
-        </div>
-        <button class="uiverse-btn btn-theme-rose full-width" id="splitPdfBtn" type="button" aria-label="Split and Download PDF">
-          <span class="shadow"></span>
-          <span class="edge"></span>
-          <span class="front"><i class="fa-solid fa-file-export"></i> Split & Download</span>
-        </button>
-        <div class="tool-output" id="pdfSplitOutput">Upload PDF & set page range</div>
-      </div>
-    </div>
-
     <!-- Word Counter -->
     <div class="glass-card" id="tool-word-counter">
       <div class="card-top">
@@ -742,10 +788,14 @@ label.field-label{display:block;font-size:11.5px;font-weight:700;color:var(--tex
 <section class="seo-content-block">
   <h2>About Resumora Universe</h2>
   <p>
-    Resumora Universe is a privacy-first web utilities matrix designed for professionals, developers, and students. Every calculator, <strong>browser-based image compressor (20KB, 50KB, 100KB)</strong>, PDF tool, ATS audit, and immigration tracker runs directly in your local browser using modern HTML5 Canvas, WebAssembly, and JavaScript engines without third-party ad scripts or cloud uploads.
+    Resumora Universe is a privacy-first web utilities matrix designed for professionals, developers, and students. Every calculator, <strong>browser-based image compressor (20KB, 50KB, 100KB)</strong>, PDF converter, ATS audit, and immigration tracker runs directly with maximum speed and privacy without third-party ad scripts.
   </p>
   <h2>Frequently Asked Questions</h2>
   <div class="faq-grid">
+    <div class="faq-card">
+      <h3>Can I convert Word to PDF and PDF to Word without losing formatting?</h3>
+      <p>Yes. Resumora uses dedicated high-precision layout engines that retain original tables, multi-column blocks, font weights, and margins accurately during conversion.</p>
+    </div>
     <div class="faq-card">
       <h3>Can I compress photos for government jobs, exams, or visa portals?</h3>
       <p>Yes. Many online portals require passport photos under 20 KB or 50 KB. You can choose preset limits (20 KB, 50 KB, 100 KB) or enter custom dimensions and file sizes with instant 100% private download.</p>
@@ -758,14 +808,10 @@ label.field-label{display:block;font-size:11.5px;font-weight:700;color:var(--tex
       <h3>How accurate are the study abroad visa estimates?</h3>
       <p>All procedures, living costs, and government visa fees are mapped to official immigration portals (USCIS, DHA Australia, INZ, and German Federal Foreign Office).</p>
     </div>
-    <div class="faq-card">
-      <h3>Are calculations and uploaded photos processed on a server?</h3>
-      <p>No. All PDF operations, image resizing, and calculations run 100% locally on your machine via HTML5 Canvas and client-side memory.</p>
-    </div>
   </div>
 </section>
 
-<!-- Visa Modal (Full original version) -->
+<!-- Visa Modal -->
 <div class="modal-overlay" id="visaModal" role="dialog" aria-modal="true" aria-labelledby="visaModalTitle">
   <div class="modal-box">
     <button class="modal-close" id="closeVisaModal" aria-label="Close Visa Modal">&times;</button>
@@ -812,7 +858,7 @@ label.field-label{display:block;font-size:11.5px;font-weight:700;color:var(--tex
   </div>
 </div>
 
-<!-- ATS Modal (Full original version) -->
+<!-- ATS Modal -->
 <div class="modal-overlay" id="atsModal" role="dialog" aria-modal="true" aria-labelledby="atsModalTitle">
   <div class="modal-box" style="max-width:650px">
     <button class="modal-close" id="closeAtsModal" aria-label="Close ATS Checker Modal">&times;</button>
@@ -961,7 +1007,7 @@ function loadPdfLib() {
   return pdfLibLoadingPromise;
 }
 
-// --- Lazy Third-Party Load (Zero Render Blocking) ---
+// --- Lazy Third-Party Load ---
 let thirdPartyLoaded = false;
 function loadThirdPartyScripts() {
   if (thirdPartyLoaded) return;
@@ -994,7 +1040,7 @@ function loadThirdPartyScripts() {
 });
 setTimeout(loadThirdPartyScripts, 4000);
 
-// --- Lightweight 3D Canvas Background ---
+// --- 3D Canvas Background ---
 const canvas = document.getElementById('universeCanvas');
 const ctx = canvas.getContext('2d');
 let width = canvas.width = window.innerWidth;
@@ -1200,7 +1246,119 @@ document.getElementById('compressImageBtn').addEventListener('click', async (e) 
   outputDiv.style.display = 'flex';
 });
 
-// --- Full Complete Visa Database ---
+// --- Word ⇄ PDF Conversion Engine Client Integration ---
+// NOTE: Is URL ko apne deployed Render URL se replace karein:
+const CONVERTER_API_BASE = "https://resumora-api.onrender.com";
+
+async function executeDocumentConversion(fileInputId, endpoint, outputExtension, btnId, outputBoxId) {
+  const fileInput = document.getElementById(fileInputId);
+  const btn = document.getElementById(btnId);
+  const outputBox = document.getElementById(outputBoxId);
+  const file = fileInput.files[0];
+
+  if (!file) {
+    alert("Please select a document file first.");
+    return;
+  }
+
+  const btnFront = btn.querySelector('.front');
+  const origFrontHtml = btnFront.innerHTML;
+  btnFront.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Converting...`;
+  btn.disabled = true;
+  outputBox.innerHTML = `Processing conversion with high-precision layout engine...`;
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  try {
+    const response = await fetch(`${CONVERTER_API_BASE}/convert/${endpoint}`, {
+      method: "POST",
+      body: formData
+    });
+
+    if (!response.ok) {
+      throw new Error(`Server returned status ${response.status}`);
+    }
+
+    const blob = await response.blob();
+    const downloadUrl = window.URL.createObjectURL(blob);
+    const baseName = file.name.substring(0, file.name.lastIndexOf('.')) || file.name;
+    const downloadFileName = `${baseName}_converted${outputExtension}`;
+
+    downloadBlob(blob, downloadFileName);
+    triggerConfetti();
+
+    outputBox.innerHTML = `Converted successfully! <a href="${downloadUrl}" download="${downloadFileName}" style="color:var(--primary);font-weight:700;text-decoration:underline;">Download ${downloadFileName}</a>`;
+  } catch (err) {
+    console.error("Conversion error:", err);
+    outputBox.innerHTML = `<span style="color:#ef4444;font-weight:600;">Conversion failed. Server might be waking up or file is unsupported.</span>`;
+  } finally {
+    btnFront.innerHTML = origFrontHtml;
+    btn.disabled = false;
+  }
+}
+
+document.getElementById('convertWordToPdfBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  executeDocumentConversion('wordToPdfFile', 'word-to-pdf', '.pdf', 'convertWordToPdfBtn', 'wordToPdfOutput');
+});
+
+document.getElementById('convertPdfToWordBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  executeDocumentConversion('pdfToWordFile', 'pdf-to-word', '.docx', 'convertPdfToWordBtn', 'pdfToWordOutput');
+});
+
+// Utilities Dropdown Setup
+const utilityBtn = document.getElementById('utilityDropdownBtn');
+const utilityMenu = document.getElementById('utilityDropdownMenu');
+const utilityList = document.getElementById('utilityDropdownList');
+const utilitySearch = document.getElementById('utilitySearchInput');
+const utilityTools = [];
+document.querySelectorAll('.glass-card').forEach(card => {
+  const id = card.id;
+  const title = card.querySelector('.card-meta h3')?.innerText.trim() || '';
+  const iconClass = card.querySelector('.card-icon i')?.className || 'fa-solid fa-gear';
+  if (id && title) utilityTools.push({ id, title, iconClass });
+});
+function populateDropdown(filterText = '') {
+  utilityList.innerHTML = '';
+  const filtered = utilityTools.filter(t => t.title.toLowerCase().includes(filterText.toLowerCase()));
+  filtered.forEach(tool => {
+    const item = document.createElement('div');
+    item.className = 'dropdown-item';
+    item.innerHTML = `<i class="${tool.iconClass}"></i><span>${tool.title}</span>`;
+    item.onclick = (e) => {
+      e.preventDefault();
+      utilityMenu.classList.remove('active');
+      const targetCard = document.getElementById(tool.id);
+      if (targetCard) {
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetCard.classList.add('highlight-card');
+        setTimeout(() => targetCard.classList.remove('highlight-card'), 2200);
+      }
+    };
+    utilityList.appendChild(item);
+  });
+}
+populateDropdown();
+utilityBtn.onclick = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  const isOpen = utilityMenu.classList.toggle('active');
+  if (isOpen) {
+    utilitySearch.value = '';
+    populateDropdown();
+    setTimeout(() => utilitySearch.focus(), 50);
+  }
+};
+utilitySearch.oninput = (e) => populateDropdown(e.target.value);
+document.addEventListener('click', (e) => {
+  if (!utilityMenu.contains(e.target) && !utilityBtn.contains(e.target)) {
+    utilityMenu.classList.remove('active');
+  }
+});
+
+// Full Complete Visa Database
 const visaData = {
   usa: {
     title: "United States of America (USA)",
@@ -1396,7 +1554,7 @@ document.getElementById('refreshVisaUpdatesBtn').onclick = (e) => {
   }, 700);
 };
 
-// --- Complete Full ATS Resume Audit Engine ---
+// ATS Resume Audit Engine
 document.getElementById('runAtsCheckBtn').onclick = (e) => {
   e.preventDefault();
   const rawTxt = document.getElementById('atsResumeInput').value.trim();
@@ -1543,57 +1701,7 @@ document.getElementById('runAtsCheckBtn').onclick = (e) => {
   document.getElementById('atsResultBox').style.display = 'block';
 };
 
-// Utilities Dropdown
-const utilityBtn = document.getElementById('utilityDropdownBtn');
-const utilityMenu = document.getElementById('utilityDropdownMenu');
-const utilityList = document.getElementById('utilityDropdownList');
-const utilitySearch = document.getElementById('utilitySearchInput');
-const utilityTools = [];
-document.querySelectorAll('.glass-card').forEach(card => {
-  const id = card.id;
-  const title = card.querySelector('.card-meta h3')?.innerText.trim() || '';
-  const iconClass = card.querySelector('.card-icon i')?.className || 'fa-solid fa-gear';
-  if (id && title) utilityTools.push({ id, title, iconClass });
-});
-function populateDropdown(filterText = '') {
-  utilityList.innerHTML = '';
-  const filtered = utilityTools.filter(t => t.title.toLowerCase().includes(filterText.toLowerCase()));
-  filtered.forEach(tool => {
-    const item = document.createElement('div');
-    item.className = 'dropdown-item';
-    item.innerHTML = `<i class="${tool.iconClass}"></i><span>${tool.title}</span>`;
-    item.onclick = (e) => {
-      e.preventDefault();
-      utilityMenu.classList.remove('active');
-      const targetCard = document.getElementById(tool.id);
-      if (targetCard) {
-        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        targetCard.classList.add('highlight-card');
-        setTimeout(() => targetCard.classList.remove('highlight-card'), 2200);
-      }
-    };
-    utilityList.appendChild(item);
-  });
-}
-populateDropdown();
-utilityBtn.onclick = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  const isOpen = utilityMenu.classList.toggle('active');
-  if (isOpen) {
-    utilitySearch.value = '';
-    populateDropdown();
-    setTimeout(() => utilitySearch.focus(), 50);
-  }
-};
-utilitySearch.oninput = (e) => populateDropdown(e.target.value);
-document.addEventListener('click', (e) => {
-  if (!utilityMenu.contains(e.target) && !utilityBtn.contains(e.target)) {
-    utilityMenu.classList.remove('active');
-  }
-});
-
-// Math Utilities
+// Math & PDF Utilities
 document.getElementById('calcSchoolPercentBtn').onclick = (e) => {
   e.preventDefault();
   const obtained = parseFloat(document.getElementById('marksObtained').value);
