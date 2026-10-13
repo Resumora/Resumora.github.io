@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Landing Page -->
   <url>
     <loc>https://resumora.github.io/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-13</lastmod>
+    <priority>1.00</priority>
   </url>
+
+  <!-- Legal & Info Pages -->
   <url>
-    <loc>https://resumora.github.io/app/index.html</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://resumora.github.io/about.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <priority>0.50</priority>
   </url>
+
+  <url>
+    <loc>https://resumora.github.io/contact.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <priority>0.50</priority>
+  </url>
+
+  <url>
+    <loc>https://resumora.github.io/privacy.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <priority>0.30</priority>
+  </url>
+
+  <url>
+    <loc>https://resumora.github.io/terms.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <priority>0.30</priority>
+  </url>
+
 </urlset>
