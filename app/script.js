@@ -19,7 +19,7 @@ const defaultData = {
   summary:
     "Results-driven Systems Engineer with 4+ years of experience managing enterprise hybrid-cloud networks and Linux infrastructure. Proven track record in BGP/OSPF routing, automated configuration audits, and reducing critical incident response times by 35%.",
   template: "harvard",
-  color: "#0f172a",
+  color: "#2563eb",
   pageSize: "a4",
   margin: "standard",
   fontSize: "base",
