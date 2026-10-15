@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Free System Administrator Resume Template & ATS Builder | Resumora</title>
+<meta name="description" content="Download and build a high-scoring, ATS-optimized System Administrator resume in seconds with Resumora. Free recruiter-approved template with live visual A4 preview and ATS keywords.">
+<link rel="canonical" href="https://resumora.github.io/templates/system-administrator-resume.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+  --bg-page: #fffdfa;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --accent-orange: #f97316;
+  --accent-orange-hover: #ea580c;
+  --accent-mint: #10b981;
+  --accent-mint-light: #ecfdf5;
+  --accent-amber-light: #fffbeb;
+  --border-subtle: #f1f5f9;
+  --border-warm: #fed7aa;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  padding: 0;
+}
+.topbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #fee2e2;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(249, 115, 22, 0.05);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-main);
+}
+.brand-badge {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: #fff;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+.brand-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 19px;
+  color: #0f172a;
+}
+.top-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.top-cta {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13.5px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.25);
+}
+.top-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.35);
+}
+.container {
+  max-width: 920px;
+  margin: 32px auto;
+  padding: 0 20px 60px 20px;
+}
+.breadcrumb {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.breadcrumb a {
+  color: #f97316;
+  text-decoration: none;
+  font-weight: 600;
+}
+.badge-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.badge-orange {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #ffedd5;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.badge-mint {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+h1 {
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.22;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+h1 span.highlight {
+  color: #ea580c;
+}
+.lead-desc {
+  font-size: 16px;
+  color: #475569;
+  margin-bottom: 28px;
+}
+
+/* Real A4 Paper Style Mockup */
+.preview-container {
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 28px 0 36px 0;
+  position: relative;
+}
+.preview-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.preview-tag {
+  font-size: 12.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #047857;
+  background: #d1fae5;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.a4-sheet {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 12px 35px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(0,0,0,0.03);
+  padding: 36px 42px;
+  position: relative;
+}
+.sheet-header {
+  border-bottom: 2px solid #ea580c;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+.sheet-name {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+.sheet-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ea580c;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 2px;
+}
+.sheet-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 12.5px;
+  color: #64748b;
+  margin-top: 10px;
+}
+.sheet-contact span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.sheet-section {
+  margin-bottom: 18px;
+}
+.sheet-sec-title {
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sheet-sec-title i {
+  color: #f97316;
+  font-size: 12px;
+}
+.sheet-summary-p {
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.55;
+}
+.sheet-skills-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sheet-skill-pill {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+.sheet-job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+  font-size: 13.5px;
+}
+.sheet-job-header strong {
+  color: #0f172a;
+}
+.sheet-job-date {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+.sheet-bullets {
+  list-style: none;
+  padding-left: 0;
+}
+.sheet-bullets li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.5;
+}
+.sheet-bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 4px;
+  color: #ea580c;
+  font-weight: 900;
+  font-size: 14px;
+}
+.sheet-cta-overlay {
+  text-align: center;
+  margin-top: 20px;
+}
+.btn-edit-template {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 14px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+  transition: all 0.2s ease;
+}
+.btn-edit-template:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* Explanatory Content Boxes */
+.info-card {
+  background: #ffffff;
+  border: 1px solid #fee2e2;
+  border-radius: 14px;
+  padding: 24px;
+  margin: 24px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.info-card-header {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.skills-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.vibrant-tag {
+  background: #fff7ed;
+  border: 1px solid #ffedd5;
+  color: #c2410c;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.faq-wrap {
+  margin-top: 36px;
+}
+.faq-box {
+  border-bottom: 1px solid #f1f5f9;
+  padding: 16px 0;
+}
+.faq-box h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+.faq-box p {
+  font-size: 13.5px;
+  color: #64748b;
+}
+.bottom-banner {
+  background: linear-gradient(135deg, #ea580c, #f97316);
+  border-radius: 16px;
+  padding: 32px 24px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 40px;
+  box-shadow: 0 8px 30px rgba(234, 88, 12, 0.25);
+}
+.bottom-banner h3 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+.bottom-banner p {
+  color: #ffedd5;
+  font-size: 14.5px;
+  margin-bottom: 22px;
+}
+.btn-banner-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #ea580c;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 13px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  transition: all 0.2s ease;
+}
+.btn-banner-white:hover {
+  transform: translateY(-2px);
+  background: #fff7ed;
+}
+.footer-links {
+  text-align: center;
+  margin-top: 45px;
+  font-size: 13px;
+  color: #64748b;
+}
+.footer-links a {
+  color: #ea580c;
+  text-decoration: none;
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="../index.html" class="brand">
+    <div class="brand-badge">R</div>
+    <div class="brand-title">Resumora</div>
+  </a>
+  <div class="top-nav-actions">
+    <a href="../app/" class="top-cta">
+      <i class="fa-solid fa-file-pen"></i> Build Resume Free
+    </a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a> &gt; <a href="../index.html#matrix">Resume Templates</a> &gt; <span>System Administrator</span>
+  </div>
+
+  <div class="badge-row">
+    <span class="badge-orange"><i class="fa-solid fa-layer-group"></i> Tech Role</span>
+    <span class="badge-mint"><i class="fa-solid fa-shield-check"></i> ATS Compliant 98/100</span>
+  </div>
+
+  <h1>Free <span class="highlight">System Administrator</span> Resume Template</h1>
+  <p class="lead-desc">
+    Recruiter-approved, ATS-tested layout with verified keywords, quantifiable metrics, and instant PDF download. Edit this template live in your browser for free.
+  </p>
+
+  <!-- LIVE A4 PAPER MOCKUP -->
+  <div class="preview-container">
+    <div class="preview-header-bar">
+      <span class="preview-tag"><i class="fa-solid fa-eye"></i> Live A4 Sheet Preview</span>
+      <span style="font-size:12px; color:#64748b; font-weight:600;">100% Free • No Sign-Up • Zero Watermarks</span>
+    </div>
+
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="sheet-name">Alex Morgan</div>
+        <div class="sheet-title">System Administrator Professional</div>
+        <div class="sheet-contact">
+          <span><i class="fa-solid fa-envelope"></i> alex.morgan@email.com</span>
+          <span><i class="fa-solid fa-phone"></i> +1 (555) 342-8921</span>
+          <span><i class="fa-solid fa-location-dot"></i> San Francisco, CA</span>
+          <span><i class="fa-brands fa-linkedin"></i> linkedin.com/in/alexmorgan</span>
+        </div>
+      </div>
+
+      <div class="sheet-section">
+        <div class="sheet-sec-title"><i class="fa-solid fa-user"></i> Professional Summary</div>
+        <p class="sheet-summary-p">Systems Administrator skilled in enterprise server provisioning, network configurations, patch governance, and access control.</p>
+      </div>
+
+      <div class="sheet-section">
+        <div class="sheet-sec-title"><i class="fa-solid fa-bolt"></i> Core Competencies & Skills</div>
+        <div class="sheet-skills-pills">
+          <span class="sheet-skill-pill">Linux (Ubuntu/CentOS)</span><span class="sheet-skill-pill">Bash Scripting</span><span class="sheet-skill-pill">Active Directory</span><span class="sheet-skill-pill">Networking</span><span class="sheet-skill-pill">DNS</span><span class="sheet-skill-pill">SSL</span>
+        </div>
+      </div>
+
+      <div class="sheet-section">
+        <div class="sheet-sec-title"><i class="fa-solid fa-briefcase"></i> Work Experience</div>
+        <div class="sheet-job-header">
+          <strong>Lead System Administrator • Apex Global Solutions</strong>
+          <span class="sheet-job-date">2023 - Present</span>
+        </div>
+        <ul class="sheet-bullets">
+          <li>Maintained and patched 80+ physical and virtual Linux servers with 99.95% uptime.</li><li>Automated routine user provisioning, system audits, and disk cleanup via Bash scripts.</li><li>Managed corporate Active Directory group policies, DNS records, and SSL/TLS certificates.</li>
+        </ul>
+      </div>
+
+      <div class="sheet-section" style="margin-bottom:0;">
+        <div class="sheet-sec-title"><i class="fa-solid fa-graduation-cap"></i> Education & Credentials</div>
+        <div class="sheet-job-header">
+          <strong>Bachelor of Science in Related Discipline</strong>
+          <span class="sheet-job-date">Honors Graduate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet-cta-overlay">
+      <a href="../app/" class="btn-edit-template">
+        <i class="fa-solid fa-pen-to-square"></i> Use & Edit This System Administrator Template Free →
+      </a>
+    </div>
+  </div>
+
+  <!-- KEYWORD GUIDES & ADVICE -->
+  <div class="info-card">
+    <div class="info-card-header">
+      <i class="fa-solid fa-key" style="color:#ea580c;"></i>
+      High-Yield ATS Keywords for System Administrator
+    </div>
+    <p style="font-size:13.5px; color:#475569; margin-bottom:14px;">
+      Applicant Tracking Systems scan for these specific technical and functional skills. Include them in your experience bullets to rank in recruiter searches:
+    </p>
+    <div class="skills-tags-wrap">
+      <span class="vibrant-tag">Linux (Ubuntu/CentOS)</span><span class="vibrant-tag">Bash Scripting</span><span class="vibrant-tag">Active Directory</span><span class="vibrant-tag">Networking</span><span class="vibrant-tag">DNS</span><span class="vibrant-tag">SSL</span>
+    </div>
+  </div>
+
+  <!-- FAQS -->
+  <div class="faq-wrap">
+    <h3 style="font-family:var(--font-heading); font-size:20px; font-weight:800; color:#0f172a; margin-bottom:14px;">
+      Frequently Asked Questions for System Administrator Applications
+    </h3>
+    <div class="faq-box">
+      <h4>How do I make my System Administrator resume pass automated ATS scans?</h4>
+      <p>Keep your layout single-column, use standardized section headers (Summary, Skills, Experience, Education), avoid complex tables or image charts, and weave the keywords above naturally into your project bullets.</p>
+    </div>
+    <div class="faq-box">
+      <h4>Is this System Administrator template 100% free to download?</h4>
+      <p>Yes! Resumora runs entirely client-side in your browser. There are no paywalls, credit cards, or hidden watermark fees on exported PDFs.</p>
+    </div>
+    <div class="faq-box">
+      <h4>Can I customize fonts and sections in Resumora?</h4>
+      <p>Yes, clicking the editor button loads our interactive resume builder where you can reorder sections, adjust font sizing, and generate print-ready A4 PDFs instantly.</p>
+    </div>
+  </div>
+
+  <!-- BOTTOM CONVERSION BANNER -->
+  <div class="bottom-banner">
+    <h3>Start Building Your System Administrator Resume</h3>
+    <p>Join thousands of candidates who landed interviews using Resumora's ATS-friendly formats.</p>
+    <a href="../app/" class="btn-banner-white">
+      <i class="fa-solid fa-rocket"></i> Launch Free Builder Now →
+    </a>
+  </div>
+
+  <div class="footer-links">
+    <p><a href="../index.html">← Back to Resumora Universe Home</a> | Free Image Compressor, ATS Checker & Utilities</p>
+  </div>
+</main>
+
+</body>
+</html>
