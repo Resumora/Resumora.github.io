@@ -252,14 +252,23 @@ input:focus, select:focus, textarea:focus {
 }
 
 .color-choice {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  box-shadow: 0 0 0 1px #cbd5e1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   background: var(--color);
   cursor: pointer;
-  transition: transform 0.15s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.color-choice:hover {
+  transform: translateY(-2px) scale(1.08);
+}
+
+.color-choice.active {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--color);
+  transform: scale(1.1);
 }
 
 .color-choice.active {
