@@ -17,15 +17,15 @@
   --ilove-red: #e5322d;
   --ilove-red-hover: #cb2026;
   --ilove-red-subtle: #fff1f0;
-  --ilove-surface: #f7f9fa;
+  --ilove-surface: #f4f5f7;
   --ilove-card-bg: #ffffff;
-  --ilove-border: #e6e9ed;
-  --ilove-border-hover: #cbd2d9;
-  --ilove-text-main: #1f242e;
-  --ilove-text-secondary: #5e6675;
-  --ilove-text-muted: #8792a2;
-  --ilove-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --ilove-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.07);
+  --ilove-border: #e2e5ec;
+  --ilove-border-hover: #cb2026;
+  --ilove-text-main: #161c2d;
+  --ilove-text-secondary: #4a5568;
+  --ilove-text-muted: #718096;
+  --ilove-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --ilove-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.08);
   --font-heading: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -36,8 +36,8 @@ body.dark-mode {
   --ilove-surface: #0f172a;
   --ilove-card-bg: #1e293b;
   --ilove-border: #334155;
-  --ilove-border-hover: #475569;
-  --ilove-text-main: #f1f5f9;
+  --ilove-border-hover: #e5322d;
+  --ilove-text-main: #f8fafc;
   --ilove-text-secondary: #cbd5e1;
   --ilove-text-muted: #94a3b8;
   --ilove-shadow: 0 4px 16px rgba(0,0,0,0.3);
@@ -50,105 +50,109 @@ body { font-family: var(--font-body); background-color: var(--ilove-surface); co
 
 .topbar {
   position: sticky; top: 0; z-index: 1100;
-  background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--ilove-border);
   padding: 0 24px; height: var(--header-height);
   display: flex; align-items: center; justify-content: space-between;
 }
-body.dark-mode .topbar { background: rgba(15, 23, 42, 0.96); }
+body.dark-mode .topbar { background: rgba(15, 23, 42, 0.98); }
 
 .brand-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .brand-logo-badge {
-  width: 38px; height: 38px; border-radius: 9px; background: var(--ilove-red);
+  width: 38px; height: 38px; border-radius: 8px; background: var(--ilove-red);
   display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 19px; font-weight: 700; font-family: var(--font-heading);
+  color: #fff; font-size: 20px; font-weight: 700; font-family: var(--font-heading);
 }
 .brand-title { font-family: var(--font-heading); font-size: 19px; font-weight: 700; color: var(--ilove-text-main); }
-.brand-tag { font-size: 10px; color: var(--ilove-text-muted); font-weight: 600; text-transform: uppercase; }
+.brand-tag { font-size: 10px; color: var(--ilove-text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 
 .nav-actions { display: flex; align-items: center; gap: 10px; }
 
-.uiverse-btn { border: none; background: transparent; padding: 0; cursor: pointer; display: inline-flex; font-family: var(--font-heading); text-decoration: none; }
+.uiverse-btn {
+  border: 1px solid transparent; background: transparent; padding: 0;
+  cursor: pointer; display: inline-flex; font-family: var(--font-heading); text-decoration: none;
+}
 .uiverse-btn .front {
   display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-  padding: 8px 16px; border-radius: 8px; font-size: 13.5px; font-weight: 600; transition: transform 0.15s ease;
+  padding: 8px 16px; border-radius: 6px; font-size: 13.5px; font-weight: 600; transition: all 0.15s ease;
 }
-.uiverse-btn:hover .front { transform: translateY(-1px); }
 .uiverse-btn.full-width { width: 100%; display: block; }
 .uiverse-btn.full-width .front { width: 100%; }
 
-.btn-theme-blue .front { background: var(--ilove-red); color: #fff; }
-.btn-theme-blue:hover .front { background: var(--ilove-red-hover); }
-.btn-theme-teal .front { background: #0f766e; color: #fff; }
-.btn-theme-indigo .front { background: #4338ca; color: #fff; }
-.btn-theme-emerald .front { background: #059669; color: #fff; }
-.btn-theme-sky .front { background: #0284c7; color: #fff; }
-.btn-theme-purple .front { background: #7c3aed; color: #fff; }
-.btn-theme-rose .front { background: #e11d48; color: #fff; }
-.btn-theme-amber .front { background: #d97706; color: #fff; }
-.btn-theme-slate .front { background: #f1f4f8; color: #2d3748; border: 1px solid var(--ilove-border); }
-body.dark-mode .btn-theme-slate .front { background: #1e293b; color: #f1f5f9; border-color: #334155; }
+.btn-theme-red .front { background: var(--ilove-red); color: #fff; }
+.btn-theme-red:hover .front { background: var(--ilove-red-hover); }
+
+.btn-theme-slate .front { background: var(--ilove-card-bg); color: var(--ilove-text-main); border: 1px solid var(--ilove-border); }
+.btn-theme-slate:hover .front { border-color: var(--ilove-red); color: var(--ilove-red); }
 
 .utilities-dropdown-wrapper { position: relative; }
 .utilities-dropdown-menu {
   position: absolute; top: calc(100% + 8px); left: 0; width: 280px;
   background: var(--ilove-card-bg); border: 1px solid var(--ilove-border);
-  border-radius: 10px; box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   display: none; flex-direction: column; overflow: hidden; z-index: 2500;
 }
 .utilities-dropdown-menu.active { display: flex !important; }
 .dropdown-search-box { padding: 8px 10px; border-bottom: 1px solid var(--ilove-border); background: var(--ilove-surface); }
 .dropdown-search-input { width: 100%; background: var(--ilove-card-bg); border: 1px solid var(--ilove-border); border-radius: 6px; padding: 6px 10px; font-size: 13px; color: var(--ilove-text-main); outline: 0; }
 .dropdown-items-list { overflow-y: auto; max-height: 280px; padding: 4px; }
-.dropdown-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 6px; color: var(--ilove-text-main); font-size: 13px; font-weight: 500; cursor: pointer; }
+.dropdown-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 6px; color: var(--ilove-text-main); font-size: 13px; font-weight: 500; cursor: pointer; text-decoration: none; }
 .dropdown-item i { color: var(--ilove-red); font-size: 14px; }
 .dropdown-item:hover { background: var(--ilove-red-subtle); color: var(--ilove-red); }
 
 .glass-theme-btn {
-  width: 36px; height: 36px; border-radius: 8px; background: var(--ilove-card-bg);
+  width: 36px; height: 36px; border-radius: 6px; background: var(--ilove-card-bg);
   border: 1px solid var(--ilove-border); cursor: pointer; display: inline-flex;
-  align-items: center; justify-content: center; color: var(--ilove-text-secondary); outline: 0;
+  align-items: center; justify-content: center; color: var(--ilove-text-secondary); outline: 0; transition: border-color 0.15s;
 }
+.glass-theme-btn:hover { border-color: var(--ilove-red); color: var(--ilove-red); }
 
-/* Compact iLovePDF Style Hero */
-.hero { text-align: center; padding: 32px 18px 18px 18px; max-width: 800px; margin: 0 auto; width: 100%; }
+/* iLovePDF Style Hero */
+.hero { text-align: center; padding: 42px 18px 24px 18px; max-width: 820px; margin: 0 auto; width: 100%; }
 .pill-badge {
   display: inline-flex; align-items: center; gap: 7px; background: var(--ilove-card-bg);
-  border: 1px solid var(--ilove-border); padding: 4px 12px; border-radius: 30px;
-  font-size: 12px; font-weight: 500; color: var(--ilove-text-secondary); margin-bottom: 12px;
+  border: 1px solid var(--ilove-border); padding: 4px 14px; border-radius: 30px;
+  font-size: 12px; font-weight: 500; color: var(--ilove-text-secondary); margin-bottom: 14px;
 }
 .pulse-dot { width: 7px; height: 7px; background-color: #10b981; border-radius: 50%; }
-.hero h1 { font-family: var(--font-heading); font-size: clamp(24px, 3.2vw, 34px); font-weight: 700; line-height: 1.28; margin: 0 0 8px 0; color: var(--ilove-text-main); }
+.hero h1 { font-family: var(--font-heading); font-size: clamp(26px, 3.5vw, 36px); font-weight: 700; line-height: 1.25; margin: 0 0 10px 0; color: var(--ilove-text-main); }
 .hero h1 span.gradient-text { color: var(--ilove-red); }
-.hero p { font-size: 15px; color: var(--ilove-text-secondary); max-width: 580px; margin: 0 auto 18px auto; line-height: 1.5; font-weight: 400; }
-.hero-action-row { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.hero p { font-size: 15.5px; color: var(--ilove-text-secondary); max-width: 620px; margin: 0 auto 20px auto; line-height: 1.55; }
+.hero-action-row { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
 
-/* Grid & Cards */
-.tools-section { max-width: 1300px; margin: 0 auto; padding: 6px 20px 40px 20px; width: 100%; }
-.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--ilove-border); }
-.section-header h2 { font-family: var(--font-heading); font-size: 19px; font-weight: 700; display: flex; align-items: center; gap: 8px; margin: 0; }
-.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; width: 100%; }
+/* Grid & Cards - iLovePDF Aesthetics */
+.tools-section { max-width: 1300px; margin: 0 auto; padding: 8px 20px 50px 20px; width: 100%; }
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--ilove-border); }
+.section-header h2 { font-family: var(--font-heading); font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px; margin: 0; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(295px, 1fr)); gap: 18px; width: 100%; }
 
 .glass-card {
-  background: var(--ilove-card-bg); border: 1px solid var(--ilove-border); border-radius: 12px;
-  padding: 18px; box-shadow: var(--ilove-shadow); display: flex; flex-direction: column;
-  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s; scroll-margin-top: 80px;
+  background: var(--ilove-card-bg); border: 1px solid var(--ilove-border); border-radius: 10px;
+  padding: 20px; box-shadow: var(--ilove-shadow); display: flex; flex-direction: column;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; scroll-margin-top: 80px;
 }
-.glass-card:hover { border-color: var(--ilove-border-hover); transform: translateY(-2px); box-shadow: var(--ilove-shadow-hover); }
+.glass-card:hover { border-color: var(--ilove-border-hover); transform: translateY(-3px); box-shadow: var(--ilove-shadow-hover); }
 .glass-card.highlight-card { border-color: var(--ilove-red) !important; box-shadow: 0 0 0 3px rgba(229, 50, 45, 0.15) !important; }
 
-.card-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-.card-icon { width: 42px; height: 42px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; flex-shrink: 0; }
-.icon-cyan { background: #0891b2; } .icon-blue { background: #2563eb; } .icon-indigo { background: #4f46e5; }
-.icon-rose { background: #e5322d; } .icon-emerald { background: #059669; } .icon-amber { background: #d97706; }
-.icon-purple { background: #7c3aed; }
+.card-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+.card-icon {
+  width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center;
+  justify-content: center; font-size: 20px; color: #fff; flex-shrink: 0;
+}
+/* iLovePDF inspired consistent icon colors */
+.icon-red { background: #e5322d; }
+.icon-blue { background: #1a73e8; }
+.icon-orange { background: #f37021; }
+.icon-green { background: #28a745; }
+.icon-purple { background: #6f42c1; }
+.icon-teal { background: #009688; }
 
-.card-meta h3 { font-family: var(--font-heading); font-size: 15.5px; font-weight: 600; margin: 0 0 2px 0; color: var(--ilove-text-main); }
-.card-meta p { font-size: 12px; color: var(--ilove-text-secondary); margin: 0; }
+.card-meta h3 { font-family: var(--font-heading); font-size: 16px; font-weight: 600; margin: 0 0 2px 0; color: var(--ilove-text-main); }
+.card-meta p { font-size: 12.5px; color: var(--ilove-text-secondary); margin: 0; }
 
-.tool-form { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.tool-form { display: flex; flex-direction: column; gap: 11px; flex: 1; }
 .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-label.field-label { display: block; font-size: 10.5px; font-weight: 600; color: var(--ilove-text-secondary); margin-bottom: 3px; text-transform: uppercase; }
+label.field-label { display: block; font-size: 11px; font-weight: 600; color: var(--ilove-text-secondary); margin-bottom: 3px; text-transform: uppercase; }
 
 .tool-input, .tool-select, .tool-textarea {
   width: 100%; background: var(--ilove-card-bg); border: 1px solid var(--ilove-border);
@@ -168,14 +172,14 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
 .tool-output strong { color: var(--ilove-red); }
 
 .img-drop-area {
-  border: 1.5px dashed var(--ilove-border-hover); border-radius: 8px; padding: 14px 8px;
-  text-align: center; cursor: pointer; background: var(--ilove-surface);
+  border: 1.5px dashed var(--ilove-border); border-radius: 8px; padding: 14px 8px;
+  text-align: center; cursor: pointer; background: var(--ilove-surface); transition: all 0.2s;
 }
 .img-drop-area:hover { border-color: var(--ilove-red); background: var(--ilove-red-subtle); }
-.preset-buttons { display: flex; gap: 4px; margin-bottom: 4px; }
+.preset-buttons { display: flex; gap: 5px; margin-bottom: 5px; }
 .preset-btn {
   background: var(--ilove-card-bg); border: 1px solid var(--ilove-border); border-radius: 4px;
-  padding: 3px 8px; font-size: 11px; font-weight: 600; color: var(--ilove-text-secondary); cursor: pointer;
+  padding: 4px 9px; font-size: 11px; font-weight: 600; color: var(--ilove-text-secondary); cursor: pointer;
 }
 .preset-btn:hover, .preset-btn.active { background: var(--ilove-red); color: #fff; border-color: var(--ilove-red); }
 
@@ -188,28 +192,50 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
 .modal-box {
   background: var(--ilove-card-bg); border-radius: 12px; width: 100%; max-width: 760px;
   max-height: 85vh; overflow-y: auto; box-shadow: 0 16px 40px rgba(0,0,0,0.2);
-  border: 1px solid var(--ilove-border); position: relative; padding: 20px;
+  border: 1px solid var(--ilove-border); position: relative; padding: 22px;
 }
 .modal-close {
-  position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; border-radius: 50%;
+  position: absolute; top: 14px; right: 14px; width: 32px; height: 32px; border-radius: 50%;
   background: var(--ilove-surface); border: 0; cursor: pointer; font-size: 18px; color: var(--ilove-text-secondary);
 }
 
-.country-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; margin: 10px 0; }
+.country-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; margin: 12px 0; }
 .country-btn {
-  background: var(--ilove-surface); border: 1px solid var(--ilove-border); padding: 5px 12px;
-  border-radius: 16px; font-size: 11.5px; font-weight: 600; color: var(--ilove-text-secondary); cursor: pointer; white-space: nowrap;
+  background: var(--ilove-surface); border: 1px solid var(--ilove-border); padding: 6px 14px;
+  border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--ilove-text-secondary); cursor: pointer; white-space: nowrap;
 }
 .country-btn.active, .country-btn:hover { background: var(--ilove-red); color: #fff; border-color: var(--ilove-red); }
 
+/* Clean iLovePDF Style Footer */
 .portal-footer {
   border-top: 1px solid var(--ilove-border); background: var(--ilove-card-bg);
-  padding: 20px; text-align: center; font-size: 12px; color: var(--ilove-text-secondary);
+  padding: 36px 20px 24px 20px; color: var(--ilove-text-secondary);
 }
+.footer-inner {
+  max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 16px; text-align: center;
+}
+.footer-links {
+  display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+  font-size: 13.5px; font-weight: 500;
+}
+.footer-links a {
+  color: var(--ilove-text-main); text-decoration: none; transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--ilove-red); }
+.footer-contact {
+  font-size: 13px; color: var(--ilove-text-secondary); display: flex; align-items: center; gap: 6px;
+}
+.footer-contact a { color: var(--ilove-red); text-decoration: none; font-weight: 600; }
+.footer-contact a:hover { text-decoration: underline; }
+.footer-copy {
+  font-size: 12px; color: var(--ilove-text-muted); margin-top: 6px;
+}
+
 #confettiCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 4000; }
 
 @media (max-width: 900px) {
-  .topbar { padding: 8px 14px; height: auto; flex-direction: column; gap: 8px; }
+  .topbar { padding: 10px 16px; height: auto; flex-direction: column; gap: 10px; }
   .brand-container { width: 100%; justify-content: space-between; }
   .nav-actions { width: 100%; overflow-x: auto; padding-bottom: 2px; }
   .hero h1 { font-size: 24px; }
@@ -243,10 +269,10 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
         <div class="dropdown-items-list" id="utilityDropdownList"></div>
       </div>
     </div>
-    <button class="uiverse-btn btn-theme-teal" id="navVisaBtn" type="button"><span class="front"><i class="fa-solid fa-plane-departure"></i> Visa Hub</span></button>
-    <button class="uiverse-btn btn-theme-indigo" id="navAtsBtn" type="button"><span class="front"><i class="fa-solid fa-bolt"></i> ATS Check</span></button>
+    <button class="uiverse-btn btn-theme-slate" id="navVisaBtn" type="button"><span class="front"><i class="fa-solid fa-plane-departure"></i> Visa Hub</span></button>
+    <button class="uiverse-btn btn-theme-slate" id="navAtsBtn" type="button"><span class="front"><i class="fa-solid fa-bolt"></i> ATS Check</span></button>
     <button class="glass-theme-btn" id="themeToggleBtn" type="button" title="Toggle Theme"><i class="fa-solid fa-moon" id="themeIcon"></i></button>
-    <a href="app/index.html" class="uiverse-btn btn-theme-blue"><span class="front"><i class="fa-solid fa-file-invoice"></i> Create Resume</span></a>
+    <a href="app/index.html" class="uiverse-btn btn-theme-red"><span class="front"><i class="fa-solid fa-file-invoice"></i> Create Resume</span></a>
   </div>
 </header>
 
@@ -255,9 +281,9 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
   <h1>One Portal for <span class="gradient-text">Global Careers</span> & Calculations</h1>
   <p>Every tool you need to build ATS resumes, check global study visas, and calculate daily math. 100% free and client-side.</p>
   <div class="hero-action-row">
-    <a href="app/index.html" class="uiverse-btn btn-theme-blue"><span class="front"><i class="fa-solid fa-file-lines"></i> Create My Resume (Free)</span></a>
-    <button class="uiverse-btn btn-theme-teal" id="heroVisaBtn" type="button"><span class="front"><i class="fa-solid fa-globe"></i> Study Abroad Guide</span></button>
-    <button class="uiverse-btn btn-theme-indigo" id="heroAtsBtn" type="button"><span class="front"><i class="fa-solid fa-clipboard-check"></i> Quick ATS Audit</span></button>
+    <a href="app/index.html" class="uiverse-btn btn-theme-red"><span class="front"><i class="fa-solid fa-file-lines"></i> Create My Resume (Free)</span></a>
+    <button class="uiverse-btn btn-theme-slate" id="heroVisaBtn" type="button"><span class="front"><i class="fa-solid fa-globe"></i> Study Abroad Guide</span></button>
+    <button class="uiverse-btn btn-theme-slate" id="heroAtsBtn" type="button"><span class="front"><i class="fa-solid fa-clipboard-check"></i> Quick ATS Audit</span></button>
   </div>
 </section>
 
@@ -271,13 +297,13 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
     <!-- Image Compressor -->
     <div class="glass-card" id="tool-image-compressor">
       <div class="card-top">
-        <div class="card-icon icon-cyan"><i class="fa-solid fa-file-image"></i></div>
+        <div class="card-icon icon-teal"><i class="fa-solid fa-file-image"></i></div>
         <div class="card-meta"><h3>Image Compressor</h3><p>Exact 20KB, 50KB or custom limit</p></div>
       </div>
       <div class="tool-form">
         <div class="img-drop-area" id="imgDropZone" onclick="document.getElementById('imgFileInput').click()">
           <input type="file" id="imgFileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
-          <i class="fa-solid fa-cloud-arrow-up" style="font-size:20px;color:var(--ilove-red)"></i>
+          <i class="fa-solid fa-cloud-arrow-up" style="font-size:22px;color:var(--ilove-red)"></i>
           <p style="font-size:12px;font-weight:600;margin:4px 0 0 0" id="imgUploadPrompt">Click or Drag Image</p>
         </div>
         <div>
@@ -297,10 +323,10 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
           <input type="checkbox" id="imgKeepRatio" checked style="cursor:pointer">
           <label for="imgKeepRatio" style="font-size:11.5px;color:var(--ilove-text-secondary);cursor:pointer">Keep Ratio</label>
         </div>
-        <button class="uiverse-btn btn-theme-teal full-width" id="compressImageBtn" type="button"><span class="front"><i class="fa-solid fa-compress"></i> Compress & Optimize</span></button>
+        <button class="uiverse-btn btn-theme-red full-width" id="compressImageBtn" type="button"><span class="front"><i class="fa-solid fa-compress"></i> Compress & Optimize</span></button>
         <div class="tool-output" id="imgCompressOutput" style="display:none;flex-direction:column;align-items:flex-start;gap:6px">
           <span id="imgSizeSummary" style="font-size:11.5px">Ready</span>
-          <a id="imgDownloadLink" class="uiverse-btn btn-theme-emerald" download="optimized.jpg"><span class="front" style="padding:5px 12px;font-size:11px"><i class="fa-solid fa-download"></i> Download</span></a>
+          <a id="imgDownloadLink" class="uiverse-btn btn-theme-red" download="optimized.jpg"><span class="front" style="padding:5px 12px;font-size:11px"><i class="fa-solid fa-download"></i> Download</span></a>
         </div>
       </div>
     </div>
@@ -313,7 +339,7 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
       </div>
       <div class="tool-form">
         <div><label class="field-label">Upload Word File</label><input type="file" id="wordToPdfFile" class="tool-input" accept=".docx,.doc"></div>
-        <button class="uiverse-btn btn-theme-blue full-width" id="convertWordToPdfBtn" type="button"><span class="front"><i class="fa-solid fa-file-pdf"></i> Convert to PDF</span></button>
+        <button class="uiverse-btn btn-theme-red full-width" id="convertWordToPdfBtn" type="button"><span class="front"><i class="fa-solid fa-file-pdf"></i> Convert to PDF</span></button>
         <div class="tool-output" id="wordToPdfOutput">Upload DOCX & click Convert</div>
       </div>
     </div>
@@ -321,12 +347,12 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
     <!-- PDF to Word -->
     <div class="glass-card" id="tool-pdf-to-word">
       <div class="card-top">
-        <div class="card-icon icon-indigo"><i class="fa-solid fa-file-lines"></i></div>
+        <div class="card-icon icon-blue"><i class="fa-solid fa-file-lines"></i></div>
         <div class="card-meta"><h3>PDF to Word</h3><p>Extract tables & text to DOCX</p></div>
       </div>
       <div class="tool-form">
         <div><label class="field-label">Upload PDF Document</label><input type="file" id="pdfToWordFile" class="tool-input" accept="application/pdf"></div>
-        <button class="uiverse-btn btn-theme-indigo full-width" id="convertPdfToWordBtn" type="button"><span class="front"><i class="fa-solid fa-file-word"></i> Convert to Word</span></button>
+        <button class="uiverse-btn btn-theme-red full-width" id="convertPdfToWordBtn" type="button"><span class="front"><i class="fa-solid fa-file-word"></i> Convert to Word</span></button>
         <div class="tool-output" id="pdfToWordOutput">Upload PDF & click Convert</div>
       </div>
     </div>
@@ -334,12 +360,12 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
     <!-- PDF Merger -->
     <div class="glass-card" id="tool-pdf-merger">
       <div class="card-top">
-        <div class="card-icon icon-rose"><i class="fa-solid fa-file-pdf"></i></div>
+        <div class="card-icon icon-red"><i class="fa-solid fa-file-pdf"></i></div>
         <div class="card-meta"><h3>PDF Merger</h3><p>Merge multiple PDF files</p></div>
       </div>
       <div class="tool-form">
         <div><label class="field-label">Select 2+ PDF Files</label><input type="file" id="pdfMergeFiles" class="tool-input" accept="application/pdf" multiple></div>
-        <button class="uiverse-btn btn-theme-amber full-width" id="mergePdfBtn" type="button"><span class="front"><i class="fa-solid fa-object-group"></i> Merge PDFs</span></button>
+        <button class="uiverse-btn btn-theme-red full-width" id="mergePdfBtn" type="button"><span class="front"><i class="fa-solid fa-object-group"></i> Merge PDFs</span></button>
         <div class="tool-output" id="pdfMergeOutput">Select files to merge</div>
       </div>
     </div>
@@ -347,7 +373,7 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
     <!-- PDF Splitter -->
     <div class="glass-card" id="tool-pdf-splitter">
       <div class="card-top">
-        <div class="card-icon icon-rose"><i class="fa-solid fa-scissors"></i></div>
+        <div class="card-icon icon-orange"><i class="fa-solid fa-scissors"></i></div>
         <div class="card-meta"><h3>PDF Splitter</h3><p>Extract page range</p></div>
       </div>
       <div class="tool-form">
@@ -356,7 +382,7 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
           <div><label class="field-label">From</label><input type="number" id="splitFrom" class="tool-input" value="1" min="1"></div>
           <div><label class="field-label">To</label><input type="number" id="splitTo" class="tool-input" value="2" min="1"></div>
         </div>
-        <button class="uiverse-btn btn-theme-rose full-width" id="splitPdfBtn" type="button"><span class="front"><i class="fa-solid fa-file-export"></i> Split & Download</span></button>
+        <button class="uiverse-btn btn-theme-red full-width" id="splitPdfBtn" type="button"><span class="front"><i class="fa-solid fa-file-export"></i> Split & Download</span></button>
         <div class="tool-output" id="pdfSplitOutput">Upload PDF & set page range</div>
       </div>
     </div>
@@ -364,12 +390,12 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
     <!-- Age Calculator -->
     <div class="glass-card" id="tool-age">
       <div class="card-top">
-        <div class="card-icon icon-cyan"><i class="fa-solid fa-calendar-day"></i></div>
+        <div class="card-icon icon-teal"><i class="fa-solid fa-calendar-day"></i></div>
         <div class="card-meta"><h3>Age Calculator</h3><p>Years, months, days chrono</p></div>
       </div>
       <div class="tool-form">
         <div><label class="field-label">Date of Birth</label><input type="date" id="ageDob" class="tool-input" value="2000-01-01"></div>
-        <button class="uiverse-btn btn-theme-sky full-width" id="calcAgeBtn" type="button"><span class="front"><i class="fa-solid fa-calendar-check"></i> Compute Age</span></button>
+        <button class="uiverse-btn btn-theme-red full-width" id="calcAgeBtn" type="button"><span class="front"><i class="fa-solid fa-calendar-check"></i> Compute Age</span></button>
         <div class="tool-output" id="ageResult">Enter DOB and calculate</div>
       </div>
     </div>
@@ -386,7 +412,7 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
           <div><label class="field-label">Rate (%)</label><input type="number" id="emiRate" class="tool-input" value="9.5" step="0.1"></div>
         </div>
         <div><label class="field-label">Tenure (Months)</label><input type="number" id="emiTenure" class="tool-input" value="36"></div>
-        <button class="uiverse-btn btn-theme-blue full-width" id="calcEmiBtn" type="button"><span class="front"><i class="fa-solid fa-coins"></i> Calculate EMI</span></button>
+        <button class="uiverse-btn btn-theme-red full-width" id="calcEmiBtn" type="button"><span class="front"><i class="fa-solid fa-coins"></i> Calculate EMI</span></button>
         <div class="tool-output" id="emiResult">Monthly EMI: ₹16,016</div>
       </div>
     </div>
@@ -394,7 +420,7 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
     <!-- GST Calculator -->
     <div class="glass-card" id="tool-gst">
       <div class="card-top">
-        <div class="card-icon icon-emerald"><i class="fa-solid fa-receipt"></i></div>
+        <div class="card-icon icon-green"><i class="fa-solid fa-receipt"></i></div>
         <div class="card-meta"><h3>GST Calculator</h3><p>Inclusive & Exclusive slabs</p></div>
       </div>
       <div class="tool-form">
@@ -408,7 +434,7 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
           <label class="field-label">Type</label>
           <select id="gstType" class="tool-select"><option value="exclusive">Exclusive (Add GST)</option><option value="inclusive">Inclusive (Remove GST)</option></select>
         </div>
-        <button class="uiverse-btn btn-theme-emerald full-width" id="calcGstBtn" type="button"><span class="front"><i class="fa-solid fa-receipt"></i> Calculate GST</span></button>
+        <button class="uiverse-btn btn-theme-red full-width" id="calcGstBtn" type="button"><span class="front"><i class="fa-solid fa-receipt"></i> Calculate GST</span></button>
         <div class="tool-output" id="gstResult">Total: ₹11,800 (GST: ₹1,800)</div>
       </div>
     </div>
@@ -416,7 +442,7 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
     <!-- Salary Breakdown -->
     <div class="glass-card" id="tool-salary">
       <div class="card-top">
-        <div class="card-icon icon-indigo"><i class="fa-solid fa-money-bill-wave"></i></div>
+        <div class="card-icon icon-purple"><i class="fa-solid fa-money-bill-wave"></i></div>
         <div class="card-meta"><h3>Salary Breakdown</h3><p>In-hand monthly estimate</p></div>
       </div>
       <div class="tool-form">
@@ -426,7 +452,7 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
             <select id="salaryPf" class="tool-select"><option value="standard">Standard PF (₹1,800)</option><option value="12">12% Basic</option><option value="0">None</option></select>
           </div>
         </div>
-        <button class="uiverse-btn btn-theme-indigo full-width" id="calcSalaryBtn" type="button"><span class="front"><i class="fa-solid fa-hand-holding-dollar"></i> Estimate In-Hand</span></button>
+        <button class="uiverse-btn btn-theme-red full-width" id="calcSalaryBtn" type="button"><span class="front"><i class="fa-solid fa-hand-holding-dollar"></i> Estimate In-Hand</span></button>
         <div class="tool-output" id="salaryResult">Monthly In-Hand: ~₹88,200</div>
       </div>
     </div>
@@ -459,7 +485,7 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
       <p style="font-size:12px;color:var(--ilove-text-secondary);margin:0">Audited using enterprise parser standards</p>
     </div>
     <textarea id="atsResumeInput" class="tool-textarea" style="min-height:90px" placeholder="Paste resume plain text here..."></textarea>
-    <button class="uiverse-btn btn-theme-indigo full-width" id="runAtsCheckBtn" type="button" style="margin-top:8px"><span class="front"><i class="fa-solid fa-wand-magic-sparkles"></i> Audit My Resume</span></button>
+    <button class="uiverse-btn btn-theme-red full-width" id="runAtsCheckBtn" type="button" style="margin-top:8px"><span class="front"><i class="fa-solid fa-wand-magic-sparkles"></i> Audit My Resume</span></button>
     <div id="atsResultBox" style="display:none;margin-top:12px;border-top:1px solid var(--ilove-border);padding-top:10px">
       <div style="text-align:center;font-size:24px;font-weight:700;color:var(--ilove-red)" id="atsScoreVal">88</div>
       <div id="atsAnalysisList" style="font-size:12px;margin-top:8px"></div>
@@ -467,30 +493,28 @@ body.dark-mode .tool-output { background: #0f172a; border-color: #334155; }
   </div>
 </div>
 
+<!-- Footer with Restored Pages & Contact Email -->
 <footer class="portal-footer">
-  <p>&copy; 2026 Resumora Universe. 100% Free Career Infrastructure & Web Utilities.</p>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="about.html">About Us</a>
+      <span>•</span>
+      <a href="contact.html">Contact Us</a>
+      <span>•</span>
+      <a href="terms.html">Terms of Service</a>
+      <span>•</span>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-contact">
+      <i class="fa-regular fa-envelope"></i> Support: <a href="mailto:contact@resumora.com">contact@resumora.com</a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2026 Resumora Universe. All rights reserved. Free Career Infrastructure & Web Utilities.
+    </div>
+  </div>
 </footer>
 
 <script>
-// Chime Audio
-let audioCtx = null;
-function playChime(freq = 520, type = 'sine', duration = 0.12) {
-  try {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = type; osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-    osc.connect(gain); gain.connect(audioCtx.destination);
-    osc.start(); osc.stop(audioCtx.currentTime + duration);
-  } catch(e) {}
-}
-document.addEventListener('click', (e) => {
-  if (e.target.closest('button, .uiverse-btn, .dropdown-item, .preset-btn')) playChime(560);
-});
-
 // Theme Management
 const themeToggleBtn = document.getElementById('themeToggleBtn');
 const themeIcon = document.getElementById('themeIcon');
@@ -596,7 +620,7 @@ function buildUtilities() {
     if (title) {
       const item = document.createElement('div');
       item.className = 'dropdown-item';
-      item.innerHTML = `<i class="fa-solid fa-bolt"></i><span>${title}</span>`;
+      item.innerHTML = `<i class="fa-solid fa-screwdriver-wrench"></i><span>${title}</span>`;
       item.onclick = () => {
         utilityMenu.classList.remove('active');
         c.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -646,7 +670,7 @@ document.getElementById('runAtsCheckBtn').onclick = () => {
   if (txt.length < 30) { alert('Please enter at least 30 characters of resume text.'); return; }
   const score = Math.min(95, Math.max(50, Math.floor(txt.length / 8)));
   document.getElementById('atsScoreVal').textContent = score + '/100';
-  document.getElementById('atsAnalysisList').innerHTML = `<div style="color:#059669">✓ Basic contact parameters identified</div><div>▲ Recommendation: Add more quantifiable metrics and power verbs.</div>`;
+  document.getElementById('atsAnalysisList').innerHTML = `<div style="color:#28a745">✓ Basic contact parameters identified</div><div>▲ Recommendation: Add more quantifiable metrics and power verbs.</div>`;
   document.getElementById('atsResultBox').style.display = 'block';
 };
 </script>
