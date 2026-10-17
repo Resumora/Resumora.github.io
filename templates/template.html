@@ -10,6 +10,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://resumora.github.io/templates/template.html">
 
+<!-- Open Graph / Social Cards -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://resumora.github.io/templates/template.html">
 <meta property="og:title" content="Free ATS Resume Templates Directory & Preview - Resumora">
@@ -32,8 +33,18 @@
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://resumora.github.io/" },
-          { "@type": "ListItem", "position": 2, "name": "Resume Templates", "item": "https://resumora.github.io/templates/template.html" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://resumora.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Resume Templates",
+            "item": "https://resumora.github.io/templates/template.html"
+          }
         ]
       }
     }
@@ -63,7 +74,10 @@
   --topbar-bg: #ffffff;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   width: 100%;
   max-width: 100%;
@@ -73,8 +87,14 @@ html, body {
   color: var(--text-main);
   font-family: var(--font-body);
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Sticky Topbar Navigation (Matching Homepage Exactly) --- */
 .topbar {
   position: -webkit-sticky;
   position: sticky;
@@ -101,6 +121,7 @@ html, body {
   cursor: pointer;
   flex-shrink: 0;
 }
+
 .brand-logo-badge {
   width: 36px;
   height: 36px;
@@ -114,6 +135,7 @@ html, body {
   font-weight: 800;
   font-family: var(--font-heading);
 }
+
 .brand-title {
   font-family: var(--font-heading);
   font-size: 20px;
@@ -121,6 +143,7 @@ html, body {
   letter-spacing: -0.5px;
   color: #0f172a;
 }
+
 .brand-tag {
   font-size: 9.5px;
   color: var(--text-muted);
@@ -136,6 +159,7 @@ html, body {
   margin-left: 20px;
   flex: 1;
 }
+
 .ilove-nav-link {
   text-decoration: none;
   font-size: 13.5px;
@@ -154,7 +178,10 @@ html, body {
   transition: color 0.15s ease;
   white-space: nowrap;
 }
-.ilove-nav-link:hover, .ilove-nav-link.active { color: var(--primary); }
+
+.ilove-nav-link:hover, .ilove-nav-link.active {
+  color: var(--primary);
+}
 
 .nav-actions-right {
   display: flex;
@@ -162,6 +189,7 @@ html, body {
   gap: 12px;
   flex-shrink: 0;
 }
+
 .btn-ilove-cta {
   background: var(--primary);
   color: #ffffff !important;
@@ -176,7 +204,10 @@ html, body {
   transition: background 0.2s ease;
   white-space: nowrap;
 }
-.btn-ilove-cta:hover { background: var(--primary-hover); }
+
+.btn-ilove-cta:hover {
+  background: var(--primary-hover);
+}
 
 .glass-theme-btn {
   width: 36px;
@@ -194,8 +225,14 @@ html, body {
   outline: 0;
   flex-shrink: 0;
 }
-.glass-theme-btn:hover { background: #f8fafc; color: var(--primary); }
 
+.glass-theme-btn:hover {
+  background: #f8fafc;
+  color: var(--primary);
+  border-color: #94a3b8;
+}
+
+/* Breadcrumb Bar */
 .breadcrumb-wrap {
   max-width: 1240px;
   margin: 18px auto 0 auto;
@@ -206,9 +243,16 @@ html, body {
   align-items: center;
   gap: 8px;
 }
-.breadcrumb-wrap a { color: var(--text-muted); text-decoration: none; }
-.breadcrumb-wrap a:hover { color: var(--primary); }
+.breadcrumb-wrap a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.breadcrumb-wrap a:hover {
+  color: var(--primary);
+}
 
+/* Hero Header */
 .hub-hero {
   text-align: center;
   padding: 35px 20px 25px 20px;
@@ -231,6 +275,7 @@ html, body {
   margin-bottom: 24px;
 }
 
+/* Search Bar */
 .search-filter-box {
   max-width: 620px;
   margin: 0 auto 20px auto;
@@ -261,6 +306,7 @@ html, body {
   font-size: 16px;
 }
 
+/* Filter Tabs */
 .filter-tabs {
   display: flex;
   justify-content: center;
@@ -286,11 +332,13 @@ html, body {
   box-shadow: 0 3px 10px rgba(229, 50, 45, 0.25);
 }
 
+/* Main Container */
 .directory-container {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 20px 60px 20px;
 }
+
 .section-group-title {
   font-family: var(--font-heading);
   font-size: 21px;
@@ -304,11 +352,13 @@ html, body {
   padding-bottom: 10px;
 }
 
+/* Template Cards Grid */
 .template-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
+
 .template-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -325,6 +375,7 @@ html, body {
   border-color: var(--primary);
   box-shadow: var(--card-shadow-hover);
 }
+
 .card-badge {
   font-size: 11px;
   font-weight: 800;
@@ -334,6 +385,7 @@ html, body {
   margin-bottom: 6px;
   display: inline-block;
 }
+
 .card-title {
   font-family: var(--font-heading);
   font-size: 17px;
@@ -342,17 +394,20 @@ html, body {
   line-height: 1.35;
   margin-bottom: 8px;
 }
+
 .card-desc {
   font-size: 13px;
   color: var(--text-muted);
   line-height: 1.5;
   margin-bottom: 16px;
 }
+
 .card-btn-row {
   display: flex;
   gap: 8px;
   margin-top: auto;
 }
+
 .btn-preview {
   flex: 1;
   background: #f1f5f9;
@@ -369,7 +424,10 @@ html, body {
   gap: 6px;
   transition: all 0.15s ease;
 }
-.btn-preview:hover { background: #e2e8f0; color: var(--primary); }
+.btn-preview:hover {
+  background: #e2e8f0;
+  color: var(--primary);
+}
 
 .btn-edit-direct {
   flex: 1;
@@ -387,9 +445,11 @@ html, body {
   gap: 6px;
   transition: background 0.15s ease;
 }
-.btn-edit-direct:hover { background: var(--primary-hover); }
+.btn-edit-direct:hover {
+  background: var(--primary-hover);
+}
 
-/* Quick Tools */
+/* Quick Tools Row */
 .tools-quick-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -429,7 +489,7 @@ html, body {
   flex-shrink: 0;
 }
 
-/* Modal */
+/* Template Preview Modal (Working Function) */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -441,7 +501,9 @@ html, body {
   justify-content: center;
   padding: 16px;
 }
-.modal-overlay.active { display: flex !important; }
+.modal-overlay.active {
+  display: flex !important;
+}
 
 .modal-box {
   background: #ffffff;
@@ -455,6 +517,7 @@ html, body {
   position: relative;
   padding: 26px;
 }
+
 .modal-close {
   position: absolute;
   top: 16px;
@@ -471,13 +534,18 @@ html, body {
   color: #475569;
   font-size: 18px;
 }
-.modal-close:hover { background: #e2e8f0; color: #0f172a; }
+.modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
 
+/* Resume Paper Simulation in Preview */
 .resume-paper {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 28px 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   font-family: var(--font-body);
   color: #0f172a;
   margin-top: 16px;
@@ -502,8 +570,12 @@ html, body {
   color: #334155;
   line-height: 1.6;
 }
-.resume-paper ul { padding-left: 18px; margin-bottom: 12px; }
+.resume-paper ul {
+  padding-left: 18px;
+  margin-bottom: 12px;
+}
 
+/* SEO Content & Footer */
 .seo-text-section {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -527,6 +599,7 @@ html, body {
 }
 
 .portal-footer {
+  position: relative;
   border-top: 1px solid #e2e8f0;
   background: #ffffff;
   padding: 28px 16px;
@@ -535,18 +608,21 @@ html, body {
   color: var(--text-muted);
 }
 
-/* Dark Mode */
+/* Dark Mode Support */
 body.dark-mode {
   --bg-page: #0f172a;
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --card-bg: #1e293b;
   --card-border: #334155;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --card-shadow-hover: 0 10px 25px rgba(229, 50, 45, 0.25);
   --topbar-bg: #1e293b;
 }
 body.dark-mode .topbar { border-bottom-color: #334155; }
 body.dark-mode .brand-title { color: #ffffff; }
 body.dark-mode .ilove-nav-link { color: #cbd5e1; }
+body.dark-mode .ilove-nav-link:hover { color: #ff6b6b; }
 body.dark-mode .glass-theme-btn { background: #334155; border-color: #475569; color: #facc15; }
 body.dark-mode .hub-hero h1 { color: #ffffff; }
 body.dark-mode .search-input-field { background: #1e293b; border-color: #334155; color: #f8fafc; }
@@ -577,6 +653,7 @@ body.dark-mode .portal-footer { background: #1e293b; border-color: #334155; }
 </head>
 <body>
 
+<!-- STICKY TOPBAR HEADER -->
 <header class="topbar">
   <a href="../index.html" class="brand-container" aria-label="Resumora Universe Home">
     <div class="brand-logo-badge">R</div>
@@ -604,12 +681,14 @@ body.dark-mode .portal-footer { background: #1e293b; border-color: #334155; }
   </div>
 </header>
 
+<!-- Breadcrumb -->
 <div class="breadcrumb-wrap">
   <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
   <span>/</span>
   <span style="color:#0f172a;font-weight:700;">ATS Resume Templates Directory</span>
 </div>
 
+<!-- HERO & SEARCH -->
 <section class="hub-hero">
   <h1>Free ATS Resume Templates & Live Preview</h1>
   <p>
@@ -630,6 +709,7 @@ body.dark-mode .portal-footer { background: #1e293b; border-color: #334155; }
   </div>
 </section>
 
+<!-- MAIN DIRECTORY CONTENT -->
 <main class="directory-container">
 
   <!-- Core PDF & Image Tools Row -->
@@ -1051,7 +1131,7 @@ const previewData = {
       <h2>ANANYA IYER</h2>
       <p style="font-weight:600;color:#64748b;margin-bottom:12px;">Bengaluru, India • ananya.iyer@email.com • +91 98123 45678</p>
       <h2>PROFILE</h2>
-      <p>HR Generalist with 4+ years spearheading talent acquisition, employee relations, HR compliance, and payroll administration across fast-paced technology organizations.</p>
+      <p>HR Generalist with 4+ years spearheading talent acquisition, employee engagement, HR compliance, and payroll administration across fast-paced technology organizations.</p>
       <h2>EXPERIENCE</h2>
       <h3>HR Generalist • Nexa Solutions</h3>
       <p style="font-size:12px;color:#64748b;font-style:italic;">2022 – Present</p>
