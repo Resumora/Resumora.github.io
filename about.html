@@ -1,59 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Resumora.github.io</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --card-bg: #f8fafc;
-      --text: #0f172a;
-      --muted: #475569;
-      --primary: #0284c7;
-      --border: #e2e8f0;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      padding: 2rem 1rem;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 2.5rem;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    }
-    h1 { font-size: 2rem; margin-bottom: 1rem; color: var(--primary); }
-    h2 { font-size: 1.3rem; margin-top: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
-    p { margin-bottom: 1rem; color: var(--muted); }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back-nav { margin-bottom: 1.5rem; font-size: 0.95rem; }
-    <!-- Google AdSense Verification Tag -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+<title>About Us - Resumora Universe & Free PDF Productivity Platform</title>
+<meta name="description" content="Learn about Resumora Universe — our mission to provide 100% free ATS resume building, client-side document utilities, PDF converters, and global immigration intelligence without fees or paywalls.">
+<meta name="keywords" content="about Resumora, free resume builder, privacy first PDF tools, ATS resume creator, client-side document converter">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://resumora.github.io/about.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://resumora.github.io/about.html">
+<meta property="og:title" content="About Us - Resumora Universe">
+<meta property="og:description" content="Empowering job seekers and students globally with zero-cost, high-performance career tools and client-side PDF utilities.">
+<meta property="og:site_name" content="Resumora">
+
+<!-- Google AdSense Verification Tag -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8968728526572963" crossorigin="anonymous"></script>
-  </style>
+
+<!-- Structured Data Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://resumora.github.io/about.html#about",
+      "name": "About Resumora Universe",
+      "url": "https://resumora.github.io/about.html",
+      "description": "Information about Resumora's mission, technology, and free client-side career tools.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://resumora.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About Us",
+            "item": "https://resumora.github.io/about.html"
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+  --bg-page: #f8fafc;
+  --primary: #e5322d;
+  --primary-hover: #c8231e;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --topbar-bg: #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-body);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Sticky Topbar */
+.topbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+  background: var(--topbar-bg);
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.brand-logo-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #e5322d 0%, #b91c1c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  font-family: var(--font-heading);
+}
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #0f172a;
+}
+.brand-tag {
+  font-size: 9.5px;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.nav-links-center {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 20px;
+  flex: 1;
+}
+.ilove-nav-link {
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #1e293b;
+  padding: 16px 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-family: var(--font-heading);
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+.ilove-nav-link:hover, .ilove-nav-link.active { color: var(--primary); }
+
+.nav-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.btn-ilove-cta {
+  background: var(--primary);
+  color: #ffffff !important;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+.btn-ilove-cta:hover { background: var(--primary-hover); }
+
+.glass-theme-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  outline: 0;
+  flex-shrink: 0;
+}
+.glass-theme-btn:hover { background: #f8fafc; color: var(--primary); }
+
+/* Main Content Container */
+.page-container {
+  max-width: 860px;
+  margin: 30px auto 60px auto;
+  padding: 0 20px;
+}
+.content-box {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 36px;
+  box-shadow: var(--card-shadow);
+}
+.breadcrumb {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.breadcrumb a { color: var(--text-muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--primary); }
+
+h1 {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+h2 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 26px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #fee2e2;
+  padding-bottom: 6px;
+}
+p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+ul {
+  margin-left: 20px;
+  margin-bottom: 18px;
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+li { margin-bottom: 8px; }
+
+/* Highlights Box */
+.highlight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+.highlight-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 18px;
+}
+.highlight-item h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.highlight-item p {
+  font-size: 13.5px;
+  margin: 0;
+}
+
+/* Footer */
+.portal-footer {
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+  padding: 28px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  --bg-page: #0f172a;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --topbar-bg: #1e293b;
+}
+body.dark-mode .topbar { border-bottom-color: #334155; }
+body.dark-mode .brand-title { color: #ffffff; }
+body.dark-mode .ilove-nav-link { color: #cbd5e1; }
+body.dark-mode .glass-theme-btn { background: #334155; border-color: #475569; color: #facc15; }
+body.dark-mode h1, body.dark-mode h2 { color: #ffffff; }
+body.dark-mode .highlight-item { background: #0f172a; border-color: #334155; }
+body.dark-mode .highlight-item h3 { color: #ffffff; }
+body.dark-mode .portal-footer { background: #1e293b; border-color: #334155; }
+
+@media (max-width: 900px) {
+  .topbar { padding: 0 14px; height: auto; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; gap: 10px; }
+  .nav-links-center { order: 3; width: 100%; margin-left: 0; overflow-x: auto; padding-bottom: 4px; gap: 16px; }
+  .ilove-nav-link { padding: 6px 2px; font-size: 12.5px; }
+  .nav-actions-right { margin-left: auto; }
+  .content-box { padding: 22px 18px; }
+  .highlight-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="back-nav"><a href="/">← Back to Home</a></div>
-    <h1>About Resumora.github.io</h1>
-    <p>Welcome to Resumora.github.io, a fast, lightweight, and intuitive tool designed to help professionals and students build polished, ATS-ready resumes effortlessly.</p>
-    
-    <h2>Our Mission</h2>
-    <p>Our goal is to eliminate bloated layouts, hidden paywalls, and frustrating formatting issues. We believe clean, high-performance tools should be accessible directly in your browser without requiring complex software installations.</p>
 
-    <h2>Client-Side Security & Speed</h2>
-    <p>Resumora.github.io runs entirely client-side, meaning your personal details, career history, and sensitive data remain strictly inside your browser. We do not store or sell your personal career documents.</p>
+<!-- STICKY TOPBAR HEADER -->
+<header class="topbar">
+  <a href="index.html" class="brand-container" aria-label="Resumora Universe Home">
+    <div class="brand-logo-badge">R</div>
+    <div>
+      <div class="brand-title">Resumora</div>
+      <div class="brand-tag">PDF & Productivity</div>
+    </div>
+  </a>
 
-    <h2>Continuous Improvement</h2>
-    <p>We are constantly expanding our utility features—from resume export options to everyday document and image utilities—to give you a smooth, distraction-free workflow.</p>
+  <nav class="nav-links-center">
+    <a href="index.html#tool-pdf-merger" class="ilove-nav-link">MERGE PDF</a>
+    <a href="index.html#tool-pdf-splitter" class="ilove-nav-link">SPLIT PDF</a>
+    <a href="index.html#tool-image-compressor" class="ilove-nav-link">COMPRESS PDF</a>
+    <a href="index.html#tool-pdf-to-word" class="ilove-nav-link">CONVERT PDF</a>
+    <a href="template.html" class="ilove-nav-link">RESUME TEMPLATES</a>
+  </nav>
+
+  <div class="nav-actions-right">
+    <button class="glass-theme-btn" id="themeToggleBtn" type="button" aria-label="Toggle Dark and Light Mode" title="Toggle Theme">
+      <i class="fa-solid fa-moon" id="themeIcon"></i>
+    </button>
+    <a href="app/index.html" class="btn-ilove-cta" aria-label="Create My Resume">
+      <i class="fa-solid fa-file-invoice"></i> <span>Build My Resume Free</span>
+    </a>
   </div>
+</header>
+
+<!-- Main Page Body -->
+<main class="page-container">
+  <div class="breadcrumb">
+    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    <span>/</span>
+    <span style="color:var(--text-main);font-weight:700;">About Us</span>
+  </div>
+
+  <article class="content-box">
+    <h1>About Resumora Universe</h1>
+    <p>Welcome to <strong>Resumora.github.io</strong> — an engineered client-side utility portal created to empower job seekers, students, and professionals with 100% free career architecture and privacy-first document processing.</p>
+
+    <div class="highlight-grid">
+      <div class="highlight-item">
+        <h3><i class="fa-solid fa-bolt" style="color:var(--primary);"></i> 100% Free & Open Access</h3>
+        <p>No subscriptions, no hidden paywalls, and no credit cards required. High-resolution ATS resumes and PDF tools are freely accessible to everyone.</p>
+      </div>
+      <div class="highlight-item">
+        <h3><i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> Privacy-First Processing</h3>
+        <p>Resume editing and critical conversions run directly inside your client browser. We never store, sell, or index your personal career documents.</p>
+      </div>
+    </div>
+
+    <h2>Our Mission</h2>
+    <p>Modern job applications require precision formatting to bypass automated Applicant Tracking Systems (ATS) like Workday, Taleo, and Greenhouse. However, many online tools lock basic PDF downloads behind deceptive subscription trials. Resumora was built to break that cycle by offering transparent, enterprise-quality utilities at zero cost.</p>
+
+    <h2>Client-Side Architecture</h2>
+    <p>By leveraging modern WebAssembly, Canvas rendering, and client-side JavaScript APIs, operations like photo compression (to exact limits such as 20KB or 50KB), PDF page splitting, and document combining happen instantaneously on your device without transmitting unneeded data to foreign servers.</p>
+
+    <h2>Comprehensive Career & Document Ecosystem</h2>
+    <p>Beyond our resume builder and template preview hub, Resumora provides:</p>
+    <ul>
+      <li><strong>PDF Organization:</strong> Client-side PDF Merger and Page Range Splitter.</li>
+      <li><strong>Format Conversions:</strong> High-fidelity Word to PDF and PDF to Word layout translation.</li>
+      <li><strong>Asset Optimization:</strong> Adaptive binary-search image compression for government portals, visa forms, and job applications.</li>
+      <li><strong>Immigration Intelligence:</strong> Real-time visa guidelines and tuition estimates for students aspiring to settle in USA, Australia, Germany, and New Zealand.</li>
+    </ul>
+
+    <h2>Contact & Support</h2>
+    <p>Have suggestions, encountered an issue, or want to collaborate? Visit our <a href="contact.html" style="color:var(--primary);font-weight:700;text-decoration:none;">Contact Us page</a> or reach out directly at <a href="mailto:remotelyspace@gmail.com" style="color:var(--primary);font-weight:700;text-decoration:none;">remotelyspace@gmail.com</a>.</p>
+  </article>
+</main>
+
+<!-- FOOTER -->
+<footer class="portal-footer">
+  <p>&copy; 2026 Resumora Universe. 100% Free Career Infrastructure & Native Utility Matrix.</p>
+  <div style="display:flex;justify-content:center;align-items:center;gap:18px;margin:14px 0;flex-wrap:wrap;font-size:13px;font-weight:600;">
+    <a href="about.html" style="color:var(--primary);text-decoration:none;">About Us</a>
+    <span style="color:#cbd5e1">•</span>
+    <a href="privacy.html" style="color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
+    <span style="color:#cbd5e1">•</span>
+    <a href="terms.html" style="color:var(--text-muted);text-decoration:none;">Terms of Service</a>
+    <span style="color:#cbd5e1">•</span>
+    <a href="contact.html" style="color:var(--text-muted);text-decoration:none;">Contact Us</a>
+  </div>
+  <div style="text-align:center;margin-top:10px;font-size:12.5px;color:var(--text-muted)">
+    <span>Questions or Feedback? Reach out at </span>
+    <a href="mailto:remotelyspace@gmail.com" style="color:#e5322d;font-weight:600;text-decoration:none;border-bottom:1px dashed #e5322d">
+      remotelyspace@gmail.com
+    </a>
+  </div>
+</footer>
+
+<script>
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+const themeIcon = document.getElementById('themeIcon');
+function applyTheme(isDark) {
+  if (isDark) {
+    document.body.classList.add('dark-mode');
+    if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+  } else {
+    document.body.classList.remove('dark-mode');
+    if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
+  }
+  localStorage.setItem('resumora_theme', isDark ? 'dark' : 'light');
+}
+if (localStorage.getItem('resumora_theme') === 'dark') { applyTheme(true); }
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    applyTheme(!document.body.classList.contains('dark-mode'));
+  });
+}
+</script>
 </body>
 </html>
