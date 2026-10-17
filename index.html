@@ -1098,7 +1098,9 @@ label.field-label {
     <a href="#tool-pdf-to-word" class="ilove-nav-link">
       CONVERT PDF <i class="fa-solid fa-chevron-down chevron"></i>
     </a>
-    <a href="index.html" class="ilove-nav-link" style="color:var(--primary);">RESUME TEMPLATES</a>
+    
+    <!-- SAHI LINK: templates folder ke andar index.html par bhejega -->
+    <a href="templates/index.html" class="ilove-nav-link" style="color:var(--primary);">RESUME TEMPLATES</a>
 
     <!-- ALL PDF TOOLS Dropdown -->
     <div class="utilities-dropdown-wrapper">
@@ -1109,7 +1111,12 @@ label.field-label {
         <div class="dropdown-search-box">
           <input type="text" id="utilitySearchInput" class="dropdown-search-input" placeholder="Search all tools..." aria-label="Search tools">
         </div>
-        <div class="dropdown-items-list" id="utilityDropdownList"></div>
+        <div class="dropdown-items-list" id="utilityDropdownList">
+          <a href="templates/index.html" class="dropdown-item" style="color:var(--primary);font-weight:700;text-decoration:none;">
+            <i class="fa-solid fa-file-lines" style="color:var(--primary);"></i>
+            <span>ATS Resume Templates (100+ Free)</span>
+          </a>
+        </div>
       </div>
     </div>
   </nav>
