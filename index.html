@@ -1937,7 +1937,7 @@ document.getElementById('compressImageBtn').addEventListener('click', async (e) 
   outputDiv.style.display = 'flex';
 });
 
-// Image Converter Engine
+// Image Converter Engine (With Auto-Dimension Scaling for Strict Target Size)
 document.getElementById('imgConvBtn').addEventListener('click', async (e) => {
   e.preventDefault();
   const fileInput = document.getElementById('imgConvInputFile');
@@ -1948,12 +1948,12 @@ document.getElementById('imgConvBtn').addEventListener('click', async (e) => {
   const btn = document.getElementById('imgConvBtn');
 
   if (!fileInput.files || fileInput.files.length === 0) {
-    alert("Please select an image file first.");
+    alert("Pehle ek image file select karein!");
     return;
   }
 
   const file = fileInput.files[0];
-  const targetMime = formatSelect.value;
+  let targetMime = formatSelect.value;
   const targetDim = dimSelect.value;
   const targetMaxKB = sizeSelect.value === 'original' ? null : parseFloat(sizeSelect.value);
 
@@ -1965,37 +1965,58 @@ document.getElementById('imgConvBtn').addEventListener('click', async (e) => {
 
   try {
     const imgBitmap = await createImageBitmap(file);
-    let targetWidth = imgBitmap.width;
-    let targetHeight = imgBitmap.height;
+    let curW = imgBitmap.width;
+    let curH = imgBitmap.height;
 
     if (targetDim !== 'original') {
       const parts = targetDim.split('x').map(Number);
-      targetWidth = parts[0];
-      targetHeight = parts[1];
+      curW = parts[0];
+      curH = parts[1];
     }
 
     const canvas = document.createElement('canvas');
-    canvas.width = targetWidth;
-    canvas.height = targetHeight;
     const ctx = canvas.getContext('2d');
 
-    if (targetMime === 'image/jpeg' || targetMime === 'image/bmp') {
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, targetWidth, targetHeight);
-    }
-    ctx.drawImage(imgBitmap, 0, 0, targetWidth, targetHeight);
-
-    let quality = 0.95;
-    let blob = await new Promise(res => canvas.toBlob(res, targetMime, quality));
-
-    if (!blob) {
-      blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
+    // Ultra-low target sizes ke liye JPEG ensure karna
+    let mimeToUse = targetMime;
+    if (targetMaxKB && targetMaxKB <= 10 && (mimeToUse === 'image/png' || mimeToUse === 'image/bmp')) {
+      mimeToUse = 'image/jpeg';
     }
 
-    if (targetMaxKB && blob) {
-      while (blob.size / 1024 > targetMaxKB && quality > 0.05) {
-        quality -= 0.08;
-        blob = await new Promise(res => canvas.toBlob(res, targetMime, quality));
+    let bestBlob = null;
+    let quality = 0.90;
+
+    // Iterative Resize + Quality Reduction loop (Jab tak targetMaxKB achieve na ho)
+    for (let loop = 0; loop < 18; loop++) {
+      canvas.width = Math.max(16, Math.round(curW));
+      canvas.height = Math.max(16, Math.round(curH));
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (mimeToUse === 'image/jpeg' || mimeToUse === 'image/bmp') {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+      ctx.drawImage(imgBitmap, 0, 0, canvas.width, canvas.height);
+
+      bestBlob = await new Promise(res => canvas.toBlob(res, mimeToUse, quality));
+
+      if (!bestBlob) {
+        mimeToUse = 'image/jpeg';
+        bestBlob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', quality));
+      }
+
+      const currentKB = bestBlob.size / 1024;
+      if (!targetMaxKB || currentKB <= targetMaxKB) {
+        break; // Target size mil gaya!
+      }
+
+      // Quality kam karne ke baad pixels scale down karna
+      if (quality > 0.15 && (mimeToUse === 'image/jpeg' || mimeToUse === 'image/webp')) {
+        quality -= 0.18;
+      } else {
+        curW = Math.round(curW * 0.70);
+        curH = Math.round(curH * 0.70);
+        if (curW < 16 || curH < 16) break;
       }
     }
 
@@ -2007,16 +2028,16 @@ document.getElementById('imgConvBtn').addEventListener('click', async (e) => {
       'image/bmp': '.bmp',
       'image/x-icon': '.ico'
     };
-    const extension = extMap[targetMime] || '.png';
+    const extension = extMap[mimeToUse] || '.jpg';
     const baseName = file.name.substring(0, file.name.lastIndexOf('.')) || 'converted';
     const finalFileName = `${baseName}_converted${extension}`;
 
-    downloadBlob(blob, finalFileName);
-    const finalKB = (blob.size / 1024).toFixed(1);
-    outputBox.innerHTML = `Converted & Downloaded! Size: <strong>${finalKB} KB</strong> (${targetWidth}x${targetHeight})`;
+    downloadBlob(bestBlob, finalFileName);
+    const finalKB = (bestBlob.size / 1024).toFixed(2);
+    outputBox.innerHTML = `Success! Downloaded size: <strong>${finalKB} KB</strong> (${canvas.width}×${canvas.height} px)`;
   } catch (err) {
     console.error(err);
-    outputBox.innerHTML = `<span style="color:#ef4444;font-weight:600;">Conversion error: ${err.message || 'Format unsupported by browser.'}</span>`;
+    outputBox.innerHTML = `<span style="color:#ef4444;font-weight:600;">Error: ${err.message || 'File convert nahi ho saki.'}</span>`;
   } finally {
     btnFront.innerHTML = originalFront;
     btn.disabled = false;
