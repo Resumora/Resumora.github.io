@@ -702,3 +702,35 @@ input:focus, select:focus, textarea:focus {
     break-after: avoid !important;
   }
 }
+/* --- Resumora Main Page Jaisa Red Theme Topbar --- */
+
+/* 1. Center Brand Logo Badge (R) ko Red karna */
+.brand-centered .brand-logo-badge,
+.brand-logo-badge {
+  background: linear-gradient(135deg, #e5322d 0%, #b91c1c 100%) !important;
+  box-shadow: 0 2px 6px rgba(229, 50, 45, 0.25) !important;
+}
+
+/* 2. Download High-Def PDF Button ko Red karna */
+.premium-print-btn,
+#mainPrintBtn {
+  background: #e5322d !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(229, 50, 45, 0.25) !important;
+  transition: all 0.2s ease !important;
+}
+
+.premium-print-btn:hover,
+#mainPrintBtn:hover {
+  background: #c8231e !important;
+  box-shadow: 0 4px 12px rgba(229, 50, 45, 0.35) !important;
+  transform: translateY(-1px);
+}
+
+/* 3. Home aur Reset Sample button hover par Red highlight */
+.secondary-btn:hover {
+  color: #e5322d !important;
+  border-color: #fca5a5 !important;
+  background: #fef2f2 !important;
+}
