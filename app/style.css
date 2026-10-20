@@ -309,7 +309,7 @@ input:focus, select:focus, textarea:focus {
   padding-bottom: 40px;
 }
 
-/* Resume Document Standard Layout (Screen View) */
+/* Base Resume Canvas */
 .resume {
   background: #ffffff;
   color: #1e293b;
@@ -318,6 +318,7 @@ input:focus, select:focus, textarea:focus {
   overflow-wrap: break-word;
   word-break: break-word;
   box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
 }
 
 .resume.size-a4 {
@@ -345,7 +346,7 @@ input:focus, select:focus, textarea:focus {
 .resume.leading-normal { line-height: 1.4; }
 .resume.leading-relaxed { line-height: 1.55; }
 
-/* Resume Internal Components */
+/* Resume Internal Elements */
 .ats-header {
   border-bottom: 2px solid var(--primary);
   padding-bottom: 10px;
@@ -452,15 +453,160 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* ==========================================================================
-   PERFECT ATS MULTI-PAGE PRINT ENGINE (100% BULLETPROOF FIX)
+   6 ATS VERIFIED TEMPLATE STYLES (NEW FEATURE RESTORATION)
+   ========================================================================== */
+
+/* 1. Harvard Classic (Ivy League Standard - Centered & Classic) */
+.resume.template-harvard .ats-header {
+  text-align: center;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 12px;
+}
+.resume.template-harvard .ats-header h1 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+}
+.resume.template-harvard .ats-contact {
+  justify-content: center;
+}
+.resume.template-harvard .ats-section-title {
+  text-align: center;
+  border-bottom: 1.5px solid var(--primary);
+  letter-spacing: 0.08em;
+}
+
+/* 2. Stanford Modern (Clean Tech - Left-Aligned & Crisp) */
+.resume.template-stanford {
+  font-family: 'Inter', sans-serif;
+}
+.resume.template-stanford .ats-header {
+  text-align: left;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 8px;
+}
+.resume.template-stanford .ats-header h1 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.resume.template-stanford .ats-section-title {
+  background: transparent;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 2px;
+  display: inline-block;
+  width: 100%;
+}
+.resume.template-stanford .ats-entry-header strong {
+  color: var(--primary);
+}
+
+/* 3. Corporate Executive (Classic Serif throughout) */
+.resume.template-executive {
+  font-family: 'Merriweather', Georgia, serif;
+}
+.resume.template-executive .ats-header {
+  text-align: center;
+  border-bottom: 3px double var(--primary);
+  padding-bottom: 10px;
+}
+.resume.template-executive .ats-header h1 {
+  color: #0f172a;
+}
+.resume.template-executive .ats-header h2 {
+  color: var(--primary);
+  font-weight: 700;
+}
+.resume.template-executive .ats-contact {
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+.resume.template-executive .ats-section-title {
+  border-bottom: 1.5px solid #0f172a;
+  color: #0f172a;
+}
+.resume.template-executive .ats-entry-header strong {
+  color: #0f172a;
+}
+
+/* 4. Tech Minimalist (Minimal Borders & Clean Typography) */
+.resume.template-minimalist .ats-header {
+  border-bottom: none;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+.resume.template-minimalist .ats-header h1 {
+  font-size: 1.55rem;
+  letter-spacing: 0.06em;
+}
+.resume.template-minimalist .ats-section-title {
+  border-bottom: 1px dashed #cbd5e1;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+.resume.template-minimalist .ats-entry {
+  margin-bottom: 8px;
+}
+.resume.template-minimalist .ats-bullet-list {
+  padding-left: 14px;
+}
+
+/* 5. Modern Split (Accent Bar Layout) */
+.resume.template-modern-split {
+  border-left: 5px solid var(--primary);
+  padding-left: 18mm !important;
+}
+.resume.template-modern-split .ats-header {
+  border-bottom: 1px solid #e2e8f0;
+}
+.resume.template-modern-split .ats-section-title {
+  border-bottom: none;
+  border-left: 3px solid var(--primary);
+  padding-left: 8px;
+  background: #f8fafc;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+/* 6. Compact Dense (High-Info Density for 1-Page fit) */
+.resume.template-compact .ats-header {
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+.resume.template-compact .ats-header h1 {
+  font-size: 1.4rem;
+}
+.resume.template-compact .ats-header h2 {
+  font-size: 0.95rem;
+  margin-top: 1px;
+}
+.resume.template-compact .ats-contact {
+  margin-top: 4px;
+  gap: 4px 10px;
+  font-size: 0.8em;
+}
+.resume.template-compact .ats-section {
+  margin-top: 8px;
+}
+.resume.template-compact .ats-section-title {
+  margin-bottom: 4px;
+  font-size: 0.88em;
+}
+.resume.template-compact .ats-entry {
+  margin-bottom: 6px;
+}
+.resume.template-compact .ats-bullet-list li {
+  margin-bottom: 1px;
+}
+
+/* ==========================================================================
+   PERFECT ATS MULTI-PAGE PRINT ENGINE
    ========================================================================== */
 @page {
   size: A4 portrait;
-  margin: 12mm 14mm; /* Har page pe uniform ATS standard margins auto-apply honge */
+  margin: 12mm 14mm;
 }
 
 @media print {
-  /* UI aur non-printable elements ko completely hide karein */
   .no-print, 
   header.topbar, 
   aside.editor-panel, 
@@ -500,11 +646,15 @@ input:focus, select:focus, textarea:focus {
     position: static !important;
     overflow: visible !important;
     display: block !important;
-    padding: 0 !important; /* Page margins @page se control hote hain taaki page 2 cut na ho */
+    padding: 0 !important;
     margin: 0 !important;
   }
 
-  /* Multi-page clean break rules: koi bhi item aadha nahi katega */
+  .resume.template-modern-split {
+    border-left: 4px solid var(--primary) !important;
+    padding-left: 8mm !important;
+  }
+
   .ats-header {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
