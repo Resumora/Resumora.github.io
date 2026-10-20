@@ -309,7 +309,7 @@ input:focus, select:focus, textarea:focus {
   padding-bottom: 40px;
 }
 
-/* Resume Document Standard Layout (Screen Preview) */
+/* Resume Document Standard Layout (Screen View) */
 .resume {
   background: #ffffff;
   color: #1e293b;
@@ -330,10 +330,10 @@ input:focus, select:focus, textarea:focus {
   min-height: 11in;
 }
 
-/* Margin Variations */
+/* Screen Margin Padding */
 .resume.margin-compact { padding: 10mm 12mm; }
-.resume.margin-standard { padding: 15mm 16mm; }
-.resume.margin-spacious { padding: 20mm 20mm; }
+.resume.margin-standard { padding: 14mm 16mm; }
+.resume.margin-spacious { padding: 18mm 20mm; }
 
 /* Font Size Scales */
 .resume.font-sm { font-size: 9.5pt; }
@@ -356,37 +356,38 @@ input:focus, select:focus, textarea:focus {
   font-size: 1.7rem;
   font-weight: 800;
   color: var(--primary);
-  line-height: 1.1;
+  line-height: 1.15;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .ats-header h2 {
   font-size: 1.05rem;
   font-weight: 600;
   color: #475569;
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 .ats-contact {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 16px;
+  align-items: center;
+  gap: 6px 14px;
   margin-top: 8px;
   font-size: 0.85em;
   color: #475569;
+  line-height: 1.4;
 }
 
 .ats-contact span {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  white-space: nowrap;
 }
 
 .ats-section {
   margin-top: 12px;
-  page-break-inside: auto;
-  break-inside: auto;
 }
 
 .ats-section-title {
@@ -395,33 +396,33 @@ input:focus, select:focus, textarea:focus {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--primary);
-  border-bottom: 1px solid #cbd5e1;
+  border-bottom: 1.5px solid #cbd5e1;
   padding-bottom: 3px;
   margin-bottom: 8px;
-  page-break-after: avoid;
-  break-after: avoid;
 }
 
 .ats-entry {
   margin-bottom: 10px;
-  page-break-inside: avoid;
-  break-inside: avoid;
 }
 
 .ats-entry-header {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   font-weight: 700;
   font-size: 0.95em;
+  gap: 12px;
 }
 
 .ats-entry-sub {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   font-size: 0.88em;
   color: #475569;
   font-style: italic;
   margin-bottom: 4px;
+  gap: 12px;
 }
 
 .ats-bullet-list {
@@ -447,27 +448,29 @@ input:focus, select:focus, textarea:focus {
   font-size: 0.9em;
   margin-bottom: 4px;
   word-break: break-word;
-  page-break-inside: avoid;
-  break-inside: avoid;
+  overflow-wrap: break-word;
 }
 
 /* ==========================================================================
-   HIGH-DEFINITION ATS PRINT & MULTI-PAGE ENGINE (100% PRECISE FIX)
+   PERFECT ATS MULTI-PAGE PRINT ENGINE (100% BULLETPROOF FIX)
    ========================================================================== */
 @page {
-  size: auto;
-  margin: 0mm; /* Browser default header/footer aur unwanted margins remove */
+  size: A4 portrait;
+  margin: 12mm 14mm; /* Har page pe uniform ATS standard margins auto-apply honge */
 }
 
 @media print {
-  /* Screen UI Elements ko Hide karein */
-  .no-print, header, aside, .preview-toolbar {
+  /* UI aur non-printable elements ko completely hide karein */
+  .no-print, 
+  header.topbar, 
+  aside.editor-panel, 
+  .preview-toolbar {
     display: none !important;
   }
 
-  body, html {
+  html, body {
     background: #ffffff !important;
-    color: #000000 !important;
+    color: #0f172a !important;
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
@@ -476,7 +479,9 @@ input:focus, select:focus, textarea:focus {
     print-color-adjust: exact !important;
   }
 
-  .app-container, .preview-area, .resume-wrapper {
+  .app-container, 
+  .preview-area, 
+  .resume-wrapper {
     display: block !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -485,55 +490,59 @@ input:focus, select:focus, textarea:focus {
     overflow: visible !important;
   }
 
-  /* Resume Canvas Print Settings */
   .resume {
     box-shadow: none !important;
     border: none !important;
     width: 100% !important;
     max-width: 100% !important;
     min-height: auto !important;
-    transform: none !important; /* Zoom scale reset */
+    transform: none !important;
     position: static !important;
     overflow: visible !important;
     display: block !important;
+    padding: 0 !important; /* Page margins @page se control hote hain taaki page 2 cut na ho */
+    margin: 0 !important;
   }
 
-  /* Print exact margin controls */
-  .resume.size-a4 {
-    width: 210mm !important;
-    margin: 0 auto !important;
-  }
-
-  .resume.size-letter {
-    width: 8.5in !important;
-    margin: 0 auto !important;
-  }
-
-  .resume.margin-compact {
-    padding: 10mm 12mm !important;
-  }
-
-  .resume.margin-standard {
-    padding: 14mm 16mm !important;
-  }
-
-  .resume.margin-spacious {
-    padding: 18mm 20mm !important;
-  }
-
-  /* Multi-page break rules: Element ke beech me cut hone se bachaye */
-  .ats-entry, .ats-skill-line {
+  /* Multi-page clean break rules: koi bhi item aadha nahi katega */
+  .ats-header {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
+  .ats-section {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
   .ats-section-title {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
     page-break-after: avoid !important;
     break-after: avoid !important;
+    break-after: avoid-page !important;
+  }
+
+  .ats-entry, 
+  .ats-skill-line {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid-page !important;
   }
 
   .ats-bullet-list li {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
+  }
+
+  .ats-contact {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px 14px !important;
+  }
+
+  .ats-contact span {
+    display: inline-flex !important;
+    align-items: center !important;
   }
 }
