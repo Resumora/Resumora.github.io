@@ -8,16 +8,16 @@ const escapeHTML = (e = "") =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 
-// Preset profiles for job roles
+// Preset profiles for job roles (Dummy & safe placeholder details)
 const sampleProfiles = {
   "network-engineer": {
-    fullName: "Aarav Sharma",
+    fullName: "Network Engineer Example",
     jobTitle: "Senior Network & Systems Engineer",
-    email: "example@example.com",
-    phone: "+91 98*** ***10",
-    location: "Bengaluru, India",
-    linkedin: "linkedin.com/example",
-    github: "github.com/example",
+    email: "network.sample@example.com",
+    phone: "+91 98000 00001",
+    location: "City, State",
+    linkedin: "linkedin.com/in/network-example",
+    github: "github.com/network-example",
     summary: "Dedicated Network Engineer with 6+ years of experience designing, configuring, and optimizing enterprise hybrid-cloud WAN/LAN networks, next-gen firewalls, and SD-WAN architectures with 99.99% uptime compliance.",
     template: "harvard",
     color: "#2563eb",
@@ -28,15 +28,15 @@ const sampleProfiles = {
     experience: [
       {
         position: "Senior Network Engineer",
-        company: "example Partner",
-        location: "Bengaluru, India",
+        company: "Example Networks Tech Ltd",
+        location: "City, State",
         start: "2022 – Present",
         bullets: "Designed and deployed enterprise SD-WAN routing across 20+ branch offices, reducing network latency by 32%.\nConfigured Cisco ASA and Palo Alto firewalls, maintaining strict Zero-Trust compliance and security audits.\nAutomated routine switch configuration backups across 100+ nodes using Python and Netmiko."
       },
       {
         position: "Network Operations Engineer",
-        company: "exapmle Networks",
-        location: "Hyderabad, India",
+        company: "Global Infrastructure Services",
+        location: "City, State",
         start: "2019 – 2022",
         bullets: "Managed BGP and OSPF routing protocols for Tier-1 data center traffic.\nDiagnosed critical network bottlenecks using Wireshark and SolarWinds, cutting Mean Time to Resolution (MTTR) by 25%."
       }
@@ -44,14 +44,14 @@ const sampleProfiles = {
     projects: [
       {
         title: "Automated Switch Config Compliance Bot",
-        link: "github.com/exapmle",
+        link: "github.com/network-example/network-bot",
         bullets: "Built a Python-based compliance tool to verify running configurations against CIS benchmarks on 80+ network routers nightly."
       }
     ],
     education: [
       {
         degree: "B.Tech in Information Technology",
-        institution: "National Institute of Technology",
+        institution: "Example Technical University",
         year: "2015 – 2019"
       }
     ],
@@ -84,13 +84,13 @@ const sampleProfiles = {
   },
 
   "python-developer": {
-    fullName: "Rohan Patel",
+    fullName: "Python Developer Example",
     jobTitle: "Senior Python & Backend Developer",
-    email: "example@example.com",
-    phone: "+91 98*** ****4",
-    location: "Pune, India (Remote)",
-    linkedin: "linkedin.com/in/example",
-    github: "github.com/example",
+    email: "python.sample@example.com",
+    phone: "+91 98000 00002",
+    location: "City, State (Remote)",
+    linkedin: "linkedin.com/in/python-example",
+    github: "github.com/python-example",
     summary: "Performance-focused Python Backend Engineer with 5+ years of experience architecting high-throughput RESTful & GraphQL microservices, caching layers, and database optimizations that support over 2M monthly active users.",
     template: "stanford",
     color: "#0284c7",
@@ -101,15 +101,15 @@ const sampleProfiles = {
     experience: [
       {
         position: "Senior Backend Developer",
-        company: "example Labs",
-        location: "Pune, India",
+        company: "Example Software Labs",
+        location: "City, State",
         start: "2022 – Present",
         bullets: "Architected asynchronous payment processing pipelines using FastAPI, Celery, and Redis, reducing API response times by 45%.\nRefactored complex PostgreSQL relational queries, indexing strategies, and database connection pooling to handle 10k requests/sec.\nMentored 4 junior engineers on clean architecture, unit testing with PyTest, and CI/CD automation."
       },
       {
         position: "Software Engineer (Python)",
-        company: "example Solutions",
-        location: "Mumbai, India",
+        company: "Sample Digital Solutions",
+        location: "City, State",
         start: "2019 – 2022",
         bullets: "Engineered scalable web scrapers and ETL data extraction workflows using Scrapy and Pandas.\nMaintained 99.95% API uptime by implementing automated health-checks and Dockerized AWS ECS deployments."
       }
@@ -117,14 +117,14 @@ const sampleProfiles = {
     projects: [
       {
         title: "High-Speed Distributed Rate Limiter",
-        link: "github.com/example",
+        link: "github.com/python-example/rate-limiter",
         bullets: "Designed a lightweight token-bucket rate-limiting middleware for FastAPI backed by Redis Cluster with sub-millisecond overhead."
       }
     ],
     education: [
       {
         degree: "B.E. in Computer Engineering",
-        institution: "Pune University",
+        institution: "Example Engineering College",
         year: "2015 – 2019"
       }
     ],
@@ -157,13 +157,13 @@ const sampleProfiles = {
   },
 
   "php-developer": {
-    fullName: "Vikas Verma",
+    fullName: "PHP Developer Example",
     jobTitle: "Full Stack PHP / Laravel Developer",
-    email: "example@example.com",
-    phone: "+91 98*** ****5",
-    location: "Ahmedabad, India",
-    linkedin: "linkedin.com/in/example",
-    github: "github.com/example",
+    email: "php.sample@example.com",
+    phone: "+91 98000 00003",
+    location: "City, State",
+    linkedin: "linkedin.com/in/php-example",
+    github: "github.com/php-example",
     summary: "Full Stack Web Developer with 5+ years of expertise in PHP, Laravel ecosystem, MySQL database architecture, and REST API development for multi-tenant SaaS and enterprise e-commerce platforms.",
     template: "modern-split",
     color: "#e11d48",
@@ -174,15 +174,15 @@ const sampleProfiles = {
     experience: [
       {
         position: "Lead Laravel Developer",
-        company: "example Systems",
-        location: "Ahmedabad, India",
+        company: "Example Web Solutions",
+        location: "City, State",
         start: "2021 – Present",
         bullets: "Led development of a multi-tenant B2B marketplace handling $1.5M in monthly transactions using Laravel 11 and Livewire.\nIntegrated Razorpay, Stripe, and PayPal payment gateways with automated webhook event recovery mechanisms.\nOptimized MySQL queries using EXPLAIN and multi-level caching via Redis, boosting page speed by 40%."
       },
       {
         position: "PHP Developer",
-        company: "example India",
-        location: "Surat, India",
+        company: "Sample IT Services",
+        location: "City, State",
         start: "2019 – 2021",
         bullets: "Built custom REST APIs and webhook integrations for third-party shipping APIs like Shiprocket and Delhivery.\nCreated responsive admin control panels with modern Blade templates and Tailwind CSS."
       }
@@ -190,14 +190,14 @@ const sampleProfiles = {
     projects: [
       {
         title: "SaaS Subscription & Invoicing Engine",
-        link: "github.com/example",
+        link: "github.com/php-example/billing-package",
         bullets: "Developed an open-source Laravel package for managing recurring subscriptions, metered usage, and PDF invoice generation."
       }
     ],
     education: [
       {
         degree: "Bachelor of Computer Applications (BCA)",
-        institution: "Gujarat University",
+        institution: "Example State University",
         year: "2016 – 2019"
       }
     ],
@@ -225,13 +225,13 @@ const sampleProfiles = {
   },
 
   "java-developer": {
-    fullName: "Pooja Nair",
+    fullName: "Java Developer Example",
     jobTitle: "Senior Java Software Engineer",
-    email: "example@example.com",
-    phone: "+91 9*** ****6",
-    location: "Bengaluru, India",
-    linkedin: "linkedin.com/in/pooja-java",
-    github: "github.com/example",
+    email: "java.sample@example.com",
+    phone: "+91 98000 00004",
+    location: "City, State",
+    linkedin: "linkedin.com/in/java-example",
+    github: "github.com/java-example",
     summary: "Senior Java Developer with 6+ years of specialized experience in Spring Boot, Kafka, event-driven microservices, and distributed transaction management for high-concurrency banking systems.",
     template: "executive",
     color: "#ea580c",
@@ -242,15 +242,15 @@ const sampleProfiles = {
     experience: [
       {
         position: "Senior Java Software Engineer",
-        company: "Apex Core Banking Solutions",
-        location: "Bengaluru, India",
+        company: "Example Financial Technologies",
+        location: "City, State",
         start: "2021 – Present",
         bullets: "Designed and implemented microservices using Spring Boot and Spring Cloud, processing 4M+ daily transactions.\nEngineered distributed asynchronous event streaming with Apache Kafka and Schema Registry, ensuring zero message loss.\nImplemented JUnit 5 and Mockito test suites, achieving 88% overall code test coverage."
       },
       {
         position: "Java Developer",
-        company: "Infoserve Technologies",
-        location: "Chennai, India",
+        company: "Sample Infotech Ltd",
+        location: "City, State",
         start: "2018 – 2021",
         bullets: "Migrated legacy monolith Java EE apps to Spring Boot microservices deployed on Kubernetes clusters.\nOptimized Hibernate JPA queries and tuned JVM garbage collection parameters, reducing CPU spikes by 25%."
       }
@@ -258,14 +258,14 @@ const sampleProfiles = {
     projects: [
       {
         title: "Distributed Transaction Saga Coordinator",
-        link: "github.com/exapmle",
+        link: "github.com/java-example/saga-pattern",
         bullets: "Implemented an event-driven Saga pattern using Spring Boot and Kafka for ensuring eventual consistency in distributed systems."
       }
     ],
     education: [
       {
         degree: "B.Tech in Computer Science",
-        institution: "Vellore Institute of Technology (VIT)",
+        institution: "Example Institute of Technology",
         year: "2014 – 2018"
       }
     ],
@@ -298,12 +298,12 @@ const sampleProfiles = {
   },
 
   "driver": {
-    fullName: "Rajesh Kumar",
+    fullName: "Commercial Driver Example",
     jobTitle: "Professional Commercial & Heavy Vehicle Driver",
-    email: "example@example.com",
-    phone: "+91 98******7",
-    location: "Delhi NCR, India",
-    linkedin: "",
+    email: "driver.sample@example.com",
+    phone: "+91 98000 00005",
+    location: "City, State",
+    linkedin: "linkedin.com/in/driver-example",
     github: "",
     summary: "Reliable, safety-certified Professional Commercial Driver with 8+ years of experience in long-haul freight, inter-city transport, and time-critical urban delivery. 100% accident-free record with advanced route navigation and proactive vehicle maintenance skills.",
     template: "minimalist",
@@ -315,15 +315,15 @@ const sampleProfiles = {
     experience: [
       {
         position: "Senior Heavy Commercial Vehicle (HCV) Driver",
-        company: "example Logistics",
-        location: "Delhi – Mumbai Route",
+        company: "Example Logistics Fleet Ltd",
+        location: "Highway Route Services",
         start: "2020 – Present",
         bullets: "Transported high-value commercial shipments over 250,000+ safe kilometers across national highways with zero cargo damage.\nConducted pre-trip and post-trip technical vehicle inspections (brakes, tires, fluids, cargo securing).\nUtilized GPS navigation and telematics systems to avoid congestions and achieve 98.5% on-time delivery rate."
       },
       {
         position: "Fleet Delivery Driver",
-        company: "SafeWheels Transportation",
-        location: "Delhi NCR, India",
+        company: "Sample Roadways & Transport",
+        location: "City, State",
         start: "2016 – 2020",
         bullets: "Delivered sensitive medical and industrial supplies across 30+ regional hubs weekly under tight delivery deadlines.\nMaintained precise logbooks, toll vouchers, and delivery verification documentation in compliance with RTO guidelines."
       }
@@ -332,7 +332,7 @@ const sampleProfiles = {
     education: [
       {
         degree: "Senior Secondary School Certificate (10+2)",
-        institution: "Government Senior Secondary School",
+        institution: "Example Public School",
         year: "2015"
       }
     ],
@@ -358,19 +358,19 @@ const sampleProfiles = {
       },
       {
         title: "Defensive Driving & Hazardous Materials (HazMat) Safety Certificate",
-        issuer: "National Safety Council of India",
+        issuer: "National Safety Training Council",
         year: "2022"
       }
     ]
   },
 
   "warehouse-worker": {
-    fullName: "Sunil Yadav",
+    fullName: "Warehouse Associate Example",
     jobTitle: "Warehouse & Inventory Operations Associate",
-    email: "example@example.com",
-    phone: "+91 98*****78",
-    location: "Bhiwandi, Mumbai, India",
-    linkedin: "",
+    email: "warehouse.sample@example.com",
+    phone: "+91 98000 00006",
+    location: "City, State",
+    linkedin: "linkedin.com/in/warehouse-example",
     github: "",
     summary: "Punctual, safety-conscious Warehouse Operations Associate with 4+ years of hands-on experience in high-volume e-commerce fulfillment centers. Certified Forklift Operator skilled in barcode scanning, stock audits, palletizing, and OSHA-compliant handling.",
     template: "compact",
@@ -382,15 +382,15 @@ const sampleProfiles = {
     experience: [
       {
         position: "Senior Warehouse Associate",
-        company: "Flipkart Fulfillment Center",
-        location: "Bhiwandi, Mumbai",
+        company: "Example Fulfillment Center",
+        location: "City, State",
         start: "2022 – Present",
         bullets: "Processed, picked, and packed 650+ items per shift with 99.8% order accuracy rate during peak sales periods.\nOperated reach trucks, pallet jacks, and counterbalanced forklifts safely in tight warehouse aisles.\nPerformed daily cycle counts and reconciliation audits using handheld RF scanners, reducing inventory variance by 18%."
       },
       {
         position: "Inbound Material Handler",
-        company: "example Warehousing",
-        location: "Navi Mumbai, India",
+        company: "Sample Logistics Warehousing",
+        location: "City, State",
         start: "2020 – 2022",
         bullets: "Unloaded incoming shipping containers, inspected goods for transit defects, and logged manifest data into WMS software.\nOrganized bin storage according to SKU frequency and weight regulations to optimize picking paths."
       }
@@ -399,7 +399,7 @@ const sampleProfiles = {
     education: [
       {
         degree: "Secondary School Examination (10th)",
-        institution: "State Board of Secondary Education",
+        institution: "Example Secondary School Board",
         year: "2018"
       }
     ],
@@ -420,24 +420,24 @@ const sampleProfiles = {
     certifications: [
       {
         title: "Certified Industrial Forklift Operator",
-        issuer: "National Institute of Logistics",
+        issuer: "National Logistics Institute",
         year: "2021"
       },
       {
         title: "Occupational Workplace Safety & First Aid",
-        issuer: "Safety First Training Council",
+        issuer: "Workplace Safety Council",
         year: "2023"
       }
     ]
   },
 
   "operations-manager": {
-    fullName: "Priyanka Mehta",
+    fullName: "Operations Manager Example",
     jobTitle: "Operations & Business Process Manager",
-    email: "exapmle@example.com",
-    phone: "+91 98******9",
-    location: "Gurugram, India",
-    linkedin: "linkedin.com/example",
+    email: "operations.sample@example.com",
+    phone: "+91 98000 00007",
+    location: "City, State",
+    linkedin: "linkedin.com/in/operations-example",
     github: "",
     summary: "Strategic, metric-driven Operations Manager with 7+ years of experience leading cross-functional teams, reducing operational costs by 22%, and scaling supply chain workflows in fast-growth corporate environments.",
     template: "executive",
@@ -449,15 +449,15 @@ const sampleProfiles = {
     experience: [
       {
         position: "Operations Manager",
-        company: "example Logistics",
-        location: "Gurugram, India",
+        company: "Example Corporate Logistics",
+        location: "City, State",
         start: "2021 – Present",
         bullets: "Oversaw day-to-day operations for 4 regional fulfillment centers, managing 85+ full-time employees and third-party vendors.\nImplemented Lean Six Sigma workflow adjustments that trimmed order fulfillment lead times from 48 hours to 18 hours.\nControlled annual departmental operating budget of $2.4M, cutting operational overhead expenses by 18% over two fiscal years."
       },
       {
         position: "Assistant Operations Manager",
-        company: "example Solutions",
-        location: "Noida, India",
+        company: "Sample Business Enterprises",
+        location: "City, State",
         start: "2017 – 2021",
         bullets: "Designed standard operating procedures (SOPs) and KPI performance scorecards for customer dispatch units.\nAnalyzed operational bottlenecks using Power BI dashboards, improving team SLA fulfillment from 89% to 98%."
       }
@@ -472,12 +472,12 @@ const sampleProfiles = {
     education: [
       {
         degree: "Master of Business Administration (MBA - Operations)",
-        institution: "Symbiosis Institute of Business Management",
+        institution: "Example Business School",
         year: "2015 – 2017"
       },
       {
         degree: "Bachelor of Business Administration (BBA)",
-        institution: "Delhi University",
+        institution: "Example University",
         year: "2012 – 2015"
       }
     ],
@@ -498,7 +498,7 @@ const sampleProfiles = {
     certifications: [
       {
         title: "Six Sigma Green Belt (SSGB)",
-        issuer: "ASQ - American Society for Quality",
+        issuer: "ASQ - Quality Standards Council",
         year: "2020"
       },
       {
@@ -510,7 +510,7 @@ const sampleProfiles = {
   }
 };
 
-// Default fallback data (Network & Cloud Engineer)
+// Default fallback data (Generic Placeholder)
 const defaultData = sampleProfiles["network-engineer"];
 
 let resumeData = JSON.parse(JSON.stringify(defaultData));
