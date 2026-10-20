@@ -14,7 +14,7 @@ const sampleProfiles = {
     fullName: "Aarav Sharma",
     jobTitle: "Senior Network & Systems Engineer",
     email: "aarav.sharma@example.com",
-    phone: "+91 98765 43210",
+    phone: "+91 98*** ***10",
     location: "Bengaluru, India",
     linkedin: "linkedin.com/in/aarav-network",
     github: "github.com/aarav-infra",
