@@ -8,82 +8,510 @@ const escapeHTML = (e = "") =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 
-const defaultData = {
-  fullName: "John Doe",
-  jobTitle: "Senior Systems & Cloud Engineer",
-  email: "candidate@example.com",
-  phone: "+1 (55*) ***-2834",
-  location: "Chandigarh, India",
-  linkedin: "linkedin.com/in/example",
-  github: "github.com/example",
-  summary:
-    "Results-driven Systems Engineer with 4+ years of experience managing enterprise hybrid-cloud networks and Linux infrastructure. Proven track record in BGP/OSPF routing, automated configuration audits, and reducing critical incident response times by 35%.",
-  template: "harvard",
-  color: "#2563eb",
-  pageSize: "a4",
-  margin: "standard",
-  fontSize: "base",
-  lineHeight: "normal",
-  experience: [
-    {
-      position: "Senior Systems Engineer",
-      company: "Tech Systems Solutions",
-      location: "Mohali, India",
-      start: "June 2023 – Present",
-      bullets:
-        "Architected enterprise SD-WAN routing across 14 branch offices, cutting network latency by 28%.\nManaged multi-vendor firewall rules and automated nightly configuration backups with Ansible.\nCollaborated with DevOps teams to deploy scalable AWS VPCs using Terraform."
-    },
-    {
-      position: "Network Support Engineer",
-      company: "Global Infrastructure Ltd",
-      location: "Noida, India",
-      start: "Aug 2021 – May 2023",
-      bullets:
-        "Resolved Level 2 and Level 3 escalations, maintaining 99.8% SLA adherence for high-traffic servers.\nMonitored critical server bandwidth using Wireshark and configured site-to-site IPsec VPN tunnels."
-    }
-  ],
-  projects: [
-    {
-      title: "Automated Network Backup & Compliance Engine",
-      link: "github.com/example/network-backup-bot",
-      bullets:
-        "Developed a Python CLI utility using Netmiko to pull running configurations from 40+ Cisco switches nightly.\nEncrypted and transferred backups to AWS S3 with automated Slack failure alerting."
-    }
-  ],
-  education: [
-    {
-      degree: "B.Tech in Computer Science & Engineering",
-      institution: "Punjab Technical University",
-      year: "2017 – 2021"
-    }
-  ],
-  skills: [
-    {
-      category: "Networking & Cloud",
-      items: "Cisco Routing & Switching, BGP, OSPF, AWS (VPC, EC2, S3), IPsec VPN"
-    },
-    {
-      category: "Automation & Scripting",
-      items: "Python, Bash, Ansible, Terraform, Git, Linux Administration"
-    },
-    {
-      category: "Security & Monitoring",
-      items: "Palo Alto Firewalls, Fortinet, Wireshark, PRTG Network Monitor"
-    }
-  ],
-  certifications: [
-    {
-      title: "Cisco Certified Network Associate (CCNA 200-301)",
-      issuer: "Cisco Systems",
-      year: "2022"
-    },
-    {
-      title: "AWS Certified Solutions Architect – Associate",
-      issuer: "Amazon Web Services",
-      year: "2024"
-    }
-  ]
+// Preset profiles for job roles
+const sampleProfiles = {
+  "network-engineer": {
+    fullName: "Aarav Sharma",
+    jobTitle: "Senior Network & Systems Engineer",
+    email: "aarav.sharma@example.com",
+    phone: "+91 98765 43210",
+    location: "Bengaluru, India",
+    linkedin: "linkedin.com/in/aarav-network",
+    github: "github.com/aarav-infra",
+    summary: "Dedicated Network Engineer with 6+ years of experience designing, configuring, and optimizing enterprise hybrid-cloud WAN/LAN networks, next-gen firewalls, and SD-WAN architectures with 99.99% uptime compliance.",
+    template: "harvard",
+    color: "#2563eb",
+    pageSize: "a4",
+    margin: "standard",
+    fontSize: "base",
+    lineHeight: "normal",
+    experience: [
+      {
+        position: "Senior Network Engineer",
+        company: "Cisco Enterprise Solutions Partner",
+        location: "Bengaluru, India",
+        start: "2022 – Present",
+        bullets: "Designed and deployed enterprise SD-WAN routing across 20+ branch offices, reducing network latency by 32%.\nConfigured Cisco ASA and Palo Alto firewalls, maintaining strict Zero-Trust compliance and security audits.\nAutomated routine switch configuration backups across 100+ nodes using Python and Netmiko."
+      },
+      {
+        position: "Network Operations Engineer",
+        company: "Global Tech Networks",
+        location: "Hyderabad, India",
+        start: "2019 – 2022",
+        bullets: "Managed BGP and OSPF routing protocols for Tier-1 data center traffic.\nDiagnosed critical network bottlenecks using Wireshark and SolarWinds, cutting Mean Time to Resolution (MTTR) by 25%."
+      }
+    ],
+    projects: [
+      {
+        title: "Automated Switch Config Compliance Bot",
+        link: "github.com/aarav-infra/network-bot",
+        bullets: "Built a Python-based compliance tool to verify running configurations against CIS benchmarks on 80+ network routers nightly."
+      }
+    ],
+    education: [
+      {
+        degree: "B.Tech in Information Technology",
+        institution: "National Institute of Technology",
+        year: "2015 – 2019"
+      }
+    ],
+    skills: [
+      {
+        category: "Routing & Switching",
+        items: "Cisco IOS-XE, BGP, OSPF, VLANs, VXLAN, SD-WAN, Juniper JunOS"
+      },
+      {
+        category: "Security & Tools",
+        items: "Palo Alto Networks, Fortinet, Wireshark, PRTG, SolarWinds, IPsec VPN"
+      },
+      {
+        category: "Scripting & Cloud",
+        items: "Python (Netmiko, Paramiko), Ansible, Bash, AWS VPC Routing"
+      }
+    ],
+    certifications: [
+      {
+        title: "Cisco Certified Network Professional (CCNP Enterprise)",
+        issuer: "Cisco Systems",
+        year: "2023"
+      },
+      {
+        title: "AWS Certified Advanced Networking – Specialty",
+        issuer: "Amazon Web Services",
+        year: "2024"
+      }
+    ]
+  },
+
+  "python-developer": {
+    fullName: "Rohan Patel",
+    jobTitle: "Senior Python & Backend Developer",
+    email: "rohan.patel@example.com",
+    phone: "+91 98111 22334",
+    location: "Pune, India (Remote)",
+    linkedin: "linkedin.com/in/rohan-python",
+    github: "github.com/rohan-backend",
+    summary: "Performance-focused Python Backend Engineer with 5+ years of experience architecting high-throughput RESTful & GraphQL microservices, caching layers, and database optimizations that support over 2M monthly active users.",
+    template: "stanford",
+    color: "#0284c7",
+    pageSize: "a4",
+    margin: "standard",
+    fontSize: "base",
+    lineHeight: "normal",
+    experience: [
+      {
+        position: "Senior Backend Developer",
+        company: "Nexus FinTech Labs",
+        location: "Pune, India",
+        start: "2022 – Present",
+        bullets: "Architected asynchronous payment processing pipelines using FastAPI, Celery, and Redis, reducing API response times by 45%.\nRefactored complex PostgreSQL relational queries, indexing strategies, and database connection pooling to handle 10k requests/sec.\nMentored 4 junior engineers on clean architecture, unit testing with PyTest, and CI/CD automation."
+      },
+      {
+        position: "Software Engineer (Python)",
+        company: "ByteCraft Solutions",
+        location: "Mumbai, India",
+        start: "2019 – 2022",
+        bullets: "Engineered scalable web scrapers and ETL data extraction workflows using Scrapy and Pandas.\nMaintained 99.95% API uptime by implementing automated health-checks and Dockerized AWS ECS deployments."
+      }
+    ],
+    projects: [
+      {
+        title: "High-Speed Distributed Rate Limiter",
+        link: "github.com/rohan-backend/redis-rate-limiter",
+        bullets: "Designed a lightweight token-bucket rate-limiting middleware for FastAPI backed by Redis Cluster with sub-millisecond overhead."
+      }
+    ],
+    education: [
+      {
+        degree: "B.E. in Computer Engineering",
+        institution: "Pune University",
+        year: "2015 – 2019"
+      }
+    ],
+    skills: [
+      {
+        category: "Languages & Frameworks",
+        items: "Python 3.12, FastAPI, Django, Flask, AsyncIO, PyTest"
+      },
+      {
+        category: "Databases & Messaging",
+        items: "PostgreSQL, Redis, MongoDB, Kafka, RabbitMQ, SQLAlchemy"
+      },
+      {
+        category: "DevOps & Cloud",
+        items: "Docker, Kubernetes, AWS (ECS, Lambda, RDS), GitHub Actions, Linux"
+      }
+    ],
+    certifications: [
+      {
+        title: "PCEP – Certified Entry-Level Python Programmer",
+        issuer: "Python Institute",
+        year: "2020"
+      },
+      {
+        title: "AWS Certified Developer – Associate",
+        issuer: "Amazon Web Services",
+        year: "2023"
+      }
+    ]
+  },
+
+  "php-developer": {
+    fullName: "Vikas Verma",
+    jobTitle: "Full Stack PHP / Laravel Developer",
+    email: "vikas.verma@example.com",
+    phone: "+91 98222 33445",
+    location: "Ahmedabad, India",
+    linkedin: "linkedin.com/in/vikas-laravel",
+    github: "github.com/vikas-php",
+    summary: "Full Stack Web Developer with 5+ years of expertise in PHP, Laravel ecosystem, MySQL database architecture, and REST API development for multi-tenant SaaS and enterprise e-commerce platforms.",
+    template: "modern-split",
+    color: "#e11d48",
+    pageSize: "a4",
+    margin: "standard",
+    fontSize: "base",
+    lineHeight: "normal",
+    experience: [
+      {
+        position: "Lead Laravel Developer",
+        company: "OmniCommerce Systems",
+        location: "Ahmedabad, India",
+        start: "2021 – Present",
+        bullets: "Led development of a multi-tenant B2B marketplace handling $1.5M in monthly transactions using Laravel 11 and Livewire.\nIntegrated Razorpay, Stripe, and PayPal payment gateways with automated webhook event recovery mechanisms.\nOptimized MySQL queries using EXPLAIN and multi-level caching via Redis, boosting page speed by 40%."
+      },
+      {
+        position: "PHP Developer",
+        company: "WebCrafters India",
+        location: "Surat, India",
+        start: "2019 – 2021",
+        bullets: "Built custom REST APIs and webhook integrations for third-party shipping APIs like Shiprocket and Delhivery.\nCreated responsive admin control panels with modern Blade templates and Tailwind CSS."
+      }
+    ],
+    projects: [
+      {
+        title: "SaaS Subscription & Invoicing Engine",
+        link: "github.com/vikas-php/laravel-saas-billing",
+        bullets: "Developed an open-source Laravel package for managing recurring subscriptions, metered usage, and PDF invoice generation."
+      }
+    ],
+    education: [
+      {
+        degree: "Bachelor of Computer Applications (BCA)",
+        institution: "Gujarat University",
+        year: "2016 – 2019"
+      }
+    ],
+    skills: [
+      {
+        category: "Backend & Web",
+        items: "PHP 8+, Laravel, Livewire, RESTful APIs, OOP, MVC, Composer"
+      },
+      {
+        category: "Frontend & DB",
+        items: "JavaScript (ES6+), Vue.js, Tailwind CSS, MySQL, Redis"
+      },
+      {
+        category: "Server & Tools",
+        items: "Nginx, Apache, Git, Docker, Forge, Linux Ubuntu Server"
+      }
+    ],
+    certifications: [
+      {
+        title: "Certified Laravel Developer",
+        issuer: "Laravel Certification",
+        year: "2023"
+      }
+    ]
+  },
+
+  "java-developer": {
+    fullName: "Pooja Nair",
+    jobTitle: "Senior Java Software Engineer",
+    email: "pooja.nair@example.com",
+    phone: "+91 98333 44556",
+    location: "Bengaluru, India",
+    linkedin: "linkedin.com/in/pooja-java",
+    github: "github.com/pooja-spring",
+    summary: "Senior Java Developer with 6+ years of specialized experience in Spring Boot, Kafka, event-driven microservices, and distributed transaction management for high-concurrency banking systems.",
+    template: "executive",
+    color: "#ea580c",
+    pageSize: "a4",
+    margin: "standard",
+    fontSize: "base",
+    lineHeight: "normal",
+    experience: [
+      {
+        position: "Senior Java Software Engineer",
+        company: "Apex Core Banking Solutions",
+        location: "Bengaluru, India",
+        start: "2021 – Present",
+        bullets: "Designed and implemented microservices using Spring Boot and Spring Cloud, processing 4M+ daily transactions.\nEngineered distributed asynchronous event streaming with Apache Kafka and Schema Registry, ensuring zero message loss.\nImplemented JUnit 5 and Mockito test suites, achieving 88% overall code test coverage."
+      },
+      {
+        position: "Java Developer",
+        company: "Infoserve Technologies",
+        location: "Chennai, India",
+        start: "2018 – 2021",
+        bullets: "Migrated legacy monolith Java EE apps to Spring Boot microservices deployed on Kubernetes clusters.\nOptimized Hibernate JPA queries and tuned JVM garbage collection parameters, reducing CPU spikes by 25%."
+      }
+    ],
+    projects: [
+      {
+        title: "Distributed Transaction Saga Coordinator",
+        link: "github.com/pooja-spring/saga-orchestrator",
+        bullets: "Implemented an event-driven Saga pattern using Spring Boot and Kafka for ensuring eventual consistency in distributed systems."
+      }
+    ],
+    education: [
+      {
+        degree: "B.Tech in Computer Science",
+        institution: "Vellore Institute of Technology (VIT)",
+        year: "2014 – 2018"
+      }
+    ],
+    skills: [
+      {
+        category: "Core & Frameworks",
+        items: "Java 17/21, Spring Boot, Spring Cloud, Hibernate JPA, Microservices"
+      },
+      {
+        category: "Messaging & Data",
+        items: "Apache Kafka, RabbitMQ, PostgreSQL, Oracle DB, Redis"
+      },
+      {
+        category: "Architecture & DevOps",
+        items: "Docker, Kubernetes, Jenkins, Maven, Gradle, RESTful APIs, Git"
+      }
+    ],
+    certifications: [
+      {
+        title: "Oracle Certified Professional: Java SE 11 Developer",
+        issuer: "Oracle",
+        year: "2021"
+      },
+      {
+        title: "Spring Certified Professional",
+        issuer: "VMware Tanzu",
+        year: "2023"
+      }
+    ]
+  },
+
+  "driver": {
+    fullName: "Rajesh Kumar",
+    jobTitle: "Professional Commercial & Heavy Vehicle Driver",
+    email: "rajesh.driver@example.com",
+    phone: "+91 98444 55667",
+    location: "Delhi NCR, India",
+    linkedin: "",
+    github: "",
+    summary: "Reliable, safety-certified Professional Commercial Driver with 8+ years of experience in long-haul freight, inter-city transport, and time-critical urban delivery. 100% accident-free record with advanced route navigation and proactive vehicle maintenance skills.",
+    template: "minimalist",
+    color: "#1e293b",
+    pageSize: "a4",
+    margin: "standard",
+    fontSize: "base",
+    lineHeight: "normal",
+    experience: [
+      {
+        position: "Senior Heavy Commercial Vehicle (HCV) Driver",
+        company: "BlueDart Express Logistics",
+        location: "Delhi – Mumbai Route",
+        start: "2020 – Present",
+        bullets: "Transported high-value commercial shipments over 250,000+ safe kilometers across national highways with zero cargo damage.\nConducted pre-trip and post-trip technical vehicle inspections (brakes, tires, fluids, cargo securing).\nUtilized GPS navigation and telematics systems to avoid congestions and achieve 98.5% on-time delivery rate."
+      },
+      {
+        position: "Fleet Delivery Driver",
+        company: "SafeWheels Transportation",
+        location: "Delhi NCR, India",
+        start: "2016 – 2020",
+        bullets: "Delivered sensitive medical and industrial supplies across 30+ regional hubs weekly under tight delivery deadlines.\nMaintained precise logbooks, toll vouchers, and delivery verification documentation in compliance with RTO guidelines."
+      }
+    ],
+    projects: [],
+    education: [
+      {
+        degree: "Senior Secondary School Certificate (10+2)",
+        institution: "Government Senior Secondary School",
+        year: "2015"
+      }
+    ],
+    skills: [
+      {
+        category: "Driving & Operations",
+        items: "Heavy Commercial Vehicles (HCV), Multi-Axle Trucks, Long-Haul Logistics, Defensive Driving"
+      },
+      {
+        category: "Maintenance & Compliance",
+        items: "Preventative Maintenance, Cargo Strapping, RTO Regulatory Compliance, Emergency Roadside Repairs"
+      },
+      {
+        category: "Navigation & Tech",
+        items: "GPS Fleet Management, Route Optimization, Digital Manifesting, On-Time Delivery Tracking"
+      }
+    ],
+    certifications: [
+      {
+        title: "Commercial Heavy Vehicle Driving License (HMV & Commercial Transport)",
+        issuer: "Regional Transport Office (RTO)",
+        year: "2016"
+      },
+      {
+        title: "Defensive Driving & Hazardous Materials (HazMat) Safety Certificate",
+        issuer: "National Safety Council of India",
+        year: "2022"
+      }
+    ]
+  },
+
+  "warehouse-worker": {
+    fullName: "Sunil Yadav",
+    jobTitle: "Warehouse & Inventory Operations Associate",
+    email: "sunil.yadav@example.com",
+    phone: "+91 98555 66778",
+    location: "Bhiwandi, Mumbai, India",
+    linkedin: "",
+    github: "",
+    summary: "Punctual, safety-conscious Warehouse Operations Associate with 4+ years of hands-on experience in high-volume e-commerce fulfillment centers. Certified Forklift Operator skilled in barcode scanning, stock audits, palletizing, and OSHA-compliant handling.",
+    template: "compact",
+    color: "#059669",
+    pageSize: "a4",
+    margin: "compact",
+    fontSize: "base",
+    lineHeight: "tight",
+    experience: [
+      {
+        position: "Senior Warehouse Associate",
+        company: "Flipkart Fulfillment Center",
+        location: "Bhiwandi, Mumbai",
+        start: "2022 – Present",
+        bullets: "Processed, picked, and packed 650+ items per shift with 99.8% order accuracy rate during peak sales periods.\nOperated reach trucks, pallet jacks, and counterbalanced forklifts safely in tight warehouse aisles.\nPerformed daily cycle counts and reconciliation audits using handheld RF scanners, reducing inventory variance by 18%."
+      },
+      {
+        position: "Inbound Material Handler",
+        company: "Global Logistics Warehousing",
+        location: "Navi Mumbai, India",
+        start: "2020 – 2022",
+        bullets: "Unloaded incoming shipping containers, inspected goods for transit defects, and logged manifest data into WMS software.\nOrganized bin storage according to SKU frequency and weight regulations to optimize picking paths."
+      }
+    ],
+    projects: [],
+    education: [
+      {
+        degree: "Secondary School Examination (10th)",
+        institution: "State Board of Secondary Education",
+        year: "2018"
+      }
+    ],
+    skills: [
+      {
+        category: "Warehouse Operations",
+        items: "Order Picking & Packing, RF Barcode Scanning, Pallet Stacking, Shipping & Receiving"
+      },
+      {
+        category: "Equipment & Safety",
+        items: "Forklift Operation, Electric Pallet Jacks, Reach Trucks, PPE Compliance, Ergonomic Lifting"
+      },
+      {
+        category: "Software & Logistics",
+        items: "Warehouse Management Systems (WMS), Inventory Cycle Counting, FIFO Principles"
+      }
+    ],
+    certifications: [
+      {
+        title: "Certified Industrial Forklift Operator",
+        issuer: "National Institute of Logistics",
+        year: "2021"
+      },
+      {
+        title: "Occupational Workplace Safety & First Aid",
+        issuer: "Safety First Training Council",
+        year: "2023"
+      }
+    ]
+  },
+
+  "operations-manager": {
+    fullName: "Priyanka Mehta",
+    jobTitle: "Operations & Business Process Manager",
+    email: "priyanka.mehta@example.com",
+    phone: "+91 98666 77889",
+    location: "Gurugram, India",
+    linkedin: "linkedin.com/in/priyanka-ops",
+    github: "",
+    summary: "Strategic, metric-driven Operations Manager with 7+ years of experience leading cross-functional teams, reducing operational costs by 22%, and scaling supply chain workflows in fast-growth corporate environments.",
+    template: "executive",
+    color: "#1e293b",
+    pageSize: "a4",
+    margin: "standard",
+    fontSize: "base",
+    lineHeight: "normal",
+    experience: [
+      {
+        position: "Operations Manager",
+        company: "Apex Enterprise Logistics",
+        location: "Gurugram, India",
+        start: "2021 – Present",
+        bullets: "Oversaw day-to-day operations for 4 regional fulfillment centers, managing 85+ full-time employees and third-party vendors.\nImplemented Lean Six Sigma workflow adjustments that trimmed order fulfillment lead times from 48 hours to 18 hours.\nControlled annual departmental operating budget of $2.4M, cutting operational overhead expenses by 18% over two fiscal years."
+      },
+      {
+        position: "Assistant Operations Manager",
+        company: "Zenith Business Solutions",
+        location: "Noida, India",
+        start: "2017 – 2021",
+        bullets: "Designed standard operating procedures (SOPs) and KPI performance scorecards for customer dispatch units.\nAnalyzed operational bottlenecks using Power BI dashboards, improving team SLA fulfillment from 89% to 98%."
+      }
+    ],
+    projects: [
+      {
+        title: "Enterprise Fleet Route Optimization Initiative",
+        link: "",
+        bullets: "Spearheaded an enterprise telemetry tracking migration that eliminated duplicate dispatch routes and reduced monthly fleet fuel costs by 14%."
+      }
+    ],
+    education: [
+      {
+        degree: "Master of Business Administration (MBA - Operations)",
+        institution: "Symbiosis Institute of Business Management",
+        year: "2015 – 2017"
+      },
+      {
+        degree: "Bachelor of Business Administration (BBA)",
+        institution: "Delhi University",
+        year: "2012 – 2015"
+      }
+    ],
+    skills: [
+      {
+        category: "Management & Strategy",
+        items: "Operations Management, Budgeting & P&L, Lean Six Sigma, Cross-functional Leadership, Vendor Relations"
+      },
+      {
+        category: "Analytics & Tools",
+        items: "Power BI, Tableau, Advanced Excel, ERP (SAP / Oracle NetSuite), Asana, JIRA"
+      },
+      {
+        category: "Process Improvement",
+        items: "SOP Development, Supply Chain Optimization, SLA Tracking, Risk Mitigation"
+      }
+    ],
+    certifications: [
+      {
+        title: "Six Sigma Green Belt (SSGB)",
+        issuer: "ASQ - American Society for Quality",
+        year: "2020"
+      },
+      {
+        title: "Project Management Professional (PMP)",
+        issuer: "Project Management Institute (PMI)",
+        year: "2023"
+      }
+    ]
+  }
 };
+
+// Default fallback data (Network & Cloud Engineer)
+const defaultData = sampleProfiles["network-engineer"];
 
 let resumeData = JSON.parse(JSON.stringify(defaultData));
 let currentZoom = 1;
@@ -291,7 +719,7 @@ function applyTemplateAndStyles() {
   const resume = document.getElementById("resume");
   if (!resume) return;
 
-  // Reset & apply base classes
+  // Apply template & typography dynamic classes
   resume.className = `resume template-${resumeData.template || "harvard"} margin-${resumeData.margin || "standard"} size-${resumeData.pageSize || "a4"} font-${resumeData.fontSize || "base"} leading-${resumeData.lineHeight || "normal"}`;
 
   // Theme Color Variable
@@ -470,7 +898,6 @@ function triggerHighDefPrint() {
   const safeName = (resumeData.fullName || "Candidate").replace(/[^a-zA-Z0-9]/g, "_");
   document.title = `${safeName}_Resume`;
 
-  // Scale reset for clear vector output
   const resumeEl = document.getElementById("resume");
   if (resumeEl) resumeEl.style.transform = "none";
 
@@ -529,6 +956,20 @@ function applyZoom() {
     zoomText.textContent = `${Math.round(currentZoom * 100)}%`;
   }
 }
+
+// Preset Role Switcher
+document.getElementById("jobSampleSelect")?.addEventListener("change", (e) => {
+  const key = e.target.value;
+  if (!sampleProfiles[key]) return;
+
+  if (confirm(`Do you want to load the pre-filled template for "${e.target.options[e.target.selectedIndex].text}"? Current unsaved edits will be replaced.`)) {
+    resumeData = JSON.parse(JSON.stringify(sampleProfiles[key]));
+    loadFormData();
+    renderAllEditors();
+    updatePreview();
+    saveData();
+  }
+});
 
 // Global Event Handlers
 document.addEventListener("input", (e) => {
@@ -601,6 +1042,7 @@ document.addEventListener("click", (e) => {
 
 // Add Item Buttons
 document.getElementById("addExperience")?.addEventListener("click", () => {
+  if (!resumeData.experience) resumeData.experience = [];
   resumeData.experience.push({ position: "", company: "", location: "", start: "2024 – Present", bullets: "" });
   renderExperienceEditor();
   updatePreview();
@@ -608,6 +1050,7 @@ document.getElementById("addExperience")?.addEventListener("click", () => {
 });
 
 document.getElementById("addEducation")?.addEventListener("click", () => {
+  if (!resumeData.education) resumeData.education = [];
   resumeData.education.push({ degree: "", institution: "", year: "2024" });
   renderEducationEditor();
   updatePreview();
@@ -615,6 +1058,7 @@ document.getElementById("addEducation")?.addEventListener("click", () => {
 });
 
 document.getElementById("addSkill")?.addEventListener("click", () => {
+  if (!resumeData.skills) resumeData.skills = [];
   resumeData.skills.push({ category: "Tools & Technologies", items: "" });
   renderSkillsEditor();
   updatePreview();
@@ -622,6 +1066,7 @@ document.getElementById("addSkill")?.addEventListener("click", () => {
 });
 
 document.getElementById("addProject")?.addEventListener("click", () => {
+  if (!resumeData.projects) resumeData.projects = [];
   resumeData.projects.push({ title: "", link: "", bullets: "" });
   renderProjectsEditor();
   updatePreview();
@@ -629,6 +1074,7 @@ document.getElementById("addProject")?.addEventListener("click", () => {
 });
 
 document.getElementById("addCertification")?.addEventListener("click", () => {
+  if (!resumeData.certifications) resumeData.certifications = [];
   resumeData.certifications.push({ title: "", issuer: "", year: "2024" });
   renderCertificationsEditor();
   updatePreview();
@@ -655,6 +1101,8 @@ document.getElementById("clearBtn")?.addEventListener("click", () => {
   if (confirm("Reset to clean standard sample template?")) {
     localStorage.removeItem("jobcv-data-v6");
     resumeData = JSON.parse(JSON.stringify(defaultData));
+    const roleSelect = document.getElementById("jobSampleSelect");
+    if (roleSelect) roleSelect.value = "network-engineer";
     loadFormData();
     renderAllEditors();
     updatePreview();
