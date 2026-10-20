@@ -1,48 +1,44 @@
-*, *::before, *::after {
+/* Resumora - Modern ATS Resume Builder Stylesheet */
+:root {
+  --primary: #2563eb;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --bg-app: #f1f5f9;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+}
+
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  -webkit-print-color-adjust: exact !important;
-  print-color-adjust: exact !important;
-}
-
-:root {
-  --primary: #0f172a;
-  --border-ui: #e2e8f0;
-  --bg-app: #f8fafc;
-  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-resume: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
 body {
+  font-family: 'Inter', sans-serif;
   background-color: var(--bg-app);
-  color: #0f172a;
-  font-family: var(--font-ui);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+  color: var(--text-main);
+  min-height: 100vh;
 }
 
-/* Header & Navigation Bar */
+/* Header Topbar */
 .topbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: #ffffff;
-  border-bottom: 1px solid var(--border-ui);
-  padding: 10px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 12px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .topbar-left, .topbar-right {
-  flex: 1;
   display: flex;
   align-items: center;
+  gap: 12px;
 }
-
-.topbar-left { gap: 10px; }
-.topbar-right { justify-content: flex-end; gap: 14px; }
 
 .brand-centered {
   display: flex;
@@ -51,204 +47,188 @@ body {
 }
 
 .brand-logo-badge {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
-  background: #2563eb;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   font-weight: 800;
+  font-size: 1.25rem;
 }
 
 .brand-text h1 {
-  font-size: 17px;
-  font-weight: 800;
-  color: #0f172a;
+  font-size: 1.15rem;
+  font-weight: 700;
   line-height: 1.1;
 }
 
 .brand-subline {
-  font-size: 10px;
-  color: #64748b;
-  text-transform: uppercase;
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
 }
 
 .secondary-btn {
-  border: 1px solid var(--border-ui);
-  background: #ffffff;
-  color: #334155;
+  padding: 8px 14px;
   border-radius: 6px;
-  padding: 7px 14px;
-  font-size: 12px;
-  font-weight: 600;
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
 }
 
 .secondary-btn:hover {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
+  background: #f8fafc;
 }
 
 .ats-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  color: #166534;
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
   padding: 6px 12px;
   border-radius: 20px;
-  font-size: 11.5px;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .premium-print-btn {
-  background: #2563eb;
+  padding: 8px 18px;
+  border-radius: 6px;
   color: #ffffff;
   border: none;
-  border-radius: 6px;
-  padding: 8px 18px;
-  font-size: 12.5px;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-  transition: all 0.2s ease;
-}
-
-.premium-print-btn:hover {
-  background: #1d4ed8;
-  transform: translateY(-1px);
 }
 
 /* App Main Layout */
 .app-container {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 28px;
-  max-width: 1680px;
-  margin: 0 auto;
+  grid-template-columns: 480px 1fr;
+  gap: 24px;
   padding: 24px;
-  align-items: start;
+  max-width: 1750px;
+  margin: 0 auto;
 }
 
-/* Left Editor Panel */
+@media (max-width: 1080px) {
+  .app-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Editor Form Panel */
 .editor-panel {
-  display: block;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .editor-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
 }
 
 .editor-heading h3 {
-  font-size: 14px;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-.save-status {
-  background: #ecfdf5;
-  color: #059669;
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.editor-card {
-  background: #ffffff;
-  border: 1px solid var(--border-ui);
-  border-radius: 8px;
-  padding: 14px;
-  margin-bottom: 14px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-}
-
-.card-title, .section-header {
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-}
-
-.card-title {
   gap: 8px;
 }
 
-.card-title i {
-  color: #2563eb;
-  font-size: 12.5px;
+.save-status {
+  font-size: 0.8rem;
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.card-title h4 {
-  font-size: 12.5px;
-  font-weight: 700;
-  color: #0f172a;
+.editor-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-main);
+  font-size: 0.95rem;
 }
 
 .section-header {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-label {
-  display: block;
-  color: #475569;
-  font-size: 11px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-input, select, textarea {
-  width: 100%;
+.add-btn {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
   background: #f8fafc;
-  border: 1px solid #cbd5e1;
-  color: #0f172a;
-  border-radius: 6px;
-  padding: 7px 10px;
-  font-size: 12px;
-  font-family: inherit;
-  outline: none;
-  transition: all 0.15s ease;
-}
-
-input:focus, select:focus, textarea:focus {
-  background: #ffffff;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  cursor: pointer;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 12px;
 }
 
-.field.full {
+.form-grid .full {
   grid-column: span 2;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  display: block;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  font-family: inherit;
+  outline: none;
+  background: #ffffff;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
 }
 
 .color-options {
   display: flex;
-  gap: 8px;
-  margin-top: 6px;
+  gap: 10px;
 }
 
 .color-choice {
@@ -256,51 +236,21 @@ input:focus, select:focus, textarea:focus {
   height: 28px;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  background: var(--color);
+  outline: 2px solid transparent;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.color-choice:hover {
-  transform: translateY(-2px) scale(1.08);
+  background-color: var(--color);
 }
 
 .color-choice.active {
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--color);
-  transform: scale(1.1);
-}
-
-.color-choice.active {
-  box-shadow: 0 0 0 2px #2563eb;
-  transform: scale(1.1);
-}
-
-.add-btn {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  color: #2563eb;
-  padding: 4px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  transition: background 0.15s;
-}
-
-.add-btn:hover {
-  background: #dbeafe;
+  outline-color: var(--primary);
 }
 
 .dynamic-item {
-  background: #f8fafc;
-  border: 1px solid var(--border-ui);
-  border-radius: 6px;
+  border: 1px solid var(--border-color);
   padding: 12px;
-  margin-bottom: 10px;
+  border-radius: 6px;
+  margin-top: 8px;
+  background: #fafafa;
 }
 
 .dynamic-item-header {
@@ -310,123 +260,66 @@ input:focus, select:focus, textarea:focus {
   margin-bottom: 8px;
 }
 
-.dynamic-item-header strong {
-  font-size: 11.5px;
-  color: #334155;
-}
-
 .remove-btn {
-  background: #fee2e2;
-  border: 1px solid #fca5a5;
-  color: #dc2626;
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
+  border: none;
+  background: none;
+  color: #ef4444;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  transition: background 0.15s;
 }
 
-.remove-btn:hover {
-  background: #fecaca;
-}
-
-/* Right Preview Area */
+/* Preview Area */
 .preview-area {
-  display: block;
-  width: 100%;
-  position: sticky;
-  top: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
 .preview-toolbar {
+  width: 100%;
+  max-width: 820px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #ffffff;
-  border: 1px solid var(--border-ui);
+  padding: 10px 16px;
   border-radius: 8px;
-  padding: 8px 16px;
-  margin-bottom: 12px;
-}
-
-.preview-info strong {
-  font-size: 12.5px;
-  color: #0f172a;
-}
-
-.preview-info small {
-  color: #64748b;
-  font-size: 11px;
-  margin-left: 6px;
-}
-
-.preview-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  border: 1px solid var(--border-color);
 }
 
 .zoom-controls {
-  display: flex;
-  align-items: center;
-  background: #f1f5f9;
-  border-radius: 6px;
-  padding: 2px 6px;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.zoom-controls button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 3px 6px;
-  color: #475569;
-}
-
-.preview-quick-print {
-  background: #f8fafc;
-  border: 1px solid var(--border-ui);
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 11.5px;
-  font-weight: 600;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
-.preview-quick-print:hover {
-  background: #f1f5f9;
+.zoom-controls button, .preview-quick-print {
+  padding: 4px 10px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-/* Paper Canvas Area */
 .resume-wrapper {
-  background: #334155;
-  padding: 28px;
-  border-radius: 8px;
+  width: 100%;
   display: flex;
   justify-content: center;
   overflow-x: auto;
-  min-height: calc(100vh - 160px);
+  padding-bottom: 40px;
 }
 
+/* Resume Document Standard Layout (Screen Preview) */
 .resume {
-  background: #ffffff !important;
-  color: #0f172a !important;
-  font-family: var(--font-resume);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  background: #ffffff;
+  color: #1e293b;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
   box-sizing: border-box;
-  transition: transform 0.2s ease;
 }
 
-/* Page Size Dimensions */
 .resume.size-a4 {
   width: 210mm;
   min-height: 297mm;
@@ -438,261 +331,198 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* Margin Variations */
-.resume.margin-compact {
-  padding: 10mm 12mm !important;
-}
+.resume.margin-compact { padding: 10mm 12mm; }
+.resume.margin-standard { padding: 15mm 16mm; }
+.resume.margin-spacious { padding: 20mm 20mm; }
 
-.resume.margin-standard {
-  padding: 15mm 18mm !important;
-}
+/* Font Size Scales */
+.resume.font-sm { font-size: 9.5pt; }
+.resume.font-base { font-size: 10pt; }
+.resume.font-lg { font-size: 11pt; }
 
-.resume.margin-spacious {
-  padding: 22mm 24mm !important;
-}
+/* Line Heights */
+.resume.leading-tight { line-height: 1.25; }
+.resume.leading-normal { line-height: 1.4; }
+.resume.leading-relaxed { line-height: 1.55; }
 
-/* Typography Scale */
-.resume.font-sm {
-  font-size: 9.5pt;
-}
-.resume.font-base {
-  font-size: 10.5pt;
-}
-.resume.font-lg {
-  font-size: 11.5pt;
-}
-
-/* Line Height Variations */
-.resume.leading-tight {
-  line-height: 1.25;
-}
-.resume.leading-normal {
-  line-height: 1.4;
-}
-.resume.leading-relaxed {
-  line-height: 1.55;
-}
-
-/* Common ATS Section Styles */
+/* Resume Internal Components */
 .ats-header {
-  padding-bottom: 6px;
-  margin-bottom: 8px;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .ats-header h1 {
-  font-size: 1.7em;
+  font-size: 1.7rem;
   font-weight: 800;
-  letter-spacing: -0.2px;
   color: var(--primary);
-  margin-bottom: 2px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
 .ats-header h2 {
-  font-size: 1.05em;
+  font-size: 1.05rem;
   font-weight: 600;
-  color: #334155;
-  margin-bottom: 5px;
+  color: #475569;
+  margin-top: 3px;
 }
 
 .ats-contact {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9em;
-  color: #1e293b;
+  gap: 8px 16px;
+  margin-top: 8px;
+  font-size: 0.85em;
+  color: #475569;
 }
 
 .ats-contact span {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .ats-section {
-  margin-top: 10px;
-  page-break-inside: auto !important;
-  break-inside: auto !important;
+  margin-top: 12px;
+  page-break-inside: auto;
+  break-inside: auto;
 }
 
 .ats-section-title {
-  font-size: 1.05em;
-  font-weight: 800;
+  font-size: 0.95em;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05em;
   color: var(--primary);
-  border-bottom: 1.5px solid var(--primary);
-  padding-bottom: 2px;
-  margin-bottom: 6px;
-  page-break-after: avoid !important;
-  break-after: avoid !important;
-}
-
-.ats-text {
-  color: #1e293b;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 3px;
+  margin-bottom: 8px;
+  page-break-after: avoid;
+  break-after: avoid;
 }
 
 .ats-entry {
-  margin-bottom: 7px;
-  page-break-inside: avoid !important;
-  break-inside: avoid !important;
+  margin-bottom: 10px;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 .ats-entry-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-}
-
-.ats-entry-header strong {
-  font-size: 1em;
   font-weight: 700;
-  color: #000000;
-}
-
-.ats-entry-header span {
   font-size: 0.95em;
-  font-weight: 600;
-  color: #334155;
 }
 
 .ats-entry-sub {
   display: flex;
   justify-content: space-between;
+  font-size: 0.88em;
+  color: #475569;
   font-style: italic;
-  font-size: 0.95em;
-  margin-bottom: 2px;
-  color: #334155;
+  margin-bottom: 4px;
 }
 
 .ats-bullet-list {
-  margin-left: 18px;
-  margin-top: 2px;
+  padding-left: 18px;
+  margin: 4px 0 0 0;
 }
 
 .ats-bullet-list li {
-  margin-bottom: 2px;
-  color: #1e293b;
+  margin-bottom: 3px;
+  font-size: 0.9em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.ats-text {
+  font-size: 0.9em;
+  color: #334155;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .ats-skill-line {
-  margin-bottom: 3px;
-  color: #1e293b;
-}
-
-.ats-skill-line strong {
-  font-weight: 700;
-  color: #000000;
-}
-
-/* Template Specific Variants */
-.resume.template-harvard .ats-header {
-  text-align: center;
-  border-bottom: 1.5px solid var(--primary);
-}
-.resume.template-harvard .ats-contact {
-  justify-content: center;
-}
-
-.resume.template-stanford .ats-header {
-  text-align: left;
-  border-bottom: 2px solid var(--primary);
-}
-.resume.template-stanford .ats-section-title {
-  border-bottom: 1px solid #94a3b8;
-}
-
-.resume.template-executive {
-  font-family: 'Merriweather', Georgia, serif;
-}
-.resume.template-executive .ats-header {
-  text-align: center;
-  border-bottom: 3px double var(--primary);
-}
-.resume.template-executive .ats-contact {
-  justify-content: center;
-}
-.resume.template-executive .ats-section-title {
-  border-bottom: 1px solid var(--primary);
-  font-family: 'Merriweather', Georgia, serif;
-}
-
-.resume.template-minimalist .ats-header {
-  text-align: left;
-  border-bottom: none;
-}
-.resume.template-minimalist .ats-section-title {
-  border-bottom: none;
-}
-.resume.template-minimalist .ats-section-title::before {
-  content: "# ";
-  color: var(--primary);
-}
-
-.resume.template-modern-split {
-  border-left: 6px solid var(--primary) !important;
-}
-.resume.template-modern-split .ats-header {
-  text-align: left;
-  border-bottom: 1px solid #cbd5e1;
-}
-
-.resume.template-compact .ats-header {
-  text-align: center;
+  font-size: 0.9em;
   margin-bottom: 4px;
-}
-.resume.template-compact .ats-contact {
-  justify-content: center;
+  word-break: break-word;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
-/* High Precision Print Engine */
+/* ==========================================================================
+   HIGH-DEFINITION ATS PRINT & MULTI-PAGE ENGINE (100% PRECISE FIX)
+   ========================================================================== */
 @page {
   size: auto;
-  margin: 0;
+  margin: 0mm; /* Browser default header/footer aur unwanted margins remove */
 }
 
 @media print {
-  html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    background: #ffffff !important;
-    color: #000000 !important;
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  .no-print {
+  /* Screen UI Elements ko Hide karein */
+  .no-print, header, aside, .preview-toolbar {
     display: none !important;
   }
 
-  .app-container {
-    display: block !important;
+  body, html {
+    background: #ffffff !important;
+    color: #000000 !important;
     margin: 0 !important;
     padding: 0 !important;
-    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
-  .preview-area, .resume-wrapper {
+  .app-container, .preview-area, .resume-wrapper {
     display: block !important;
-    padding: 0 !important;
     margin: 0 !important;
-    background: transparent !important;
-    min-height: auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
     overflow: visible !important;
   }
 
+  /* Resume Canvas Print Settings */
   .resume {
-    margin: 0 auto !important;
     box-shadow: none !important;
-    transform: none !important;
+    border: none !important;
+    width: 100% !important;
     max-width: 100% !important;
+    min-height: auto !important;
+    transform: none !important; /* Zoom scale reset */
+    position: static !important;
+    overflow: visible !important;
+    display: block !important;
   }
 
-  .ats-section {
-    page-break-inside: auto !important;
-    break-inside: auto !important;
+  /* Print exact margin controls */
+  .resume.size-a4 {
+    width: 210mm !important;
+    margin: 0 auto !important;
   }
 
-  .ats-entry {
+  .resume.size-letter {
+    width: 8.5in !important;
+    margin: 0 auto !important;
+  }
+
+  .resume.margin-compact {
+    padding: 10mm 12mm !important;
+  }
+
+  .resume.margin-standard {
+    padding: 14mm 16mm !important;
+  }
+
+  .resume.margin-spacious {
+    padding: 18mm 20mm !important;
+  }
+
+  /* Multi-page break rules: Element ke beech me cut hone se bachaye */
+  .ats-entry, .ats-skill-line {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
@@ -701,36 +531,9 @@ input:focus, select:focus, textarea:focus {
     page-break-after: avoid !important;
     break-after: avoid !important;
   }
-}
-/* --- Resumora Main Page Jaisa Red Theme Topbar --- */
 
-/* 1. Center Brand Logo Badge (R) ko Red karna */
-.brand-centered .brand-logo-badge,
-.brand-logo-badge {
-  background: linear-gradient(135deg, #e5322d 0%, #b91c1c 100%) !important;
-  box-shadow: 0 2px 6px rgba(229, 50, 45, 0.25) !important;
-}
-
-/* 2. Download High-Def PDF Button ko Red karna */
-.premium-print-btn,
-#mainPrintBtn {
-  background: #e5322d !important;
-  color: #ffffff !important;
-  border: none !important;
-  box-shadow: 0 2px 8px rgba(229, 50, 45, 0.25) !important;
-  transition: all 0.2s ease !important;
-}
-
-.premium-print-btn:hover,
-#mainPrintBtn:hover {
-  background: #c8231e !important;
-  box-shadow: 0 4px 12px rgba(229, 50, 45, 0.35) !important;
-  transform: translateY(-1px);
-}
-
-/* 3. Home aur Reset Sample button hover par Red highlight */
-.secondary-btn:hover {
-  color: #e5322d !important;
-  border-color: #fca5a5 !important;
-  background: #fef2f2 !important;
+  .ats-bullet-list li {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
 }
