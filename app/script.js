@@ -89,7 +89,7 @@ const sampleProfiles = {
     email: "example@example.com",
     phone: "+91 98*** ****4",
     location: "Pune, India (Remote)",
-    linkedin: "linkedin.com/in/rohan-python",
+    linkedin: "linkedin.com/in/example",
     github: "github.com/example",
     summary: "Performance-focused Python Backend Engineer with 5+ years of experience architecting high-throughput RESTful & GraphQL microservices, caching layers, and database optimizations that support over 2M monthly active users.",
     template: "stanford",
