@@ -8,16 +8,16 @@ const escapeHTML = (e = "") =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 
-// Preset profiles for job roles (Dummy & safe placeholder details)
+// Preset profiles for job roles (Masked & Safe Example Placeholders)
 const sampleProfiles = {
   "network-engineer": {
-    fullName: "Network Engineer Example",
+    fullName: "Example User",
     jobTitle: "Senior Network & Systems Engineer",
-    email: "network.sample@example.com",
-    phone: "+91 98000 00001",
+    email: "example.user@email.com",
+    phone: "+91 76*** ****9",
     location: "City, State",
-    linkedin: "linkedin.com/in/network-example",
-    github: "github.com/network-example",
+    linkedin: "linkedin.com/in/example-profile",
+    github: "github.com/example-username",
     summary: "Dedicated Network Engineer with 6+ years of experience designing, configuring, and optimizing enterprise hybrid-cloud WAN/LAN networks, next-gen firewalls, and SD-WAN architectures with 99.99% uptime compliance.",
     template: "harvard",
     color: "#2563eb",
@@ -44,14 +44,14 @@ const sampleProfiles = {
     projects: [
       {
         title: "Automated Switch Config Compliance Bot",
-        link: "github.com/network-example/network-bot",
+        link: "github.com/example-username/project-demo",
         bullets: "Built a Python-based compliance tool to verify running configurations against CIS benchmarks on 80+ network routers nightly."
       }
     ],
     education: [
       {
         degree: "B.Tech in Information Technology",
-        institution: "Example Technical University",
+        institution: "Example Technical Institute",
         year: "2015 – 2019"
       }
     ],
@@ -84,13 +84,13 @@ const sampleProfiles = {
   },
 
   "python-developer": {
-    fullName: "Python Developer Example",
+    fullName: "Example User",
     jobTitle: "Senior Python & Backend Developer",
-    email: "python.sample@example.com",
-    phone: "+91 98000 00002",
+    email: "example.user@email.com",
+    phone: "+91 76*** ****9",
     location: "City, State (Remote)",
-    linkedin: "linkedin.com/in/python-example",
-    github: "github.com/python-example",
+    linkedin: "linkedin.com/in/example-profile",
+    github: "github.com/example-username",
     summary: "Performance-focused Python Backend Engineer with 5+ years of experience architecting high-throughput RESTful & GraphQL microservices, caching layers, and database optimizations that support over 2M monthly active users.",
     template: "stanford",
     color: "#0284c7",
@@ -117,7 +117,7 @@ const sampleProfiles = {
     projects: [
       {
         title: "High-Speed Distributed Rate Limiter",
-        link: "github.com/python-example/rate-limiter",
+        link: "github.com/example-username/project-demo",
         bullets: "Designed a lightweight token-bucket rate-limiting middleware for FastAPI backed by Redis Cluster with sub-millisecond overhead."
       }
     ],
@@ -157,13 +157,13 @@ const sampleProfiles = {
   },
 
   "php-developer": {
-    fullName: "PHP Developer Example",
+    fullName: "Example User",
     jobTitle: "Full Stack PHP / Laravel Developer",
-    email: "php.sample@example.com",
-    phone: "+91 98000 00003",
+    email: "example.user@email.com",
+    phone: "+91 76*** ****9",
     location: "City, State",
-    linkedin: "linkedin.com/in/php-example",
-    github: "github.com/php-example",
+    linkedin: "linkedin.com/in/example-profile",
+    github: "github.com/example-username",
     summary: "Full Stack Web Developer with 5+ years of expertise in PHP, Laravel ecosystem, MySQL database architecture, and REST API development for multi-tenant SaaS and enterprise e-commerce platforms.",
     template: "modern-split",
     color: "#e11d48",
@@ -190,7 +190,7 @@ const sampleProfiles = {
     projects: [
       {
         title: "SaaS Subscription & Invoicing Engine",
-        link: "github.com/php-example/billing-package",
+        link: "github.com/example-username/project-demo",
         bullets: "Developed an open-source Laravel package for managing recurring subscriptions, metered usage, and PDF invoice generation."
       }
     ],
@@ -225,13 +225,13 @@ const sampleProfiles = {
   },
 
   "java-developer": {
-    fullName: "Java Developer Example",
+    fullName: "Example User",
     jobTitle: "Senior Java Software Engineer",
-    email: "java.sample@example.com",
-    phone: "+91 98000 00004",
+    email: "example.user@email.com",
+    phone: "+91 76*** ****9",
     location: "City, State",
-    linkedin: "linkedin.com/in/java-example",
-    github: "github.com/java-example",
+    linkedin: "linkedin.com/in/example-profile",
+    github: "github.com/example-username",
     summary: "Senior Java Developer with 6+ years of specialized experience in Spring Boot, Kafka, event-driven microservices, and distributed transaction management for high-concurrency banking systems.",
     template: "executive",
     color: "#ea580c",
@@ -258,7 +258,7 @@ const sampleProfiles = {
     projects: [
       {
         title: "Distributed Transaction Saga Coordinator",
-        link: "github.com/java-example/saga-pattern",
+        link: "github.com/example-username/project-demo",
         bullets: "Implemented an event-driven Saga pattern using Spring Boot and Kafka for ensuring eventual consistency in distributed systems."
       }
     ],
@@ -298,12 +298,12 @@ const sampleProfiles = {
   },
 
   "driver": {
-    fullName: "Commercial Driver Example",
+    fullName: "Example User",
     jobTitle: "Professional Commercial & Heavy Vehicle Driver",
-    email: "driver.sample@example.com",
-    phone: "+91 98000 00005",
+    email: "example.user@email.com",
+    phone: "+91 76*** ****9",
     location: "City, State",
-    linkedin: "linkedin.com/in/driver-example",
+    linkedin: "linkedin.com/in/example-profile",
     github: "",
     summary: "Reliable, safety-certified Professional Commercial Driver with 8+ years of experience in long-haul freight, inter-city transport, and time-critical urban delivery. 100% accident-free record with advanced route navigation and proactive vehicle maintenance skills.",
     template: "minimalist",
@@ -365,12 +365,12 @@ const sampleProfiles = {
   },
 
   "warehouse-worker": {
-    fullName: "Warehouse Associate Example",
+    fullName: "Example User",
     jobTitle: "Warehouse & Inventory Operations Associate",
-    email: "warehouse.sample@example.com",
-    phone: "+91 98000 00006",
+    email: "example.user@email.com",
+    phone: "+91 76*** ****9",
     location: "City, State",
-    linkedin: "linkedin.com/in/warehouse-example",
+    linkedin: "linkedin.com/in/example-profile",
     github: "",
     summary: "Punctual, safety-conscious Warehouse Operations Associate with 4+ years of hands-on experience in high-volume e-commerce fulfillment centers. Certified Forklift Operator skilled in barcode scanning, stock audits, palletizing, and OSHA-compliant handling.",
     template: "compact",
@@ -432,12 +432,12 @@ const sampleProfiles = {
   },
 
   "operations-manager": {
-    fullName: "Operations Manager Example",
+    fullName: "Example User",
     jobTitle: "Operations & Business Process Manager",
-    email: "operations.sample@example.com",
-    phone: "+91 98000 00007",
+    email: "example.user@email.com",
+    phone: "+91 76*** ****9",
     location: "City, State",
-    linkedin: "linkedin.com/in/operations-example",
+    linkedin: "linkedin.com/in/example-profile",
     github: "",
     summary: "Strategic, metric-driven Operations Manager with 7+ years of experience leading cross-functional teams, reducing operational costs by 22%, and scaling supply chain workflows in fast-growth corporate environments.",
     template: "executive",
@@ -719,23 +719,18 @@ function applyTemplateAndStyles() {
   const resume = document.getElementById("resume");
   if (!resume) return;
 
-  // Apply template & typography dynamic classes
   resume.className = `resume template-${resumeData.template || "harvard"} margin-${resumeData.margin || "standard"} size-${resumeData.pageSize || "a4"} font-${resumeData.fontSize || "base"} leading-${resumeData.lineHeight || "normal"}`;
-
-  // Theme Color Variable
   document.documentElement.style.setProperty("--primary", resumeData.color || "#0f172a");
 }
 
 function updatePreview() {
   applyTemplateAndStyles();
 
-  // Header Details
   const nameEl = document.getElementById("previewName");
   const titleEl = document.getElementById("previewTitle");
-  if (nameEl) nameEl.textContent = resumeData.fullName || "Candidate Name";
+  if (nameEl) nameEl.textContent = resumeData.fullName || "Example User";
   if (titleEl) titleEl.textContent = resumeData.jobTitle || "Target Role / Title";
 
-  // Contact Info Strip
   const contacts = [];
   if (resumeData.email) contacts.push(`<span><i class="fa-solid fa-envelope"></i> ${escapeHTML(resumeData.email)}</span>`);
   if (resumeData.phone) contacts.push(`<span><i class="fa-solid fa-phone"></i> ${escapeHTML(resumeData.phone)}</span>`);
@@ -746,14 +741,12 @@ function updatePreview() {
   const contactEl = document.getElementById("previewContact");
   if (contactEl) contactEl.innerHTML = contacts.join("");
 
-  // Professional Summary
   const summaryText = resumeData.summary || "";
   const summaryEl = document.getElementById("previewSummary");
   const summarySec = document.getElementById("summarySection");
   if (summaryEl) summaryEl.textContent = summaryText;
   if (summarySec) summarySec.style.display = summaryText.trim() ? "block" : "none";
 
-  // Experience
   const expEl = document.getElementById("previewExperience");
   const expSec = document.getElementById("experienceSection");
   if (expEl && expSec) {
@@ -787,7 +780,6 @@ function updatePreview() {
     }
   }
 
-  // Projects
   const projEl = document.getElementById("previewProjects");
   const projSec = document.getElementById("projectsSection");
   if (projEl && projSec) {
@@ -818,7 +810,6 @@ function updatePreview() {
     }
   }
 
-  // Education
   const eduEl = document.getElementById("previewEducation");
   const eduSec = document.getElementById("educationSection");
   if (eduEl && eduSec) {
@@ -844,7 +835,6 @@ function updatePreview() {
     }
   }
 
-  // Skills
   const skillsEl = document.getElementById("previewSkills");
   const skillsSec = document.getElementById("skillsSection");
   if (skillsEl && skillsSec) {
@@ -864,7 +854,6 @@ function updatePreview() {
     }
   }
 
-  // Certifications
   const certEl = document.getElementById("previewCertifications");
   const certSec = document.getElementById("certificationSection");
   if (certEl && certSec) {
