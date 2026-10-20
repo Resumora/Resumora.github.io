@@ -434,7 +434,7 @@ const sampleProfiles = {
   "operations-manager": {
     fullName: "Priyanka Mehta",
     jobTitle: "Operations & Business Process Manager",
-    email: "priyanka.mehta@example.com",
+    email: "exapmle@example.com",
     phone: "+91 98******9",
     location: "Gurugram, India",
     linkedin: "linkedin.com/example",
