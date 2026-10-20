@@ -13,11 +13,11 @@ const sampleProfiles = {
   "network-engineer": {
     fullName: "Aarav Sharma",
     jobTitle: "Senior Network & Systems Engineer",
-    email: "aarav.sharma@example.com",
+    email: "example@example.com",
     phone: "+91 98*** ***10",
     location: "Bengaluru, India",
-    linkedin: "linkedin.com/in/aarav-network",
-    github: "github.com/aarav-infra",
+    linkedin: "linkedin.com/example",
+    github: "github.com/example",
     summary: "Dedicated Network Engineer with 6+ years of experience designing, configuring, and optimizing enterprise hybrid-cloud WAN/LAN networks, next-gen firewalls, and SD-WAN architectures with 99.99% uptime compliance.",
     template: "harvard",
     color: "#2563eb",
@@ -28,14 +28,14 @@ const sampleProfiles = {
     experience: [
       {
         position: "Senior Network Engineer",
-        company: "Cisco Enterprise Solutions Partner",
+        company: "example Partner",
         location: "Bengaluru, India",
         start: "2022 – Present",
         bullets: "Designed and deployed enterprise SD-WAN routing across 20+ branch offices, reducing network latency by 32%.\nConfigured Cisco ASA and Palo Alto firewalls, maintaining strict Zero-Trust compliance and security audits.\nAutomated routine switch configuration backups across 100+ nodes using Python and Netmiko."
       },
       {
         position: "Network Operations Engineer",
-        company: "Global Tech Networks",
+        company: "exapmle Networks",
         location: "Hyderabad, India",
         start: "2019 – 2022",
         bullets: "Managed BGP and OSPF routing protocols for Tier-1 data center traffic.\nDiagnosed critical network bottlenecks using Wireshark and SolarWinds, cutting Mean Time to Resolution (MTTR) by 25%."
@@ -44,7 +44,7 @@ const sampleProfiles = {
     projects: [
       {
         title: "Automated Switch Config Compliance Bot",
-        link: "github.com/aarav-infra/network-bot",
+        link: "github.com/exapmle",
         bullets: "Built a Python-based compliance tool to verify running configurations against CIS benchmarks on 80+ network routers nightly."
       }
     ],
@@ -86,11 +86,11 @@ const sampleProfiles = {
   "python-developer": {
     fullName: "Rohan Patel",
     jobTitle: "Senior Python & Backend Developer",
-    email: "rohan.patel@example.com",
-    phone: "+91 98111 22334",
+    email: "example@example.com",
+    phone: "+91 98*** ****4",
     location: "Pune, India (Remote)",
     linkedin: "linkedin.com/in/rohan-python",
-    github: "github.com/rohan-backend",
+    github: "github.com/example",
     summary: "Performance-focused Python Backend Engineer with 5+ years of experience architecting high-throughput RESTful & GraphQL microservices, caching layers, and database optimizations that support over 2M monthly active users.",
     template: "stanford",
     color: "#0284c7",
@@ -101,14 +101,14 @@ const sampleProfiles = {
     experience: [
       {
         position: "Senior Backend Developer",
-        company: "Nexus FinTech Labs",
+        company: "example Labs",
         location: "Pune, India",
         start: "2022 – Present",
         bullets: "Architected asynchronous payment processing pipelines using FastAPI, Celery, and Redis, reducing API response times by 45%.\nRefactored complex PostgreSQL relational queries, indexing strategies, and database connection pooling to handle 10k requests/sec.\nMentored 4 junior engineers on clean architecture, unit testing with PyTest, and CI/CD automation."
       },
       {
         position: "Software Engineer (Python)",
-        company: "ByteCraft Solutions",
+        company: "example Solutions",
         location: "Mumbai, India",
         start: "2019 – 2022",
         bullets: "Engineered scalable web scrapers and ETL data extraction workflows using Scrapy and Pandas.\nMaintained 99.95% API uptime by implementing automated health-checks and Dockerized AWS ECS deployments."
@@ -117,7 +117,7 @@ const sampleProfiles = {
     projects: [
       {
         title: "High-Speed Distributed Rate Limiter",
-        link: "github.com/rohan-backend/redis-rate-limiter",
+        link: "github.com/example",
         bullets: "Designed a lightweight token-bucket rate-limiting middleware for FastAPI backed by Redis Cluster with sub-millisecond overhead."
       }
     ],
@@ -159,11 +159,11 @@ const sampleProfiles = {
   "php-developer": {
     fullName: "Vikas Verma",
     jobTitle: "Full Stack PHP / Laravel Developer",
-    email: "vikas.verma@example.com",
-    phone: "+91 98222 33445",
+    email: "example@example.com",
+    phone: "+91 98*** ****5",
     location: "Ahmedabad, India",
-    linkedin: "linkedin.com/in/vikas-laravel",
-    github: "github.com/vikas-php",
+    linkedin: "linkedin.com/in/example",
+    github: "github.com/example",
     summary: "Full Stack Web Developer with 5+ years of expertise in PHP, Laravel ecosystem, MySQL database architecture, and REST API development for multi-tenant SaaS and enterprise e-commerce platforms.",
     template: "modern-split",
     color: "#e11d48",
@@ -174,14 +174,14 @@ const sampleProfiles = {
     experience: [
       {
         position: "Lead Laravel Developer",
-        company: "OmniCommerce Systems",
+        company: "example Systems",
         location: "Ahmedabad, India",
         start: "2021 – Present",
         bullets: "Led development of a multi-tenant B2B marketplace handling $1.5M in monthly transactions using Laravel 11 and Livewire.\nIntegrated Razorpay, Stripe, and PayPal payment gateways with automated webhook event recovery mechanisms.\nOptimized MySQL queries using EXPLAIN and multi-level caching via Redis, boosting page speed by 40%."
       },
       {
         position: "PHP Developer",
-        company: "WebCrafters India",
+        company: "example India",
         location: "Surat, India",
         start: "2019 – 2021",
         bullets: "Built custom REST APIs and webhook integrations for third-party shipping APIs like Shiprocket and Delhivery.\nCreated responsive admin control panels with modern Blade templates and Tailwind CSS."
@@ -190,7 +190,7 @@ const sampleProfiles = {
     projects: [
       {
         title: "SaaS Subscription & Invoicing Engine",
-        link: "github.com/vikas-php/laravel-saas-billing",
+        link: "github.com/example",
         bullets: "Developed an open-source Laravel package for managing recurring subscriptions, metered usage, and PDF invoice generation."
       }
     ],
@@ -227,11 +227,11 @@ const sampleProfiles = {
   "java-developer": {
     fullName: "Pooja Nair",
     jobTitle: "Senior Java Software Engineer",
-    email: "pooja.nair@example.com",
-    phone: "+91 98333 44556",
+    email: "example@example.com",
+    phone: "+91 9*** ****6",
     location: "Bengaluru, India",
     linkedin: "linkedin.com/in/pooja-java",
-    github: "github.com/pooja-spring",
+    github: "github.com/example",
     summary: "Senior Java Developer with 6+ years of specialized experience in Spring Boot, Kafka, event-driven microservices, and distributed transaction management for high-concurrency banking systems.",
     template: "executive",
     color: "#ea580c",
@@ -258,7 +258,7 @@ const sampleProfiles = {
     projects: [
       {
         title: "Distributed Transaction Saga Coordinator",
-        link: "github.com/pooja-spring/saga-orchestrator",
+        link: "github.com/exapmle",
         bullets: "Implemented an event-driven Saga pattern using Spring Boot and Kafka for ensuring eventual consistency in distributed systems."
       }
     ],
@@ -300,8 +300,8 @@ const sampleProfiles = {
   "driver": {
     fullName: "Rajesh Kumar",
     jobTitle: "Professional Commercial & Heavy Vehicle Driver",
-    email: "rajesh.driver@example.com",
-    phone: "+91 98444 55667",
+    email: "example@example.com",
+    phone: "+91 98******7",
     location: "Delhi NCR, India",
     linkedin: "",
     github: "",
@@ -315,7 +315,7 @@ const sampleProfiles = {
     experience: [
       {
         position: "Senior Heavy Commercial Vehicle (HCV) Driver",
-        company: "BlueDart Express Logistics",
+        company: "example Logistics",
         location: "Delhi – Mumbai Route",
         start: "2020 – Present",
         bullets: "Transported high-value commercial shipments over 250,000+ safe kilometers across national highways with zero cargo damage.\nConducted pre-trip and post-trip technical vehicle inspections (brakes, tires, fluids, cargo securing).\nUtilized GPS navigation and telematics systems to avoid congestions and achieve 98.5% on-time delivery rate."
@@ -367,8 +367,8 @@ const sampleProfiles = {
   "warehouse-worker": {
     fullName: "Sunil Yadav",
     jobTitle: "Warehouse & Inventory Operations Associate",
-    email: "sunil.yadav@example.com",
-    phone: "+91 98555 66778",
+    email: "example@example.com",
+    phone: "+91 98*****78",
     location: "Bhiwandi, Mumbai, India",
     linkedin: "",
     github: "",
@@ -389,7 +389,7 @@ const sampleProfiles = {
       },
       {
         position: "Inbound Material Handler",
-        company: "Global Logistics Warehousing",
+        company: "example Warehousing",
         location: "Navi Mumbai, India",
         start: "2020 – 2022",
         bullets: "Unloaded incoming shipping containers, inspected goods for transit defects, and logged manifest data into WMS software.\nOrganized bin storage according to SKU frequency and weight regulations to optimize picking paths."
@@ -435,9 +435,9 @@ const sampleProfiles = {
     fullName: "Priyanka Mehta",
     jobTitle: "Operations & Business Process Manager",
     email: "priyanka.mehta@example.com",
-    phone: "+91 98666 77889",
+    phone: "+91 98******9",
     location: "Gurugram, India",
-    linkedin: "linkedin.com/in/priyanka-ops",
+    linkedin: "linkedin.com/example",
     github: "",
     summary: "Strategic, metric-driven Operations Manager with 7+ years of experience leading cross-functional teams, reducing operational costs by 22%, and scaling supply chain workflows in fast-growth corporate environments.",
     template: "executive",
@@ -449,14 +449,14 @@ const sampleProfiles = {
     experience: [
       {
         position: "Operations Manager",
-        company: "Apex Enterprise Logistics",
+        company: "example Logistics",
         location: "Gurugram, India",
         start: "2021 – Present",
         bullets: "Oversaw day-to-day operations for 4 regional fulfillment centers, managing 85+ full-time employees and third-party vendors.\nImplemented Lean Six Sigma workflow adjustments that trimmed order fulfillment lead times from 48 hours to 18 hours.\nControlled annual departmental operating budget of $2.4M, cutting operational overhead expenses by 18% over two fiscal years."
       },
       {
         position: "Assistant Operations Manager",
-        company: "Zenith Business Solutions",
+        company: "example Solutions",
         location: "Noida, India",
         start: "2017 – 2021",
         bullets: "Designed standard operating procedures (SOPs) and KPI performance scorecards for customer dispatch units.\nAnalyzed operational bottlenecks using Power BI dashboards, improving team SLA fulfillment from 89% to 98%."
