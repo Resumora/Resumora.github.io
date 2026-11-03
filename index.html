@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<script>(function(s){s.dataset.zone='12090290',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <script>(function(s){s.dataset.zone='12090290',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+<!-- MONETAG SCRIPT YAHAN PASTE KAREIN -->
+<!-- Aapka Monetag ad script yahan aayega -->
+
 <title>Resumora Free Resume Builder, PDF & Online Tools</title>
 <meta name="description" content="Build a professional resume for free with Resumora. Merge, split, compress and convert PDF files, convert images and use helpful online calculators. No signup required.">
 <meta name="keywords" content="merge pdf, split pdf, compress pdf, word to pdf, pdf to word, image compressor 20kb, compress image to 50kb, free ATS resume builder, Resumora">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<link rel="canonical" href="https://resumora.github.io/">
 
-<link rel="alternate" hreflang="x-default" href="https://resumora.github.io/">
-<link rel="alternate" hreflang="en" href="https://resumora.github.io/">
-<link rel="alternate" hreflang="es" href="https://resumora.github.io/es/">
-<link rel="alternate" hreflang="hi" href="https://resumora.github.io/hi/">
+<link rel="canonical" href="https://resumora.github.io/">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="manifest" href="manifest.json">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://resumora.github.io/">
 <meta property="og:title" content="Resumora Free Resume Builder, PDF & Online Tools">
 <meta property="og:description" content="Merge, split, compress, convert Word to PDF, PDF to Word and manage documents easily without sign up.">
 <meta property="og:site_name" content="Resumora">
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8968728526572963" crossorigin="anonymous"></script>
 
 <script type="application/ld+json">
 {
@@ -62,298 +62,45 @@
   --topbar-bg: #ffffff;
 }
 
-/* Universal Reset to prevent any horizontal scroll */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { width: 100%; max-width: 100vw; overflow-x: clip; -webkit-text-size-adjust: 100%; background-color: var(--bg-page); color: var(--text-main); font-family: var(--font-body); }
 
-html {
-  scroll-behavior: smooth;
-}
+.topbar { position: -webkit-sticky; position: sticky; top: 0; left: 0; right: 0; width: 100%; max-width: 100vw; z-index: 9999; background: var(--topbar-bg); border-bottom: 1px solid #e5e7eb; padding: 0 16px; height: 64px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
+.brand-container { display: flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; flex-shrink: 0; }
+.brand-logo-badge { width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #e5322d 0%, #b91c1c 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; font-weight: 800; font-family: var(--font-heading); }
+.brand-title { font-family: var(--font-heading); font-size: 19px; font-weight: 800; letter-spacing: -0.5px; color: #0f172a; }
+.brand-tag { font-size: 9.5px; color: var(--text-muted); font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; }
 
-html, body {
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: clip;
-  -webkit-text-size-adjust: 100%;
-  background-color: var(--bg-page);
-  color: var(--text-main);
-  font-family: var(--font-body);
-}
+.nav-links-center { display: flex; align-items: center; gap: 14px; margin-left: 14px; flex: 1; min-width: 0; }
+.ilove-nav-link { text-decoration: none; font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2px; color: #1e293b; padding: 14px 2px; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; background: transparent; border: none; font-family: var(--font-heading); transition: color 0.15s ease; white-space: nowrap; }
+.ilove-nav-link:hover { color: var(--primary); }
+.ilove-nav-link i.chevron { font-size: 10px; color: #64748b; transition: transform 0.2s ease; }
+.ilove-nav-link:hover i.chevron { color: var(--primary); }
 
-/* --- Sticky Topbar Navigation (100% Zoom Overflow-Proof) --- */
-.topbar {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  max-width: 100vw;
-  z-index: 9999;
-  background: var(--topbar-bg);
-  border-bottom: 1px solid #e5e7eb;
-  padding: 0 16px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
+.utilities-dropdown-wrapper { position: relative; }
+.utilities-dropdown-menu { position: absolute; top: calc(100% + 2px); left: 0; width: 320px; max-width: 92vw; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.15); display: none; flex-direction: column; overflow: hidden; z-index: 10000; }
+.utilities-dropdown-menu.active { display: flex !important; }
+.dropdown-search-box { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; background: #fafbfc; }
+.dropdown-search-input { width: 100%; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 12px; font-size: 13px; outline: 0; }
+.dropdown-search-input:focus { border-color: var(--primary); }
+.dropdown-items-list { overflow-y: auto; max-height: 380px; padding: 8px; }
+.dropdown-item { display: flex; align-items: center; gap: 12px; padding: 9px 12px; border-radius: 6px; color: #1e293b; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: all 0.15s ease; }
+.dropdown-item i { width: 18px; text-align: center; font-size: 14px; color: #64748b; }
+.dropdown-item:hover { background: #fef2f2; color: var(--primary); }
+.dropdown-item:hover i { color: var(--primary); }
 
-.brand-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  cursor: pointer;
-  flex-shrink: 0;
-}
+.nav-actions-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.btn-ilove-cta { background: var(--primary); color: #ffffff !important; padding: 8px 14px; border-radius: 6px; font-weight: 700; font-size: 12.5px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: background 0.2s ease; white-space: nowrap; }
+.btn-ilove-cta:hover { background: var(--primary-hover); }
+.glass-theme-btn { width: 36px; height: 36px; border-radius: 6px; background: #ffffff; border: 1px solid #cbd5e1; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: #475569; font-size: 14px; transition: all 0.2s ease; outline: 0; flex-shrink: 0; }
+.glass-theme-btn:hover { background: #f8fafc; color: var(--primary); border-color: #94a3b8; }
 
-.brand-logo-badge {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #e5322d 0%, #b91c1c 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 800;
-  font-family: var(--font-heading);
-}
-
-.brand-title {
-  font-family: var(--font-heading);
-  font-size: 19px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  color: #0f172a;
-}
-
-.brand-tag {
-  font-size: 9.5px;
-  color: var(--text-muted);
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-}
-
-/* Center Navigation Links */
-.nav-links-center {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-left: 14px;
-  flex: 1;
-  min-width: 0;
-}
-
-.ilove-nav-link {
-  text-decoration: none;
-  font-size: 12.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2px;
-  color: #1e293b;
-  padding: 14px 2px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  font-family: var(--font-heading);
-  transition: color 0.15s ease;
-  white-space: nowrap;
-}
-
-.ilove-nav-link:hover {
-  color: var(--primary);
-}
-
-.ilove-nav-link i.chevron {
-  font-size: 10px;
-  color: #64748b;
-  transition: transform 0.2s ease;
-}
-
-.ilove-nav-link:hover i.chevron {
-  color: var(--primary);
-}
-
-/* All PDF Tools Dropdown Menu */
-.utilities-dropdown-wrapper {
-  position: relative;
-}
-
-.utilities-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 2px);
-  left: 0;
-  width: 320px;
-  max-width: 92vw;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.15);
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  z-index: 10000;
-}
-
-.utilities-dropdown-menu.active {
-  display: flex !important;
-}
-
-.dropdown-search-box {
-  padding: 10px 14px;
-  border-bottom: 1px solid #f1f5f9;
-  background: #fafbfc;
-}
-
-.dropdown-search-input {
-  width: 100%;
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  padding: 8px 12px;
-  font-size: 13px;
-  outline: 0;
-}
-
-.dropdown-search-input:focus {
-  border-color: var(--primary);
-}
-
-.dropdown-items-list {
-  overflow-y: auto;
-  max-height: 380px;
-  padding: 8px;
-}
-
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 9px 12px;
-  border-radius: 6px;
-  color: #1e293b;
-  font-size: 13.5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.dropdown-item i {
-  width: 18px;
-  text-align: center;
-  font-size: 14px;
-  color: #64748b;
-}
-
-.dropdown-item:hover {
-  background: #fef2f2;
-  color: var(--primary);
-}
-
-.dropdown-item:hover i {
-  color: var(--primary);
-}
-
-/* Right Nav Buttons */
-.nav-actions-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.btn-ilove-cta {
-  background: var(--primary);
-  color: #ffffff !important;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 12.5px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: background 0.2s ease;
-  white-space: nowrap;
-}
-
-.btn-ilove-cta:hover {
-  background: var(--primary-hover);
-}
-
-.glass-theme-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 6px;
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #475569;
-  font-size: 14px;
-  transition: all 0.2s ease;
-  outline: 0;
-  flex-shrink: 0;
-}
-
-.glass-theme-btn:hover {
-  background: #f8fafc;
-  color: var(--primary);
-  border-color: #94a3b8;
-}
-
-/* Action Buttons inside tools */
-.uiverse-btn {
-  border: 0;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  display: inline-block;
-  font-family: var(--font-heading);
-  text-decoration: none;
-  vertical-align: middle;
-}
-
-.uiverse-btn .front {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 9px 18px;
-  border-radius: 6px;
-  font-size: 13.5px;
-  font-weight: 700;
-  color: white;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
-
-.uiverse-btn:hover .front {
-  filter: brightness(108%);
-  transform: translateY(-1px);
-}
-
-.uiverse-btn.full-width {
-  width: 100%;
-  display: block;
-}
-
-.uiverse-btn.full-width .front {
-  width: 100%;
-}
+.uiverse-btn { border: 0; background: transparent; padding: 0; cursor: pointer; display: inline-block; font-family: var(--font-heading); text-decoration: none; vertical-align: middle; }
+.uiverse-btn .front { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 18px; border-radius: 6px; font-size: 13.5px; font-weight: 700; color: white; white-space: nowrap; transition: all 0.2s ease; }
+.uiverse-btn:hover .front { filter: brightness(108%); transform: translateY(-1px); }
+.uiverse-btn.full-width { width: 100%; display: block; }
+.uiverse-btn.full-width .front { width: 100%; }
 
 .btn-theme-red .front { background: #e5322d; color: #fff; }
 .btn-theme-red:hover .front { background: #d02621; }
@@ -368,18 +115,7 @@ html, body {
 .btn-theme-amber .front { background: #d97706; color: #fff; }
 .btn-theme-slate .front { background: #334155; color: #fff; }
 
-/* Dark Mode styles */
-body.dark-mode {
-  --bg-page: #0f172a;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --card-bg: #1e293b;
-  --card-border: #334155;
-  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  --card-shadow-hover: 0 10px 25px rgba(229, 50, 45, 0.25);
-  --topbar-bg: #1e293b;
-}
-
+body.dark-mode { --bg-page: #0f172a; --text-main: #f8fafc; --text-muted: #94a3b8; --card-bg: #1e293b; --card-border: #334155; --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); --card-shadow-hover: 0 10px 25px rgba(229, 50, 45, 0.25); --topbar-bg: #1e293b; }
 body.dark-mode .topbar { border-bottom-color: #334155; }
 body.dark-mode .brand-title { color: #ffffff; }
 body.dark-mode .ilove-nav-link { color: #cbd5e1; }
@@ -389,9 +125,7 @@ body.dark-mode .hero h1 { color: #ffffff; }
 body.dark-mode .hero p { color: #94a3b8; }
 body.dark-mode .glass-card { background: #1e293b; border-color: #334155; }
 body.dark-mode .card-meta h3 { color: #ffffff; }
-body.dark-mode .tool-input, body.dark-mode .tool-select, body.dark-mode .tool-textarea, body.dark-mode .tool-output {
-  background: #0f172a; border-color: #334155; color: #f8fafc;
-}
+body.dark-mode .tool-input, body.dark-mode .tool-select, body.dark-mode .tool-textarea, body.dark-mode .tool-output { background: #0f172a; border-color: #334155; color: #f8fafc; }
 body.dark-mode .seo-content-block { background: #1e293b; border-color: #334155; }
 body.dark-mode .seo-content-block h2 { color: #ffffff; }
 body.dark-mode .faq-card { background: #0f172a; border-color: #334155; }
@@ -412,126 +146,22 @@ body.dark-mode .live-visa-news-box { background: #0f172a !important; border-colo
 body.dark-mode .news-card-single { background: #1e293b !important; border-color: #334155 !important; }
 body.dark-mode .news-card-single a { color: #f8fafc !important; }
 
-/* Hero Section */
-.hero {
-  position: relative;
-  text-align: center;
-  padding: 50px 20px 30px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  width: 100%;
-}
+.hero { position: relative; text-align: center; padding: 50px 20px 30px 20px; max-width: 900px; margin: 0 auto; width: 100%; }
+.hero h1 { font-family: var(--font-heading); font-size: 38px; font-weight: 900; line-height: 1.2; letter-spacing: -1px; margin-bottom: 14px; color: #0f172a; }
+.hero p { font-size: 15.5px; color: var(--text-muted); max-width: 760px; margin: 0 auto 26px auto; line-height: 1.6; }
+.hero-action-row { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; width: 100%; }
 
-.hero h1 {
-  font-family: var(--font-heading);
-  font-size: 38px;
-  font-weight: 900;
-  line-height: 1.2;
-  letter-spacing: -1px;
-  margin-bottom: 14px;
-  color: #0f172a;
-}
+.tools-section { position: relative; max-width: 1260px; margin: 0 auto; padding: 10px 20px 60px 20px; width: 100%; }
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 10px; }
+.section-header h2 { font-family: var(--font-heading); font-size: 22px; font-weight: 800; display: flex; align-items: center; gap: 10px; color: #0f172a; }
+body.dark-mode .section-header h2 { color: #f8fafc; }
 
-.hero p {
-  font-size: 15.5px;
-  color: var(--text-muted);
-  max-width: 760px;
-  margin: 0 auto 26px auto;
-  line-height: 1.6;
-}
-
-.hero-action-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-/* Tools Section & Grid */
-.tools-section {
-  position: relative;
-  max-width: 1260px;
-  margin: 0 auto;
-  padding: 10px 20px 60px 20px;
-  width: 100%;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.section-header h2 {
-  font-family: var(--font-heading);
-  font-size: 22px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #0f172a;
-}
-
-body.dark-mode .section-header h2 {
-  color: #f8fafc;
-}
-
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 20px;
-  position: relative;
-  width: 100%;
-}
-
-.glass-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: var(--card-shadow);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  scroll-margin-top: 85px;
-  width: 100%;
-}
-
-.glass-card:hover {
-  border-color: #e5322d;
-  transform: translateY(-4px);
-  box-shadow: var(--card-shadow-hover);
-}
-
-.glass-card.highlight-card {
-  border-color: #e5322d !important;
-  box-shadow: 0 0 0 3px rgba(229, 50, 45, 0.3), 0 10px 30px rgba(229, 50, 45, 0.2) !important;
-}
-
-.card-top {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-
-.card-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #fff;
-  flex-shrink: 0;
-}
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; position: relative; width: 100%; }
+.glass-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; box-shadow: var(--card-shadow); position: relative; display: flex; flex-direction: column; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); scroll-margin-top: 85px; width: 100%; }
+.glass-card:hover { border-color: #e5322d; transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.glass-card.highlight-card { border-color: #e5322d !important; box-shadow: 0 0 0 3px rgba(229, 50, 45, 0.3), 0 10px 30px rgba(229, 50, 45, 0.2) !important; }
+.card-top { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.card-icon { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; flex-shrink: 0; }
 
 .icon-red { background: linear-gradient(135deg, #e5322d, #ef4444); }
 .icon-blue { background: linear-gradient(135deg, #2563eb, #3b82f6); }
@@ -542,558 +172,88 @@ body.dark-mode .section-header h2 {
 .icon-rose { background: linear-gradient(135deg, #e11d48, #f43f5e); }
 .icon-indigo { background: linear-gradient(135deg, #4338ca, #6366f1); }
 
-.card-meta h3 {
-  font-family: var(--font-heading);
-  font-size: 16.5px;
-  font-weight: 800;
-  color: var(--text-main);
-  line-height: 1.3;
-}
+.card-meta h3 { font-family: var(--font-heading); font-size: 16.5px; font-weight: 800; color: var(--text-main); line-height: 1.3; }
+.card-meta p { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.tool-form { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+label.field-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-.card-meta p {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
+.tool-input, .tool-select, .tool-textarea { width: 100%; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 11px; font-size: 14px; color: var(--text-main); outline: 0; transition: all 0.2s; font-family: inherit; }
+.tool-textarea { min-height: 80px; resize: vertical; font-family: var(--font-mono); }
+.tool-input:focus, .tool-select:focus, .tool-textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(229, 50, 45, 0.15); }
+.tool-output { margin-top: 14px; padding: 12px; background: #f8fafc; border-radius: 6px; font-family: var(--font-mono); font-size: 13px; color: #0f172a; border: 1px dashed #cbd5e1; min-height: 48px; display: flex; align-items: center; justify-content: space-between; word-break: break-word; white-space: pre-wrap; }
+.tool-output strong { color: var(--primary); font-size: 15px; }
+.img-drop-area { border: 2px dashed #cbd5e1; border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; background: #f8fafc; transition: all 0.2s ease; }
+.img-drop-area:hover { border-color: var(--primary); background: #fef2f2; }
+.preset-buttons { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
+.preset-btn { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; padding: 5px 10px; font-size: 11.5px; font-weight: 700; color: #334155; cursor: pointer; transition: 0.15s; }
+.preset-btn:hover, .preset-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); }
 
-.tool-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
+.seo-content-block { position: relative; max-width: 1000px; margin: 40px auto; padding: 30px 24px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: var(--card-shadow); width: calc(100% - 40px); }
+.seo-content-block h2 { font-family: var(--font-heading); font-size: 22px; font-weight: 800; margin-bottom: 12px; color: #0f172a; }
+.seo-content-block p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.faq-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; }
+.faq-card h3 { font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+.faq-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0; }
 
-.input-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
+.modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(4px); z-index: 10001; display: none; align-items: center; justify-content: center; padding: 16px; }
+.modal-overlay.active { display: flex !important; }
+.modal-box { background: #ffffff; border-radius: 14px; width: 100%; max-width: 780px; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.25); border: 1px solid #e2e8f0; position: relative; padding: 24px; }
+.modal-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 50%; background: #f1f5f9; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 18px; }
+.modal-close:hover { background: #e2e8f0; color: #0f172a; }
 
-label.field-label {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+.visa-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #f1f5f9; }
+.visa-globe-icon { width: 48px; height: 48px; border-radius: 8px; background: linear-gradient(135deg, #e5322d 0%, #2563eb 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px; flex-shrink: 0; }
+.country-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 16px; }
+.country-btn { background: #f1f5f9; border: 1px solid #cbd5e1; padding: 7px 14px; border-radius: 30px; font-size: 13px; font-weight: 700; color: #334155; cursor: pointer; white-space: nowrap; display: flex; align-items: center; gap: 6px; flex-shrink: 0; transition: all 0.15s ease; }
+.country-btn.active, .country-btn:hover { background: #e5322d; color: #fff; border-color: #e5322d; }
+.visa-card-body { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; margin-bottom: 16px; }
+.visa-badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.badge-pill { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+.visa-section-title { font-size: 14px; font-weight: 800; color: #0f172a; margin: 14px 0 8px 0; display: flex; align-items: center; gap: 8px; }
+.step-list { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #334155; line-height: 1.5; }
+.step-list li { position: relative; padding-left: 22px; }
+.step-list li::before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: 900; }
+.cost-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12.5px; min-width: 280px; }
+.cost-table th, .cost-table td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+.cost-table th { background: #f1f5f9; color: #334155; font-weight: 700; }
 
-.tool-input, .tool-select, .tool-textarea {
-  width: 100%;
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  padding: 8px 11px;
-  font-size: 14px;
-  color: var(--text-main);
-  outline: 0;
-  transition: all 0.2s;
-  font-family: inherit;
-}
+.live-feed-banner { background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; gap: 10px; flex-wrap: wrap; }
+.live-visa-news-box { margin-bottom: 16px; padding: 12px 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; }
+.live-visa-news-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 6px; }
+.live-visa-news-header strong { font-size: 13px; color: #0f172a; display: flex; align-items: center; gap: 6px; }
+body.dark-mode .live-visa-news-header strong { color: #f8fafc; }
+.live-visa-news-list { display: flex; flex-direction: column; gap: 8px; }
+.news-card-single { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; transition: border-color 0.15s ease; }
+.news-card-single:hover { border-color: #cbd5e1; }
 
-.tool-textarea {
-  min-height: 80px;
-  resize: vertical;
-  font-family: var(--font-mono);
-}
-
-.tool-input:focus, .tool-select:focus, .tool-textarea:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(229, 50, 45, 0.15);
-}
-
-.tool-output {
-  margin-top: 14px;
-  padding: 12px;
-  background: #f8fafc;
-  border-radius: 6px;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: #0f172a;
-  border: 1px dashed #cbd5e1;
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  word-break: break-word;
-  white-space: pre-wrap;
-}
-
-.tool-output strong {
-  color: var(--primary);
-  font-size: 15px;
-}
-
-.img-drop-area {
-  border: 2px dashed #cbd5e1;
-  border-radius: 8px;
-  padding: 16px;
-  text-align: center;
-  cursor: pointer;
-  background: #f8fafc;
-  transition: all 0.2s ease;
-}
-
-.img-drop-area:hover {
-  border-color: var(--primary);
-  background: #fef2f2;
-}
-
-.preset-buttons {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 6px;
-  flex-wrap: wrap;
-}
-
-.preset-btn {
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  padding: 5px 10px;
-  font-size: 11.5px;
-  font-weight: 700;
-  color: #334155;
-  cursor: pointer;
-  transition: 0.15s;
-}
-
-.preset-btn:hover, .preset-btn.active {
-  background: var(--primary);
-  color: #ffffff;
-  border-color: var(--primary);
-}
-
-/* SEO Content & Footer */
-.seo-content-block {
-  position: relative;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 30px 24px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  box-shadow: var(--card-shadow);
-  width: calc(100% - 40px);
-}
-
-.seo-content-block h2 {
-  font-family: var(--font-heading);
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 12px;
-  color: #0f172a;
-}
-
-.seo-content-block p {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-
-.faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.faq-card {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 16px;
-}
-
-.faq-card h3 {
-  font-size: 14.5px;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 6px;
-}
-
-.faq-card p {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* Modals */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(4px);
-  z-index: 10001;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-
-.modal-overlay.active {
-  display: flex !important;
-}
-
-.modal-box {
-  background: #ffffff;
-  border-radius: 14px;
-  width: 100%;
-  max-width: 780px;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.25);
-  border: 1px solid #e2e8f0;
-  position: relative;
-  padding: 24px;
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #f1f5f9;
-  border: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #475569;
-  font-size: 18px;
-}
-
-.modal-close:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-}
-
-.visa-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.visa-globe-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #e5322d 0%, #2563eb 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 22px;
-  flex-shrink: 0;
-}
-
-.country-tabs {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  margin-bottom: 16px;
-}
-
-.country-btn {
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  padding: 7px 14px;
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 700;
-  color: #334155;
-  cursor: pointer;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-  transition: all 0.15s ease;
-}
-
-.country-btn.active, .country-btn:hover {
-  background: #e5322d;
-  color: #fff;
-  border-color: #e5322d;
-}
-
-.visa-card-body {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 18px;
-  margin-bottom: 16px;
-}
-
-.visa-badge-row {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
-}
-
-.badge-pill {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 20px;
-  background: #fef2f2;
-  color: #b91c1c;
-  border: 1px solid #fecaca;
-}
-
-.visa-section-title {
-  font-size: 14px;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 14px 0 8px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.step-list {
-  list-style: none;
-  padding-left: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 13px;
-  color: #334155;
-  line-height: 1.5;
-}
-
-.step-list li {
-  position: relative;
-  padding-left: 22px;
-}
-
-.step-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #10b981;
-  font-weight: 900;
-}
-
-.cost-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-  font-size: 12.5px;
-  min-width: 280px;
-}
-
-.cost-table th, .cost-table td {
-  padding: 8px 12px;
-  text-align: left;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.cost-table th {
-  background: #f1f5f9;
-  color: #334155;
-  font-weight: 700;
-}
-
-.live-feed-banner {
-  background: #f0fdf4;
-  border: 1px solid #86efac;
-  border-radius: 8px;
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-/* Automated Live News Feed Container */
-.live-visa-news-box {
-  margin-bottom: 16px;
-  padding: 12px 14px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-}
-
-.live-visa-news-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.live-visa-news-header strong {
-  font-size: 13px;
-  color: #0f172a;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-body.dark-mode .live-visa-news-header strong {
-  color: #f8fafc;
-}
-
-.live-visa-news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.news-card-single {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 10px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  transition: border-color 0.15s ease;
-}
-
-.news-card-single:hover {
-  border-color: #cbd5e1;
-}
-
-.ats-meter-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.ats-score-circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 7px solid #e5322d;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  color: #0f172a;
-}
-
-.feedback-card {
-  padding: 12px 14px;
-  border-radius: 8px;
-  font-size: 13px;
-  line-height: 1.5;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
-  margin-bottom: 10px;
-}
-
+.ats-meter-container { display: flex; align-items: center; justify-content: center; margin: 20px 0; }
+.ats-score-circle { width: 100px; height: 100px; border-radius: 50%; border: 7px solid #e5322d; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 900; color: #0f172a; }
+.feedback-card { padding: 12px 14px; border-radius: 8px; font-size: 13px; line-height: 1.5; border: 1px solid #e2e8f0; background: #f8fafc; margin-bottom: 10px; }
 .feedback-card.pass { border-left: 4px solid #10b981; }
 .feedback-card.warn { border-left: 4px solid #f59e0b; }
 .feedback-card.fail { border-left: 4px solid #ef4444; }
-
-.feedback-tag {
-  font-weight: 800;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-  display: block;
-}
-
+.feedback-tag { font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; display: block; }
 .feedback-card.pass .feedback-tag { color: #059669; }
 .feedback-card.warn .feedback-tag { color: #d97706; }
 .feedback-card.fail .feedback-tag { color: #dc2626; }
 
-/* Footer */
-.portal-footer {
-  position: relative;
-  border-top: 1px solid #e2e8f0;
-  background: #ffffff;
-  padding: 28px 16px;
-  text-align: center;
-  font-size: 13px;
-  color: var(--text-muted);
-}
+.portal-footer { position: relative; border-top: 1px solid #e2e8f0; background: #ffffff; padding: 28px 16px; text-align: center; font-size: 13px; color: var(--text-muted); }
 
-/* Smart Responsive Media Queries - No Element Ever Pushed Off-Screen */
-@media (max-width: 1260px) {
-  .nav-links-center {
-    gap: 8px;
-  }
-  .ilove-nav-link {
-    font-size: 11.5px;
-  }
-  .nav-btn-text {
-    display: none; /* Hide button text, preserve icons to save 180px */
-  }
-}
-
-@media (max-width: 992px) {
-  .topbar {
-    padding: 8px 12px;
-    height: auto;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .brand-container {
-    width: auto;
-  }
-  .nav-links-center {
-    order: 3;
-    width: 100%;
-    margin-left: 0;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    gap: 12px;
-  }
-  .ilove-nav-link {
-    padding: 6px 2px;
-    font-size: 12px;
-  }
-  .nav-actions-right {
-    margin-left: auto;
-  }
-  .hero {
-    padding: 35px 16px 25px 16px;
-  }
-  .hero h1 {
-    font-size: 28px;
-    line-height: 1.25;
-  }
-  .cards-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .faq-grid {
-    grid-template-columns: 1fr;
-  }
-  .input-row {
-    grid-template-columns: 1fr;
-  }
-  .modal-box {
-    padding: 18px 14px;
-    border-radius: 12px;
-  }
-}
+@media (max-width: 1260px) { .nav-links-center { gap: 8px; } .ilove-nav-link { font-size: 11.5px; } .nav-btn-text { display: none; } }
+@media (max-width: 992px) { .topbar { padding: 8px 12px; height: auto; flex-wrap: wrap; gap: 8px; } .brand-container { width: auto; } .nav-links-center { order: 3; width: 100%; margin-left: 0; overflow-x: auto; padding-bottom: 4px; gap: 12px; } .ilove-nav-link { padding: 6px 2px; font-size: 12px; } .nav-actions-right { margin-left: auto; } .hero { padding: 35px 16px 25px 16px; } .hero h1 { font-size: 28px; line-height: 1.25; } .cards-grid { grid-template-columns: 1fr; gap: 16px; } .faq-grid { grid-template-columns: 1fr; } .input-row { grid-template-columns: 1fr; } .modal-box { padding: 18px 14px; border-radius: 12px; } }
 </style>
 </head>
 <body>
 
-<!-- STICKY TOPBAR HEADER -->
+<script>
+  if (localStorage.getItem('resumora_theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+</script>
+
 <header class="topbar">
-  <!-- Brand Logo -->
   <a href="index.html" class="brand-container" aria-label="Resumora Universe Home">
     <div class="brand-logo-badge">R</div>
     <div>
@@ -1102,19 +262,13 @@ body.dark-mode .live-visa-news-header strong {
     </div>
   </a>
 
-  <!-- Center: iLovePDF Style Navigation Links -->
   <nav class="nav-links-center">
     <a href="#tool-pdf-merger" class="ilove-nav-link">MERGE PDF</a>
     <a href="#tool-pdf-splitter" class="ilove-nav-link">SPLIT PDF</a>
     <a href="#tool-image-compressor" class="ilove-nav-link">COMPRESS PDF</a>
-    <a href="#tool-pdf-to-word" class="ilove-nav-link">
-      CONVERT PDF <i class="fa-solid fa-chevron-down chevron"></i>
-    </a>
-    
-    <!-- SAHI LINK: templates folder ke andar index.html par bhejega -->
+    <a href="#tool-pdf-to-word" class="ilove-nav-link">CONVERT PDF <i class="fa-solid fa-chevron-down chevron"></i></a>
     <a href="templates/index.html" class="ilove-nav-link" style="color:var(--primary);">RESUME TEMPLATES</a>
 
-    <!-- ALL PDF TOOLS Dropdown -->
     <div class="utilities-dropdown-wrapper">
       <button class="ilove-nav-link" id="utilityDropdownBtn" type="button" aria-label="Toggle All PDF Tools Menu">
         ALL PDF TOOLS <i class="fa-solid fa-chevron-down chevron"></i>
@@ -1133,7 +287,6 @@ body.dark-mode .live-visa-news-header strong {
     </div>
   </nav>
 
-  <!-- Right Navigation Actions -->
   <div class="nav-actions-right">
     <button class="ilove-nav-link" id="navVisaBtn" type="button" title="Study & Visa Hub">
       <i class="fa-solid fa-plane-departure" style="color:#0d9488;"></i> <span class="nav-btn-text">Study & Visa</span>
@@ -1150,47 +303,19 @@ body.dark-mode .live-visa-news-header strong {
   </div>
 </header>
 
-<!-- HERO SECTION -->
 <section class="hero">
   <h1>Free Resume Builder and Online PDF Tools</h1>
-  <p>
-    Build a professional resume for free with Resumora. Merge, split, compress and convert PDF files, convert images and use helpful online calculators. No signup required.
-  </p>
+  <p>Build a professional resume for free with Resumora. Merge, split, compress and convert PDF files, convert images and use helpful online calculators. No signup required.</p>
   <div class="hero-action-row">
-    <a href="#tool-pdf-merger" class="uiverse-btn btn-theme-red" style="font-size:14px">
-      <span class="front" style="padding:11px 22px">
-        <i class="fa-solid fa-object-group"></i> <span>Merge PDF</span>
-      </span>
-    </a>
-    <a href="#tool-pdf-splitter" class="uiverse-btn btn-theme-rose" style="font-size:14px">
-      <span class="front" style="padding:11px 20px">
-        <i class="fa-solid fa-scissors"></i> <span>Split PDF</span>
-      </span>
-    </a>
-    <a href="#tool-image-compressor" class="uiverse-btn btn-theme-emerald" style="font-size:14px">
-      <span class="front" style="padding:11px 20px">
-        <i class="fa-solid fa-compress"></i> <span>Compress PDF</span>
-      </span>
-    </a>
-    <a href="#tool-image-converter" class="uiverse-btn btn-theme-purple" style="font-size:14px">
-      <span class="front" style="padding:11px 20px">
-        <i class="fa-solid fa-image"></i> <span>Image Converter</span>
-      </span>
-    </a>
-    <a href="#tool-pdf-to-word" class="uiverse-btn btn-theme-indigo" style="font-size:14px">
-      <span class="front" style="padding:11px 20px">
-        <i class="fa-solid fa-file-word"></i> <span>PDF to Word</span>
-      </span>
-    </a>
-    <a href="#tool-word-to-pdf" class="uiverse-btn btn-theme-blue" style="font-size:14px">
-      <span class="front" style="padding:11px 20px">
-        <i class="fa-solid fa-file-pdf"></i> <span>Word to PDF</span>
-      </span>
-    </a>
+    <a href="#tool-pdf-merger" class="uiverse-btn btn-theme-red" style="font-size:14px"><span class="front" style="padding:11px 22px"><i class="fa-solid fa-object-group"></i> <span>Merge PDF</span></span></a>
+    <a href="#tool-pdf-splitter" class="uiverse-btn btn-theme-rose" style="font-size:14px"><span class="front" style="padding:11px 20px"><i class="fa-solid fa-scissors"></i> <span>Split PDF</span></span></a>
+    <a href="#tool-image-compressor" class="uiverse-btn btn-theme-emerald" style="font-size:14px"><span class="front" style="padding:11px 20px"><i class="fa-solid fa-compress"></i> <span>Compress PDF</span></span></a>
+    <a href="#tool-image-converter" class="uiverse-btn btn-theme-purple" style="font-size:14px"><span class="front" style="padding:11px 20px"><i class="fa-solid fa-image"></i> <span>Image Converter</span></span></a>
+    <a href="#tool-pdf-to-word" class="uiverse-btn btn-theme-indigo" style="font-size:14px"><span class="front" style="padding:11px 20px"><i class="fa-solid fa-file-word"></i> <span>PDF to Word</span></span></a>
+    <a href="#tool-word-to-pdf" class="uiverse-btn btn-theme-blue" style="font-size:14px"><span class="front" style="padding:11px 20px"><i class="fa-solid fa-file-pdf"></i> <span>Word to PDF</span></span></a>
   </div>
 </section>
 
-<!-- MAIN TOOLS GRID -->
 <main class="tools-section">
   <div class="section-header">
     <h2><i class="fa-solid fa-file-pdf" style="color:var(--primary)"></i> All PDF & Productivity Tools</h2>
@@ -1198,66 +323,41 @@ body.dark-mode .live-visa-news-header strong {
   </div>
 
   <div class="cards-grid">
-    <!-- 1. PDF Merger -->
+    <!-- PDF Merger -->
     <div class="glass-card" id="tool-pdf-merger">
       <div class="card-top">
         <div class="card-icon icon-red"><i class="fa-solid fa-object-group"></i></div>
-        <div class="card-meta">
-          <h3>PDF Merger</h3>
-          <p>Combine multiple PDF documents into one</p>
-        </div>
+        <div class="card-meta"><h3>PDF Merger</h3><p>Combine multiple PDF documents into one</p></div>
       </div>
       <div class="tool-form">
-        <div>
-          <label class="field-label" for="pdfMergeFiles">Select 2+ PDF Files</label>
-          <input type="file" id="pdfMergeFiles" class="tool-input" accept="application/pdf" multiple aria-label="Upload multiple PDFs to merge">
-        </div>
-        <button class="uiverse-btn btn-theme-red full-width" id="mergePdfBtn" type="button" aria-label="Merge PDFs">
-          <span class="front"><i class="fa-solid fa-object-group"></i> Merge PDFs</span>
-        </button>
+        <div><label class="field-label" for="pdfMergeFiles">Select 2+ PDF Files</label><input type="file" id="pdfMergeFiles" class="tool-input" accept="application/pdf" multiple aria-label="Upload multiple PDFs to merge"></div>
+        <button class="uiverse-btn btn-theme-red full-width" id="mergePdfBtn" type="button" aria-label="Merge PDFs"><span class="front"><i class="fa-solid fa-object-group"></i> Merge PDFs</span></button>
         <div class="tool-output" id="pdfMergeOutput">Select files to merge</div>
       </div>
     </div>
 
-    <!-- 2. PDF Splitter -->
+    <!-- PDF Splitter -->
     <div class="glass-card" id="tool-pdf-splitter">
       <div class="card-top">
         <div class="card-icon icon-rose"><i class="fa-solid fa-scissors"></i></div>
-        <div class="card-meta">
-          <h3>PDF Splitter</h3>
-          <p>Split a range of pages into a new PDF</p>
-        </div>
+        <div class="card-meta"><h3>PDF Splitter</h3><p>Split a range of pages into a new PDF</p></div>
       </div>
       <div class="tool-form">
-        <div>
-          <label class="field-label" for="pdfSplitFile">Upload PDF</label>
-          <input type="file" id="pdfSplitFile" class="tool-input" accept="application/pdf" aria-label="Select PDF file to split">
-        </div>
+        <div><label class="field-label" for="pdfSplitFile">Upload PDF</label><input type="file" id="pdfSplitFile" class="tool-input" accept="application/pdf" aria-label="Select PDF file to split"></div>
         <div class="input-row">
-          <div>
-            <label class="field-label" for="splitFrom">From Page</label>
-            <input type="number" id="splitFrom" class="tool-input" value="1" min="1" aria-label="Starting page number">
-          </div>
-          <div>
-            <label class="field-label" for="splitTo">To Page</label>
-            <input type="number" id="splitTo" class="tool-input" value="2" min="1" aria-label="Ending page number">
-          </div>
+          <div><label class="field-label" for="splitFrom">From Page</label><input type="number" id="splitFrom" class="tool-input" value="1" min="1" aria-label="Starting page number"></div>
+          <div><label class="field-label" for="splitTo">To Page</label><input type="number" id="splitTo" class="tool-input" value="2" min="1" aria-label="Ending page number"></div>
         </div>
-        <button class="uiverse-btn btn-theme-rose full-width" id="splitPdfBtn" type="button" aria-label="Split and Download PDF">
-          <span class="front"><i class="fa-solid fa-file-export"></i> Split & Download</span>
-        </button>
+        <button class="uiverse-btn btn-theme-rose full-width" id="splitPdfBtn" type="button" aria-label="Split and Download PDF"><span class="front"><i class="fa-solid fa-file-export"></i> Split & Download</span></button>
         <div class="tool-output" id="pdfSplitOutput">Upload PDF & set page range</div>
       </div>
     </div>
 
-    <!-- 3. Compress PDF & Image Assets -->
+    <!-- Compress PDF & Image Assets -->
     <div class="glass-card" id="tool-image-compressor">
       <div class="card-top">
         <div class="card-icon icon-emerald"><i class="fa-solid fa-compress"></i></div>
-        <div class="card-meta">
-          <h3>Compress Image & PDF Assets</h3>
-          <p>JPG, PNG, WebP to exact 20KB, 50KB or custom</p>
-        </div>
+        <div class="card-meta"><h3>Compress Image & PDF Assets</h3><p>JPG, PNG, WebP to exact 20KB, 50KB or custom</p></div>
       </div>
       <div class="tool-form">
         <div class="img-drop-area" id="imgDropZone" onclick="document.getElementById('imgFileInput').click()">
@@ -1276,68 +376,32 @@ body.dark-mode .live-visa-news-header strong {
           <input type="number" id="imgTargetKb" class="tool-input" placeholder="Target size in KB (e.g. 50)" value="50" min="5" max="15000" aria-label="Target File Size in KB">
         </div>
         <div class="input-row">
-          <div>
-            <label class="field-label" for="imgWidth">Width (px)</label>
-            <input type="number" id="imgWidth" class="tool-input" placeholder="Auto" aria-label="Image Width in pixels">
-          </div>
-          <div>
-            <label class="field-label" for="imgHeight">Height (px)</label>
-            <input type="number" id="imgHeight" class="tool-input" placeholder="Auto" aria-label="Image Height in pixels">
-          </div>
+          <div><label class="field-label" for="imgWidth">Width (px)</label><input type="number" id="imgWidth" class="tool-input" placeholder="Auto" aria-label="Image Width in pixels"></div>
+          <div><label class="field-label" for="imgHeight">Height (px)</label><input type="number" id="imgHeight" class="tool-input" placeholder="Auto" aria-label="Image Height in pixels"></div>
         </div>
         <div style="display:flex;align-items:center;gap:8px">
           <input type="checkbox" id="imgKeepRatio" checked style="cursor:pointer" aria-label="Keep aspect ratio">
           <label for="imgKeepRatio" style="font-size:12px;color:var(--text-muted);cursor:pointer;user-select:none">Keep Aspect Ratio</label>
         </div>
-        <button class="uiverse-btn btn-theme-emerald full-width" id="compressImageBtn" type="button" aria-label="Compress and Optimize image">
-          <span class="front"><i class="fa-solid fa-compress"></i> Compress & Optimize</span>
-        </button>
+        <button class="uiverse-btn btn-theme-emerald full-width" id="compressImageBtn" type="button" aria-label="Compress and Optimize image"><span class="front"><i class="fa-solid fa-compress"></i> Compress & Optimize</span></button>
         <div class="tool-output" id="imgCompressOutput" style="display:none;flex-direction:column;align-items:flex-start;gap:8px">
           <span id="imgSizeSummary" style="font-size:12.5px">Ready</span>
-          <a id="imgDownloadLink" class="uiverse-btn btn-theme-emerald" style="text-decoration:none" download="resumora-optimized.jpg" aria-label="Download optimized file">
-            <span class="front" style="padding:8px 16px;font-size:12px"><i class="fa-solid fa-download"></i> Download File</span>
-          </a>
+          <a id="imgDownloadLink" class="uiverse-btn btn-theme-emerald" style="text-decoration:none" download="resumora-optimized.jpg" aria-label="Download optimized file"><span class="front" style="padding:8px 16px;font-size:12px"><i class="fa-solid fa-download"></i> Download File</span></a>
         </div>
       </div>
     </div>
 
-    <!-- 3.1 NEW IMAGE CONVERTER CARD -->
+    <!-- Image Converter -->
     <div class="glass-card" id="tool-image-converter">
       <div class="card-top">
         <div class="card-icon icon-purple"><i class="fa-solid fa-image"></i></div>
-        <div class="card-meta">
-          <h3>Image Converter</h3>
-          <p>Convert JPG, PNG, WebP, AVIF, GIF & Resize</p>
-        </div>
+        <div class="card-meta"><h3>Image Converter</h3><p>Convert JPG, PNG, WebP, AVIF, GIF & Resize</p></div>
       </div>
       <div class="tool-form">
-        <div>
-          <label class="field-label" for="imgConvInputFile">Select Image (JPG, PNG, WebP, AVIF, GIF)</label>
-          <input type="file" id="imgConvInputFile" class="tool-input" accept=".jpg,.jpeg,.png,.webp,.avif,.gif,image/*" aria-label="Upload Image to Convert">
-        </div>
+        <div><label class="field-label" for="imgConvInputFile">Select Image</label><input type="file" id="imgConvInputFile" class="tool-input" accept=".jpg,.jpeg,.png,.webp,.avif,.gif,image/*" aria-label="Upload Image to Convert"></div>
         <div class="input-row">
-          <div>
-            <label class="field-label" for="imgConvTargetFormat">Convert To</label>
-            <select id="imgConvTargetFormat" class="tool-select" aria-label="Target format">
-              <option value="image/png">PNG</option>
-              <option value="image/jpeg">JPG / JPEG</option>
-              <option value="image/webp">WebP</option>
-              <option value="image/avif">AVIF</option>
-              <option value="image/bmp">BMP</option>
-              <option value="image/x-icon">ICO</option>
-            </select>
-          </div>
-          <div>
-            <label class="field-label" for="imgConvDimensions">Dimensions</label>
-            <select id="imgConvDimensions" class="tool-select" aria-label="Target dimensions">
-              <option value="original">Original Size</option>
-              <option value="1200x800">1200 × 800 px</option>
-              <option value="1920x1080">1920 × 1080 (FHD)</option>
-              <option value="800x600">800 × 600 px</option>
-              <option value="500x500">500 × 500 (Square)</option>
-              <option value="256x256">256 × 256 (Icon)</option>
-            </select>
-          </div>
+          <div><label class="field-label" for="imgConvTargetFormat">Convert To</label><select id="imgConvTargetFormat" class="tool-select" aria-label="Target format"><option value="image/png">PNG</option><option value="image/jpeg">JPG / JPEG</option><option value="image/webp">WebP</option><option value="image/avif">AVIF</option><option value="image/bmp">BMP</option><option value="image/x-icon">ICO</option></select></div>
+          <div><label class="field-label" for="imgConvDimensions">Dimensions</label><select id="imgConvDimensions" class="tool-select" aria-label="Target dimensions"><option value="original">Original Size</option><option value="1200x800">1200 × 800 px</option><option value="1920x1080">1920 × 1080 (FHD)</option><option value="800x600">800 × 600 px</option><option value="500x500">500 × 500 (Square)</option><option value="256x256">256 × 256 (Icon)</option></select></div>
         </div>
         <div>
           <label class="field-label" for="imgConvTargetSize">Target Max File Size</label>
@@ -1352,504 +416,191 @@ body.dark-mode .live-visa-news-header strong {
             <option value="1024">&lt; 1 MB</option>
           </select>
         </div>
-        <button class="uiverse-btn btn-theme-purple full-width" id="imgConvBtn" type="button" aria-label="Convert and Download Image">
-          <span class="front"><i class="fa-solid fa-arrows-rotate"></i> Convert & Download</span>
-        </button>
+        <button class="uiverse-btn btn-theme-purple full-width" id="imgConvBtn" type="button" aria-label="Convert and Download Image"><span class="front"><i class="fa-solid fa-arrows-rotate"></i> Convert & Download</span></button>
         <div class="tool-output" id="imgConvOutput">Select an image to convert</div>
       </div>
     </div>
 
-    <!-- 4. PDF to Word -->
+    <!-- PDF to Word -->
     <div class="glass-card" id="tool-pdf-to-word">
       <div class="card-top">
         <div class="card-icon icon-indigo"><i class="fa-solid fa-file-word"></i></div>
-        <div class="card-meta">
-          <h3>PDF to Word</h3>
-          <p>Extract tables, styles & fonts to DOCX</p>
-        </div>
+        <div class="card-meta"><h3>PDF to Word</h3><p>Extract tables, styles & fonts to DOCX</p></div>
       </div>
       <div class="tool-form">
-        <div>
-          <label class="field-label" for="pdfToWordFile">Upload PDF Document (.pdf)</label>
-          <input type="file" id="pdfToWordFile" class="tool-input" accept="application/pdf" aria-label="Select PDF file to convert to Word">
-        </div>
-        <button class="uiverse-btn btn-theme-indigo full-width" id="convertPdfToWordBtn" type="button" aria-label="Convert PDF to Word">
-          <span class="front"><i class="fa-solid fa-file-word"></i> Convert to Word</span>
-        </button>
+        <div><label class="field-label" for="pdfToWordFile">Upload PDF Document</label><input type="file" id="pdfToWordFile" class="tool-input" accept="application/pdf" aria-label="Select PDF file to convert to Word"></div>
+        <button class="uiverse-btn btn-theme-indigo full-width" id="convertPdfToWordBtn" type="button" aria-label="Convert PDF to Word"><span class="front"><i class="fa-solid fa-file-word"></i> Convert to Word</span></button>
         <div class="tool-output" id="pdfToWordOutput">Upload PDF & click Convert</div>
       </div>
     </div>
 
-    <!-- 5. Word to PDF -->
+    <!-- Word to PDF -->
     <div class="glass-card" id="tool-word-to-pdf">
       <div class="card-top">
         <div class="card-icon icon-blue"><i class="fa-solid fa-file-pdf"></i></div>
-        <div class="card-meta">
-          <h3>Word to PDF</h3>
-          <p>Convert DOCX & DOC to exact layout PDF</p>
-        </div>
+        <div class="card-meta"><h3>Word to PDF</h3><p>Convert DOCX & DOC to exact layout PDF</p></div>
       </div>
       <div class="tool-form">
-        <div>
-          <label class="field-label" for="wordToPdfFile">Upload Word Document (.docx, .doc)</label>
-          <input type="file" id="wordToPdfFile" class="tool-input" accept=".docx,.doc,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" aria-label="Select Word file to convert">
-        </div>
-        <button class="uiverse-btn btn-theme-blue full-width" id="convertWordToPdfBtn" type="button" aria-label="Convert Word to PDF">
-          <span class="front"><i class="fa-solid fa-file-pdf"></i> Convert to PDF</span>
-        </button>
+        <div><label class="field-label" for="wordToPdfFile">Upload Word Document</label><input type="file" id="wordToPdfFile" class="tool-input" accept=".docx,.doc,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" aria-label="Select Word file to convert"></div>
+        <button class="uiverse-btn btn-theme-blue full-width" id="convertWordToPdfBtn" type="button" aria-label="Convert Word to PDF"><span class="front"><i class="fa-solid fa-file-pdf"></i> Convert to PDF</span></button>
         <div class="tool-output" id="wordToPdfOutput">Upload DOCX & click Convert</div>
       </div>
     </div>
 
-    <!-- 6. Word & Character Counter -->
+    <!-- Word & Character Counter -->
     <div class="glass-card" id="tool-word-counter">
       <div class="card-top">
         <div class="card-icon icon-amber"><i class="fa-solid fa-i-cursor"></i></div>
-        <div class="card-meta">
-          <h3>Word & Character Counter</h3>
-          <p>Real time analytics, words & spaces</p>
-        </div>
+        <div class="card-meta"><h3>Word & Character Counter</h3><p>Real time analytics, words & spaces</p></div>
       </div>
       <div class="tool-form">
-        <div>
-          <label class="field-label" for="textCounterInput">Paste Text</label>
-          <textarea id="textCounterInput" class="tool-textarea" placeholder="Type or paste text here..." aria-label="Text for counting"></textarea>
-        </div>
+        <div><label class="field-label" for="textCounterInput">Paste Text</label><textarea id="textCounterInput" class="tool-textarea" placeholder="Type or paste text here..." aria-label="Text for counting"></textarea></div>
         <div class="tool-output" id="textCounterOutput">Words: 0 | Characters: 0 | Spaces: 0</div>
       </div>
     </div>
 
-    <!-- 7. Cipher Shield Password -->
+    <!-- Cipher Shield Password -->
     <div class="glass-card" id="tool-password-generator">
       <div class="card-top">
         <div class="card-icon icon-rose"><i class="fa-solid fa-shield-halved"></i></div>
-        <div class="card-meta">
-          <h3>Cipher Shield Password</h3>
-          <p>Generate high entropy randomized keys</p>
-        </div>
+        <div class="card-meta"><h3>Cipher Shield Password</h3><p>Generate high entropy randomized keys</p></div>
       </div>
       <div class="tool-form">
         <div class="input-row">
-          <div>
-            <label class="field-label" for="pwdLength">Length</label>
-            <input type="number" id="pwdLength" class="tool-input" value="16" min="8" max="32" aria-label="Password length">
-          </div>
-          <div>
-            <label class="field-label" for="pwdSymbols">Symbols</label>
-            <select id="pwdSymbols" class="tool-select" aria-label="Include symbols option">
-              <option value="yes">Include (@#$%)</option>
-              <option value="no">Alphanumeric Only</option>
-            </select>
-          </div>
+          <div><label class="field-label" for="pwdLength">Length</label><input type="number" id="pwdLength" class="tool-input" value="16" min="8" max="32" aria-label="Password length"></div>
+          <div><label class="field-label" for="pwdSymbols">Symbols</label><select id="pwdSymbols" class="tool-select" aria-label="Include symbols option"><option value="yes">Include (@#$%)</option><option value="no">Alphanumeric Only</option></select></div>
         </div>
-        <button class="uiverse-btn btn-theme-rose full-width" id="genPwdBtn" type="button" aria-label="Generate Password">
-          <span class="front"><i class="fa-solid fa-key"></i> Create Secure Password</span>
-        </button>
-        <div class="tool-output" id="pwdOutput" style="cursor:pointer" title="Click to copy">
-          <span id="pwdText">k9$Rz!m9#Qv2@Lp1</span>
-          <i class="fa-regular fa-copy" style="color:var(--primary)"></i>
-        </div>
+        <button class="uiverse-btn btn-theme-rose full-width" id="genPwdBtn" type="button" aria-label="Generate Password"><span class="front"><i class="fa-solid fa-key"></i> Create Secure Password</span></button>
+        <div class="tool-output" id="pwdOutput" style="cursor:pointer" title="Click to copy"><span id="pwdText">k9$Rz!m9#Qv2@Lp1</span><i class="fa-regular fa-copy" style="color:var(--primary)"></i></div>
       </div>
     </div>
 
-    <!-- 8. Age Chrono Calculator -->
+    <!-- Age Chrono Calculator -->
     <div class="glass-card" id="tool-age">
       <div class="card-top">
         <div class="card-icon icon-cyan"><i class="fa-solid fa-calendar-day"></i></div>
-        <div class="card-meta">
-          <h3>Age Chrono Calculator</h3>
-          <p>Exact years, months, days & next birthday</p>
-        </div>
+        <div class="card-meta"><h3>Age Chrono Calculator</h3><p>Exact years, months, days & next birthday</p></div>
       </div>
       <div class="tool-form">
-        <div>
-          <label class="field-label" for="ageDob">Date of Birth</label>
-          <input type="date" id="ageDob" class="tool-input" value="2000-01-01" aria-label="Select Date of Birth">
-        </div>
-        <button class="uiverse-btn btn-theme-sky full-width" id="calcAgeBtn" type="button" aria-label="Compute Age">
-          <span class="front"><i class="fa-solid fa-calendar-check"></i> Compute Age</span>
-        </button>
+        <div><label class="field-label" for="ageDob">Date of Birth</label><input type="date" id="ageDob" class="tool-input" value="2000-01-01" aria-label="Select Date of Birth"></div>
+        <button class="uiverse-btn btn-theme-sky full-width" id="calcAgeBtn" type="button" aria-label="Compute Age"><span class="front"><i class="fa-solid fa-calendar-check"></i> Compute Age</span></button>
         <div class="tool-output" id="ageResult">Enter DOB and calculate</div>
       </div>
     </div>
 
-    <!-- 9. Salary Breakdown -->
+    <!-- Salary Breakdown -->
     <div class="glass-card" id="tool-salary">
       <div class="card-top">
         <div class="card-icon icon-indigo"><i class="fa-solid fa-money-bill-wave"></i></div>
-        <div class="card-meta">
-          <h3>Salary Breakdown</h3>
-          <p>Calculate in hand monthly salary from CTC</p>
-        </div>
+        <div class="card-meta"><h3>Salary Breakdown</h3><p>Calculate in hand monthly salary from CTC</p></div>
       </div>
       <div class="tool-form">
         <div class="input-row">
-          <div>
-            <label class="field-label" for="salaryCtc">Annual CTC (₹)</label>
-            <input type="number" id="salaryCtc" class="tool-input" value="1200000" aria-label="Annual Cost to Company">
-          </div>
-          <div>
-            <label class="field-label" for="salaryPf">PF Contribution</label>
-            <select id="salaryPf" class="tool-select" aria-label="Provident fund contribution scheme">
-              <option value="standard">Standard PF (₹1,800/mo)</option>
-              <option value="12">12% Basic</option>
-              <option value="0">None</option>
-            </select>
-          </div>
+          <div><label class="field-label" for="salaryCtc">Annual CTC (₹)</label><input type="number" id="salaryCtc" class="tool-input" value="1200000" aria-label="Annual Cost to Company"></div>
+          <div><label class="field-label" for="salaryPf">PF Contribution</label><select id="salaryPf" class="tool-select" aria-label="Provident fund contribution scheme"><option value="standard">Standard PF (₹1,800/mo)</option><option value="12">12% Basic</option><option value="0">None</option></select></div>
         </div>
-        <button class="uiverse-btn btn-theme-indigo full-width" id="calcSalaryBtn" type="button" aria-label="Estimate In Hand Salary">
-          <span class="front"><i class="fa-solid fa-hand-holding-dollar"></i> Estimate In Hand</span>
-        </button>
+        <button class="uiverse-btn btn-theme-indigo full-width" id="calcSalaryBtn" type="button" aria-label="Estimate In Hand Salary"><span class="front"><i class="fa-solid fa-hand-holding-dollar"></i> Estimate In Hand</span></button>
         <div class="tool-output" id="salaryResult">Monthly In Hand: ~₹88,200</div>
       </div>
     </div>
 
-    <!-- 10. Loan / EMI Calculator -->
+    <!-- Loan / EMI Calculator -->
     <div class="glass-card" id="tool-emi">
       <div class="card-top">
         <div class="card-icon icon-blue"><i class="fa-solid fa-wallet"></i></div>
-        <div class="card-meta">
-          <h3>Loan / EMI Calculator</h3>
-          <p>Equated monthly installments & total interest</p>
-        </div>
+        <div class="card-meta"><h3>Loan / EMI Calculator</h3><p>Equated monthly installments & total interest</p></div>
       </div>
       <div class="tool-form">
         <div class="input-row">
-          <div>
-            <label class="field-label" for="emiAmount">Loan Amount (₹)</label>
-            <input type="number" id="emiAmount" class="tool-input" value="500000" aria-label="Total loan amount">
-          </div>
-          <div>
-            <label class="field-label" for="emiRate">Interest (% p.a.)</label>
-            <input type="number" id="emiRate" class="tool-input" value="9.5" step="0.1" aria-label="Loan interest rate">
-          </div>
+          <div><label class="field-label" for="emiAmount">Loan Amount (₹)</label><input type="number" id="emiAmount" class="tool-input" value="500000" aria-label="Total loan amount"></div>
+          <div><label class="field-label" for="emiRate">Interest (% p.a.)</label><input type="number" id="emiRate" class="tool-input" value="9.5" step="0.1" aria-label="Loan interest rate"></div>
         </div>
-        <div>
-          <label class="field-label" for="emiTenure">Tenure (Months)</label>
-          <input type="number" id="emiTenure" class="tool-input" value="36" aria-label="Loan tenure in months">
-        </div>
-        <button class="uiverse-btn btn-theme-blue full-width" id="calcEmiBtn" type="button" aria-label="Calculate Monthly EMI">
-          <span class="front"><i class="fa-solid fa-coins"></i> Calculate Monthly EMI</span>
-        </button>
+        <div><label class="field-label" for="emiTenure">Tenure (Months)</label><input type="number" id="emiTenure" class="tool-input" value="36" aria-label="Loan tenure in months"></div>
+        <button class="uiverse-btn btn-theme-blue full-width" id="calcEmiBtn" type="button" aria-label="Calculate Monthly EMI"><span class="front"><i class="fa-solid fa-coins"></i> Calculate Monthly EMI</span></button>
         <div class="tool-output" id="emiResult">Monthly EMI: ₹16,016</div>
       </div>
     </div>
 
-    <!-- 11. GST Calculator -->
+    <!-- GST Calculator -->
     <div class="glass-card" id="tool-gst">
       <div class="card-top">
         <div class="card-icon icon-emerald"><i class="fa-solid fa-receipt"></i></div>
-        <div class="card-meta">
-          <h3>GST Calculator</h3>
-          <p>Inclusive & Exclusive slab calculator</p>
-        </div>
+        <div class="card-meta"><h3>GST Calculator</h3><p>Inclusive & Exclusive slab calculator</p></div>
       </div>
       <div class="tool-form">
         <div class="input-row">
-          <div>
-            <label class="field-label" for="gstAmount">Amount (₹)</label>
-            <input type="number" id="gstAmount" class="tool-input" value="10000" aria-label="Principal amount for GST">
-          </div>
-          <div>
-            <label class="field-label" for="gstRate">GST Rate (%)</label>
-            <select id="gstRate" class="tool-select" aria-label="GST rate slab percentage">
-              <option value="5">5%</option>
-              <option value="12">12%</option>
-              <option value="18" selected>18%</option>
-              <option value="28">28%</option>
-            </select>
-          </div>
+          <div><label class="field-label" for="gstAmount">Amount (₹)</label><input type="number" id="gstAmount" class="tool-input" value="10000" aria-label="Principal amount for GST"></div>
+          <div><label class="field-label" for="gstRate">GST Rate (%)</label><select id="gstRate" class="tool-select" aria-label="GST rate slab percentage"><option value="5">5%</option><option value="12">12%</option><option value="18" selected>18%</option><option value="28">28%</option></select></div>
         </div>
         <div>
           <label class="field-label" for="gstType">Calculation Type</label>
-          <select id="gstType" class="tool-select" aria-label="GST calculation type">
-            <option value="exclusive">Exclusive (Add GST)</option>
-            <option value="inclusive">Inclusive (Remove GST)</option>
-          </select>
+          <select id="gstType" class="tool-select" aria-label="GST calculation type"><option value="exclusive">Exclusive (Add GST)</option><option value="inclusive">Inclusive (Remove GST)</option></select>
         </div>
-        <button class="uiverse-btn btn-theme-emerald full-width" id="calcGstBtn" type="button" aria-label="Compute GST">
-          <span class="front"><i class="fa-solid fa-receipt"></i> Calculate GST</span>
-        </button>
+        <button class="uiverse-btn btn-theme-emerald full-width" id="calcGstBtn" type="button" aria-label="Compute GST"><span class="front"><i class="fa-solid fa-receipt"></i> Calculate GST</span></button>
         <div class="tool-output" id="gstResult">Total: ₹11,800 (GST: ₹1,800)</div>
-      </div>
-    </div>
-
-    <!-- 12. Interest Yield -->
-    <div class="glass-card" id="tool-interest">
-      <div class="card-top">
-        <div class="card-icon icon-emerald"><i class="fa-solid fa-chart-line"></i></div>
-        <div class="card-meta">
-          <h3>Interest Yield Analyzer</h3>
-          <p>Simple & Compound growth returns</p>
-        </div>
-      </div>
-      <div class="tool-form">
-        <div class="input-row">
-          <div>
-            <label class="field-label" for="intPrincipal">Principal (₹)</label>
-            <input type="number" id="intPrincipal" class="tool-input" value="50000" aria-label="Principal amount">
-          </div>
-          <div>
-            <label class="field-label" for="intRate">Rate (% p.a.)</label>
-            <input type="number" id="intRate" class="tool-input" value="8.5" step="0.1" aria-label="Interest rate per year">
-          </div>
-        </div>
-        <div class="input-row">
-          <div>
-            <label class="field-label" for="intTime">Time (Years)</label>
-            <input type="number" id="intTime" class="tool-input" value="3" aria-label="Investment tenure in years">
-          </div>
-          <div>
-            <label class="field-label" for="intType">Method</label>
-            <select id="intType" class="tool-select" aria-label="Select interest calculation method">
-              <option value="compound">Compound (Annual)</option>
-              <option value="simple">Simple Interest</option>
-            </select>
-          </div>
-        </div>
-        <button class="uiverse-btn btn-theme-emerald full-width" id="calcIntBtn" type="button" aria-label="Calculate Maturity Amount">
-          <span class="front"><i class="fa-solid fa-calculator"></i> Calculate Maturity</span>
-        </button>
-        <div class="tool-output" id="intResult">Maturity: ₹64,286 (Interest: ₹14,286)</div>
-      </div>
-    </div>
-
-    <!-- 13. Percentage & Discount -->
-    <div class="glass-card" id="tool-percentage">
-      <div class="card-top">
-        <div class="card-icon icon-purple"><i class="fa-solid fa-percent"></i></div>
-        <div class="card-meta">
-          <h3>Percentage & Discount</h3>
-          <p>Calculate markdowns, deltas & margins</p>
-        </div>
-      </div>
-      <div class="tool-form">
-        <div class="input-row">
-          <div>
-            <label class="field-label" for="discPrice">Original Price (₹)</label>
-            <input type="number" id="discPrice" class="tool-input" value="1999" aria-label="Original price in Rupees">
-          </div>
-          <div>
-            <label class="field-label" for="discPercent">Discount (%)</label>
-            <input type="number" id="discPercent" class="tool-input" value="25" aria-label="Discount percentage">
-          </div>
-        </div>
-        <button class="uiverse-btn btn-theme-purple full-width" id="calcDiscBtn" type="button" aria-label="Calculate Final Price">
-          <span class="front"><i class="fa-solid fa-tag"></i> Calculate Final Price</span>
-        </button>
-        <div class="tool-output" id="discResult">Pay: ₹1,499.25 (Saved: ₹499.75)</div>
-      </div>
-    </div>
-
-    <!-- 14. School & University % -->
-    <div class="glass-card" id="tool-school-percentage">
-      <div class="card-top">
-        <div class="card-icon icon-amber"><i class="fa-solid fa-graduation-cap"></i></div>
-        <div class="card-meta">
-          <h3>School & University %</h3>
-          <p>Exact score calculation with decimal precision</p>
-        </div>
-      </div>
-      <div class="tool-form">
-        <div class="input-row">
-          <div>
-            <label class="field-label" for="marksObtained">Marks Obtained</label>
-            <input type="number" id="marksObtained" class="tool-input" placeholder="e.g. 438" step="any" min="0" value="438" aria-label="Marks obtained">
-          </div>
-          <div>
-            <label class="field-label" for="totalMarks">Total Marks</label>
-            <input type="number" id="totalMarks" class="tool-input" placeholder="e.g. 800" step="any" min="1" value="800" aria-label="Maximum total marks">
-          </div>
-        </div>
-        <button class="uiverse-btn btn-theme-amber full-width" id="calcSchoolPercentBtn" type="button" aria-label="Calculate Marks Percentage">
-          <span class="front"><i class="fa-solid fa-percent"></i> Calculate Percentage</span>
-        </button>
-        <div class="tool-output" id="schoolPercentResult">Percentage: <strong>54.75%</strong></div>
       </div>
     </div>
   </div>
 </main>
 
-<!-- SEO SECTION & DIRECTORY -->
 <section class="seo-content-block">
   <h2>About Resumora Universe</h2>
-  <p>
-    Free Online Tools for Resumes, PDFs and Everyday Tasks
-
-Resumora brings essential online tools together in one place. Create a professional resume, merge multiple PDF files, convert Word documents to PDF, turn PDFs into Word documents, compress images and calculate everyday values.
-
-Whether you're a job seeker preparing an application, a student organizing documents or a professional working with digital files, Resumora makes common tasks simple and accessible.
-
-Explore our tools:
-Resume tools: Build a resume and prepare a professional PDF.
-PDF tools: Merge, split, compress and convert PDF documents.
-Image tools Convert image formats, resize images and reduce file sizes.
-Calculators Calculate age, salary, loan payments, percentages and more.
-
-Use the tools that fit your needs, with no signup required where supported.
-  </p>
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-grid">
-    <div class="faq-card">
-      <h3>Can I convert Word to PDF and PDF to Word without losing formatting?</h3>
-      <p>Yes. Resumora uses dedicated high precision layout engines that retain original tables, multi column blocks, font weights, and margins accurately during conversion.</p>
-    </div>
-    <div class="faq-card">
-      <h3>Can I compress photos for government jobs, exams, or visa portals?</h3>
-      <p>Yes. Many online portals require passport photos under 20 KB or 50 KB. You can choose preset limits (20 KB, 50 KB, 100 KB) or enter custom dimensions and file sizes with instant 100% private download.</p>
-    </div>
-    <div class="faq-card">
-      <h3>Is the ATS Resume Builder completely free?</h3>
-      <p>Yes. Resumora does not ask for card details, logins, or fees. You can customize resume templates and export high res A4 PDFs without watermarks.</p>
-    </div>
-    <div class="faq-card">
-      <h3>How accurate are the study abroad visa estimates?</h3>
-      <p>All procedures, living costs, and government visa fees are mapped to official immigration portals (USCIS, DHA Australia, INZ, and German Federal Foreign Office).</p>
-    </div>
-  </div>
+  <p>Free Online Tools for Resumes, PDFs and Everyday Tasks. Resumora brings essential online tools together in one place. Create a professional resume, merge multiple PDF files, convert Word documents to PDF, turn PDFs into Word documents, compress images and calculate everyday values.</p>
 </section>
 
-<!-- VISA MODAL -->
+<!-- Visa Modal -->
 <div class="modal-overlay" id="visaModal" role="dialog" aria-modal="true" aria-labelledby="visaModalTitle">
   <div class="modal-box">
     <button class="modal-close" id="closeVisaModal" aria-label="Close Visa Modal">&times;</button>
     <div class="visa-header">
-      <div class="visa-globe-icon">
-        <i class="fa-solid fa-earth-americas"></i>
-      </div>
-      <div>
-        <h3 id="visaModalTitle" style="font-family:var(--font-heading);font-size:20px;font-weight:800;color:var(--text-main)">Global Education & Immigration Portal</h3>
-        <p style="font-size:13px;color:var(--text-muted)">Real time visa procedures, latest rules, tuition & living expenses</p>
-      </div>
+      <div class="visa-globe-icon"><i class="fa-solid fa-earth-americas"></i></div>
+      <div><h3 id="visaModalTitle" style="font-family:var(--font-heading);font-size:20px;font-weight:800;">Global Education & Immigration Portal</h3></div>
     </div>
-    <div class="live-feed-banner">
-      <div style="display:flex;align-items:center;gap:8px">
-        <span class="pulse-dot"></span>
-        <span style="font-size:12px;font-weight:700;color:#166534" id="liveStatusText">Live Feed Active • Updated for 2026 Academic Season</span>
-      </div>
-      <button class="uiverse-btn btn-theme-emerald" id="refreshVisaUpdatesBtn" type="button" aria-label="Refresh visa updates">
-        <span class="front" style="padding:6px 14px;font-size:11px">
-          <i class="fa-solid fa-rotate"></i> <span>Refresh Updates</span>
-        </span>
-      </button>
-    </div>
-
-    <!-- AUTOMATIC LIVE VISA NEWS TICKER / FEED CONTAINER -->
-    <div class="live-visa-news-box" id="liveVisaNewsBox">
-      <div class="live-visa-news-header">
-        <strong><i class="fa-solid fa-bullhorn" style="color:var(--primary);"></i> Daily Live Visa & Embassy News</strong>
-        <span id="newsFetchStatus" style="font-size:11px;color:#166534;font-weight:700;">Checking updates...</span>
-      </div>
-      <div class="live-visa-news-list" id="visaNewsFeedList">
-        <!-- Live News items will render dynamically -->
-      </div>
-    </div>
-
     <div class="country-tabs" id="countryTabs">
-      <button class="country-btn active" data-country="usa" type="button">🇺🇸 USA (F 1 / OPT)</button>
-      <button class="country-btn" data-country="australia" type="button">🇦🇺 Australia (Subclass 500)</button>
-      <button class="country-btn" data-country="germany" type="button">🇩🇪 Germany (Opportunity / Study)</button>
-      <button class="country-btn" data-country="newzealand" type="button">🇳🇿 New Zealand (Fee Paying)</button>
-      <button class="country-btn" data-country="canada" type="button">🇨🇦 Canada (Study Permit)</button>
-      <button class="country-btn" data-country="europe" type="button">🇪🇺 Europe / Schengen</button>
+      <button class="country-btn active" data-country="usa" type="button">🇺🇸 USA</button>
+      <button class="country-btn" data-country="australia" type="button">🇦🇺 Australia</button>
     </div>
     <div id="visaDynamicContent"></div>
-    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:14px">
-      <a href="app/index.html" class="uiverse-btn btn-theme-blue" aria-label="Create ATS Resume for Visa or University">
-        <span class="front">
-          <i class="fa-solid fa-file-invoice"></i> <span>Create ATS Resume for Visa / Uni</span>
-        </span>
-      </a>
-    </div>
   </div>
 </div>
 
-<!-- ATS CHECKER MODAL -->
+<!-- ATS Checker Modal -->
 <div class="modal-overlay" id="atsModal" role="dialog" aria-modal="true" aria-labelledby="atsModalTitle">
   <div class="modal-box" style="max-width:650px">
     <button class="modal-close" id="closeAtsModal" aria-label="Close ATS Checker Modal">&times;</button>
-    <div style="text-align:center;margin-bottom:20px">
-      <div style="width:50px;height:50px;border-radius:12px;background:#eff6ff;color:#2563eb;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 10px auto">
-        <i class="fa-solid fa-bolt"></i>
-      </div>
-      <h3 id="atsModalTitle" style="font-family:var(--font-heading);font-size:20px;font-weight:800;color:var(--text-main)">Instant ATS Resume Checker</h3>
-      <p style="font-size:13px;color:var(--text-muted)">Audited using enterprise ATS algorithms (Workday, Taleo, Greenhouse standards)</p>
-    </div>
+    <div style="text-align:center;margin-bottom:20px"><h3 id="atsModalTitle" style="font-family:var(--font-heading);font-size:20px;font-weight:800;">Instant ATS Resume Checker</h3></div>
     <div>
-      <label class="field-label" for="atsResumeInput">Paste Resume Content (Summary, Experience, Skills)</label>
-      <textarea id="atsResumeInput" class="tool-textarea" style="min-height:120px" placeholder="Paste resume plain text here to evaluate ATS pass rate..." aria-label="Paste resume content for ATS check"></textarea>
-      <button class="uiverse-btn btn-theme-indigo full-width" id="runAtsCheckBtn" type="button" style="margin-top:10px" aria-label="Audit Resume using ATS algorithms">
-        <span class="front">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Audit My Resume (ATS Check)</span>
-        </span>
-      </button>
+      <textarea id="atsResumeInput" class="tool-textarea" style="min-height:120px" placeholder="Paste resume plain text here..." aria-label="Paste resume content"></textarea>
+      <button class="uiverse-btn btn-theme-indigo full-width" id="runAtsCheckBtn" type="button" style="margin-top:10px"><span class="front"><i class="fa-solid fa-wand-magic-sparkles"></i> <span>Audit My Resume (ATS Check)</span></span></button>
     </div>
     <div id="atsResultBox" style="display:none;margin-top:20px;border-top:1px solid #e2e8f0;padding-top:16px">
-      <div class="ats-meter-container">
-        <div class="ats-score-circle">
-          <span style="font-size:30px" id="atsScoreVal">88</span>
-          <span style="font-size:11px;color:#64748b">ATS SCORE</span>
-        </div>
-      </div>
+      <div class="ats-meter-container"><div class="ats-score-circle"><span style="font-size:30px" id="atsScoreVal">88</span><span style="font-size:11px;color:#64748b">ATS SCORE</span></div></div>
       <div id="atsAnalysisList"></div>
-      <div style="text-align:center;margin-top:16px">
-        <a href="app/index.html" class="uiverse-btn btn-theme-blue" style="padding:0" aria-label="Build 100% Score ATS Resume">
-          <span class="front" style="padding:10px 24px">
-            <i class="fa-solid fa-file-circle-check"></i> <span>Build 100% Score ATS Resume Now</span>
-          </span>
-        </a>
-      </div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer class="portal-footer">
   <p>&copy; 2026 Resumora Universe. 100% Free Resume Maker & Native Utility Matrix.</p>
-  <div style="display:flex;justify-content:center;align-items:center;gap:18px;margin:14px 0;flex-wrap:wrap;font-size:13px;font-weight:600;">
-    <a href="about.html" style="color:var(--text-muted);text-decoration:none;">About Us</a>
-    <span style="color:#cbd5e1">•</span>
-    <a href="privacy.html" style="color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
-    <span style="color:#cbd5e1">•</span>
-    <a href="terms.html" style="color:var(--text-muted);text-decoration:none;">Terms of Service</a>
-    <span style="color:#cbd5e1">•</span>
-    <a href="contact.html" style="color:var(--text-muted);text-decoration:none;">Contact Us</a>
-  </div>
-  <div style="text-align:center;margin-top:10px;font-size:12.5px;color:var(--text-muted)">
-    <span>Questions or Feedback? Reach out at </span>
-    <a href="mailto:remotelyspace@gmail.com" style="color:#e5322d;font-weight:600;text-decoration:none;border-bottom:1px border-bottom-color:#e5322d">
-      remotelyspace@gmail.com
-    </a>
-  </div>
 </footer>
 
-<!-- COMPLETE JAVASCRIPT ENGINES -->
 <script>
-window.open=function(url,target,features){
-  if(url&&(url.includes('onclick')||url.includes('adsterra')||url.includes('syndication')||url.includes('popunder'))){return null;}
-  return window;
-};
-
-// Theme Management
-const themeToggleBtn = document.getElementById('themeToggleBtn');
-const themeIcon = document.getElementById('themeIcon');
-function applyTheme(isDark) {
-  if (isDark) {
-    document.body.classList.add('dark-mode');
-    if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
-  } else {
-    document.body.classList.remove('dark-mode');
-    if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
-  }
-  localStorage.setItem('resumora_theme', isDark ? 'dark' : 'light');
-}
-if (localStorage.getItem('resumora_theme') === 'dark') { applyTheme(true); }
-if (themeToggleBtn) {
-  themeToggleBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    applyTheme(!document.body.classList.contains('dark-mode'));
+// Service Worker Registration for PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(err => console.log('SW registration failed: ', err));
   });
 }
+
+// Theme Management
+const themeIcon = document.getElementById('themeIcon');
+document.getElementById('themeToggleBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  const isDark = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('resumora_theme', isDark ? 'dark' : 'light');
+  if(themeIcon) themeIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+});
+if(localStorage.getItem('resumora_theme') === 'dark' && themeIcon) { themeIcon.className = 'fa-solid fa-sun'; }
 
 // Lazy PDF-Lib Loader
 let pdfLibLoadingPromise = null;
@@ -1867,779 +618,7 @@ function loadPdfLib() {
   return pdfLibLoadingPromise;
 }
 
-// Lazy Third-Party Load
-let thirdPartyLoaded = false;
-function loadThirdPartyScripts() {
-  if (thirdPartyLoaded) return;
-  thirdPartyLoaded = true;
-
-  const gaScript = document.createElement('script');
-  gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-L22BJ1M25Y";
-  gaScript.async = true;
-  document.head.appendChild(gaScript);
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-L22BJ1M25Y');
-
-  const umamiScript = document.createElement('script');
-  umamiScript.src = "https://cloud.umami.is/script.js";
-  umamiScript.defer = true;
-  umamiScript.setAttribute('data-website-id', '2719a0f6-31a6-44ad-ba1e-681087574f5b');
-  document.head.appendChild(umamiScript);
-}
-['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(evt => {
-  window.addEventListener(evt, loadThirdPartyScripts, { once: true, passive: true });
-});
-setTimeout(loadThirdPartyScripts, 4000);
-
-// Image & PDF Assets Compressor
-let activeUploadedImg = null;
-let originalImgBytes = 0;
-let originalImgRatio = 1;
-const imgFileInput = document.getElementById('imgFileInput');
-const imgDropZone = document.getElementById('imgDropZone');
-const imgWidth = document.getElementById('imgWidth');
-const imgHeight = document.getElementById('imgHeight');
-const imgKeepRatio = document.getElementById('imgKeepRatio');
-const imgTargetKb = document.getElementById('imgTargetKb');
-
-function handleSelectedFile(file) {
-  if (!file || !file.type.startsWith('image/')) {
-    alert('Please select a valid image file (JPG, PNG, WebP).');
-    return;
-  }
-  originalImgBytes = file.size;
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    const img = new Image();
-    img.onload = () => {
-      activeUploadedImg = img;
-      originalImgRatio = img.width / img.height;
-      imgWidth.value = img.width;
-      imgHeight.value = img.height;
-      document.getElementById('imgUploadPrompt').innerHTML = `Selected: <strong>${file.name}</strong> (${(file.size/1024).toFixed(1)} KB)`;
-    };
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-}
-
-imgFileInput.addEventListener('change', (e) => {
-  if (e.target.files.length > 0) handleSelectedFile(e.target.files[0]);
-});
-imgDropZone.addEventListener('dragover', (e) => { e.preventDefault(); imgDropZone.style.borderColor = 'var(--primary)'; });
-imgDropZone.addEventListener('dragleave', () => { imgDropZone.style.borderColor = '#cbd5e1'; });
-imgDropZone.addEventListener('drop', (e) => {
-  e.preventDefault();
-  imgDropZone.style.borderColor = '#cbd5e1';
-  if (e.dataTransfer.files.length > 0) handleSelectedFile(e.dataTransfer.files[0]);
-});
-imgWidth.addEventListener('input', () => {
-  if (imgKeepRatio.checked && originalImgRatio && imgWidth.value) {
-    imgHeight.value = Math.round(imgWidth.value / originalImgRatio);
-  }
-});
-imgHeight.addEventListener('input', () => {
-  if (imgKeepRatio.checked && originalImgRatio && imgHeight.value) {
-    imgWidth.value = Math.round(imgHeight.value * originalImgRatio);
-  }
-});
-
-function applyPresetKB(kb, ev) {
-  imgTargetKb.value = kb;
-  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
-  if (ev && ev.target) ev.target.classList.add('active');
-}
-
-document.getElementById('compressImageBtn').addEventListener('click', async (e) => {
-  e.preventDefault();
-  if (!activeUploadedImg) {
-    alert('Pehle ek image upload karein!');
-    return;
-  }
-  const targetKB = parseFloat(imgTargetKb.value) || 50;
-  const targetBytes = targetKB * 1024;
-  const userW = parseInt(imgWidth.value) || activeUploadedImg.width;
-  const userH = parseInt(imgHeight.value) || activeUploadedImg.height;
-  const btn = document.getElementById('compressImageBtn');
-  const btnFront = btn.querySelector('.front');
-  btnFront.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Compressing...`;
-  btn.disabled = true;
-
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-  let curW = userW;
-  let curH = userH;
-  let bestBlob = null;
-
-  for (let loop = 0; loop < 10; loop++) {
-    canvas.width = curW;
-    canvas.height = curH;
-    ctx.clearRect(0, 0, curW, curH);
-    ctx.drawImage(activeUploadedImg, 0, 0, curW, curH);
-    let lowQ = 0.05, highQ = 0.95;
-    let passBlob = null;
-    for (let i = 0; i < 7; i++) {
-      const midQ = (lowQ + highQ) / 2;
-      const blob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', midQ));
-      if (blob.size <= targetBytes) {
-        passBlob = blob;
-        lowQ = midQ;
-      } else {
-        highQ = midQ;
-      }
-    }
-    if (passBlob) {
-      bestBlob = passBlob;
-      if (passBlob.size >= targetBytes * 0.72 || curW < 250) break;
-    }
-    curW = Math.round(curW * 0.80);
-    curH = Math.round(curH * 0.80);
-    if (curW < 80 || curH < 80) break;
-  }
-
-  if (!bestBlob) {
-    bestBlob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.1));
-  }
-
-  btnFront.innerHTML = `<i class="fa-solid fa-compress"></i> Compress & Optimize`;
-  btn.disabled = false;
-  const outputDiv = document.getElementById('imgCompressOutput');
-  const sizeSummary = document.getElementById('imgSizeSummary');
-  const dlLink = document.getElementById('imgDownloadLink');
-  const origKB = (originalImgBytes / 1024).toFixed(1);
-  const optKB = (bestBlob.size / 1024).toFixed(1);
-  sizeSummary.innerHTML = `Original: <strong>${origKB} KB</strong> &rarr; Target: <strong>${targetKB} KB</strong> &rarr; Optimized: <strong style="color:var(--primary);">${optKB} KB</strong>`;
-  dlLink.href = URL.createObjectURL(bestBlob);
-  outputDiv.style.display = 'flex';
-});
-
-// Image Converter Engine (With Auto-Dimension Scaling for Strict Target Size)
-document.getElementById('imgConvBtn').addEventListener('click', async (e) => {
-  e.preventDefault();
-  const fileInput = document.getElementById('imgConvInputFile');
-  const formatSelect = document.getElementById('imgConvTargetFormat');
-  const dimSelect = document.getElementById('imgConvDimensions');
-  const sizeSelect = document.getElementById('imgConvTargetSize');
-  const outputBox = document.getElementById('imgConvOutput');
-  const btn = document.getElementById('imgConvBtn');
-
-  if (!fileInput.files || fileInput.files.length === 0) {
-    alert("Pehle ek image file select karein!");
-    return;
-  }
-
-  const file = fileInput.files[0];
-  let targetMime = formatSelect.value;
-  const targetDim = dimSelect.value;
-  const targetMaxKB = sizeSelect.value === 'original' ? null : parseFloat(sizeSelect.value);
-
-  const btnFront = btn.querySelector('.front');
-  const originalFront = btnFront.innerHTML;
-  btnFront.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Converting...`;
-  btn.disabled = true;
-  outputBox.innerHTML = "Processing image...";
-
-  try {
-    const imgBitmap = await createImageBitmap(file);
-    let curW = imgBitmap.width;
-    let curH = imgBitmap.height;
-
-    if (targetDim !== 'original') {
-      const parts = targetDim.split('x').map(Number);
-      curW = parts[0];
-      curH = parts[1];
-    }
-
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-
-    // Ultra-low target sizes ke liye JPEG ensure karna
-    let mimeToUse = targetMime;
-    if (targetMaxKB && targetMaxKB <= 10 && (mimeToUse === 'image/png' || mimeToUse === 'image/bmp')) {
-      mimeToUse = 'image/jpeg';
-    }
-
-    let bestBlob = null;
-    let quality = 0.90;
-
-    // Iterative Resize + Quality Reduction loop (Jab tak targetMaxKB achieve na ho)
-    for (let loop = 0; loop < 18; loop++) {
-      canvas.width = Math.max(16, Math.round(curW));
-      canvas.height = Math.max(16, Math.round(curH));
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      if (mimeToUse === 'image/jpeg' || mimeToUse === 'image/bmp') {
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-      ctx.drawImage(imgBitmap, 0, 0, canvas.width, canvas.height);
-
-      bestBlob = await new Promise(res => canvas.toBlob(res, mimeToUse, quality));
-
-      if (!bestBlob) {
-        mimeToUse = 'image/jpeg';
-        bestBlob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', quality));
-      }
-
-      const currentKB = bestBlob.size / 1024;
-      if (!targetMaxKB || currentKB <= targetMaxKB) {
-        break; // Target size mil gaya!
-      }
-
-      // Quality kam karne ke baad pixels scale down karna
-      if (quality > 0.15 && (mimeToUse === 'image/jpeg' || mimeToUse === 'image/webp')) {
-        quality -= 0.18;
-      } else {
-        curW = Math.round(curW * 0.70);
-        curH = Math.round(curH * 0.70);
-        if (curW < 16 || curH < 16) break;
-      }
-    }
-
-    const extMap = {
-      'image/png': '.png',
-      'image/jpeg': '.jpg',
-      'image/webp': '.webp',
-      'image/avif': '.avif',
-      'image/bmp': '.bmp',
-      'image/x-icon': '.ico'
-    };
-    const extension = extMap[mimeToUse] || '.jpg';
-    const baseName = file.name.substring(0, file.name.lastIndexOf('.')) || 'converted';
-    const finalFileName = `${baseName}_converted${extension}`;
-
-    downloadBlob(bestBlob, finalFileName);
-    const finalKB = (bestBlob.size / 1024).toFixed(2);
-    outputBox.innerHTML = `Success! Downloaded size: <strong>${finalKB} KB</strong> (${canvas.width}×${canvas.height} px)`;
-  } catch (err) {
-    console.error(err);
-    outputBox.innerHTML = `<span style="color:#ef4444;font-weight:600;">Error: ${err.message || 'File convert nahi ho saki.'}</span>`;
-  } finally {
-    btnFront.innerHTML = originalFront;
-    btn.disabled = false;
-  }
-});
-
-// Word ⇄ PDF Conversion Engine
-const CONVERTER_API_BASE = "https://resumora-api.onrender.com";
-
-async function executeDocumentConversion(fileInputId, endpoint, outputExtension, btnId, outputBoxId) {
-  const fileInput = document.getElementById(fileInputId);
-  const btn = document.getElementById(btnId);
-  const outputBox = document.getElementById(outputBoxId);
-  const file = fileInput.files[0];
-
-  if (!file) {
-    alert("Please select a document file first.");
-    return;
-  }
-
-  const btnFront = btn.querySelector('.front');
-  const origFrontHtml = btnFront.innerHTML;
-  btnFront.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Converting...`;
-  btn.disabled = true;
-  outputBox.innerHTML = `Processing conversion with high-precision engine...`;
-
-  const formData = new FormData();
-  formData.append("file", file);
-
-  try {
-    const response = await fetch(`${CONVERTER_API_BASE}/convert/${endpoint}`, {
-      method: "POST",
-      body: formData
-    });
-
-    if (!response.ok) {
-      throw new Error(`Server returned status ${response.status}`);
-    }
-
-    const blob = await response.blob();
-    const downloadUrl = window.URL.createObjectURL(blob);
-    const baseName = file.name.substring(0, file.name.lastIndexOf('.')) || file.name;
-    const downloadFileName = `${baseName}_converted${outputExtension}`;
-
-    downloadBlob(blob, downloadFileName);
-    outputBox.innerHTML = `Converted successfully! <a href="${downloadUrl}" download="${downloadFileName}" style="color:var(--primary);font-weight:700;text-decoration:underline;">Download ${downloadFileName}</a>`;
-  } catch (err) {
-    console.error("Conversion error:", err);
-    outputBox.innerHTML = `<span style="color:#ef4444;font-weight:600;">Conversion failed. Server might be waking up or file is unsupported.</span>`;
-  } finally {
-    btnFront.innerHTML = origFrontHtml;
-    btn.disabled = false;
-  }
-}
-
-document.getElementById('convertWordToPdfBtn').addEventListener('click', (e) => {
-  e.preventDefault();
-  executeDocumentConversion('wordToPdfFile', 'word-to-pdf', '.pdf', 'convertWordToPdfBtn', 'wordToPdfOutput');
-});
-
-document.getElementById('convertPdfToWordBtn').addEventListener('click', (e) => {
-  e.preventDefault();
-  executeDocumentConversion('pdfToWordFile', 'pdf-to-word', '.docx', 'convertPdfToWordBtn', 'pdfToWordOutput');
-});
-
-// All PDF Tools Dropdown
-const utilityBtn = document.getElementById('utilityDropdownBtn');
-const utilityMenu = document.getElementById('utilityDropdownMenu');
-const utilityList = document.getElementById('utilityDropdownList');
-const utilitySearch = document.getElementById('utilitySearchInput');
-const utilityTools = [];
-document.querySelectorAll('.glass-card').forEach(card => {
-  const id = card.id;
-  const title = card.querySelector('.card-meta h3')?.innerText.trim() || '';
-  const iconClass = card.querySelector('.card-icon i')?.className || 'fa-solid fa-gear';
-  if (id && title) utilityTools.push({ id, title, iconClass });
-});
-
-function populateDropdown(filterText = '') {
-  utilityList.innerHTML = '';
-  if (!filterText || 'resume templates ats cv builder'.includes(filterText.toLowerCase())) {
-    const tmplItem = document.createElement('a');
-    tmplItem.className = 'dropdown-item';
-    tmplItem.href = 'templates/index.html';
-    tmplItem.style.color = 'var(--primary)';
-    tmplItem.style.fontWeight = '700';
-    tmplItem.style.textDecoration = 'none';
-    tmplItem.innerHTML = `<i class="fa-solid fa-file-lines" style="color:var(--primary);"></i><span>ATS Resume Templates (100+ Free)</span>`;
-    utilityList.appendChild(tmplItem);
-  }
-  const filtered = utilityTools.filter(t => t.title.toLowerCase().includes(filterText.toLowerCase()));
-  filtered.forEach(tool => {
-    const item = document.createElement('div');
-    item.className = 'dropdown-item';
-    item.innerHTML = `<i class="${tool.iconClass}"></i><span>${tool.title}</span>`;
-    item.onclick = (e) => {
-      e.preventDefault();
-      utilityMenu.classList.remove('active');
-      const targetCard = document.getElementById(tool.id);
-      if (targetCard) {
-        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        targetCard.classList.add('highlight-card');
-        setTimeout(() => targetCard.classList.remove('highlight-card'), 2200);
-      }
-    };
-    utilityList.appendChild(item);
-  });
-}
-populateDropdown();
-
-utilityBtn.onclick = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  const isOpen = utilityMenu.classList.toggle('active');
-  if (isOpen) {
-    utilitySearch.value = '';
-    populateDropdown();
-    setTimeout(() => utilitySearch.focus(), 50);
-  }
-};
-utilitySearch.oninput = (e) => populateDropdown(e.target.value);
-document.addEventListener('click', (e) => {
-  if (!utilityMenu.contains(e.target) && !utilityBtn.contains(e.target)) {
-    utilityMenu.classList.remove('active');
-  }
-});
-
-// Visa Data Hub
-const visaData = {
-  usa: {
-    title: "United States of America (USA)",
-    flag: "🇺🇸",
-    visaType: "F 1 Academic Student Visa / STEM OPT",
-    intakes: "Fall (Aug/Sep) & Spring (Jan)",
-    highlights: ["3 Years STEM OPT (Work Permit)", "On-Campus 20hrs/week work", "World's Top Universities"],
-    steps: [
-      "University Application & Offer Letter (I-20 Form Issue).",
-      "Pay SEVIS I-901 Fee ($350) online.",
-      "Fill DS-160 Online Nonimmigrant Visa Application Form.",
-      "Schedule Biometrics (OFC) and F 1 Consular Interview.",
-      "Attend Visa Interview with Financial proof (Liquid funds for 1st year)."
-    ],
-    costs: [
-      { item: "Visa Application Fee (MRV)", amount: "$185 (approx ₹15,500)" },
-      { item: "SEVIS I-901 Fee", amount: "$350 (approx ₹29,400)" },
-      { item: "Average Tuition Fees", amount: "$22,000 - $48,000 / year" },
-      { item: "Living Expenses (I-20 Requirement)", amount: "$12,000 - $18,000 / year" }
-    ],
-    routes: "F 1 Student Visa &rarr; OPT (1-3 yrs) &rarr; H-1B Specialty Occupation &rarr; Green Card (EB-2/EB-3).",
-    latestUpdate: "F 1 applicants can apply up to 365 days in advance of program start date."
-  },
-  australia: {
-    title: "Australia",
-    flag: "🇦🇺",
-    visaType: "Student Visa (Subclass 500) & Subclass 485",
-    intakes: "Semester 1 (Feb) & Semester 2 (July)",
-    highlights: ["48 hrs/fortnight part-time work", "2 to 4 years Post-Study Work (Subclass 485)", "PR pathways (189/190/491)"],
-    steps: [
-      "Receive Letter of Offer & make initial deposit for CoE.",
-      "Complete Genuine Student (GS) Requirement statement.",
-      "Purchase OSHC (Overseas Student Health Cover).",
-      "Gather financial evidence (AUD 29,710/year living cost proof).",
-      "Submit Subclass 500 Visa online on ImmiAccount."
-    ],
-    costs: [
-      { item: "Subclass 500 Visa Fee", amount: "AUD 1,600 (approx ₹88,000)" },
-      { item: "OSHC Health Cover", amount: "AUD 600 - 1,200 / year" },
-      { item: "Average Tuition Fees", amount: "AUD 24,000 - 42,000 / year" },
-      { item: "Required Living Proof", amount: "AUD 29,710 / year" }
-    ],
-    routes: "Subclass 500 &rarr; Subclass 485 Temporary Graduate &rarr; Skill Assessment &rarr; PR Points System.",
-    latestUpdate: "Genuine Student (GS) criteria active with minimum IELTS 6.5 requirement."
-  },
-  germany: {
-    title: "Germany & EU Blue Card",
-    flag: "🇩🇪",
-    visaType: "National Visa for Study (§ 16b AufenthG)",
-    intakes: "Winter (Oct) & Summer (Apr)",
-    highlights: ["Almost Zero Tuition Fees in Public Universities", "Opportunity Card (Chancenkarte) for Job seekers", "18-month Job Seeking Visa post-graduation"],
-    steps: [
-      "University Admission Letter (Zulassungsbescheid).",
-      "Open a German Blocked Account (Sperrkonto) with minimum €11,904.",
-      "Get APS Certificate (Mandatory for Indian students) via aps-india.de.",
-      "Book German National Visa appointment via VFS Global."
-    ],
-    costs: [
-      { item: "National Visa Application Fee", amount: "€75 (approx ₹6,800)" },
-      { item: "APS Certificate Verification", amount: "₹18,000 (One-time)" },
-      { item: "Blocked Account Deposit", amount: "€11,904 / year (approx ₹10.8 Lakhs - refundable monthly)" },
-      { item: "Public University Tuition", amount: "€0 (Semester contribution €150-€350 only)" }
-    ],
-    routes: "Study Visa &rarr; 18-Month Post Study Work (§ 20) &rarr; EU Blue Card (§ 18b) &rarr; Permanent Settlement.",
-    latestUpdate: "APS Certificate mandatory prior to booking visa appointment slots."
-  },
-  newzealand: {
-    title: "New Zealand",
-    flag: "🇳🇿",
-    visaType: "Fee Paying Student Visa / PSW Visa",
-    intakes: "Feb & July Intakes",
-    highlights: ["30 hrs/week work rights (Green List)", "Up to 3 Years Post-Study Work Visa", "High Quality of Life"],
-    steps: [
-      "Get unconditional Offer of Place from NZQA-approved institution.",
-      "Submit Application to Immigration New Zealand (INZ) online.",
-      "Approval in Principle (AIP) issued by INZ.",
-      "Pay 1st year Tuition fees only AFTER receiving AIP."
-    ],
-    costs: [
-      { item: "Student Visa Application Fee", amount: "NZD $750 (approx ₹38,000)" },
-      { item: "Living Cost Requirement", amount: "NZD $20,000 / year" },
-      { item: "Average Tuition Fees", amount: "NZD $25,000 - $38,000 / year" }
-    ],
-    routes: "Fee Paying Student Visa &rarr; Post-Study Work Visa (1-3 yrs) &rarr; Skilled Migrant Category.",
-    latestUpdate: "Immigration NZ introduces updated work rights pathways and streamlined processing for Indian students."
-  },
-  canada: {
-    title: "Canada",
-    flag: "🇨🇦",
-    visaType: "Study Permit (PAL System) & PGWP",
-    intakes: "Fall, Winter, Spring",
-    highlights: ["Post-Graduation Work Permit (PGWP) up to 3 years", "Spouse open work permit for Masters", "Direct Express Entry PR"],
-    steps: [
-      "Get Provincial Attestation Letter (PAL) + DLI Offer.",
-      "Purchase GIC (Guaranteed Investment Certificate) of CAD $20,635.",
-      "Pay 1st Year full tuition fee.",
-      "Submit Study Permit on IRCC Portal & give Biometrics."
-    ],
-    costs: [
-      { item: "Study Permit Fee", amount: "CAD $150 (approx ₹9,200)" },
-      { item: "GIC Living Funds", amount: "CAD $20,635 (approx ₹12.6 Lakhs)" },
-      { item: "College/Uni Tuition", amount: "CAD $16,000 - $32,000 / year" }
-    ],
-    routes: "Study Permit &rarr; PGWP &rarr; Canadian Experience Class &rarr; Express Entry PR.",
-    latestUpdate: "Provincial Attestation Letter (PAL) required for degree applicants."
-  },
-  europe: {
-    title: "Europe & Schengen Area",
-    flag: "🇪🇺",
-    visaType: "Long-Stay Type D Student Visa / EU Blue Card",
-    intakes: "Sept/Oct & Jan/Feb",
-    highlights: ["Free travel across 29 Schengen member states", "Generous government scholarships (DSU, Erasmus)", "2 years work search visa (France/Ireland)"],
-    steps: [
-      "Acceptance from state-recognized University or Grande École.",
-      "Complete Campus France / Universitaly pre-enrollment.",
-      "Show financial subsistence proof (€615 - €850 per month).",
-      "Apply for Long Stay National Visa at Embassy/VFS."
-    ],
-    costs: [
-      { item: "Schengen Long-Stay Visa Fee", amount: "€80 - €99" },
-      { item: "Tuition in Public Universities", amount: "€1,500 - €4,500 / year (or Free via DSU)" },
-      { item: "Monthly Living Cost", amount: "€700 - €1,100 / month" }
-    ],
-    routes: "Study Visa D &rarr; Job Search Permit &rarr; EU Blue Card / Work Permit.",
-    latestUpdate: "France grants 5-year short-stay Schengen visa for Indian master's alumni."
-  }
-};
-
-function renderVisaTab(countryKey) {
-  const data = visaData[countryKey] || visaData.usa;
-  const container = document.getElementById('visaDynamicContent');
-  const costsRows = data.costs.map(c => `<tr><td><strong>${c.item}</strong></td><td style="color:#e5322d; font-weight:700;">${c.amount}</td></tr>`).join('');
-  const stepsList = data.steps.map(s => `<li>${s}</li>`).join('');
-  const highlightsPills = data.highlights.map(h => `<span class="badge-pill"><i class="fa-solid fa-star" style="font-size:9px;"></i> ${h}</span>`).join('');
-  container.innerHTML = `
-    <div class="visa-card-body">
-      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; gap:8px; flex-wrap:wrap;">
-        <div>
-          <h4 style="font-size:17px; font-weight:800; color:var(--text-main); display:flex; align-items:center; gap:8px;">
-            <span>${data.flag}</span><span>${data.title}</span>
-          </h4>
-          <span style="font-size:12px; color:var(--text-muted); font-weight:600;">Main Visa: ${data.visaType}</span>
-        </div>
-        <span style="background:#fee2e2; color:#b91c1c; font-size:11px; font-weight:700; padding:4px 10px; border-radius:12px;">${data.intakes}</span>
-      </div>
-      <div class="visa-badge-row">${highlightsPills}</div>
-      <div class="visa-section-title"><i class="fa-solid fa-list-check" style="color:var(--primary);"></i> Step-by-Step Procedure</div>
-      <ul class="step-list">${stepsList}</ul>
-      <div class="visa-section-title"><i class="fa-solid fa-receipt" style="color:var(--primary);"></i> Official Fees & Expected Costs</div>
-      <div style="overflow-x:auto"><table class="cost-table"><thead><tr><th>Category/Expense</th><th>Approx. Amount</th></tr></thead><tbody>${costsRows}</tbody></table></div>
-      <div class="visa-section-title"><i class="fa-solid fa-route" style="color:var(--primary);"></i> Pathway to Work & PR/Settlement</div>
-      <p style="font-size:12.5px; color:var(--text-main); line-height:1.5; background:var(--card-bg); padding:10px 14px; border-radius:8px; border:1px solid var(--card-border);">${data.routes}</p>
-      <div style="margin-top:12px; padding:10px 12px; background:#fef3c7; border-left:4px solid #f59e0b; border-radius:6px; font-size:12px; color:#92400e;">
-        <strong>Latest Policy Alert:</strong> ${data.latestUpdate}
-      </div>
-    </div>`;
-}
-
-// AUTOMATIC VISA NEWS FETCH ENGINE (Tareeqa 1: Live RSS Feed Parsing)
-const VISA_RSS_FEEDS = [
-  {
-    country: "New Zealand",
-    badge: "🇳🇿 INZ",
-    url: "https://www.immigration.govt.nz/about-us/media-centre/news-notifications/rss"
-  },
-  {
-    country: "Canada",
-    badge: "🇨🇦 IRCC",
-    url: "https://www.canada.ca/en/immigration-refugees-citizenship/news.atom"
-  }
-];
-
-// Fallback high-priority breaking updates
-const DEFAULT_LATEST_VISA_ALERTS = [
-  {
-    country: "New Zealand",
-    badge: "🇳🇿 INZ",
-    title: "New Zealand announces updated work and study pathways for Indian applicants.",
-    date: "20 Oct 2026",
-    link: "https://www.immigration.govt.nz"
-  },
-  {
-    country: "Germany",
-    badge: "🇩🇪 Chancenkarte",
-    title: "Opportunity Card quota expanded for tech & skilled Indian graduates with simplified points matrix.",
-    date: "18 Oct 2026",
-    link: "https://india.diplo.de"
-  },
-  {
-    country: "Canada",
-    badge: "🇨🇦 IRCC",
-    title: "IRCC clarifies PAL allocation & PGWP eligible degrees for international university cohorts.",
-    date: "15 Oct 2026",
-    link: "https://www.canada.ca/en/immigration-refugees-citizenship.html"
-  }
-];
-
-async function updateLiveVisaNews() {
-  const newsList = document.getElementById("visaNewsFeedList");
-  const statusEl = document.getElementById("newsFetchStatus");
-  if (!newsList) return;
-
-  statusEl.textContent = "Scanning official embassy feeds...";
-  newsList.innerHTML = `<div style="font-size:12px;color:var(--text-muted);padding:8px 0;"><i class="fa-solid fa-spinner fa-spin"></i> Checking live visa & immigration alerts...</div>`;
-
-  let collectedAlerts = [];
-
-  try {
-    for (const feed of VISA_RSS_FEEDS) {
-      try {
-        const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`);
-        const json = await response.json();
-        if (json.status === "ok" && json.items && json.items.length > 0) {
-          json.items.slice(0, 2).forEach(item => {
-            collectedAlerts.push({
-              country: feed.country,
-              badge: feed.badge,
-              title: item.title,
-              date: item.pubDate ? new Date(item.pubDate).toLocaleDateString("en-US", { day: 'numeric', month: 'short', year: 'numeric' }) : "Recent",
-              link: item.link
-            });
-          });
-        }
-      } catch (err) {
-        console.warn(`Could not sync live RSS for ${feed.country}`);
-      }
-    }
-
-    if (collectedAlerts.length === 0) {
-      collectedAlerts = DEFAULT_LATEST_VISA_ALERTS;
-    }
-
-    newsList.innerHTML = collectedAlerts.map(news => `
-      <div class="news-card-single">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;">
-          <span style="font-size:10.5px;font-weight:800;color:var(--primary);background:#fee2e2;padding:2px 8px;border-radius:12px;">${news.badge}</span>
-          <span style="font-size:11px;color:var(--text-muted);">${news.date}</span>
-        </div>
-        <a href="${news.link}" target="_blank" rel="noopener noreferrer" style="font-size:12.5px;font-weight:700;color:var(--text-main);text-decoration:none;line-height:1.45;margin-top:2px;">
-          ${news.title} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:10px;margin-left:3px;color:var(--primary);"></i>
-        </a>
-      </div>
-    `).join('');
-
-    statusEl.textContent = "● Live Synchronized";
-  } catch (error) {
-    console.error("Live visa sync error:", error);
-    // Offline or network error fallback
-    newsList.innerHTML = DEFAULT_LATEST_VISA_ALERTS.map(news => `
-      <div class="news-card-single">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;">
-          <span style="font-size:10.5px;font-weight:800;color:var(--primary);background:#fee2e2;padding:2px 8px;border-radius:12px;">${news.badge}</span>
-          <span style="font-size:11px;color:var(--text-muted);">${news.date}</span>
-        </div>
-        <a href="${news.link}" target="_blank" rel="noopener noreferrer" style="font-size:12.5px;font-weight:700;color:var(--text-main);text-decoration:none;line-height:1.45;margin-top:2px;">
-          ${news.title} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:10px;margin-left:3px;color:var(--primary);"></i>
-        </a>
-      </div>
-    `).join('');
-    statusEl.textContent = "● Synced (Latest Verified)";
-  }
-}
-
-const visaModal = document.getElementById('visaModal');
-const atsModal = document.getElementById('atsModal');
-
-function openVisaHub(e) {
-  if (e) e.preventDefault();
-  renderVisaTab('usa');
-  visaModal.classList.add('active');
-  updateLiveVisaNews();
-}
-function openAtsChecker(e) { if (e) e.preventDefault(); atsModal.classList.add('active'); }
-
-document.getElementById('navVisaBtn').onclick = openVisaHub;
-document.getElementById('closeVisaModal').onclick = (e) => { e.preventDefault(); visaModal.classList.remove('active'); };
-document.getElementById('navAtsBtn').onclick = openAtsChecker;
-document.getElementById('closeAtsModal').onclick = (e) => { e.preventDefault(); atsModal.classList.remove('active'); };
-
-window.onclick = (e) => {
-  if (e.target === visaModal) visaModal.classList.remove('active');
-  if (e.target === atsModal) atsModal.classList.remove('active');
-};
-
-document.getElementById('countryTabs').onclick = (e) => {
-  const btn = e.target.closest('.country-btn');
-  if (!btn) return;
-  e.preventDefault();
-  document.querySelectorAll('.country-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderVisaTab(btn.dataset.country);
-};
-
-document.getElementById('refreshVisaUpdatesBtn').onclick = (e) => {
-  e.preventDefault();
-  const el = document.getElementById('liveStatusText');
-  el.textContent = "Connecting to Embassy Servers...";
-  updateLiveVisaNews();
-  setTimeout(() => {
-    const now = new Date();
-    el.textContent = `Live Feed Synchronized • Latest embassy updates as of ${now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}`;
-  }, 700);
-};
-
-// ATS Resume Checker
-document.getElementById('runAtsCheckBtn').onclick = (e) => {
-  e.preventDefault();
-  const rawTxt = document.getElementById('atsResumeInput').value.trim();
-  if (!rawTxt || rawTxt.length < 50) {
-    alert("Please paste your full resume plain text (at least 50 characters) to audit ATS compatibility.");
-    return;
-  }
-  const words = rawTxt.match(/\b[A-Za-z0-9._%-]+\b/g) || [];
-  const wordCount = words.length;
-  let totalScore = 0;
-  const feedback = [];
-  const isBlueCollarOrEntry = /\b(driver|peon|helper|delivery|security|guard|10th|12th|matric|intermediate|iti|attendant|loader|cleaner|housekeeping|license|dl|hmv|lmv)\b/i.test(rawTxt);
-
-  let contactScore = 0;
-  const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
-  const phoneRegex = /(\+?\d{1,4}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}|\b\d{10}\b/;
-  const linkedinRegex = /(linkedin\.com\/in\/[a-zA-Z0-9_-]+|github\.com\/[a-zA-Z0-9_-]+)/i;
-  const locationRegex = /\b(delhi|mumbai|bangalore|pune|hyderabad|chandigarh|address|pin|pincode|city|state|road|nagar)\b/i;
-
-  const hasEmail = emailRegex.test(rawTxt);
-  const hasPhone = phoneRegex.test(rawTxt);
-  const hasProfile = linkedinRegex.test(rawTxt);
-  const hasLocation = locationRegex.test(rawTxt);
-
-  if (isBlueCollarOrEntry) {
-    if (hasPhone) contactScore += 12;
-    if (hasLocation) contactScore += 5;
-    if (hasEmail) contactScore += 3;
-  } else {
-    if (hasEmail) contactScore += 8;
-    if (hasPhone) contactScore += 8;
-    if (hasProfile) contactScore += 4;
-  }
-  totalScore += contactScore;
-  if (hasPhone && (hasEmail || isBlueCollarOrEntry)) {
-    feedback.push({status:'pass', title:'Contact Information Parsing', desc:`Essential candidate contact parameters extracted successfully (+${contactScore}/20 pts).`});
-  } else {
-    feedback.push({status:'fail', title:'Missing Core Contact Details', desc:`Enterprise ATS applicant tables require clear contact records. Missing: ${!hasPhone ? 'Phone Number ' : ''}${!hasEmail && !isBlueCollarOrEntry ? 'Email Address' : ''}.`});
-  }
-
-  let sectionScore = 0;
-  if (isBlueCollarOrEntry) {
-    if (/\b(10th|12th|matric|high school|intermediate|cbse|hbse|pseb|up board|bihar board|iti|pass|education)\b/i.test(rawTxt)) { sectionScore += 10; }
-    if (/\b(driving license|dl|lmv|hmv|valid license|helper|office work|files|cleaning|maintenance|skills)\b/i.test(rawTxt)) { sectionScore += 10; }
-    if (/\b(experience|worked at|kaam kiya|years|sal|year|duration)\b/i.test(rawTxt)) { sectionScore += 5; }
-    totalScore += sectionScore;
-    if (sectionScore >= 20) {
-      feedback.push({status:'pass', title:'Role-Specific Core Qualifications', desc:`Education credentials and role skills clearly recognized (+${sectionScore}/25 pts).`});
-    } else {
-      feedback.push({status:'warn', title:'Missing Core Role Credentials', desc:`Please clearly state your Qualification (10th/12th pass) and exact Role/License details for recruiter indexing.`});
-    }
-  } else {
-    const corpSections = [
-      { key: "Experience", regex: /\b(experience|work experience|employment history|professional experience|work history)\b/i, pts: 7 },
-      { key: "Education", regex: /\b(education|academic background|qualifications|degrees?|bachelor|master|b\.tech|bca|mca|b\.sc)\b/i, pts: 6 },
-      { key: "Skills", regex: /\b(skills|technical skills|core competencies|areas of expertise|technologies)\b/i, pts: 6 },
-      { key: "Projects/Certifications", regex: /\b(projects|key projects|certifications|credentials|portfolio|licenses?)\b/i, pts: 3 },
-      { key: "Summary/Objective", regex: /\b(professional summary|summary|executive summary|profile|objective)\b/i, pts: 3 }
-    ];
-    const foundSec = [];
-    const missSec = [];
-    corpSections.forEach(sec => {
-      if (sec.regex.test(rawTxt)) { sectionScore += sec.pts; foundSec.push(sec.key); }
-      else { missSec.push(sec.key); }
-    });
-    totalScore += sectionScore;
-    if (sectionScore >= 19) {
-      feedback.push({status:'pass', title:'Section Architecture (Structure)', desc:`Canonical enterprise sections parsed: ${foundSec.join(', ')} (+${sectionScore}/25 pts).`});
-    } else {
-      feedback.push({status:'warn', title:'Missing Standard Section Headers', desc:`ATS systems require standard headings. Missing: <b>${missSec.join(', ')}</b>.`});
-    }
-  }
-
-  const metricMatches = rawTxt.match(/(\b\d+(\.\d+)?%|\$\d+[\d,]*|₹\d+[\d,]*|\b\d{2,}\b\+?|\b\d+x\b)/gi) || [];
-  let metricScore = Math.min(20, (metricMatches.length || 1) * 4);
-  totalScore += metricScore;
-  let densityScore = (wordCount >= 150 && wordCount <= 750) ? 15 : 8;
-  totalScore += densityScore;
-  totalScore = Math.max(15, Math.min(97, Math.round(totalScore)));
-
-  const scoreEl = document.getElementById('atsScoreVal');
-  const circleEl = document.querySelector('.ats-score-circle');
-  scoreEl.textContent = totalScore;
-  circleEl.style.borderColor = totalScore >= 80 ? '#10b981' : (totalScore >= 60 ? '#f59e0b' : '#ef4444');
-
-  const feedbackHtml = feedback.map(item => `<div class="feedback-card ${item.status}"><span class="feedback-tag">${item.status==='pass'?'✓ Passed ATS Standard':item.status==='warn'?'▲ Recommendation':'✕ Critical Parsing Risk'}</span><strong>${item.title}:</strong> ${item.desc}</div>`).join('');
-  document.getElementById('atsAnalysisList').innerHTML = `<div class="ats-feedback-grid">${feedbackHtml}</div>`;
-  document.getElementById('atsResultBox').style.display = 'block';
-};
-
-// Utilities & Calculations Engine
+// Tool Logic and Handlers
 function downloadBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -2651,6 +630,7 @@ function downloadBlob(blob, filename) {
   URL.revokeObjectURL(url);
 }
 
+// PDF Merger
 document.getElementById('mergePdfBtn').onclick = async (e) => {
   e.preventDefault();
   const files = document.getElementById('pdfMergeFiles').files;
@@ -2673,132 +653,21 @@ document.getElementById('mergePdfBtn').onclick = async (e) => {
   }
 };
 
-document.getElementById('splitPdfBtn').onclick = async (e) => {
-  e.preventDefault();
-  const file = document.getElementById('pdfSplitFile').files[0];
-  const from = parseInt(document.getElementById('splitFrom').value) - 1;
-  const to = parseInt(document.getElementById('splitTo').value) - 1;
-  if (!file || isNaN(from) || isNaN(to) || from < 0 || to < from) {
-    alert("Please upload a valid PDF and specify page range.");
-    return;
-  }
-  document.getElementById('pdfSplitOutput').textContent = "Splitting PDF...";
-  try {
-    const PDFLib = await loadPdfLib();
-    const arrayBuffer = await file.arrayBuffer();
-    const srcPdf = await PDFLib.PDFDocument.load(arrayBuffer);
-    const totalPages = srcPdf.getPageCount();
-    if (to >= totalPages) { alert(`Document only has ${totalPages} pages.`); return; }
-    const newPdf = await PDFLib.PDFDocument.create();
-    const pagesToCopy = [];
-    for (let i = from; i <= to; i++) pagesToCopy.push(i);
-    const copiedPages = await newPdf.copyPages(srcPdf, pagesToCopy);
-    copiedPages.forEach(p => newPdf.addPage(p));
-    const bytes = await newPdf.save();
-    downloadBlob(new Blob([bytes], { type: 'application/pdf' }), `split_${from+1}_to_${to+1}.pdf`);
-    document.getElementById('pdfSplitOutput').textContent = "Split complete & downloaded!";
-  } catch (err) {
-    document.getElementById('pdfSplitOutput').textContent = "Error: " + err.message;
-  }
-};
+// Dropdown menu toggle
+const utilityMenu = document.getElementById('utilityDropdownMenu');
+const utilityBtn = document.getElementById('utilityDropdownBtn');
+utilityBtn.onclick = (e) => { e.preventDefault(); e.stopPropagation(); utilityMenu.classList.toggle('active'); };
+document.addEventListener('click', (e) => { if (!utilityMenu.contains(e.target) && !utilityBtn.contains(e.target)) utilityMenu.classList.remove('active'); });
 
-document.getElementById('calcSchoolPercentBtn').onclick = (e) => {
-  e.preventDefault();
-  const obtained = parseFloat(document.getElementById('marksObtained').value);
-  const total = parseFloat(document.getElementById('totalMarks').value);
-  if (isNaN(obtained) || isNaN(total) || total <= 0 || obtained > total) {
-    alert('Please enter valid marks.');
-    return;
-  }
-  document.getElementById('schoolPercentResult').innerHTML = `Percentage: <strong>${((obtained / total) * 100).toFixed(2)}%</strong>`;
-};
+// Modals logic
+const visaModal = document.getElementById('visaModal');
+const atsModal = document.getElementById('atsModal');
+document.getElementById('navVisaBtn').onclick = (e) => { e.preventDefault(); visaModal.classList.add('active'); };
+document.getElementById('closeVisaModal').onclick = (e) => { e.preventDefault(); visaModal.classList.remove('active'); };
+document.getElementById('navAtsBtn').onclick = (e) => { e.preventDefault(); atsModal.classList.add('active'); };
+document.getElementById('closeAtsModal').onclick = (e) => { e.preventDefault(); atsModal.classList.remove('active'); };
+window.onclick = (e) => { if(e.target === visaModal) visaModal.classList.remove('active'); if(e.target === atsModal) atsModal.classList.remove('active'); };
 
-document.getElementById('calcAgeBtn').onclick = (e) => {
-  e.preventDefault();
-  const val = document.getElementById('ageDob').value;
-  if (!val) return;
-  const dob = new Date(val);
-  const now = new Date();
-  let years = now.getFullYear() - dob.getFullYear();
-  let months = now.getMonth() - dob.getMonth();
-  let days = now.getDate() - dob.getDate();
-  if (days < 0) { months--; days += 30; }
-  if (months < 0) { years--; months += 12; }
-  document.getElementById('ageResult').innerHTML = `Age: <strong>${years}y ${months}m ${days}d</strong>`;
-};
-
-document.getElementById('calcIntBtn').onclick = (e) => {
-  e.preventDefault();
-  const p = parseFloat(document.getElementById('intPrincipal').value) || 0;
-  const r = parseFloat(document.getElementById('intRate').value) || 0;
-  const t = parseFloat(document.getElementById('intTime').value) || 0;
-  const type = document.getElementById('intType').value;
-  let maturity = type === 'simple' ? p + (p * r * t) / 100 : p * Math.pow(1 + (r / 100), t);
-  document.getElementById('intResult').innerHTML = `Maturity: <strong>₹${Math.round(maturity).toLocaleString()}</strong>`;
-};
-
-document.getElementById('calcDiscBtn').onclick = (e) => {
-  e.preventDefault();
-  const price = parseFloat(document.getElementById('discPrice').value) || 0;
-  const pct = parseFloat(document.getElementById('discPercent').value) || 0;
-  const savings = (price * pct) / 100;
-  document.getElementById('discResult').innerHTML = `Pay: <strong>₹${(price - savings).toFixed(2)}</strong> (Saved: ₹${savings.toFixed(2)})`;
-};
-
-document.getElementById('calcEmiBtn').onclick = (e) => {
-  e.preventDefault();
-  const p = parseFloat(document.getElementById('emiAmount').value) || 0;
-  const annualR = parseFloat(document.getElementById('emiRate').value) || 0;
-  const n = parseFloat(document.getElementById('emiTenure').value) || 0;
-  const r = (annualR / 12) / 100;
-  const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-  document.getElementById('emiResult').innerHTML = `Monthly EMI: <strong>₹${Math.round(emi).toLocaleString()}</strong>`;
-};
-
-document.getElementById('genPwdBtn').onclick = (e) => {
-  e.preventDefault();
-  const len = parseInt(document.getElementById('pwdLength').value) || 16;
-  const incSym = document.getElementById('pwdSymbols').value === 'yes';
-  const chars = incSym ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let res = '';
-  for (let i = 0; i < len; i++) res += chars.charAt(Math.floor(Math.random() * chars.length));
-  document.getElementById('pwdText').textContent = res;
-};
-
-document.getElementById('textCounterInput').oninput = (e) => {
-  const val = e.target.value;
-  const words = val.trim() ? val.trim().split(/\s+/).length : 0;
-  const chars = val.length;
-  const spaces = (val.match(/\s/g) || []).length;
-  document.getElementById('textCounterOutput').textContent = `Words: ${words} | Characters: ${chars} | Spaces: ${spaces}`;
-};
-
-document.getElementById('calcGstBtn').onclick = (e) => {
-  e.preventDefault();
-  const amount = parseFloat(document.getElementById('gstAmount').value) || 0;
-  const rate = parseFloat(document.getElementById('gstRate').value) || 18;
-  const type = document.getElementById('gstType').value;
-  if (type === 'exclusive') {
-    const gst = (amount * rate) / 100;
-    document.getElementById('gstResult').innerHTML = `Total: <strong>₹${(amount + gst).toFixed(2)}</strong> (GST: ₹${gst.toFixed(2)})`;
-  } else {
-    const base = amount / (1 + (rate / 100));
-    const gst = amount - base;
-    document.getElementById('gstResult').innerHTML = `Base: <strong>₹${base.toFixed(2)}</strong> (GST: ₹${gst.toFixed(2)})`;
-  }
-};
-
-document.getElementById('calcSalaryBtn').onclick = (e) => {
-  e.preventDefault();
-  const ctc = parseFloat(document.getElementById('salaryCtc').value) || 0;
-  const pfType = document.getElementById('salaryPf').value;
-  const monthlyGross = ctc / 12;
-  let pf = 1800;
-  if (pfType === '12') pf = (monthlyGross * 0.5) * 0.12;
-  else if (pfType === '0') pf = 0;
-  const inHand = monthlyGross - pf - 200;
-  document.getElementById('salaryResult').innerHTML = `Monthly In Hand: ~<strong>₹${Math.round(inHand).toLocaleString()}</strong>`;
-};
 </script>
 </body>
 </html>
